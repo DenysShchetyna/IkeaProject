@@ -202,7 +202,7 @@ namespace IkeaUI
 
         private void timer_Clock_Tick(object sender, EventArgs e)
         {
-            label_Clock.Text = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss");
+            label_Clock.Text = DateTime.Now.ToString();
 
         }
 

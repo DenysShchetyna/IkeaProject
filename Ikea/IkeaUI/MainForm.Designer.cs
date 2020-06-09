@@ -85,21 +85,13 @@
             this.groupBox_Hwindow = new System.Windows.Forms.GroupBox();
             this.hWindow_Image = new HalconDotNet.HSmartWindowControl();
             this.tabPage_Diagnostics = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_DiagnosticsAutorization = new System.Windows.Forms.Panel();
             this.button_DiagnosticsChangePassword = new System.Windows.Forms.Button();
             this.button_DiagnosticsLogIn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.button_DiagnosticsAutorisation = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox_DiagnosticsInput7 = new System.Windows.Forms.CheckBox();
-            this.checkBox_DiagnosticsInput6 = new System.Windows.Forms.CheckBox();
-            this.checkBox_DiagnosticsInput5 = new System.Windows.Forms.CheckBox();
-            this.checkBox_DiagnosticsInput4 = new System.Windows.Forms.CheckBox();
-            this.checkBox_DiagnosticsInput3 = new System.Windows.Forms.CheckBox();
-            this.checkBox_DiagnosticsInput2 = new System.Windows.Forms.CheckBox();
-            this.checkBox_DiagnosticsInput1 = new System.Windows.Forms.CheckBox();
-            this.checkBox_DiagnosticsInput0 = new System.Windows.Forms.CheckBox();
+            this.groupBox_DiagnosticsVstupy = new System.Windows.Forms.GroupBox();
             this.pictureBox_DiagnosticsInput6 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsInput3 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsInput0 = new System.Windows.Forms.PictureBox();
@@ -119,22 +111,6 @@
             this.groupBox_DiagnosticsVykres = new System.Windows.Forms.GroupBox();
             this.hSmartWindowControl1 = new HalconDotNet.HSmartWindowControl();
             this.groupBox_DiagnosticsOutputs = new System.Windows.Forms.GroupBox();
-            this.checkBox__DiagnosticsOutput15 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput7 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput14 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput6 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput13 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput5 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput12 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput4 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput11 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput10 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput3 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput9 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput2 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput8 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput1 = new System.Windows.Forms.CheckBox();
-            this.checkBox__DiagnosticsOutput0 = new System.Windows.Forms.CheckBox();
             this.pictureBox_DiagnosticsOutput14 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsOutput6 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsOutput11 = new System.Windows.Forms.PictureBox();
@@ -216,6 +192,42 @@
             this.panel_Footer = new System.Windows.Forms.Panel();
             this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.pictureBox_FooterKeyBoard = new System.Windows.Forms.PictureBox();
+            this.groupBox_MainStatistics = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button_DiagnosticsInput0 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput1 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput2 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput3 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput4 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput5 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput6 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput7 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput0 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput1 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput2 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput3 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput4 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput5 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput6 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput7 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput8 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput9 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput10 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput11 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput12 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput13 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput14 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput15 = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label_MainStatisticsNOK = new System.Windows.Forms.Label();
+            this.label_MainStatisticsOK = new System.Windows.Forms.Label();
+            this.label_MainStatisticsOverCount = new System.Windows.Forms.Label();
+            this.label_MainStatisticsSuspicious = new System.Windows.Forms.Label();
+            this.label_MainStatisticsOverall = new System.Windows.Forms.Label();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
@@ -239,8 +251,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagridTable_Data)).BeginInit();
             this.groupBox_Hwindow.SuspendLayout();
             this.tabPage_Diagnostics.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.panel_DiagnosticsAutorization.SuspendLayout();
+            this.groupBox_DiagnosticsVstupy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsInput6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsInput3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsInput0)).BeginInit();
@@ -286,6 +298,7 @@
             this.groupBox_DiagnosticsDiscManagement.SuspendLayout();
             this.panel_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FooterKeyBoard)).BeginInit();
+            this.groupBox_MainStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_Header
@@ -309,7 +322,7 @@
             this.pictureBox_IkeaLogo.ErrorImage = null;
             this.pictureBox_IkeaLogo.Image = global::IkeaUI.Properties.Resources.icons8_ikea_144;
             this.pictureBox_IkeaLogo.InitialImage = null;
-            this.pictureBox_IkeaLogo.Location = new System.Drawing.Point(1807, -30);
+            this.pictureBox_IkeaLogo.Location = new System.Drawing.Point(1807, -34);
             this.pictureBox_IkeaLogo.Name = "pictureBox_IkeaLogo";
             this.pictureBox_IkeaLogo.Size = new System.Drawing.Size(110, 130);
             this.pictureBox_IkeaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -320,11 +333,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(810, 16);
+            this.label1.Location = new System.Drawing.Point(747, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 37);
+            this.label1.Size = new System.Drawing.Size(549, 37);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Holes Detection";
+            this.label1.Text = "Systém na Meranie a Detekciu Dier";
             // 
             // label_AccessLevel
             // 
@@ -333,7 +346,7 @@
             this.label_AccessLevel.Name = "label_AccessLevel";
             this.label_AccessLevel.Size = new System.Drawing.Size(72, 20);
             this.label_AccessLevel.TabIndex = 2;
-            this.label_AccessLevel.Text = "Operator";
+            this.label_AccessLevel.Text = "Operátor";
             // 
             // label6
             // 
@@ -342,7 +355,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 20);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Uroven pristupu:";
+            this.label6.Text = "Úroveň prístupu:";
             // 
             // label_Clock
             // 
@@ -389,6 +402,7 @@
             // tabPage_Main
             // 
             this.tabPage_Main.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_Main.Controls.Add(this.groupBox_MainStatistics);
             this.tabPage_Main.Controls.Add(this.label_MainSystemMessage);
             this.tabPage_Main.Controls.Add(this.label_MainPoznamka);
             this.tabPage_Main.Controls.Add(this.textBox3);
@@ -404,7 +418,7 @@
             this.tabPage_Main.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_Main.Size = new System.Drawing.Size(1792, 1007);
             this.tabPage_Main.TabIndex = 0;
-            this.tabPage_Main.Text = "Main";
+            this.tabPage_Main.Text = "Hlavná";
             // 
             // label_MainSystemMessage
             // 
@@ -412,7 +426,7 @@
             this.label_MainSystemMessage.Name = "label_MainSystemMessage";
             this.label_MainSystemMessage.Size = new System.Drawing.Size(72, 30);
             this.label_MainSystemMessage.TabIndex = 5;
-            this.label_MainSystemMessage.Text = "System:";
+            this.label_MainSystemMessage.Text = "Systém:";
             this.label_MainSystemMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label_MainPoznamka
@@ -421,7 +435,7 @@
             this.label_MainPoznamka.Name = "label_MainPoznamka";
             this.label_MainPoznamka.Size = new System.Drawing.Size(97, 30);
             this.label_MainPoznamka.TabIndex = 5;
-            this.label_MainPoznamka.Text = "Poznamka:";
+            this.label_MainPoznamka.Text = "Poznámka:";
             this.label_MainPoznamka.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBox3
@@ -434,10 +448,10 @@
             // 
             // textBox_MainSystemMessage
             // 
-            this.textBox_MainSystemMessage.Location = new System.Drawing.Point(1019, 927);
+            this.textBox_MainSystemMessage.Location = new System.Drawing.Point(1028, 927);
             this.textBox_MainSystemMessage.Multiline = true;
             this.textBox_MainSystemMessage.Name = "textBox_MainSystemMessage";
-            this.textBox_MainSystemMessage.Size = new System.Drawing.Size(483, 32);
+            this.textBox_MainSystemMessage.Size = new System.Drawing.Size(474, 32);
             this.textBox_MainSystemMessage.TabIndex = 4;
             // 
             // textBox_MainPoznamka
@@ -452,12 +466,12 @@
             // 
             this.groupBox_MainPodozrive.BackColor = System.Drawing.Color.LightGray;
             this.groupBox_MainPodozrive.Controls.Add(this.progressBar_MainPodozrive);
-            this.groupBox_MainPodozrive.Location = new System.Drawing.Point(1515, 519);
+            this.groupBox_MainPodozrive.Location = new System.Drawing.Point(1518, 571);
             this.groupBox_MainPodozrive.Name = "groupBox_MainPodozrive";
             this.groupBox_MainPodozrive.Size = new System.Drawing.Size(271, 86);
             this.groupBox_MainPodozrive.TabIndex = 3;
             this.groupBox_MainPodozrive.TabStop = false;
-            this.groupBox_MainPodozrive.Text = "Podozrive dielce";
+            this.groupBox_MainPodozrive.Text = "Podozrivé dielce";
             // 
             // progressBar_MainPodozrive
             // 
@@ -473,7 +487,7 @@
             this.groupBox_MainDielce.Controls.Add(this.pictureBox1);
             this.groupBox_MainDielce.Controls.Add(this.textBox_MainSearchRecipe);
             this.groupBox_MainDielce.Controls.Add(this.listBox_MainRecipe);
-            this.groupBox_MainDielce.Location = new System.Drawing.Point(1515, 131);
+            this.groupBox_MainDielce.Location = new System.Drawing.Point(1518, 183);
             this.groupBox_MainDielce.Name = "groupBox_MainDielce";
             this.groupBox_MainDielce.Size = new System.Drawing.Size(271, 382);
             this.groupBox_MainDielce.TabIndex = 2;
@@ -509,11 +523,12 @@
             // groupBox_MainRiadenie
             // 
             this.groupBox_MainRiadenie.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_MainRiadenie.Controls.Add(this.checkBox1);
             this.groupBox_MainRiadenie.Controls.Add(this.checkBox_MainStop);
             this.groupBox_MainRiadenie.Controls.Add(this.checkBox_MainStart);
             this.groupBox_MainRiadenie.Location = new System.Drawing.Point(1515, 6);
             this.groupBox_MainRiadenie.Name = "groupBox_MainRiadenie";
-            this.groupBox_MainRiadenie.Size = new System.Drawing.Size(271, 119);
+            this.groupBox_MainRiadenie.Size = new System.Drawing.Size(271, 171);
             this.groupBox_MainRiadenie.TabIndex = 1;
             this.groupBox_MainRiadenie.TabStop = false;
             this.groupBox_MainRiadenie.Text = "Riadenie";
@@ -528,7 +543,7 @@
             this.checkBox_MainStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox_MainStop.Location = new System.Drawing.Point(139, 33);
             this.checkBox_MainStop.Name = "checkBox_MainStop";
-            this.checkBox_MainStop.Size = new System.Drawing.Size(127, 80);
+            this.checkBox_MainStop.Size = new System.Drawing.Size(127, 60);
             this.checkBox_MainStop.TabIndex = 0;
             this.checkBox_MainStop.Text = "Stop";
             this.checkBox_MainStop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -544,7 +559,7 @@
             this.checkBox_MainStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox_MainStart.Location = new System.Drawing.Point(6, 33);
             this.checkBox_MainStart.Name = "checkBox_MainStart";
-            this.checkBox_MainStart.Size = new System.Drawing.Size(127, 80);
+            this.checkBox_MainStart.Size = new System.Drawing.Size(127, 60);
             this.checkBox_MainStart.TabIndex = 0;
             this.checkBox_MainStart.Text = "Štart";
             this.checkBox_MainStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -575,7 +590,7 @@
             this.tabPage_LeftSide.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_LeftSide.Size = new System.Drawing.Size(1496, 875);
             this.tabPage_LeftSide.TabIndex = 0;
-            this.tabPage_LeftSide.Text = "Lava strana";
+            this.tabPage_LeftSide.Text = "Ľavá strana";
             // 
             // Hwindow_LeftSide
             // 
@@ -604,7 +619,7 @@
             this.tabPage_RightSide.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_RightSide.Size = new System.Drawing.Size(1496, 875);
             this.tabPage_RightSide.TabIndex = 1;
-            this.tabPage_RightSide.Text = "Prava strana";
+            this.tabPage_RightSide.Text = "Pravá strana";
             // 
             // Hwindow_RightSide
             // 
@@ -633,7 +648,7 @@
             this.tabPage_FrontSide.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_FrontSide.Size = new System.Drawing.Size(1496, 875);
             this.tabPage_FrontSide.TabIndex = 2;
-            this.tabPage_FrontSide.Text = "Predna strana";
+            this.tabPage_FrontSide.Text = "Predná strana";
             // 
             // Hwindow_FrontSide
             // 
@@ -662,7 +677,7 @@
             this.tabPage_BackSide.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_BackSide.Size = new System.Drawing.Size(1496, 875);
             this.tabPage_BackSide.TabIndex = 3;
-            this.tabPage_BackSide.Text = "Zadna strana";
+            this.tabPage_BackSide.Text = "Zadná strana";
             // 
             // Hwindow_BackSide
             // 
@@ -691,7 +706,7 @@
             this.tabPage_UpperSide.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_UpperSide.Size = new System.Drawing.Size(1496, 875);
             this.tabPage_UpperSide.TabIndex = 4;
-            this.tabPage_UpperSide.Text = "Horna strana";
+            this.tabPage_UpperSide.Text = "Horná strana";
             // 
             // Hwindow_UpperSide
             // 
@@ -720,7 +735,7 @@
             this.tabPage_LowerSide.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_LowerSide.Size = new System.Drawing.Size(1496, 875);
             this.tabPage_LowerSide.TabIndex = 5;
-            this.tabPage_LowerSide.Text = "Dolna strana";
+            this.tabPage_LowerSide.Text = "Dolná strana";
             // 
             // Hwindow_LowerSide
             // 
@@ -754,7 +769,7 @@
             this.tabPage_Archive.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_Archive.Size = new System.Drawing.Size(1792, 1007);
             this.tabPage_Archive.TabIndex = 1;
-            this.tabPage_Archive.Text = "Archive";
+            this.tabPage_Archive.Text = "Archív";
             // 
             // button_TakeInfoFromDB
             // 
@@ -762,7 +777,7 @@
             this.button_TakeInfoFromDB.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_TakeInfoFromDB.FlatAppearance.BorderSize = 2;
             this.button_TakeInfoFromDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_TakeInfoFromDB.Location = new System.Drawing.Point(1686, 907);
+            this.button_TakeInfoFromDB.Location = new System.Drawing.Point(2000, 907);
             this.button_TakeInfoFromDB.Name = "button_TakeInfoFromDB";
             this.button_TakeInfoFromDB.Size = new System.Drawing.Size(100, 50);
             this.button_TakeInfoFromDB.TabIndex = 3;
@@ -776,11 +791,11 @@
             this.button_RefreshTable.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_RefreshTable.FlatAppearance.BorderSize = 2;
             this.button_RefreshTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_RefreshTable.Location = new System.Drawing.Point(1580, 907);
+            this.button_RefreshTable.Location = new System.Drawing.Point(1686, 904);
             this.button_RefreshTable.Name = "button_RefreshTable";
             this.button_RefreshTable.Size = new System.Drawing.Size(100, 50);
             this.button_RefreshTable.TabIndex = 3;
-            this.button_RefreshTable.Text = "Refresh";
+            this.button_RefreshTable.Text = "Obnoviť";
             this.button_RefreshTable.UseVisualStyleBackColor = false;
             this.button_RefreshTable.Click += new System.EventHandler(this.button_RefreshTable_Click);
             // 
@@ -867,7 +882,7 @@
             this.groupBox_Boards.Size = new System.Drawing.Size(736, 462);
             this.groupBox_Boards.TabIndex = 2;
             this.groupBox_Boards.TabStop = false;
-            this.groupBox_Boards.Text = "Diele";
+            this.groupBox_Boards.Text = "Dielce";
             // 
             // datagridTable_Data
             // 
@@ -925,7 +940,7 @@
             this.groupBox_Hwindow.Size = new System.Drawing.Size(1042, 955);
             this.groupBox_Hwindow.TabIndex = 1;
             this.groupBox_Hwindow.TabStop = false;
-            this.groupBox_Hwindow.Text = "Image";
+            this.groupBox_Hwindow.Text = "Obraz";
             // 
             // hWindow_Image
             // 
@@ -948,9 +963,9 @@
             // tabPage_Diagnostics
             // 
             this.tabPage_Diagnostics.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage_Diagnostics.Controls.Add(this.panel1);
+            this.tabPage_Diagnostics.Controls.Add(this.panel_DiagnosticsAutorization);
             this.tabPage_Diagnostics.Controls.Add(this.button_DiagnosticsAutorisation);
-            this.tabPage_Diagnostics.Controls.Add(this.groupBox1);
+            this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsVstupy);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsVykres);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsOutputs);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsCamSettings);
@@ -962,19 +977,19 @@
             this.tabPage_Diagnostics.Name = "tabPage_Diagnostics";
             this.tabPage_Diagnostics.Size = new System.Drawing.Size(1792, 1007);
             this.tabPage_Diagnostics.TabIndex = 2;
-            this.tabPage_Diagnostics.Text = "Diagnostics";
+            this.tabPage_Diagnostics.Text = "Servis";
             // 
-            // panel1
+            // panel_DiagnosticsAutorization
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.button_DiagnosticsChangePassword);
-            this.panel1.Controls.Add(this.button_DiagnosticsLogIn);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label38);
-            this.panel1.Location = new System.Drawing.Point(129, 782);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(331, 172);
-            this.panel1.TabIndex = 14;
+            this.panel_DiagnosticsAutorization.BackColor = System.Drawing.Color.Silver;
+            this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsChangePassword);
+            this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsLogIn);
+            this.panel_DiagnosticsAutorization.Controls.Add(this.textBox1);
+            this.panel_DiagnosticsAutorization.Controls.Add(this.label38);
+            this.panel_DiagnosticsAutorization.Location = new System.Drawing.Point(166, 782);
+            this.panel_DiagnosticsAutorization.Name = "panel_DiagnosticsAutorization";
+            this.panel_DiagnosticsAutorization.Size = new System.Drawing.Size(331, 172);
+            this.panel_DiagnosticsAutorization.TabIndex = 14;
             // 
             // button_DiagnosticsChangePassword
             // 
@@ -985,7 +1000,7 @@
             this.button_DiagnosticsChangePassword.Name = "button_DiagnosticsChangePassword";
             this.button_DiagnosticsChangePassword.Size = new System.Drawing.Size(101, 29);
             this.button_DiagnosticsChangePassword.TabIndex = 1;
-            this.button_DiagnosticsChangePassword.Text = "Zmenit";
+            this.button_DiagnosticsChangePassword.Text = "Zmeniť";
             this.button_DiagnosticsChangePassword.UseVisualStyleBackColor = false;
             // 
             // button_DiagnosticsLogIn
@@ -997,7 +1012,7 @@
             this.button_DiagnosticsLogIn.Name = "button_DiagnosticsLogIn";
             this.button_DiagnosticsLogIn.Size = new System.Drawing.Size(101, 29);
             this.button_DiagnosticsLogIn.TabIndex = 1;
-            this.button_DiagnosticsLogIn.Text = "Prihlasit sa";
+            this.button_DiagnosticsLogIn.Text = "Prihlásiť sa";
             this.button_DiagnosticsLogIn.UseVisualStyleBackColor = false;
             // 
             // textBox1
@@ -1025,158 +1040,46 @@
             this.button_DiagnosticsAutorisation.Name = "button_DiagnosticsAutorisation";
             this.button_DiagnosticsAutorisation.Size = new System.Drawing.Size(120, 60);
             this.button_DiagnosticsAutorisation.TabIndex = 13;
-            this.button_DiagnosticsAutorisation.Text = "Autorizacia";
+            this.button_DiagnosticsAutorisation.Text = "Administrátor";
             this.button_DiagnosticsAutorisation.UseVisualStyleBackColor = false;
             // 
-            // groupBox1
+            // groupBox_DiagnosticsVstupy
             // 
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput7);
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput6);
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput5);
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput4);
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput3);
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput2);
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput1);
-            this.groupBox1.Controls.Add(this.checkBox_DiagnosticsInput0);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput6);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput3);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput0);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput7);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput5);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput4);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput2);
-            this.groupBox1.Controls.Add(this.pictureBox_DiagnosticsInput1);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label40);
-            this.groupBox1.Controls.Add(this.label43);
-            this.groupBox1.Controls.Add(this.label45);
-            this.groupBox1.Controls.Add(this.label47);
-            this.groupBox1.Controls.Add(this.label49);
-            this.groupBox1.Controls.Add(this.label51);
-            this.groupBox1.Controls.Add(this.label52);
-            this.groupBox1.Location = new System.Drawing.Point(286, 244);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(174, 528);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Vstupy";
-            // 
-            // checkBox_DiagnosticsInput7
-            // 
-            this.checkBox_DiagnosticsInput7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput7.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput7.Location = new System.Drawing.Point(107, 283);
-            this.checkBox_DiagnosticsInput7.Name = "checkBox_DiagnosticsInput7";
-            this.checkBox_DiagnosticsInput7.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput7.TabIndex = 11;
-            this.checkBox_DiagnosticsInput7.Text = "Set";
-            this.checkBox_DiagnosticsInput7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput7.UseVisualStyleBackColor = false;
-            // 
-            // checkBox_DiagnosticsInput6
-            // 
-            this.checkBox_DiagnosticsInput6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput6.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput6.Location = new System.Drawing.Point(107, 247);
-            this.checkBox_DiagnosticsInput6.Name = "checkBox_DiagnosticsInput6";
-            this.checkBox_DiagnosticsInput6.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput6.TabIndex = 11;
-            this.checkBox_DiagnosticsInput6.Text = "Set";
-            this.checkBox_DiagnosticsInput6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput6.UseVisualStyleBackColor = false;
-            // 
-            // checkBox_DiagnosticsInput5
-            // 
-            this.checkBox_DiagnosticsInput5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput5.Location = new System.Drawing.Point(107, 212);
-            this.checkBox_DiagnosticsInput5.Name = "checkBox_DiagnosticsInput5";
-            this.checkBox_DiagnosticsInput5.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput5.TabIndex = 11;
-            this.checkBox_DiagnosticsInput5.Text = "Set";
-            this.checkBox_DiagnosticsInput5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput5.UseVisualStyleBackColor = false;
-            // 
-            // checkBox_DiagnosticsInput4
-            // 
-            this.checkBox_DiagnosticsInput4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput4.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput4.Location = new System.Drawing.Point(107, 177);
-            this.checkBox_DiagnosticsInput4.Name = "checkBox_DiagnosticsInput4";
-            this.checkBox_DiagnosticsInput4.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput4.TabIndex = 11;
-            this.checkBox_DiagnosticsInput4.Text = "Set";
-            this.checkBox_DiagnosticsInput4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput4.UseVisualStyleBackColor = false;
-            // 
-            // checkBox_DiagnosticsInput3
-            // 
-            this.checkBox_DiagnosticsInput3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput3.Location = new System.Drawing.Point(107, 142);
-            this.checkBox_DiagnosticsInput3.Name = "checkBox_DiagnosticsInput3";
-            this.checkBox_DiagnosticsInput3.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput3.TabIndex = 11;
-            this.checkBox_DiagnosticsInput3.Text = "Set";
-            this.checkBox_DiagnosticsInput3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput3.UseVisualStyleBackColor = false;
-            // 
-            // checkBox_DiagnosticsInput2
-            // 
-            this.checkBox_DiagnosticsInput2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput2.Location = new System.Drawing.Point(107, 107);
-            this.checkBox_DiagnosticsInput2.Name = "checkBox_DiagnosticsInput2";
-            this.checkBox_DiagnosticsInput2.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput2.TabIndex = 11;
-            this.checkBox_DiagnosticsInput2.Text = "Set";
-            this.checkBox_DiagnosticsInput2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput2.UseVisualStyleBackColor = false;
-            // 
-            // checkBox_DiagnosticsInput1
-            // 
-            this.checkBox_DiagnosticsInput1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput1.Location = new System.Drawing.Point(107, 72);
-            this.checkBox_DiagnosticsInput1.Name = "checkBox_DiagnosticsInput1";
-            this.checkBox_DiagnosticsInput1.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput1.TabIndex = 11;
-            this.checkBox_DiagnosticsInput1.Text = "Set";
-            this.checkBox_DiagnosticsInput1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput1.UseVisualStyleBackColor = false;
-            // 
-            // checkBox_DiagnosticsInput0
-            // 
-            this.checkBox_DiagnosticsInput0.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_DiagnosticsInput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_DiagnosticsInput0.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_DiagnosticsInput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_DiagnosticsInput0.Location = new System.Drawing.Point(107, 37);
-            this.checkBox_DiagnosticsInput0.Name = "checkBox_DiagnosticsInput0";
-            this.checkBox_DiagnosticsInput0.Size = new System.Drawing.Size(50, 30);
-            this.checkBox_DiagnosticsInput0.TabIndex = 11;
-            this.checkBox_DiagnosticsInput0.Text = "Set";
-            this.checkBox_DiagnosticsInput0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_DiagnosticsInput0.UseVisualStyleBackColor = false;
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput7);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput6);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput5);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput4);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput3);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput2);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput1);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.button_DiagnosticsInput0);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput6);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput3);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput0);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput7);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput5);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput4);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput2);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.pictureBox_DiagnosticsInput1);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label8);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label40);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label43);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label45);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label47);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label49);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label51);
+            this.groupBox_DiagnosticsVstupy.Controls.Add(this.label52);
+            this.groupBox_DiagnosticsVstupy.Location = new System.Drawing.Point(286, 244);
+            this.groupBox_DiagnosticsVstupy.Name = "groupBox_DiagnosticsVstupy";
+            this.groupBox_DiagnosticsVstupy.Size = new System.Drawing.Size(211, 528);
+            this.groupBox_DiagnosticsVstupy.TabIndex = 12;
+            this.groupBox_DiagnosticsVstupy.TabStop = false;
+            this.groupBox_DiagnosticsVstupy.Text = "Vstupy";
             // 
             // pictureBox_DiagnosticsInput6
             // 
             this.pictureBox_DiagnosticsInput6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput6.Image")));
-            this.pictureBox_DiagnosticsInput6.Location = new System.Drawing.Point(55, 248);
+            this.pictureBox_DiagnosticsInput6.Location = new System.Drawing.Point(55, 246);
             this.pictureBox_DiagnosticsInput6.Name = "pictureBox_DiagnosticsInput6";
             this.pictureBox_DiagnosticsInput6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1186,7 +1089,7 @@
             // pictureBox_DiagnosticsInput3
             // 
             this.pictureBox_DiagnosticsInput3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput3.Image")));
-            this.pictureBox_DiagnosticsInput3.Location = new System.Drawing.Point(55, 143);
+            this.pictureBox_DiagnosticsInput3.Location = new System.Drawing.Point(55, 142);
             this.pictureBox_DiagnosticsInput3.Name = "pictureBox_DiagnosticsInput3";
             this.pictureBox_DiagnosticsInput3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1206,7 +1109,7 @@
             // pictureBox_DiagnosticsInput7
             // 
             this.pictureBox_DiagnosticsInput7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput7.Image")));
-            this.pictureBox_DiagnosticsInput7.Location = new System.Drawing.Point(55, 283);
+            this.pictureBox_DiagnosticsInput7.Location = new System.Drawing.Point(55, 281);
             this.pictureBox_DiagnosticsInput7.Name = "pictureBox_DiagnosticsInput7";
             this.pictureBox_DiagnosticsInput7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1216,7 +1119,7 @@
             // pictureBox_DiagnosticsInput5
             // 
             this.pictureBox_DiagnosticsInput5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput5.Image")));
-            this.pictureBox_DiagnosticsInput5.Location = new System.Drawing.Point(55, 213);
+            this.pictureBox_DiagnosticsInput5.Location = new System.Drawing.Point(55, 212);
             this.pictureBox_DiagnosticsInput5.Name = "pictureBox_DiagnosticsInput5";
             this.pictureBox_DiagnosticsInput5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1226,7 +1129,7 @@
             // pictureBox_DiagnosticsInput4
             // 
             this.pictureBox_DiagnosticsInput4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput4.Image")));
-            this.pictureBox_DiagnosticsInput4.Location = new System.Drawing.Point(55, 178);
+            this.pictureBox_DiagnosticsInput4.Location = new System.Drawing.Point(55, 177);
             this.pictureBox_DiagnosticsInput4.Name = "pictureBox_DiagnosticsInput4";
             this.pictureBox_DiagnosticsInput4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1236,7 +1139,7 @@
             // pictureBox_DiagnosticsInput2
             // 
             this.pictureBox_DiagnosticsInput2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput2.Image")));
-            this.pictureBox_DiagnosticsInput2.Location = new System.Drawing.Point(55, 108);
+            this.pictureBox_DiagnosticsInput2.Location = new System.Drawing.Point(55, 107);
             this.pictureBox_DiagnosticsInput2.Name = "pictureBox_DiagnosticsInput2";
             this.pictureBox_DiagnosticsInput2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1246,7 +1149,7 @@
             // pictureBox_DiagnosticsInput1
             // 
             this.pictureBox_DiagnosticsInput1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1.Image")));
-            this.pictureBox_DiagnosticsInput1.Location = new System.Drawing.Point(55, 73);
+            this.pictureBox_DiagnosticsInput1.Location = new System.Drawing.Point(55, 72);
             this.pictureBox_DiagnosticsInput1.Name = "pictureBox_DiagnosticsInput1";
             this.pictureBox_DiagnosticsInput1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1256,7 +1159,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 41);
+            this.label8.Location = new System.Drawing.Point(10, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 20);
             this.label8.TabIndex = 0;
@@ -1265,7 +1168,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(11, 288);
+            this.label40.Location = new System.Drawing.Point(11, 286);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(43, 20);
             this.label40.TabIndex = 0;
@@ -1274,7 +1177,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(11, 183);
+            this.label43.Location = new System.Drawing.Point(11, 182);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(43, 20);
             this.label43.TabIndex = 0;
@@ -1283,7 +1186,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(11, 253);
+            this.label45.Location = new System.Drawing.Point(11, 251);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(43, 20);
             this.label45.TabIndex = 0;
@@ -1292,7 +1195,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(11, 148);
+            this.label47.Location = new System.Drawing.Point(11, 147);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(43, 20);
             this.label47.TabIndex = 0;
@@ -1301,7 +1204,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(11, 218);
+            this.label49.Location = new System.Drawing.Point(11, 217);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(43, 20);
             this.label49.TabIndex = 0;
@@ -1310,7 +1213,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(11, 113);
+            this.label51.Location = new System.Drawing.Point(11, 112);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(43, 20);
             this.label51.TabIndex = 0;
@@ -1319,7 +1222,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(11, 78);
+            this.label52.Location = new System.Drawing.Point(11, 77);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(43, 20);
             this.label52.TabIndex = 0;
@@ -1328,12 +1231,12 @@
             // groupBox_DiagnosticsVykres
             // 
             this.groupBox_DiagnosticsVykres.Controls.Add(this.hSmartWindowControl1);
-            this.groupBox_DiagnosticsVykres.Location = new System.Drawing.Point(812, 71);
+            this.groupBox_DiagnosticsVykres.Location = new System.Drawing.Point(759, 71);
             this.groupBox_DiagnosticsVykres.Name = "groupBox_DiagnosticsVykres";
-            this.groupBox_DiagnosticsVykres.Size = new System.Drawing.Size(977, 889);
+            this.groupBox_DiagnosticsVykres.Size = new System.Drawing.Size(1030, 889);
             this.groupBox_DiagnosticsVykres.TabIndex = 5;
             this.groupBox_DiagnosticsVykres.TabStop = false;
-            this.groupBox_DiagnosticsVykres.Text = "Vykres";
+            this.groupBox_DiagnosticsVykres.Text = "Výkres";
             // 
             // hSmartWindowControl1
             // 
@@ -1349,28 +1252,28 @@
             this.hSmartWindowControl1.Location = new System.Drawing.Point(3, 22);
             this.hSmartWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hSmartWindowControl1.Name = "hSmartWindowControl1";
-            this.hSmartWindowControl1.Size = new System.Drawing.Size(971, 864);
+            this.hSmartWindowControl1.Size = new System.Drawing.Size(1024, 864);
             this.hSmartWindowControl1.TabIndex = 4;
-            this.hSmartWindowControl1.WindowSize = new System.Drawing.Size(971, 864);
+            this.hSmartWindowControl1.WindowSize = new System.Drawing.Size(1024, 864);
             // 
             // groupBox_DiagnosticsOutputs
             // 
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput15);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput7);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput14);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput6);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput13);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput5);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput12);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput4);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput11);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput10);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput3);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput9);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput2);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput8);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput1);
-            this.groupBox_DiagnosticsOutputs.Controls.Add(this.checkBox__DiagnosticsOutput0);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput15);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput7);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput14);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput6);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput13);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput5);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput12);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput4);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput11);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput3);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput10);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput2);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput9);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput8);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput1);
+            this.groupBox_DiagnosticsOutputs.Controls.Add(this.button_DiagnosticsOutput0);
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.pictureBox_DiagnosticsOutput14);
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.pictureBox_DiagnosticsOutput6);
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.pictureBox_DiagnosticsOutput11);
@@ -1403,241 +1306,17 @@
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.label30);
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.label18);
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.label19);
-            this.groupBox_DiagnosticsOutputs.Location = new System.Drawing.Point(495, 244);
+            this.groupBox_DiagnosticsOutputs.Location = new System.Drawing.Point(503, 244);
             this.groupBox_DiagnosticsOutputs.Name = "groupBox_DiagnosticsOutputs";
-            this.groupBox_DiagnosticsOutputs.Size = new System.Drawing.Size(169, 605);
+            this.groupBox_DiagnosticsOutputs.Size = new System.Drawing.Size(250, 605);
             this.groupBox_DiagnosticsOutputs.TabIndex = 3;
             this.groupBox_DiagnosticsOutputs.TabStop = false;
-            this.groupBox_DiagnosticsOutputs.Text = "Vystupy";
-            // 
-            // checkBox__DiagnosticsOutput15
-            // 
-            this.checkBox__DiagnosticsOutput15.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput15.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput15.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput15.Location = new System.Drawing.Point(110, 568);
-            this.checkBox__DiagnosticsOutput15.Name = "checkBox__DiagnosticsOutput15";
-            this.checkBox__DiagnosticsOutput15.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput15.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput15.Text = "Set";
-            this.checkBox__DiagnosticsOutput15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput15.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput7
-            // 
-            this.checkBox__DiagnosticsOutput7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput7.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput7.Location = new System.Drawing.Point(110, 283);
-            this.checkBox__DiagnosticsOutput7.Name = "checkBox__DiagnosticsOutput7";
-            this.checkBox__DiagnosticsOutput7.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput7.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput7.Text = "Set";
-            this.checkBox__DiagnosticsOutput7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput7.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput14
-            // 
-            this.checkBox__DiagnosticsOutput14.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput14.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput14.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput14.Location = new System.Drawing.Point(110, 532);
-            this.checkBox__DiagnosticsOutput14.Name = "checkBox__DiagnosticsOutput14";
-            this.checkBox__DiagnosticsOutput14.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput14.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput14.Text = "Set";
-            this.checkBox__DiagnosticsOutput14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput14.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput6
-            // 
-            this.checkBox__DiagnosticsOutput6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput6.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput6.Location = new System.Drawing.Point(110, 247);
-            this.checkBox__DiagnosticsOutput6.Name = "checkBox__DiagnosticsOutput6";
-            this.checkBox__DiagnosticsOutput6.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput6.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput6.Text = "Set";
-            this.checkBox__DiagnosticsOutput6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput6.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput13
-            // 
-            this.checkBox__DiagnosticsOutput13.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput13.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput13.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput13.Location = new System.Drawing.Point(110, 497);
-            this.checkBox__DiagnosticsOutput13.Name = "checkBox__DiagnosticsOutput13";
-            this.checkBox__DiagnosticsOutput13.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput13.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput13.Text = "Set";
-            this.checkBox__DiagnosticsOutput13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput13.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput5
-            // 
-            this.checkBox__DiagnosticsOutput5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput5.Location = new System.Drawing.Point(110, 212);
-            this.checkBox__DiagnosticsOutput5.Name = "checkBox__DiagnosticsOutput5";
-            this.checkBox__DiagnosticsOutput5.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput5.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput5.Text = "Set";
-            this.checkBox__DiagnosticsOutput5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput5.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput12
-            // 
-            this.checkBox__DiagnosticsOutput12.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput12.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput12.Location = new System.Drawing.Point(110, 462);
-            this.checkBox__DiagnosticsOutput12.Name = "checkBox__DiagnosticsOutput12";
-            this.checkBox__DiagnosticsOutput12.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput12.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput12.Text = "Set";
-            this.checkBox__DiagnosticsOutput12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput12.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput4
-            // 
-            this.checkBox__DiagnosticsOutput4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput4.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput4.Location = new System.Drawing.Point(110, 177);
-            this.checkBox__DiagnosticsOutput4.Name = "checkBox__DiagnosticsOutput4";
-            this.checkBox__DiagnosticsOutput4.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput4.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput4.Text = "Set";
-            this.checkBox__DiagnosticsOutput4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput4.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput11
-            // 
-            this.checkBox__DiagnosticsOutput11.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput11.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput11.Location = new System.Drawing.Point(110, 427);
-            this.checkBox__DiagnosticsOutput11.Name = "checkBox__DiagnosticsOutput11";
-            this.checkBox__DiagnosticsOutput11.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput11.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput11.Text = "Set";
-            this.checkBox__DiagnosticsOutput11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput11.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput10
-            // 
-            this.checkBox__DiagnosticsOutput10.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput10.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput10.Location = new System.Drawing.Point(110, 392);
-            this.checkBox__DiagnosticsOutput10.Name = "checkBox__DiagnosticsOutput10";
-            this.checkBox__DiagnosticsOutput10.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput10.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput10.Text = "Set";
-            this.checkBox__DiagnosticsOutput10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput10.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput3
-            // 
-            this.checkBox__DiagnosticsOutput3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput3.Location = new System.Drawing.Point(110, 142);
-            this.checkBox__DiagnosticsOutput3.Name = "checkBox__DiagnosticsOutput3";
-            this.checkBox__DiagnosticsOutput3.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput3.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput3.Text = "Set";
-            this.checkBox__DiagnosticsOutput3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput3.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput9
-            // 
-            this.checkBox__DiagnosticsOutput9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput9.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput9.Location = new System.Drawing.Point(110, 357);
-            this.checkBox__DiagnosticsOutput9.Name = "checkBox__DiagnosticsOutput9";
-            this.checkBox__DiagnosticsOutput9.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput9.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput9.Text = "Set";
-            this.checkBox__DiagnosticsOutput9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput9.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput2
-            // 
-            this.checkBox__DiagnosticsOutput2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput2.Location = new System.Drawing.Point(110, 107);
-            this.checkBox__DiagnosticsOutput2.Name = "checkBox__DiagnosticsOutput2";
-            this.checkBox__DiagnosticsOutput2.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput2.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput2.Text = "Set";
-            this.checkBox__DiagnosticsOutput2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput2.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput8
-            // 
-            this.checkBox__DiagnosticsOutput8.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput8.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput8.Location = new System.Drawing.Point(110, 322);
-            this.checkBox__DiagnosticsOutput8.Name = "checkBox__DiagnosticsOutput8";
-            this.checkBox__DiagnosticsOutput8.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput8.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput8.Text = "Set";
-            this.checkBox__DiagnosticsOutput8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput8.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput1
-            // 
-            this.checkBox__DiagnosticsOutput1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput1.Location = new System.Drawing.Point(110, 72);
-            this.checkBox__DiagnosticsOutput1.Name = "checkBox__DiagnosticsOutput1";
-            this.checkBox__DiagnosticsOutput1.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput1.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput1.Text = "Set";
-            this.checkBox__DiagnosticsOutput1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput1.UseVisualStyleBackColor = false;
-            // 
-            // checkBox__DiagnosticsOutput0
-            // 
-            this.checkBox__DiagnosticsOutput0.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox__DiagnosticsOutput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox__DiagnosticsOutput0.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox__DiagnosticsOutput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox__DiagnosticsOutput0.Location = new System.Drawing.Point(110, 37);
-            this.checkBox__DiagnosticsOutput0.Name = "checkBox__DiagnosticsOutput0";
-            this.checkBox__DiagnosticsOutput0.Size = new System.Drawing.Size(50, 30);
-            this.checkBox__DiagnosticsOutput0.TabIndex = 11;
-            this.checkBox__DiagnosticsOutput0.Text = "Set";
-            this.checkBox__DiagnosticsOutput0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox__DiagnosticsOutput0.UseVisualStyleBackColor = false;
+            this.groupBox_DiagnosticsOutputs.Text = "Výstupy";
             // 
             // pictureBox_DiagnosticsOutput14
             // 
             this.pictureBox_DiagnosticsOutput14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput14.Image")));
-            this.pictureBox_DiagnosticsOutput14.Location = new System.Drawing.Point(55, 533);
+            this.pictureBox_DiagnosticsOutput14.Location = new System.Drawing.Point(55, 525);
             this.pictureBox_DiagnosticsOutput14.Name = "pictureBox_DiagnosticsOutput14";
             this.pictureBox_DiagnosticsOutput14.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1647,7 +1326,7 @@
             // pictureBox_DiagnosticsOutput6
             // 
             this.pictureBox_DiagnosticsOutput6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput6.Image")));
-            this.pictureBox_DiagnosticsOutput6.Location = new System.Drawing.Point(55, 248);
+            this.pictureBox_DiagnosticsOutput6.Location = new System.Drawing.Point(55, 246);
             this.pictureBox_DiagnosticsOutput6.Name = "pictureBox_DiagnosticsOutput6";
             this.pictureBox_DiagnosticsOutput6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1657,7 +1336,7 @@
             // pictureBox_DiagnosticsOutput11
             // 
             this.pictureBox_DiagnosticsOutput11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput11.Image")));
-            this.pictureBox_DiagnosticsOutput11.Location = new System.Drawing.Point(55, 428);
+            this.pictureBox_DiagnosticsOutput11.Location = new System.Drawing.Point(55, 420);
             this.pictureBox_DiagnosticsOutput11.Name = "pictureBox_DiagnosticsOutput11";
             this.pictureBox_DiagnosticsOutput11.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1667,7 +1346,7 @@
             // pictureBox_DiagnosticsOutput3
             // 
             this.pictureBox_DiagnosticsOutput3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput3.Image")));
-            this.pictureBox_DiagnosticsOutput3.Location = new System.Drawing.Point(55, 143);
+            this.pictureBox_DiagnosticsOutput3.Location = new System.Drawing.Point(55, 142);
             this.pictureBox_DiagnosticsOutput3.Name = "pictureBox_DiagnosticsOutput3";
             this.pictureBox_DiagnosticsOutput3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1687,7 +1366,7 @@
             // pictureBox_DiagnosticsOutput8
             // 
             this.pictureBox_DiagnosticsOutput8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput8.Image")));
-            this.pictureBox_DiagnosticsOutput8.Location = new System.Drawing.Point(55, 322);
+            this.pictureBox_DiagnosticsOutput8.Location = new System.Drawing.Point(55, 316);
             this.pictureBox_DiagnosticsOutput8.Name = "pictureBox_DiagnosticsOutput8";
             this.pictureBox_DiagnosticsOutput8.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1697,7 +1376,7 @@
             // pictureBox_DiagnosticsOutput15
             // 
             this.pictureBox_DiagnosticsOutput15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput15.Image")));
-            this.pictureBox_DiagnosticsOutput15.Location = new System.Drawing.Point(55, 568);
+            this.pictureBox_DiagnosticsOutput15.Location = new System.Drawing.Point(55, 560);
             this.pictureBox_DiagnosticsOutput15.Name = "pictureBox_DiagnosticsOutput15";
             this.pictureBox_DiagnosticsOutput15.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1707,7 +1386,7 @@
             // pictureBox_DiagnosticsOutput7
             // 
             this.pictureBox_DiagnosticsOutput7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput7.Image")));
-            this.pictureBox_DiagnosticsOutput7.Location = new System.Drawing.Point(55, 283);
+            this.pictureBox_DiagnosticsOutput7.Location = new System.Drawing.Point(55, 281);
             this.pictureBox_DiagnosticsOutput7.Name = "pictureBox_DiagnosticsOutput7";
             this.pictureBox_DiagnosticsOutput7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1717,7 +1396,7 @@
             // pictureBox_DiagnosticsOutput13
             // 
             this.pictureBox_DiagnosticsOutput13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput13.Image")));
-            this.pictureBox_DiagnosticsOutput13.Location = new System.Drawing.Point(55, 498);
+            this.pictureBox_DiagnosticsOutput13.Location = new System.Drawing.Point(55, 490);
             this.pictureBox_DiagnosticsOutput13.Name = "pictureBox_DiagnosticsOutput13";
             this.pictureBox_DiagnosticsOutput13.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1727,7 +1406,7 @@
             // pictureBox_DiagnosticsOutput5
             // 
             this.pictureBox_DiagnosticsOutput5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput5.Image")));
-            this.pictureBox_DiagnosticsOutput5.Location = new System.Drawing.Point(55, 213);
+            this.pictureBox_DiagnosticsOutput5.Location = new System.Drawing.Point(55, 212);
             this.pictureBox_DiagnosticsOutput5.Name = "pictureBox_DiagnosticsOutput5";
             this.pictureBox_DiagnosticsOutput5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1737,7 +1416,7 @@
             // pictureBox_DiagnosticsOutput12
             // 
             this.pictureBox_DiagnosticsOutput12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput12.Image")));
-            this.pictureBox_DiagnosticsOutput12.Location = new System.Drawing.Point(55, 463);
+            this.pictureBox_DiagnosticsOutput12.Location = new System.Drawing.Point(55, 455);
             this.pictureBox_DiagnosticsOutput12.Name = "pictureBox_DiagnosticsOutput12";
             this.pictureBox_DiagnosticsOutput12.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1747,7 +1426,7 @@
             // pictureBox_Indicator4
             // 
             this.pictureBox_Indicator4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_Indicator4.Image")));
-            this.pictureBox_Indicator4.Location = new System.Drawing.Point(55, 178);
+            this.pictureBox_Indicator4.Location = new System.Drawing.Point(55, 177);
             this.pictureBox_Indicator4.Name = "pictureBox_Indicator4";
             this.pictureBox_Indicator4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_Indicator4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1757,7 +1436,7 @@
             // pictureBox_DiagnosticsOutput10
             // 
             this.pictureBox_DiagnosticsOutput10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput10.Image")));
-            this.pictureBox_DiagnosticsOutput10.Location = new System.Drawing.Point(55, 393);
+            this.pictureBox_DiagnosticsOutput10.Location = new System.Drawing.Point(55, 385);
             this.pictureBox_DiagnosticsOutput10.Name = "pictureBox_DiagnosticsOutput10";
             this.pictureBox_DiagnosticsOutput10.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1767,7 +1446,7 @@
             // pictureBox_DiagnosticsOutput2
             // 
             this.pictureBox_DiagnosticsOutput2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2.Image")));
-            this.pictureBox_DiagnosticsOutput2.Location = new System.Drawing.Point(55, 108);
+            this.pictureBox_DiagnosticsOutput2.Location = new System.Drawing.Point(55, 107);
             this.pictureBox_DiagnosticsOutput2.Name = "pictureBox_DiagnosticsOutput2";
             this.pictureBox_DiagnosticsOutput2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1777,7 +1456,7 @@
             // pictureBox_DiagnosticsOutput9
             // 
             this.pictureBox_DiagnosticsOutput9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput9.Image")));
-            this.pictureBox_DiagnosticsOutput9.Location = new System.Drawing.Point(55, 358);
+            this.pictureBox_DiagnosticsOutput9.Location = new System.Drawing.Point(55, 350);
             this.pictureBox_DiagnosticsOutput9.Name = "pictureBox_DiagnosticsOutput9";
             this.pictureBox_DiagnosticsOutput9.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1787,7 +1466,7 @@
             // pictureBox_DiagnosticsOutput1
             // 
             this.pictureBox_DiagnosticsOutput1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1.Image")));
-            this.pictureBox_DiagnosticsOutput1.Location = new System.Drawing.Point(55, 73);
+            this.pictureBox_DiagnosticsOutput1.Location = new System.Drawing.Point(55, 72);
             this.pictureBox_DiagnosticsOutput1.Name = "pictureBox_DiagnosticsOutput1";
             this.pictureBox_DiagnosticsOutput1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1797,7 +1476,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(10, 41);
+            this.label37.Location = new System.Drawing.Point(10, 42);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(43, 20);
             this.label37.TabIndex = 0;
@@ -1806,7 +1485,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(11, 326);
+            this.label29.Location = new System.Drawing.Point(11, 321);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(43, 20);
             this.label29.TabIndex = 0;
@@ -1815,7 +1494,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(10, 573);
+            this.label36.Location = new System.Drawing.Point(10, 565);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(43, 20);
             this.label36.TabIndex = 0;
@@ -1824,7 +1503,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(11, 288);
+            this.label28.Location = new System.Drawing.Point(11, 286);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(43, 20);
             this.label28.TabIndex = 0;
@@ -1833,7 +1512,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(10, 468);
+            this.label35.Location = new System.Drawing.Point(10, 460);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(43, 20);
             this.label35.TabIndex = 0;
@@ -1842,7 +1521,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(10, 538);
+            this.label34.Location = new System.Drawing.Point(10, 530);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(43, 20);
             this.label34.TabIndex = 0;
@@ -1851,7 +1530,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(11, 183);
+            this.label24.Location = new System.Drawing.Point(11, 182);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(43, 20);
             this.label24.TabIndex = 0;
@@ -1860,7 +1539,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(10, 433);
+            this.label33.Location = new System.Drawing.Point(10, 425);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(43, 20);
             this.label33.TabIndex = 0;
@@ -1869,7 +1548,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(11, 253);
+            this.label27.Location = new System.Drawing.Point(11, 251);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(43, 20);
             this.label27.TabIndex = 0;
@@ -1878,7 +1557,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(10, 503);
+            this.label32.Location = new System.Drawing.Point(10, 495);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(43, 20);
             this.label32.TabIndex = 0;
@@ -1887,7 +1566,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(11, 148);
+            this.label22.Location = new System.Drawing.Point(11, 147);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(43, 20);
             this.label22.TabIndex = 0;
@@ -1896,7 +1575,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(10, 398);
+            this.label31.Location = new System.Drawing.Point(10, 390);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(43, 20);
             this.label31.TabIndex = 0;
@@ -1905,7 +1584,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(11, 218);
+            this.label26.Location = new System.Drawing.Point(11, 217);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(43, 20);
             this.label26.TabIndex = 0;
@@ -1914,7 +1593,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(10, 363);
+            this.label30.Location = new System.Drawing.Point(10, 355);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(43, 20);
             this.label30.TabIndex = 0;
@@ -1923,7 +1602,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 113);
+            this.label18.Location = new System.Drawing.Point(11, 112);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(43, 20);
             this.label18.TabIndex = 0;
@@ -1932,7 +1611,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(11, 78);
+            this.label19.Location = new System.Drawing.Point(11, 77);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(43, 20);
             this.label19.TabIndex = 0;
@@ -1994,11 +1673,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(90, 89);
+            this.label16.Location = new System.Drawing.Point(11, 92);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 20);
+            this.label16.Size = new System.Drawing.Size(81, 20);
             this.label16.TabIndex = 0;
-            this.label16.Text = "Gain:";
+            this.label16.Text = "Zosilnenie";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
@@ -2008,7 +1687,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(126, 20);
             this.label14.TabIndex = 0;
-            this.label14.Text = "Expozicna doba:";
+            this.label14.Text = "Expozičná doba:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_Diagnostics
@@ -2017,9 +1696,9 @@
             this.label_Diagnostics.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_Diagnostics.Location = new System.Drawing.Point(3, 3);
             this.label_Diagnostics.Name = "label_Diagnostics";
-            this.label_Diagnostics.Size = new System.Drawing.Size(135, 25);
+            this.label_Diagnostics.Size = new System.Drawing.Size(136, 25);
             this.label_Diagnostics.TabIndex = 1;
-            this.label_Diagnostics.Text = "Diagnostics";
+            this.label_Diagnostics.Text = "Diagnostika";
             // 
             // groupBox_DiagnosticsCamInfo
             // 
@@ -2057,7 +1736,7 @@
             this.groupBox_DiagnosticsCamInfo.Size = new System.Drawing.Size(236, 527);
             this.groupBox_DiagnosticsCamInfo.TabIndex = 0;
             this.groupBox_DiagnosticsCamInfo.TabStop = false;
-            this.groupBox_DiagnosticsCamInfo.Text = "Cam info";
+            this.groupBox_DiagnosticsCamInfo.Text = "Kamery";
             // 
             // label12
             // 
@@ -2339,7 +2018,7 @@
             this.groupBox_DiagnosticsDiscManagement.Size = new System.Drawing.Size(236, 158);
             this.groupBox_DiagnosticsDiscManagement.TabIndex = 0;
             this.groupBox_DiagnosticsDiscManagement.TabStop = false;
-            this.groupBox_DiagnosticsDiscManagement.Text = "Disc management";
+            this.groupBox_DiagnosticsDiscManagement.Text = "Info úložiska";
             // 
             // label_AvailableSpaceE
             // 
@@ -2357,7 +2036,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Disc E:";
+            this.label4.Text = "Disk E:";
             // 
             // label_AvailableSpaceC
             // 
@@ -2384,7 +2063,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Disc C:";
+            this.label3.Text = "Disk C:";
             // 
             // label2
             // 
@@ -2393,7 +2072,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Disc D:";
+            this.label2.Text = "Disk D:";
             // 
             // timer_Simulation
             // 
@@ -2432,7 +2111,7 @@
             this.button_FooterExitApp.Name = "button_FooterExitApp";
             this.button_FooterExitApp.Size = new System.Drawing.Size(100, 40);
             this.button_FooterExitApp.TabIndex = 4;
-            this.button_FooterExitApp.Text = "Exit";
+            this.button_FooterExitApp.Text = "Ukončiť";
             this.button_FooterExitApp.UseVisualStyleBackColor = false;
             this.button_FooterExitApp.Click += new System.EventHandler(this.button_ExitApp_Click);
             // 
@@ -2445,6 +2124,420 @@
             this.pictureBox_FooterKeyBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_FooterKeyBoard.TabIndex = 5;
             this.pictureBox_FooterKeyBoard.TabStop = false;
+            // 
+            // groupBox_MainStatistics
+            // 
+            this.groupBox_MainStatistics.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOverall);
+            this.groupBox_MainStatistics.Controls.Add(this.label46);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsSuspicious);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOverCount);
+            this.groupBox_MainStatistics.Controls.Add(this.label44);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOK);
+            this.groupBox_MainStatistics.Controls.Add(this.label42);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsNOK);
+            this.groupBox_MainStatistics.Controls.Add(this.label41);
+            this.groupBox_MainStatistics.Controls.Add(this.label39);
+            this.groupBox_MainStatistics.Location = new System.Drawing.Point(1518, 663);
+            this.groupBox_MainStatistics.Name = "groupBox_MainStatistics";
+            this.groupBox_MainStatistics.Size = new System.Drawing.Size(271, 258);
+            this.groupBox_MainStatistics.TabIndex = 6;
+            this.groupBox_MainStatistics.TabStop = false;
+            this.groupBox_MainStatistics.Text = "Štatistika";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.checkBox1.FlatAppearance.BorderSize = 2;
+            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox1.Location = new System.Drawing.Point(9, 116);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(256, 49);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Uložiť Aktuálny Obraz";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput0
+            // 
+            this.button_DiagnosticsInput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput0.Location = new System.Drawing.Point(111, 37);
+            this.button_DiagnosticsInput0.Name = "button_DiagnosticsInput0";
+            this.button_DiagnosticsInput0.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput0.TabIndex = 12;
+            this.button_DiagnosticsInput0.Text = "Nastaviť";
+            this.button_DiagnosticsInput0.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput1
+            // 
+            this.button_DiagnosticsInput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput1.Location = new System.Drawing.Point(111, 72);
+            this.button_DiagnosticsInput1.Name = "button_DiagnosticsInput1";
+            this.button_DiagnosticsInput1.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput1.TabIndex = 12;
+            this.button_DiagnosticsInput1.Text = "Nastaviť";
+            this.button_DiagnosticsInput1.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput2
+            // 
+            this.button_DiagnosticsInput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput2.Location = new System.Drawing.Point(111, 107);
+            this.button_DiagnosticsInput2.Name = "button_DiagnosticsInput2";
+            this.button_DiagnosticsInput2.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput2.TabIndex = 12;
+            this.button_DiagnosticsInput2.Text = "Nastaviť";
+            this.button_DiagnosticsInput2.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput3
+            // 
+            this.button_DiagnosticsInput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput3.Location = new System.Drawing.Point(111, 142);
+            this.button_DiagnosticsInput3.Name = "button_DiagnosticsInput3";
+            this.button_DiagnosticsInput3.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput3.TabIndex = 12;
+            this.button_DiagnosticsInput3.Text = "Nastaviť";
+            this.button_DiagnosticsInput3.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput4
+            // 
+            this.button_DiagnosticsInput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput4.Location = new System.Drawing.Point(111, 177);
+            this.button_DiagnosticsInput4.Name = "button_DiagnosticsInput4";
+            this.button_DiagnosticsInput4.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput4.TabIndex = 12;
+            this.button_DiagnosticsInput4.Text = "Nastaviť";
+            this.button_DiagnosticsInput4.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput5
+            // 
+            this.button_DiagnosticsInput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput5.Location = new System.Drawing.Point(111, 212);
+            this.button_DiagnosticsInput5.Name = "button_DiagnosticsInput5";
+            this.button_DiagnosticsInput5.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput5.TabIndex = 12;
+            this.button_DiagnosticsInput5.Text = "Nastaviť";
+            this.button_DiagnosticsInput5.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput6
+            // 
+            this.button_DiagnosticsInput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput6.Location = new System.Drawing.Point(111, 246);
+            this.button_DiagnosticsInput6.Name = "button_DiagnosticsInput6";
+            this.button_DiagnosticsInput6.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput6.TabIndex = 12;
+            this.button_DiagnosticsInput6.Text = "Nastaviť";
+            this.button_DiagnosticsInput6.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput7
+            // 
+            this.button_DiagnosticsInput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput7.Location = new System.Drawing.Point(111, 281);
+            this.button_DiagnosticsInput7.Name = "button_DiagnosticsInput7";
+            this.button_DiagnosticsInput7.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput7.TabIndex = 12;
+            this.button_DiagnosticsInput7.Text = "Nastaviť";
+            this.button_DiagnosticsInput7.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput0
+            // 
+            this.button_DiagnosticsOutput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput0.Location = new System.Drawing.Point(109, 37);
+            this.button_DiagnosticsOutput0.Name = "button_DiagnosticsOutput0";
+            this.button_DiagnosticsOutput0.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput0.TabIndex = 12;
+            this.button_DiagnosticsOutput0.Text = "Nastaviť";
+            this.button_DiagnosticsOutput0.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput1
+            // 
+            this.button_DiagnosticsOutput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput1.Location = new System.Drawing.Point(109, 72);
+            this.button_DiagnosticsOutput1.Name = "button_DiagnosticsOutput1";
+            this.button_DiagnosticsOutput1.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput1.TabIndex = 12;
+            this.button_DiagnosticsOutput1.Text = "Nastaviť";
+            this.button_DiagnosticsOutput1.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput2
+            // 
+            this.button_DiagnosticsOutput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput2.Location = new System.Drawing.Point(109, 107);
+            this.button_DiagnosticsOutput2.Name = "button_DiagnosticsOutput2";
+            this.button_DiagnosticsOutput2.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput2.TabIndex = 12;
+            this.button_DiagnosticsOutput2.Text = "Nastaviť";
+            this.button_DiagnosticsOutput2.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput3
+            // 
+            this.button_DiagnosticsOutput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput3.Location = new System.Drawing.Point(109, 142);
+            this.button_DiagnosticsOutput3.Name = "button_DiagnosticsOutput3";
+            this.button_DiagnosticsOutput3.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput3.TabIndex = 12;
+            this.button_DiagnosticsOutput3.Text = "Nastaviť";
+            this.button_DiagnosticsOutput3.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput4
+            // 
+            this.button_DiagnosticsOutput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput4.Location = new System.Drawing.Point(109, 177);
+            this.button_DiagnosticsOutput4.Name = "button_DiagnosticsOutput4";
+            this.button_DiagnosticsOutput4.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput4.TabIndex = 12;
+            this.button_DiagnosticsOutput4.Text = "Nastaviť";
+            this.button_DiagnosticsOutput4.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput5
+            // 
+            this.button_DiagnosticsOutput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput5.Location = new System.Drawing.Point(109, 212);
+            this.button_DiagnosticsOutput5.Name = "button_DiagnosticsOutput5";
+            this.button_DiagnosticsOutput5.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput5.TabIndex = 12;
+            this.button_DiagnosticsOutput5.Text = "Nastaviť";
+            this.button_DiagnosticsOutput5.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput6
+            // 
+            this.button_DiagnosticsOutput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput6.Location = new System.Drawing.Point(109, 246);
+            this.button_DiagnosticsOutput6.Name = "button_DiagnosticsOutput6";
+            this.button_DiagnosticsOutput6.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput6.TabIndex = 12;
+            this.button_DiagnosticsOutput6.Text = "Nastaviť";
+            this.button_DiagnosticsOutput6.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput7
+            // 
+            this.button_DiagnosticsOutput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput7.Location = new System.Drawing.Point(109, 281);
+            this.button_DiagnosticsOutput7.Name = "button_DiagnosticsOutput7";
+            this.button_DiagnosticsOutput7.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput7.TabIndex = 12;
+            this.button_DiagnosticsOutput7.Text = "Nastaviť";
+            this.button_DiagnosticsOutput7.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput8
+            // 
+            this.button_DiagnosticsOutput8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput8.Location = new System.Drawing.Point(109, 316);
+            this.button_DiagnosticsOutput8.Name = "button_DiagnosticsOutput8";
+            this.button_DiagnosticsOutput8.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput8.TabIndex = 12;
+            this.button_DiagnosticsOutput8.Text = "Nastaviť";
+            this.button_DiagnosticsOutput8.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput9
+            // 
+            this.button_DiagnosticsOutput9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput9.Location = new System.Drawing.Point(109, 350);
+            this.button_DiagnosticsOutput9.Name = "button_DiagnosticsOutput9";
+            this.button_DiagnosticsOutput9.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput9.TabIndex = 12;
+            this.button_DiagnosticsOutput9.Text = "Nastaviť";
+            this.button_DiagnosticsOutput9.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput10
+            // 
+            this.button_DiagnosticsOutput10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput10.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput10.Location = new System.Drawing.Point(109, 385);
+            this.button_DiagnosticsOutput10.Name = "button_DiagnosticsOutput10";
+            this.button_DiagnosticsOutput10.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput10.TabIndex = 12;
+            this.button_DiagnosticsOutput10.Text = "Nastaviť";
+            this.button_DiagnosticsOutput10.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput11
+            // 
+            this.button_DiagnosticsOutput11.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput11.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput11.Location = new System.Drawing.Point(109, 420);
+            this.button_DiagnosticsOutput11.Name = "button_DiagnosticsOutput11";
+            this.button_DiagnosticsOutput11.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput11.TabIndex = 12;
+            this.button_DiagnosticsOutput11.Text = "Nastaviť";
+            this.button_DiagnosticsOutput11.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput12
+            // 
+            this.button_DiagnosticsOutput12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput12.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput12.Location = new System.Drawing.Point(109, 455);
+            this.button_DiagnosticsOutput12.Name = "button_DiagnosticsOutput12";
+            this.button_DiagnosticsOutput12.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput12.TabIndex = 12;
+            this.button_DiagnosticsOutput12.Text = "Nastaviť";
+            this.button_DiagnosticsOutput12.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput13
+            // 
+            this.button_DiagnosticsOutput13.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput13.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput13.Location = new System.Drawing.Point(109, 490);
+            this.button_DiagnosticsOutput13.Name = "button_DiagnosticsOutput13";
+            this.button_DiagnosticsOutput13.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput13.TabIndex = 12;
+            this.button_DiagnosticsOutput13.Text = "Nastaviť";
+            this.button_DiagnosticsOutput13.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput14
+            // 
+            this.button_DiagnosticsOutput14.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput14.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput14.Location = new System.Drawing.Point(109, 525);
+            this.button_DiagnosticsOutput14.Name = "button_DiagnosticsOutput14";
+            this.button_DiagnosticsOutput14.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput14.TabIndex = 12;
+            this.button_DiagnosticsOutput14.Text = "Nastaviť";
+            this.button_DiagnosticsOutput14.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput15
+            // 
+            this.button_DiagnosticsOutput15.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput15.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput15.Location = new System.Drawing.Point(109, 560);
+            this.button_DiagnosticsOutput15.Name = "button_DiagnosticsOutput15";
+            this.button_DiagnosticsOutput15.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput15.TabIndex = 12;
+            this.button_DiagnosticsOutput15.Text = "Nastaviť";
+            this.button_DiagnosticsOutput15.UseVisualStyleBackColor = false;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(17, 32);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(46, 20);
+            this.label39.TabIndex = 0;
+            this.label39.Text = "NOK:";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(17, 65);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(35, 20);
+            this.label41.TabIndex = 0;
+            this.label41.Text = "OK:";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(17, 98);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(82, 20);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Nadpočet:";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(17, 131);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(140, 20);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Poč.podoz.dielcov:";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(17, 164);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(111, 20);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "Celkový počet:";
+            // 
+            // label_MainStatisticsNOK
+            // 
+            this.label_MainStatisticsNOK.AutoSize = true;
+            this.label_MainStatisticsNOK.Location = new System.Drawing.Point(198, 32);
+            this.label_MainStatisticsNOK.Name = "label_MainStatisticsNOK";
+            this.label_MainStatisticsNOK.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsNOK.TabIndex = 0;
+            this.label_MainStatisticsNOK.Text = "-1";
+            // 
+            // label_MainStatisticsOK
+            // 
+            this.label_MainStatisticsOK.AutoSize = true;
+            this.label_MainStatisticsOK.Location = new System.Drawing.Point(198, 65);
+            this.label_MainStatisticsOK.Name = "label_MainStatisticsOK";
+            this.label_MainStatisticsOK.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsOK.TabIndex = 0;
+            this.label_MainStatisticsOK.Text = "-1";
+            // 
+            // label_MainStatisticsOverCount
+            // 
+            this.label_MainStatisticsOverCount.AutoSize = true;
+            this.label_MainStatisticsOverCount.Location = new System.Drawing.Point(198, 98);
+            this.label_MainStatisticsOverCount.Name = "label_MainStatisticsOverCount";
+            this.label_MainStatisticsOverCount.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsOverCount.TabIndex = 0;
+            this.label_MainStatisticsOverCount.Text = "-1";
+            // 
+            // label_MainStatisticsSuspicious
+            // 
+            this.label_MainStatisticsSuspicious.AutoSize = true;
+            this.label_MainStatisticsSuspicious.Location = new System.Drawing.Point(198, 131);
+            this.label_MainStatisticsSuspicious.Name = "label_MainStatisticsSuspicious";
+            this.label_MainStatisticsSuspicious.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsSuspicious.TabIndex = 0;
+            this.label_MainStatisticsSuspicious.Text = "-1";
+            // 
+            // label_MainStatisticsOverall
+            // 
+            this.label_MainStatisticsOverall.AutoSize = true;
+            this.label_MainStatisticsOverall.Location = new System.Drawing.Point(198, 164);
+            this.label_MainStatisticsOverall.Name = "label_MainStatisticsOverall";
+            this.label_MainStatisticsOverall.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsOverall.TabIndex = 0;
+            this.label_MainStatisticsOverall.Text = "-1";
             // 
             // MainForm
             // 
@@ -2489,10 +2582,10 @@
             this.groupBox_Hwindow.ResumeLayout(false);
             this.tabPage_Diagnostics.ResumeLayout(false);
             this.tabPage_Diagnostics.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel_DiagnosticsAutorization.ResumeLayout(false);
+            this.panel_DiagnosticsAutorization.PerformLayout();
+            this.groupBox_DiagnosticsVstupy.ResumeLayout(false);
+            this.groupBox_DiagnosticsVstupy.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsInput6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsInput3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsInput0)).EndInit();
@@ -2542,6 +2635,8 @@
             this.groupBox_DiagnosticsDiscManagement.PerformLayout();
             this.panel_Footer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FooterKeyBoard)).EndInit();
+            this.groupBox_MainStatistics.ResumeLayout(false);
+            this.groupBox_MainStatistics.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2638,22 +2733,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox_DiagnosticsOutputs;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput15;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput7;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput14;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput6;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput13;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput5;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput12;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput4;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput11;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput10;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput3;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput9;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput2;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput8;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput1;
-        private System.Windows.Forms.CheckBox checkBox__DiagnosticsOutput0;
         private System.Windows.Forms.PictureBox pictureBox_DiagnosticsOutput14;
         private System.Windows.Forms.PictureBox pictureBox_DiagnosticsOutput6;
         private System.Windows.Forms.PictureBox pictureBox_DiagnosticsOutput11;
@@ -2697,15 +2776,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox_DiagnosticsVykres;
         private HalconDotNet.HSmartWindowControl hSmartWindowControl1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput7;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput6;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput5;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput4;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput3;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput2;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput1;
-        private System.Windows.Forms.CheckBox checkBox_DiagnosticsInput0;
+        private System.Windows.Forms.GroupBox groupBox_DiagnosticsVstupy;
         private System.Windows.Forms.PictureBox pictureBox_DiagnosticsInput6;
         private System.Windows.Forms.PictureBox pictureBox_DiagnosticsInput3;
         private System.Windows.Forms.PictureBox pictureBox_DiagnosticsInput0;
@@ -2727,13 +2798,49 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox_MainSystemMessage;
         private System.Windows.Forms.TextBox textBox_MainPoznamka;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_DiagnosticsAutorization;
         private System.Windows.Forms.Button button_DiagnosticsChangePassword;
         private System.Windows.Forms.Button button_DiagnosticsLogIn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button button_DiagnosticsAutorisation;
         private System.Windows.Forms.PictureBox pictureBox_FooterKeyBoard;
+        private System.Windows.Forms.GroupBox groupBox_MainStatistics;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button_DiagnosticsInput7;
+        private System.Windows.Forms.Button button_DiagnosticsInput6;
+        private System.Windows.Forms.Button button_DiagnosticsInput5;
+        private System.Windows.Forms.Button button_DiagnosticsInput4;
+        private System.Windows.Forms.Button button_DiagnosticsInput3;
+        private System.Windows.Forms.Button button_DiagnosticsInput2;
+        private System.Windows.Forms.Button button_DiagnosticsInput1;
+        private System.Windows.Forms.Button button_DiagnosticsInput0;
+        private System.Windows.Forms.Button button_DiagnosticsOutput15;
+        private System.Windows.Forms.Button button_DiagnosticsOutput7;
+        private System.Windows.Forms.Button button_DiagnosticsOutput14;
+        private System.Windows.Forms.Button button_DiagnosticsOutput6;
+        private System.Windows.Forms.Button button_DiagnosticsOutput13;
+        private System.Windows.Forms.Button button_DiagnosticsOutput5;
+        private System.Windows.Forms.Button button_DiagnosticsOutput12;
+        private System.Windows.Forms.Button button_DiagnosticsOutput4;
+        private System.Windows.Forms.Button button_DiagnosticsOutput11;
+        private System.Windows.Forms.Button button_DiagnosticsOutput3;
+        private System.Windows.Forms.Button button_DiagnosticsOutput10;
+        private System.Windows.Forms.Button button_DiagnosticsOutput2;
+        private System.Windows.Forms.Button button_DiagnosticsOutput9;
+        private System.Windows.Forms.Button button_DiagnosticsOutput8;
+        private System.Windows.Forms.Button button_DiagnosticsOutput1;
+        private System.Windows.Forms.Button button_DiagnosticsOutput0;
+        private System.Windows.Forms.Label label_MainStatisticsOverall;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label_MainStatisticsSuspicious;
+        private System.Windows.Forms.Label label_MainStatisticsOverCount;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label_MainStatisticsOK;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label_MainStatisticsNOK;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label39;
     }
 }
 

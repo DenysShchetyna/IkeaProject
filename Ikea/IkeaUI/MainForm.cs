@@ -26,19 +26,19 @@ namespace IkeaUI
 
         List<string> ListOfImagesPaths = new List<string>()
         {
-                @"C:/Trifid/Poject ikea/Data/DGG_435_BR.bmp",
-                @"C:/Trifid/Poject ikea/Data/DGG_441_JS_DB.bmp",
-                @"C:/Trifid/Poject ikea/Data/DGG_506_BR.bmp",
-                @"C:/Trifid/Poject ikea/Data/DGG07440.bmp",
-                @"C:/Trifid/Poject ikea/Data/FBA_025_obycajny_papier.bmp",
-                @"C:/Trifid/Poject ikea/Data/DGG_400.bmp",
-                @"C:/Trifid/Poject ikea/Data/DGL_016_biely.bmp",
-                @"C:/Trifid/Poject ikea/Data/DGN_706_obycajny.jpg",
-                @"C:/Trifid/Poject ikea/Data/DGL_130_obycajny.bmp"
+                @"C:/Trifid/IKEA/Data/DGG_435_BR.bmp",
+                @"C:/Trifid/IKEA/Data/DGG_441_JS_DB.bmp",
+                @"C:/Trifid/IKEA/Data/DGG_506_BR.bmp",
+                @"C:/Trifid/IKEA/Data/DGG07440.bmp",
+                @"C:/Trifid/IKEA/Data/FBA_025_obycajny_papier.bmp",
+                @"C:/Trifid/IKEA/Data/DGG_400.bmp",
+                @"C:/Trifid/IKEA/Data/DGL_016_biely.bmp",
+                @"C:/Trifid/IKEA/Data/DGN_706_obycajny.jpg",
+                @"C:/Trifid/IKEA/Data/DGL_130_obycajny.bmp"
         };
 
         public int ImgNum = 0;
-        string ImagesPath = @"C:/Trifid/Poject ikea/SavedImages/";
+        string ImagesPath = @"C:\Trifid\IKEA\SavedImages";
 
         public MainForm()
         {

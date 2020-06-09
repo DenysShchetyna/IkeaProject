@@ -117,7 +117,9 @@
       <Name>Ikea_Library</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\search_48px.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gray.png" />
   </ItemGroup>
@@ -135,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trifid_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard_40px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

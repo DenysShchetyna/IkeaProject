@@ -27,7 +27,7 @@ namespace Ikea_Library.DBAccess
                     using (IDbConnection cnn = new SqlConnection(LoadConnectionString(GlobalVariables.ConnectionStringId)))
                     {
                         cnn.Execute(insertMaterialOrder, plank);
-                        Console.WriteLine(DateTime.Now + "Material Inserted");
+                        Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, "Material Added to Database", "|OK|");
 
                         for (int i = 0; i < plank.Holes.Count; i++)
                         {
@@ -35,7 +35,7 @@ namespace Ikea_Library.DBAccess
                         }
 
                         ok = true;
-                        Console.WriteLine(DateTime.Now + "Holes Inserted");
+                        Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, "Add Holes Added to Database", "|OK|");
                     }
                 }
 
@@ -47,7 +47,6 @@ namespace Ikea_Library.DBAccess
             }
 
             return ok;
-
         }
 
         public static List<Material> TakeMainInfo()

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ namespace IkeaUI
         };
 
         public int ImgNum = 0;
-        string ImagesPath = @"C:\Trifid\IKEA\SavedImages";
+        string ImagesPath = @"C:\Trifid\IKEA\SavedImages\";
 
         public MainForm()
         {
@@ -60,7 +61,7 @@ namespace IkeaUI
             var x = e.Bounds.Left + 20;
             var y = e.Bounds.Top + 25;
             g.FillRectangle(Brushes.Silver, e.Bounds);
-            g.DrawString(text, tabControl_MainControl.Font,Brushes.Black, x, y);
+            g.DrawString(text, tabControl_MainControl.Font, Brushes.Black, x, y);
         }
 
         private void button_TakeInfoFromDB_Click(object sender, EventArgs e)
@@ -130,7 +131,6 @@ namespace IkeaUI
             {
                 //ADDING TO DB
                 bool insertingToDatabaseStatus = DBFunctions.InsterMeasurement(Plank);
-                Console.WriteLine(DateTime.Now + $" Saved image to Database");
 
                 //SAVING IMAGES
                 if (insertingToDatabaseStatus == true)
@@ -138,7 +138,7 @@ namespace IkeaUI
                     string filePath = ImagesPath + Timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
                     HOperatorSet.WriteImage(Image, "tiff", 0, filePath);
                     ImgNum++;
-                    Console.WriteLine(DateTime.Now + $" Saved image to {filePath}");
+                    Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, $"Saved image to {filePath}", "|OK|");
                 }
                 else
                 {
@@ -149,7 +149,6 @@ namespace IkeaUI
             {
                 Console.WriteLine(DateTime.Now + ex.Message);
             }
-
         }
 
 
@@ -177,10 +176,10 @@ namespace IkeaUI
             HOperatorSet.ReadImage(out HObject Image, readPath);
 
             //SHOW IMAGE
-            hWindow_Image.HalconWindow.DispObj(Image);
-            hWindow_Image.HalconWindow.SetPart(0, 0, -2, -2);
-            hWindow_Image.HalconWindow.SetDraw("margin");
-            hWindow_Image.HalconWindow.SetLineWidth(3);
+            Hwindow_ArchiveImage.HalconWindow.DispObj(Image);
+            Hwindow_ArchiveImage.HalconWindow.SetPart(0, 0, -2, -2);
+            Hwindow_ArchiveImage.HalconWindow.SetDraw("margin");
+            Hwindow_ArchiveImage.HalconWindow.SetLineWidth(3);
 
             for (int i = 0; i < holes.Count; i++)
             {
@@ -188,14 +187,14 @@ namespace IkeaUI
 
                 if (holes[i].Status == true)
                 {
-                    hWindow_Image.HalconWindow.SetColor("green");
+                    Hwindow_ArchiveImage.HalconWindow.SetColor("green");
                 }
                 else
                 {
-                    hWindow_Image.HalconWindow.SetColor("red");
+                    Hwindow_ArchiveImage.HalconWindow.SetColor("red");
                 }
 
-                hWindow_Image.HalconWindow.DispObj(circle);
+                Hwindow_ArchiveImage.HalconWindow.DispObj(circle);
             }
         }
 
@@ -220,6 +219,36 @@ namespace IkeaUI
         private void button_ExitApp_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button_DiagnosticsExposureSet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
+                int value = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
+                PersistentVariables.CamExposureTimeSet(camName, value);
+                Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{ 0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+        }
+
+        private void button_DiagnosticsGainSet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
+                int value = Convert.ToInt32(textBox_DiagnosticsGain.Text);
+                PersistentVariables.CamExposureTimeSet(camName, value);
+                Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
         }
     }
 }

@@ -79,6 +79,8 @@
     <Compile Include="DBAccess\DBFunctions.cs" />
     <Compile Include="HdevProcedures\HDevProc.cs" />
     <Compile Include="Helpers\Colors.cs" />
+    <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="Helpers\PersistentVariables.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Hole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

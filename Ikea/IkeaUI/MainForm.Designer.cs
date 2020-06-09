@@ -39,6 +39,17 @@
             this.pictureBox_TrifidLogo = new System.Windows.Forms.PictureBox();
             this.tabControl_MainControl = new System.Windows.Forms.TabControl();
             this.tabPage_Main = new System.Windows.Forms.TabPage();
+            this.groupBox_MainStatistics = new System.Windows.Forms.GroupBox();
+            this.label_MainStatisticsOverall = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label_MainStatisticsSuspicious = new System.Windows.Forms.Label();
+            this.label_MainStatisticsOverCount = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label_MainStatisticsOK = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label_MainStatisticsNOK = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.label_MainSystemMessage = new System.Windows.Forms.Label();
             this.label_MainPoznamka = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -51,6 +62,7 @@
             this.textBox_MainSearchRecipe = new System.Windows.Forms.TextBox();
             this.listBox_MainRecipe = new System.Windows.Forms.ListBox();
             this.groupBox_MainRiadenie = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox_MainStop = new System.Windows.Forms.CheckBox();
             this.checkBox_MainStart = new System.Windows.Forms.CheckBox();
             this.tabControl_MainCameras = new System.Windows.Forms.TabControl();
@@ -83,7 +95,7 @@
             this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Hwindow = new System.Windows.Forms.GroupBox();
-            this.hWindow_Image = new HalconDotNet.HSmartWindowControl();
+            this.Hwindow_ArchiveImage = new HalconDotNet.HSmartWindowControl();
             this.tabPage_Diagnostics = new System.Windows.Forms.TabPage();
             this.panel_DiagnosticsAutorization = new System.Windows.Forms.Panel();
             this.button_DiagnosticsChangePassword = new System.Windows.Forms.Button();
@@ -92,6 +104,14 @@
             this.label38 = new System.Windows.Forms.Label();
             this.button_DiagnosticsAutorisation = new System.Windows.Forms.Button();
             this.groupBox_DiagnosticsVstupy = new System.Windows.Forms.GroupBox();
+            this.button_DiagnosticsInput7 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput6 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput5 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput4 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput3 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput2 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput1 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsInput0 = new System.Windows.Forms.Button();
             this.pictureBox_DiagnosticsInput6 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsInput3 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsInput0 = new System.Windows.Forms.PictureBox();
@@ -111,6 +131,22 @@
             this.groupBox_DiagnosticsVykres = new System.Windows.Forms.GroupBox();
             this.hSmartWindowControl1 = new HalconDotNet.HSmartWindowControl();
             this.groupBox_DiagnosticsOutputs = new System.Windows.Forms.GroupBox();
+            this.button_DiagnosticsOutput15 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput7 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput14 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput6 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput13 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput5 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput12 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput4 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput11 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput3 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput10 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput2 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput9 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput8 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput1 = new System.Windows.Forms.Button();
+            this.button_DiagnosticsOutput0 = new System.Windows.Forms.Button();
             this.pictureBox_DiagnosticsOutput14 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsOutput6 = new System.Windows.Forms.PictureBox();
             this.pictureBox_DiagnosticsOutput11 = new System.Windows.Forms.PictureBox();
@@ -190,49 +226,16 @@
             this.timer_Clock = new System.Windows.Forms.Timer(this.components);
             this.timer_DiscsCheck = new System.Windows.Forms.Timer(this.components);
             this.panel_Footer = new System.Windows.Forms.Panel();
-            this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.pictureBox_FooterKeyBoard = new System.Windows.Forms.PictureBox();
-            this.groupBox_MainStatistics = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button_DiagnosticsInput0 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsInput1 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsInput2 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsInput3 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsInput4 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsInput5 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsInput6 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsInput7 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput0 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput1 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput2 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput3 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput4 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput5 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput6 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput7 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput8 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput9 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput10 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput11 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput12 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput13 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput14 = new System.Windows.Forms.Button();
-            this.button_DiagnosticsOutput15 = new System.Windows.Forms.Button();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label_MainStatisticsNOK = new System.Windows.Forms.Label();
-            this.label_MainStatisticsOK = new System.Windows.Forms.Label();
-            this.label_MainStatisticsOverCount = new System.Windows.Forms.Label();
-            this.label_MainStatisticsSuspicious = new System.Windows.Forms.Label();
-            this.label_MainStatisticsOverall = new System.Windows.Forms.Label();
+            this.button_FooterExitApp = new System.Windows.Forms.Button();
+            this.button_DiagnosticsExposureSet = new System.Windows.Forms.Button();
+            this.button_DiagnosticsGainSet = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
             this.tabControl_MainControl.SuspendLayout();
             this.tabPage_Main.SuspendLayout();
+            this.groupBox_MainStatistics.SuspendLayout();
             this.groupBox_MainPodozrive.SuspendLayout();
             this.groupBox_MainDielce.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -298,7 +301,6 @@
             this.groupBox_DiagnosticsDiscManagement.SuspendLayout();
             this.panel_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FooterKeyBoard)).BeginInit();
-            this.groupBox_MainStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_Header
@@ -420,6 +422,116 @@
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "Hlavná";
             // 
+            // groupBox_MainStatistics
+            // 
+            this.groupBox_MainStatistics.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOverall);
+            this.groupBox_MainStatistics.Controls.Add(this.label46);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsSuspicious);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOverCount);
+            this.groupBox_MainStatistics.Controls.Add(this.label44);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOK);
+            this.groupBox_MainStatistics.Controls.Add(this.label42);
+            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsNOK);
+            this.groupBox_MainStatistics.Controls.Add(this.label41);
+            this.groupBox_MainStatistics.Controls.Add(this.label39);
+            this.groupBox_MainStatistics.Location = new System.Drawing.Point(1518, 663);
+            this.groupBox_MainStatistics.Name = "groupBox_MainStatistics";
+            this.groupBox_MainStatistics.Size = new System.Drawing.Size(271, 258);
+            this.groupBox_MainStatistics.TabIndex = 6;
+            this.groupBox_MainStatistics.TabStop = false;
+            this.groupBox_MainStatistics.Text = "Štatistika";
+            // 
+            // label_MainStatisticsOverall
+            // 
+            this.label_MainStatisticsOverall.AutoSize = true;
+            this.label_MainStatisticsOverall.Location = new System.Drawing.Point(198, 164);
+            this.label_MainStatisticsOverall.Name = "label_MainStatisticsOverall";
+            this.label_MainStatisticsOverall.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsOverall.TabIndex = 0;
+            this.label_MainStatisticsOverall.Text = "-1";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(17, 164);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(111, 20);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "Celkový počet:";
+            // 
+            // label_MainStatisticsSuspicious
+            // 
+            this.label_MainStatisticsSuspicious.AutoSize = true;
+            this.label_MainStatisticsSuspicious.Location = new System.Drawing.Point(198, 131);
+            this.label_MainStatisticsSuspicious.Name = "label_MainStatisticsSuspicious";
+            this.label_MainStatisticsSuspicious.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsSuspicious.TabIndex = 0;
+            this.label_MainStatisticsSuspicious.Text = "-1";
+            // 
+            // label_MainStatisticsOverCount
+            // 
+            this.label_MainStatisticsOverCount.AutoSize = true;
+            this.label_MainStatisticsOverCount.Location = new System.Drawing.Point(198, 98);
+            this.label_MainStatisticsOverCount.Name = "label_MainStatisticsOverCount";
+            this.label_MainStatisticsOverCount.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsOverCount.TabIndex = 0;
+            this.label_MainStatisticsOverCount.Text = "-1";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(17, 131);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(140, 20);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Poč.podoz.dielcov:";
+            // 
+            // label_MainStatisticsOK
+            // 
+            this.label_MainStatisticsOK.AutoSize = true;
+            this.label_MainStatisticsOK.Location = new System.Drawing.Point(198, 65);
+            this.label_MainStatisticsOK.Name = "label_MainStatisticsOK";
+            this.label_MainStatisticsOK.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsOK.TabIndex = 0;
+            this.label_MainStatisticsOK.Text = "-1";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(17, 98);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(82, 20);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Nadpočet:";
+            // 
+            // label_MainStatisticsNOK
+            // 
+            this.label_MainStatisticsNOK.AutoSize = true;
+            this.label_MainStatisticsNOK.Location = new System.Drawing.Point(198, 32);
+            this.label_MainStatisticsNOK.Name = "label_MainStatisticsNOK";
+            this.label_MainStatisticsNOK.Size = new System.Drawing.Size(23, 20);
+            this.label_MainStatisticsNOK.TabIndex = 0;
+            this.label_MainStatisticsNOK.Text = "-1";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(17, 65);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(35, 20);
+            this.label41.TabIndex = 0;
+            this.label41.Text = "OK:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(17, 32);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(46, 20);
+            this.label39.TabIndex = 0;
+            this.label39.Text = "NOK:";
+            // 
             // label_MainSystemMessage
             // 
             this.label_MainSystemMessage.Location = new System.Drawing.Point(950, 927);
@@ -532,6 +644,22 @@
             this.groupBox_MainRiadenie.TabIndex = 1;
             this.groupBox_MainRiadenie.TabStop = false;
             this.groupBox_MainRiadenie.Text = "Riadenie";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.checkBox1.FlatAppearance.BorderSize = 2;
+            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox1.Location = new System.Drawing.Point(9, 116);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(256, 49);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Uložiť Aktuálny Obraz";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.UseVisualStyleBackColor = false;
             // 
             // checkBox_MainStop
             // 
@@ -777,7 +905,7 @@
             this.button_TakeInfoFromDB.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_TakeInfoFromDB.FlatAppearance.BorderSize = 2;
             this.button_TakeInfoFromDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_TakeInfoFromDB.Location = new System.Drawing.Point(2000, 907);
+            this.button_TakeInfoFromDB.Location = new System.Drawing.Point(1580, 904);
             this.button_TakeInfoFromDB.Name = "button_TakeInfoFromDB";
             this.button_TakeInfoFromDB.Size = new System.Drawing.Size(100, 50);
             this.button_TakeInfoFromDB.TabIndex = 3;
@@ -934,7 +1062,7 @@
             // groupBox_Hwindow
             // 
             this.groupBox_Hwindow.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox_Hwindow.Controls.Add(this.hWindow_Image);
+            this.groupBox_Hwindow.Controls.Add(this.Hwindow_ArchiveImage);
             this.groupBox_Hwindow.Location = new System.Drawing.Point(5, 5);
             this.groupBox_Hwindow.Name = "groupBox_Hwindow";
             this.groupBox_Hwindow.Size = new System.Drawing.Size(1042, 955);
@@ -942,23 +1070,23 @@
             this.groupBox_Hwindow.TabStop = false;
             this.groupBox_Hwindow.Text = "Obraz";
             // 
-            // hWindow_Image
+            // Hwindow_ArchiveImage
             // 
-            this.hWindow_Image.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hWindow_Image.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.hWindow_Image.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hWindow_Image.HDoubleClickToFitContent = true;
-            this.hWindow_Image.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.hWindow_Image.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.hWindow_Image.HKeepAspectRatio = true;
-            this.hWindow_Image.HMoveContent = true;
-            this.hWindow_Image.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.hWindow_Image.Location = new System.Drawing.Point(3, 22);
-            this.hWindow_Image.Margin = new System.Windows.Forms.Padding(0);
-            this.hWindow_Image.Name = "hWindow_Image";
-            this.hWindow_Image.Size = new System.Drawing.Size(1036, 930);
-            this.hWindow_Image.TabIndex = 0;
-            this.hWindow_Image.WindowSize = new System.Drawing.Size(1036, 930);
+            this.Hwindow_ArchiveImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Hwindow_ArchiveImage.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_ArchiveImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Hwindow_ArchiveImage.HDoubleClickToFitContent = true;
+            this.Hwindow_ArchiveImage.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
+            this.Hwindow_ArchiveImage.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_ArchiveImage.HKeepAspectRatio = true;
+            this.Hwindow_ArchiveImage.HMoveContent = true;
+            this.Hwindow_ArchiveImage.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_ArchiveImage.Location = new System.Drawing.Point(3, 22);
+            this.Hwindow_ArchiveImage.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_ArchiveImage.Name = "Hwindow_ArchiveImage";
+            this.Hwindow_ArchiveImage.Size = new System.Drawing.Size(1036, 930);
+            this.Hwindow_ArchiveImage.TabIndex = 0;
+            this.Hwindow_ArchiveImage.WindowSize = new System.Drawing.Size(1036, 930);
             // 
             // tabPage_Diagnostics
             // 
@@ -1075,6 +1203,102 @@
             this.groupBox_DiagnosticsVstupy.TabIndex = 12;
             this.groupBox_DiagnosticsVstupy.TabStop = false;
             this.groupBox_DiagnosticsVstupy.Text = "Vstupy";
+            // 
+            // button_DiagnosticsInput7
+            // 
+            this.button_DiagnosticsInput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput7.Location = new System.Drawing.Point(111, 281);
+            this.button_DiagnosticsInput7.Name = "button_DiagnosticsInput7";
+            this.button_DiagnosticsInput7.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput7.TabIndex = 12;
+            this.button_DiagnosticsInput7.Text = "Nastaviť";
+            this.button_DiagnosticsInput7.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput6
+            // 
+            this.button_DiagnosticsInput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput6.Location = new System.Drawing.Point(111, 246);
+            this.button_DiagnosticsInput6.Name = "button_DiagnosticsInput6";
+            this.button_DiagnosticsInput6.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput6.TabIndex = 12;
+            this.button_DiagnosticsInput6.Text = "Nastaviť";
+            this.button_DiagnosticsInput6.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput5
+            // 
+            this.button_DiagnosticsInput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput5.Location = new System.Drawing.Point(111, 212);
+            this.button_DiagnosticsInput5.Name = "button_DiagnosticsInput5";
+            this.button_DiagnosticsInput5.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput5.TabIndex = 12;
+            this.button_DiagnosticsInput5.Text = "Nastaviť";
+            this.button_DiagnosticsInput5.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput4
+            // 
+            this.button_DiagnosticsInput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput4.Location = new System.Drawing.Point(111, 177);
+            this.button_DiagnosticsInput4.Name = "button_DiagnosticsInput4";
+            this.button_DiagnosticsInput4.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput4.TabIndex = 12;
+            this.button_DiagnosticsInput4.Text = "Nastaviť";
+            this.button_DiagnosticsInput4.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput3
+            // 
+            this.button_DiagnosticsInput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput3.Location = new System.Drawing.Point(111, 142);
+            this.button_DiagnosticsInput3.Name = "button_DiagnosticsInput3";
+            this.button_DiagnosticsInput3.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput3.TabIndex = 12;
+            this.button_DiagnosticsInput3.Text = "Nastaviť";
+            this.button_DiagnosticsInput3.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput2
+            // 
+            this.button_DiagnosticsInput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput2.Location = new System.Drawing.Point(111, 107);
+            this.button_DiagnosticsInput2.Name = "button_DiagnosticsInput2";
+            this.button_DiagnosticsInput2.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput2.TabIndex = 12;
+            this.button_DiagnosticsInput2.Text = "Nastaviť";
+            this.button_DiagnosticsInput2.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput1
+            // 
+            this.button_DiagnosticsInput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput1.Location = new System.Drawing.Point(111, 72);
+            this.button_DiagnosticsInput1.Name = "button_DiagnosticsInput1";
+            this.button_DiagnosticsInput1.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput1.TabIndex = 12;
+            this.button_DiagnosticsInput1.Text = "Nastaviť";
+            this.button_DiagnosticsInput1.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsInput0
+            // 
+            this.button_DiagnosticsInput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsInput0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsInput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsInput0.Location = new System.Drawing.Point(111, 37);
+            this.button_DiagnosticsInput0.Name = "button_DiagnosticsInput0";
+            this.button_DiagnosticsInput0.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsInput0.TabIndex = 12;
+            this.button_DiagnosticsInput0.Text = "Nastaviť";
+            this.button_DiagnosticsInput0.UseVisualStyleBackColor = false;
             // 
             // pictureBox_DiagnosticsInput6
             // 
@@ -1312,6 +1536,198 @@
             this.groupBox_DiagnosticsOutputs.TabIndex = 3;
             this.groupBox_DiagnosticsOutputs.TabStop = false;
             this.groupBox_DiagnosticsOutputs.Text = "Výstupy";
+            // 
+            // button_DiagnosticsOutput15
+            // 
+            this.button_DiagnosticsOutput15.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput15.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput15.Location = new System.Drawing.Point(109, 560);
+            this.button_DiagnosticsOutput15.Name = "button_DiagnosticsOutput15";
+            this.button_DiagnosticsOutput15.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput15.TabIndex = 12;
+            this.button_DiagnosticsOutput15.Text = "Nastaviť";
+            this.button_DiagnosticsOutput15.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput7
+            // 
+            this.button_DiagnosticsOutput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput7.Location = new System.Drawing.Point(109, 281);
+            this.button_DiagnosticsOutput7.Name = "button_DiagnosticsOutput7";
+            this.button_DiagnosticsOutput7.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput7.TabIndex = 12;
+            this.button_DiagnosticsOutput7.Text = "Nastaviť";
+            this.button_DiagnosticsOutput7.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput14
+            // 
+            this.button_DiagnosticsOutput14.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput14.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput14.Location = new System.Drawing.Point(109, 525);
+            this.button_DiagnosticsOutput14.Name = "button_DiagnosticsOutput14";
+            this.button_DiagnosticsOutput14.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput14.TabIndex = 12;
+            this.button_DiagnosticsOutput14.Text = "Nastaviť";
+            this.button_DiagnosticsOutput14.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput6
+            // 
+            this.button_DiagnosticsOutput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput6.Location = new System.Drawing.Point(109, 246);
+            this.button_DiagnosticsOutput6.Name = "button_DiagnosticsOutput6";
+            this.button_DiagnosticsOutput6.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput6.TabIndex = 12;
+            this.button_DiagnosticsOutput6.Text = "Nastaviť";
+            this.button_DiagnosticsOutput6.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput13
+            // 
+            this.button_DiagnosticsOutput13.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput13.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput13.Location = new System.Drawing.Point(109, 490);
+            this.button_DiagnosticsOutput13.Name = "button_DiagnosticsOutput13";
+            this.button_DiagnosticsOutput13.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput13.TabIndex = 12;
+            this.button_DiagnosticsOutput13.Text = "Nastaviť";
+            this.button_DiagnosticsOutput13.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput5
+            // 
+            this.button_DiagnosticsOutput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput5.Location = new System.Drawing.Point(109, 212);
+            this.button_DiagnosticsOutput5.Name = "button_DiagnosticsOutput5";
+            this.button_DiagnosticsOutput5.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput5.TabIndex = 12;
+            this.button_DiagnosticsOutput5.Text = "Nastaviť";
+            this.button_DiagnosticsOutput5.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput12
+            // 
+            this.button_DiagnosticsOutput12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput12.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput12.Location = new System.Drawing.Point(109, 455);
+            this.button_DiagnosticsOutput12.Name = "button_DiagnosticsOutput12";
+            this.button_DiagnosticsOutput12.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput12.TabIndex = 12;
+            this.button_DiagnosticsOutput12.Text = "Nastaviť";
+            this.button_DiagnosticsOutput12.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput4
+            // 
+            this.button_DiagnosticsOutput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput4.Location = new System.Drawing.Point(109, 177);
+            this.button_DiagnosticsOutput4.Name = "button_DiagnosticsOutput4";
+            this.button_DiagnosticsOutput4.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput4.TabIndex = 12;
+            this.button_DiagnosticsOutput4.Text = "Nastaviť";
+            this.button_DiagnosticsOutput4.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput11
+            // 
+            this.button_DiagnosticsOutput11.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput11.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput11.Location = new System.Drawing.Point(109, 420);
+            this.button_DiagnosticsOutput11.Name = "button_DiagnosticsOutput11";
+            this.button_DiagnosticsOutput11.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput11.TabIndex = 12;
+            this.button_DiagnosticsOutput11.Text = "Nastaviť";
+            this.button_DiagnosticsOutput11.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput3
+            // 
+            this.button_DiagnosticsOutput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput3.Location = new System.Drawing.Point(109, 142);
+            this.button_DiagnosticsOutput3.Name = "button_DiagnosticsOutput3";
+            this.button_DiagnosticsOutput3.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput3.TabIndex = 12;
+            this.button_DiagnosticsOutput3.Text = "Nastaviť";
+            this.button_DiagnosticsOutput3.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput10
+            // 
+            this.button_DiagnosticsOutput10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput10.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput10.Location = new System.Drawing.Point(109, 385);
+            this.button_DiagnosticsOutput10.Name = "button_DiagnosticsOutput10";
+            this.button_DiagnosticsOutput10.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput10.TabIndex = 12;
+            this.button_DiagnosticsOutput10.Text = "Nastaviť";
+            this.button_DiagnosticsOutput10.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput2
+            // 
+            this.button_DiagnosticsOutput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput2.Location = new System.Drawing.Point(109, 107);
+            this.button_DiagnosticsOutput2.Name = "button_DiagnosticsOutput2";
+            this.button_DiagnosticsOutput2.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput2.TabIndex = 12;
+            this.button_DiagnosticsOutput2.Text = "Nastaviť";
+            this.button_DiagnosticsOutput2.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput9
+            // 
+            this.button_DiagnosticsOutput9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput9.Location = new System.Drawing.Point(109, 350);
+            this.button_DiagnosticsOutput9.Name = "button_DiagnosticsOutput9";
+            this.button_DiagnosticsOutput9.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput9.TabIndex = 12;
+            this.button_DiagnosticsOutput9.Text = "Nastaviť";
+            this.button_DiagnosticsOutput9.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput8
+            // 
+            this.button_DiagnosticsOutput8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput8.Location = new System.Drawing.Point(109, 316);
+            this.button_DiagnosticsOutput8.Name = "button_DiagnosticsOutput8";
+            this.button_DiagnosticsOutput8.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput8.TabIndex = 12;
+            this.button_DiagnosticsOutput8.Text = "Nastaviť";
+            this.button_DiagnosticsOutput8.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput1
+            // 
+            this.button_DiagnosticsOutput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput1.Location = new System.Drawing.Point(109, 72);
+            this.button_DiagnosticsOutput1.Name = "button_DiagnosticsOutput1";
+            this.button_DiagnosticsOutput1.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput1.TabIndex = 12;
+            this.button_DiagnosticsOutput1.Text = "Nastaviť";
+            this.button_DiagnosticsOutput1.UseVisualStyleBackColor = false;
+            // 
+            // button_DiagnosticsOutput0
+            // 
+            this.button_DiagnosticsOutput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsOutput0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsOutput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsOutput0.Location = new System.Drawing.Point(109, 37);
+            this.button_DiagnosticsOutput0.Name = "button_DiagnosticsOutput0";
+            this.button_DiagnosticsOutput0.Size = new System.Drawing.Size(83, 30);
+            this.button_DiagnosticsOutput0.TabIndex = 12;
+            this.button_DiagnosticsOutput0.Text = "Nastaviť";
+            this.button_DiagnosticsOutput0.UseVisualStyleBackColor = false;
             // 
             // pictureBox_DiagnosticsOutput14
             // 
@@ -1624,6 +2040,8 @@
             this.groupBox_DiagnosticsCamSettings.Controls.Add(this.listBox_DiagnosticsCamerasSettings);
             this.groupBox_DiagnosticsCamSettings.Controls.Add(this.label16);
             this.groupBox_DiagnosticsCamSettings.Controls.Add(this.label14);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsGainSet);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsExposureSet);
             this.groupBox_DiagnosticsCamSettings.Location = new System.Drawing.Point(286, 71);
             this.groupBox_DiagnosticsCamSettings.Name = "groupBox_DiagnosticsCamSettings";
             this.groupBox_DiagnosticsCamSettings.Size = new System.Drawing.Size(467, 158);
@@ -1633,16 +2051,16 @@
             // 
             // textBox_DiagnosticsGain
             // 
-            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(161, 86);
+            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(132, 95);
             this.textBox_DiagnosticsGain.Name = "textBox_DiagnosticsGain";
-            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(100, 26);
+            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(79, 26);
             this.textBox_DiagnosticsGain.TabIndex = 1;
             // 
             // textBox_DiagnosticsExposureTime
             // 
-            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(161, 45);
+            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(132, 45);
             this.textBox_DiagnosticsExposureTime.Name = "textBox_DiagnosticsExposureTime";
-            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(100, 26);
+            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(79, 26);
             this.textBox_DiagnosticsExposureTime.TabIndex = 1;
             // 
             // listBox_DiagnosticsCamerasSettings
@@ -1665,7 +2083,7 @@
             "Cam13",
             "Cam14",
             ""});
-            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(313, 42);
+            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(332, 45);
             this.listBox_DiagnosticsCamerasSettings.Name = "listBox_DiagnosticsCamerasSettings";
             this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(129, 64);
             this.listBox_DiagnosticsCamerasSettings.TabIndex = 0;
@@ -1673,17 +2091,17 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(11, 92);
+            this.label16.Location = new System.Drawing.Point(41, 98);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(81, 20);
+            this.label16.Size = new System.Drawing.Size(85, 20);
             this.label16.TabIndex = 0;
-            this.label16.Text = "Zosilnenie";
+            this.label16.Text = "Zosilnenie:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 48);
+            this.label14.Location = new System.Drawing.Point(0, 48);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(126, 20);
             this.label14.TabIndex = 0;
@@ -2100,6 +2518,16 @@
             this.panel_Footer.Size = new System.Drawing.Size(1920, 51);
             this.panel_Footer.TabIndex = 9;
             // 
+            // pictureBox_FooterKeyBoard
+            // 
+            this.pictureBox_FooterKeyBoard.Image = global::IkeaUI.Properties.Resources.keyboard_40px;
+            this.pictureBox_FooterKeyBoard.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox_FooterKeyBoard.Name = "pictureBox_FooterKeyBoard";
+            this.pictureBox_FooterKeyBoard.Size = new System.Drawing.Size(54, 45);
+            this.pictureBox_FooterKeyBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_FooterKeyBoard.TabIndex = 5;
+            this.pictureBox_FooterKeyBoard.TabStop = false;
+            // 
             // button_FooterExitApp
             // 
             this.button_FooterExitApp.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -2115,429 +2543,31 @@
             this.button_FooterExitApp.UseVisualStyleBackColor = false;
             this.button_FooterExitApp.Click += new System.EventHandler(this.button_ExitApp_Click);
             // 
-            // pictureBox_FooterKeyBoard
-            // 
-            this.pictureBox_FooterKeyBoard.Image = global::IkeaUI.Properties.Resources.keyboard_40px;
-            this.pictureBox_FooterKeyBoard.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox_FooterKeyBoard.Name = "pictureBox_FooterKeyBoard";
-            this.pictureBox_FooterKeyBoard.Size = new System.Drawing.Size(54, 45);
-            this.pictureBox_FooterKeyBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_FooterKeyBoard.TabIndex = 5;
-            this.pictureBox_FooterKeyBoard.TabStop = false;
-            // 
-            // groupBox_MainStatistics
-            // 
-            this.groupBox_MainStatistics.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOverall);
-            this.groupBox_MainStatistics.Controls.Add(this.label46);
-            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsSuspicious);
-            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOverCount);
-            this.groupBox_MainStatistics.Controls.Add(this.label44);
-            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOK);
-            this.groupBox_MainStatistics.Controls.Add(this.label42);
-            this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsNOK);
-            this.groupBox_MainStatistics.Controls.Add(this.label41);
-            this.groupBox_MainStatistics.Controls.Add(this.label39);
-            this.groupBox_MainStatistics.Location = new System.Drawing.Point(1518, 663);
-            this.groupBox_MainStatistics.Name = "groupBox_MainStatistics";
-            this.groupBox_MainStatistics.Size = new System.Drawing.Size(271, 258);
-            this.groupBox_MainStatistics.TabIndex = 6;
-            this.groupBox_MainStatistics.TabStop = false;
-            this.groupBox_MainStatistics.Text = "Štatistika";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.checkBox1.FlatAppearance.BorderSize = 2;
-            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Location = new System.Drawing.Point(9, 116);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(256, 49);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Uložiť Aktuálny Obraz";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput0
-            // 
-            this.button_DiagnosticsInput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput0.Location = new System.Drawing.Point(111, 37);
-            this.button_DiagnosticsInput0.Name = "button_DiagnosticsInput0";
-            this.button_DiagnosticsInput0.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput0.TabIndex = 12;
-            this.button_DiagnosticsInput0.Text = "Nastaviť";
-            this.button_DiagnosticsInput0.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput1
-            // 
-            this.button_DiagnosticsInput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput1.Location = new System.Drawing.Point(111, 72);
-            this.button_DiagnosticsInput1.Name = "button_DiagnosticsInput1";
-            this.button_DiagnosticsInput1.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput1.TabIndex = 12;
-            this.button_DiagnosticsInput1.Text = "Nastaviť";
-            this.button_DiagnosticsInput1.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput2
-            // 
-            this.button_DiagnosticsInput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput2.Location = new System.Drawing.Point(111, 107);
-            this.button_DiagnosticsInput2.Name = "button_DiagnosticsInput2";
-            this.button_DiagnosticsInput2.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput2.TabIndex = 12;
-            this.button_DiagnosticsInput2.Text = "Nastaviť";
-            this.button_DiagnosticsInput2.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput3
-            // 
-            this.button_DiagnosticsInput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput3.Location = new System.Drawing.Point(111, 142);
-            this.button_DiagnosticsInput3.Name = "button_DiagnosticsInput3";
-            this.button_DiagnosticsInput3.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput3.TabIndex = 12;
-            this.button_DiagnosticsInput3.Text = "Nastaviť";
-            this.button_DiagnosticsInput3.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput4
-            // 
-            this.button_DiagnosticsInput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput4.Location = new System.Drawing.Point(111, 177);
-            this.button_DiagnosticsInput4.Name = "button_DiagnosticsInput4";
-            this.button_DiagnosticsInput4.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput4.TabIndex = 12;
-            this.button_DiagnosticsInput4.Text = "Nastaviť";
-            this.button_DiagnosticsInput4.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput5
-            // 
-            this.button_DiagnosticsInput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput5.Location = new System.Drawing.Point(111, 212);
-            this.button_DiagnosticsInput5.Name = "button_DiagnosticsInput5";
-            this.button_DiagnosticsInput5.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput5.TabIndex = 12;
-            this.button_DiagnosticsInput5.Text = "Nastaviť";
-            this.button_DiagnosticsInput5.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput6
-            // 
-            this.button_DiagnosticsInput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput6.Location = new System.Drawing.Point(111, 246);
-            this.button_DiagnosticsInput6.Name = "button_DiagnosticsInput6";
-            this.button_DiagnosticsInput6.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput6.TabIndex = 12;
-            this.button_DiagnosticsInput6.Text = "Nastaviť";
-            this.button_DiagnosticsInput6.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsInput7
-            // 
-            this.button_DiagnosticsInput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsInput7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsInput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsInput7.Location = new System.Drawing.Point(111, 281);
-            this.button_DiagnosticsInput7.Name = "button_DiagnosticsInput7";
-            this.button_DiagnosticsInput7.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsInput7.TabIndex = 12;
-            this.button_DiagnosticsInput7.Text = "Nastaviť";
-            this.button_DiagnosticsInput7.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput0
-            // 
-            this.button_DiagnosticsOutput0.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput0.Location = new System.Drawing.Point(109, 37);
-            this.button_DiagnosticsOutput0.Name = "button_DiagnosticsOutput0";
-            this.button_DiagnosticsOutput0.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput0.TabIndex = 12;
-            this.button_DiagnosticsOutput0.Text = "Nastaviť";
-            this.button_DiagnosticsOutput0.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput1
-            // 
-            this.button_DiagnosticsOutput1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1.Location = new System.Drawing.Point(109, 72);
-            this.button_DiagnosticsOutput1.Name = "button_DiagnosticsOutput1";
-            this.button_DiagnosticsOutput1.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput1.TabIndex = 12;
-            this.button_DiagnosticsOutput1.Text = "Nastaviť";
-            this.button_DiagnosticsOutput1.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput2
-            // 
-            this.button_DiagnosticsOutput2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2.Location = new System.Drawing.Point(109, 107);
-            this.button_DiagnosticsOutput2.Name = "button_DiagnosticsOutput2";
-            this.button_DiagnosticsOutput2.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput2.TabIndex = 12;
-            this.button_DiagnosticsOutput2.Text = "Nastaviť";
-            this.button_DiagnosticsOutput2.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput3
-            // 
-            this.button_DiagnosticsOutput3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput3.Location = new System.Drawing.Point(109, 142);
-            this.button_DiagnosticsOutput3.Name = "button_DiagnosticsOutput3";
-            this.button_DiagnosticsOutput3.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput3.TabIndex = 12;
-            this.button_DiagnosticsOutput3.Text = "Nastaviť";
-            this.button_DiagnosticsOutput3.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput4
-            // 
-            this.button_DiagnosticsOutput4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput4.Location = new System.Drawing.Point(109, 177);
-            this.button_DiagnosticsOutput4.Name = "button_DiagnosticsOutput4";
-            this.button_DiagnosticsOutput4.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput4.TabIndex = 12;
-            this.button_DiagnosticsOutput4.Text = "Nastaviť";
-            this.button_DiagnosticsOutput4.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput5
-            // 
-            this.button_DiagnosticsOutput5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput5.Location = new System.Drawing.Point(109, 212);
-            this.button_DiagnosticsOutput5.Name = "button_DiagnosticsOutput5";
-            this.button_DiagnosticsOutput5.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput5.TabIndex = 12;
-            this.button_DiagnosticsOutput5.Text = "Nastaviť";
-            this.button_DiagnosticsOutput5.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput6
-            // 
-            this.button_DiagnosticsOutput6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput6.Location = new System.Drawing.Point(109, 246);
-            this.button_DiagnosticsOutput6.Name = "button_DiagnosticsOutput6";
-            this.button_DiagnosticsOutput6.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput6.TabIndex = 12;
-            this.button_DiagnosticsOutput6.Text = "Nastaviť";
-            this.button_DiagnosticsOutput6.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput7
-            // 
-            this.button_DiagnosticsOutput7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput7.Location = new System.Drawing.Point(109, 281);
-            this.button_DiagnosticsOutput7.Name = "button_DiagnosticsOutput7";
-            this.button_DiagnosticsOutput7.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput7.TabIndex = 12;
-            this.button_DiagnosticsOutput7.Text = "Nastaviť";
-            this.button_DiagnosticsOutput7.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput8
-            // 
-            this.button_DiagnosticsOutput8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput8.Location = new System.Drawing.Point(109, 316);
-            this.button_DiagnosticsOutput8.Name = "button_DiagnosticsOutput8";
-            this.button_DiagnosticsOutput8.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput8.TabIndex = 12;
-            this.button_DiagnosticsOutput8.Text = "Nastaviť";
-            this.button_DiagnosticsOutput8.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput9
-            // 
-            this.button_DiagnosticsOutput9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput9.Location = new System.Drawing.Point(109, 350);
-            this.button_DiagnosticsOutput9.Name = "button_DiagnosticsOutput9";
-            this.button_DiagnosticsOutput9.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput9.TabIndex = 12;
-            this.button_DiagnosticsOutput9.Text = "Nastaviť";
-            this.button_DiagnosticsOutput9.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput10
-            // 
-            this.button_DiagnosticsOutput10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput10.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput10.Location = new System.Drawing.Point(109, 385);
-            this.button_DiagnosticsOutput10.Name = "button_DiagnosticsOutput10";
-            this.button_DiagnosticsOutput10.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput10.TabIndex = 12;
-            this.button_DiagnosticsOutput10.Text = "Nastaviť";
-            this.button_DiagnosticsOutput10.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput11
-            // 
-            this.button_DiagnosticsOutput11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput11.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput11.Location = new System.Drawing.Point(109, 420);
-            this.button_DiagnosticsOutput11.Name = "button_DiagnosticsOutput11";
-            this.button_DiagnosticsOutput11.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput11.TabIndex = 12;
-            this.button_DiagnosticsOutput11.Text = "Nastaviť";
-            this.button_DiagnosticsOutput11.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput12
-            // 
-            this.button_DiagnosticsOutput12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput12.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput12.Location = new System.Drawing.Point(109, 455);
-            this.button_DiagnosticsOutput12.Name = "button_DiagnosticsOutput12";
-            this.button_DiagnosticsOutput12.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput12.TabIndex = 12;
-            this.button_DiagnosticsOutput12.Text = "Nastaviť";
-            this.button_DiagnosticsOutput12.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput13
-            // 
-            this.button_DiagnosticsOutput13.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput13.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput13.Location = new System.Drawing.Point(109, 490);
-            this.button_DiagnosticsOutput13.Name = "button_DiagnosticsOutput13";
-            this.button_DiagnosticsOutput13.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput13.TabIndex = 12;
-            this.button_DiagnosticsOutput13.Text = "Nastaviť";
-            this.button_DiagnosticsOutput13.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput14
-            // 
-            this.button_DiagnosticsOutput14.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput14.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput14.Location = new System.Drawing.Point(109, 525);
-            this.button_DiagnosticsOutput14.Name = "button_DiagnosticsOutput14";
-            this.button_DiagnosticsOutput14.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput14.TabIndex = 12;
-            this.button_DiagnosticsOutput14.Text = "Nastaviť";
-            this.button_DiagnosticsOutput14.UseVisualStyleBackColor = false;
-            // 
-            // button_DiagnosticsOutput15
-            // 
-            this.button_DiagnosticsOutput15.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsOutput15.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsOutput15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput15.Location = new System.Drawing.Point(109, 560);
-            this.button_DiagnosticsOutput15.Name = "button_DiagnosticsOutput15";
-            this.button_DiagnosticsOutput15.Size = new System.Drawing.Size(83, 30);
-            this.button_DiagnosticsOutput15.TabIndex = 12;
-            this.button_DiagnosticsOutput15.Text = "Nastaviť";
-            this.button_DiagnosticsOutput15.UseVisualStyleBackColor = false;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(17, 32);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(46, 20);
-            this.label39.TabIndex = 0;
-            this.label39.Text = "NOK:";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(17, 65);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(35, 20);
-            this.label41.TabIndex = 0;
-            this.label41.Text = "OK:";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(17, 98);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(82, 20);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Nadpočet:";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(17, 131);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(140, 20);
-            this.label44.TabIndex = 0;
-            this.label44.Text = "Poč.podoz.dielcov:";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(17, 164);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(111, 20);
-            this.label46.TabIndex = 0;
-            this.label46.Text = "Celkový počet:";
-            // 
-            // label_MainStatisticsNOK
-            // 
-            this.label_MainStatisticsNOK.AutoSize = true;
-            this.label_MainStatisticsNOK.Location = new System.Drawing.Point(198, 32);
-            this.label_MainStatisticsNOK.Name = "label_MainStatisticsNOK";
-            this.label_MainStatisticsNOK.Size = new System.Drawing.Size(23, 20);
-            this.label_MainStatisticsNOK.TabIndex = 0;
-            this.label_MainStatisticsNOK.Text = "-1";
-            // 
-            // label_MainStatisticsOK
-            // 
-            this.label_MainStatisticsOK.AutoSize = true;
-            this.label_MainStatisticsOK.Location = new System.Drawing.Point(198, 65);
-            this.label_MainStatisticsOK.Name = "label_MainStatisticsOK";
-            this.label_MainStatisticsOK.Size = new System.Drawing.Size(23, 20);
-            this.label_MainStatisticsOK.TabIndex = 0;
-            this.label_MainStatisticsOK.Text = "-1";
-            // 
-            // label_MainStatisticsOverCount
-            // 
-            this.label_MainStatisticsOverCount.AutoSize = true;
-            this.label_MainStatisticsOverCount.Location = new System.Drawing.Point(198, 98);
-            this.label_MainStatisticsOverCount.Name = "label_MainStatisticsOverCount";
-            this.label_MainStatisticsOverCount.Size = new System.Drawing.Size(23, 20);
-            this.label_MainStatisticsOverCount.TabIndex = 0;
-            this.label_MainStatisticsOverCount.Text = "-1";
-            // 
-            // label_MainStatisticsSuspicious
-            // 
-            this.label_MainStatisticsSuspicious.AutoSize = true;
-            this.label_MainStatisticsSuspicious.Location = new System.Drawing.Point(198, 131);
-            this.label_MainStatisticsSuspicious.Name = "label_MainStatisticsSuspicious";
-            this.label_MainStatisticsSuspicious.Size = new System.Drawing.Size(23, 20);
-            this.label_MainStatisticsSuspicious.TabIndex = 0;
-            this.label_MainStatisticsSuspicious.Text = "-1";
-            // 
-            // label_MainStatisticsOverall
-            // 
-            this.label_MainStatisticsOverall.AutoSize = true;
-            this.label_MainStatisticsOverall.Location = new System.Drawing.Point(198, 164);
-            this.label_MainStatisticsOverall.Name = "label_MainStatisticsOverall";
-            this.label_MainStatisticsOverall.Size = new System.Drawing.Size(23, 20);
-            this.label_MainStatisticsOverall.TabIndex = 0;
-            this.label_MainStatisticsOverall.Text = "-1";
+            // button_DiagnosticsExposureSet
+            // 
+            this.button_DiagnosticsExposureSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsExposureSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsExposureSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(217, 45);
+            this.button_DiagnosticsExposureSet.Name = "button_DiagnosticsExposureSet";
+            this.button_DiagnosticsExposureSet.Size = new System.Drawing.Size(88, 26);
+            this.button_DiagnosticsExposureSet.TabIndex = 12;
+            this.button_DiagnosticsExposureSet.Text = "Nastaviť";
+            this.button_DiagnosticsExposureSet.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsExposureSet.Click += new System.EventHandler(this.button_DiagnosticsExposureSet_Click);
+            // 
+            // button_DiagnosticsGainSet
+            // 
+            this.button_DiagnosticsGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(217, 95);
+            this.button_DiagnosticsGainSet.Name = "button_DiagnosticsGainSet";
+            this.button_DiagnosticsGainSet.Size = new System.Drawing.Size(88, 26);
+            this.button_DiagnosticsGainSet.TabIndex = 12;
+            this.button_DiagnosticsGainSet.Text = "Nastaviť";
+            this.button_DiagnosticsGainSet.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsGainSet.Click += new System.EventHandler(this.button_DiagnosticsGainSet_Click);
             // 
             // MainForm
             // 
@@ -2562,6 +2592,8 @@
             this.tabControl_MainControl.ResumeLayout(false);
             this.tabPage_Main.ResumeLayout(false);
             this.tabPage_Main.PerformLayout();
+            this.groupBox_MainStatistics.ResumeLayout(false);
+            this.groupBox_MainStatistics.PerformLayout();
             this.groupBox_MainPodozrive.ResumeLayout(false);
             this.groupBox_MainDielce.ResumeLayout(false);
             this.groupBox_MainDielce.PerformLayout();
@@ -2635,8 +2667,6 @@
             this.groupBox_DiagnosticsDiscManagement.PerformLayout();
             this.panel_Footer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FooterKeyBoard)).EndInit();
-            this.groupBox_MainStatistics.ResumeLayout(false);
-            this.groupBox_MainStatistics.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2658,7 +2688,7 @@
         private System.Windows.Forms.GroupBox groupBox_Holes;
         private System.Windows.Forms.GroupBox groupBox_Boards;
         private System.Windows.Forms.GroupBox groupBox_Hwindow;
-        private HalconDotNet.HSmartWindowControl hWindow_Image;
+        private HalconDotNet.HSmartWindowControl Hwindow_ArchiveImage;
         private System.Windows.Forms.DataGridView datagridTable_HolesData;
         private System.Windows.Forms.DataGridView datagridTable_Data;
         private System.Windows.Forms.GroupBox groupBox_DiagnosticsDiscManagement;
@@ -2841,6 +2871,8 @@
         private System.Windows.Forms.Label label_MainStatisticsNOK;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button button_DiagnosticsGainSet;
+        private System.Windows.Forms.Button button_DiagnosticsExposureSet;
     }
 }
 

@@ -8,7 +8,7 @@ namespace Ikea_Library
 {
     public class Hole
     {
-        public string IDMeasurement { get; set; }
+        public string TimeStamp { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
         public double Radius { get; set; }

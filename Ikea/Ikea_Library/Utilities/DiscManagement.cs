@@ -22,7 +22,7 @@ namespace Ikea_Library.Utilities
                 if (freeSpace < discSpaceLimit && freeSpace != -1)
                 {
                     DeleteOldFiles(path);
-                    Console.WriteLine(DateTime.Now + " - " + $"Deleted from disc {path}");
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Deleted from disc {path}", "|OK|");
                     freeSpace = AvailableFreeDiskSpace(path);
                 }
                 return freeSpace;
@@ -30,7 +30,8 @@ namespace Ikea_Library.Utilities
 
             catch (Exception ex)
             {
-                Console.WriteLine(DateTime.Now + " - " + ex.Message);
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+
                 return -1;
             }
 
@@ -54,6 +55,7 @@ namespace Ikea_Library.Utilities
 
             catch (Exception ex)
             {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                 return -1;
             }
         }
@@ -78,7 +80,7 @@ namespace Ikea_Library.Utilities
 
             catch (Exception ex)
             {
-                Console.WriteLine(DateTime.Now + " - " + ex.Message);
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
         }
 

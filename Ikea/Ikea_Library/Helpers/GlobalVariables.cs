@@ -21,5 +21,23 @@ namespace Ikea_Library.Helpers
         public static int DiscManagementDays = 90; // older files will be deleted
         public static int DiscManagementGigabytes = 20;
 
+        //all camera names
+        public static List<string> CameraNames = new List<string>()
+        {
+            "Cam1",
+            "Cam2",
+            "Cam3",
+            "Cam4",
+            "Cam5",
+            "Cam6",
+            "Cam7",
+            "Cam8",
+            "Cam9",
+            "Cam10",
+            "Cam11",
+            "Cam12",
+            "Cam13",
+            "Cam14",
+        };
     }
 }

@@ -55,6 +55,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Advantech.Adam, Version=8.2.12.0, Culture=neutral, PublicKeyToken=c24039c75946be9c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ikea_Library\Libs\Advantech.Adam.DLL</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -140,6 +144,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keyboard_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TabRed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TabGrey.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

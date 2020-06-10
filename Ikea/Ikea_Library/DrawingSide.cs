@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Ikea_Library
 {
-    public class Material
+    public class DrawingSide
     {
         public string Name { get; set; }
         public string TimeStamp { get; set; }
         public bool Status { get; set; }
-        public List<DrawingSide> DrawingSides { get; set; }
-        public int DrawingsCount { get; set; }
+        public List<Hole> Holes { get; set; }
+        public int HolesCount { get; set; }
+        public string ImagePath { get; set; }
 
-        public Material(string name)
+        public DrawingSide(string name)
         {
-
             if (name != null)
             {
                 Name = name;
@@ -26,8 +26,9 @@ namespace Ikea_Library
                 Name = "Default";
             }
         }
-        public Material()
+        public DrawingSide()
         {
         }
+
     }
 }

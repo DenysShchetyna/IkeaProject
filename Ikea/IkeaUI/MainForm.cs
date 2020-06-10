@@ -1,4 +1,5 @@
-﻿using HalconDotNet;
+﻿using Advantech.Adam;
+using HalconDotNet;
 using Ikea_Library;
 using Ikea_Library.DataGridTables;
 using Ikea_Library.DBAccess;
@@ -6,6 +7,7 @@ using Ikea_Library.HDevProcedures;
 using Ikea_Library.Helpers;
 using Ikea_Library.Utilities;
 using IkeaProject;
+using IkeaUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +16,23 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace IkeaUI
 {
     public partial class MainForm : Form
     {
         Material Plank;
+        DrawingSide DrawingSide;
         Hole Hole;
+        private string RecipeMaterialName;
+
         HDevProc Procedures;
+        AdamSocket AdamSocket;
+
 
         List<string> ListOfImagesPaths = new List<string>()
         {
@@ -52,6 +61,8 @@ namespace IkeaUI
             timer_Clock.Start();
             timer_DiscsCheck.Enabled = true;
             timer_DiscsCheck.Start();
+            timer_CameraPing.Enabled = true;
+            timer_CameraPing.Start();
         }
 
         private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)
@@ -66,11 +77,16 @@ namespace IkeaUI
 
         private void button_TakeInfoFromDB_Click(object sender, EventArgs e)
         {
-            Plank = new Material();
+            string materialname = RecipeMaterialName;
+            string drawingSide = "Front Side"; //take value regarding to camera position
+            Plank = new Material(materialname);
+            DrawingSide = new DrawingSide(drawingSide);
+            DrawingSide.Holes = new List<Hole>();
+            Plank.DrawingSides = new List<DrawingSide>();
+
             Random rnd = new Random();
             int goodHoles = 0;
             int badHoles = 0;
-            List<Hole> Holes = new List<Hole>();
 
             //For Simulation of reading photos
             if (ImgNum == ListOfImagesPaths.Count)
@@ -79,51 +95,53 @@ namespace IkeaUI
             }
 
             HOperatorSet.ReadImage(out HObject Image, ListOfImagesPaths[ImgNum]);
-
             Procedures.FindHoleFunc(Image, out HTuple rows, out HTuple columns, out HTuple radius);
 
             //Simulation BAD HOLES
             int randomNum = rnd.Next(0, 8);
-            string Timestamp = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
+            string timestamp = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
 
             //DEVIDE GOOD HOLES AND BAD HOLES by RANDOM NUMBER
             for (int i = 0; i < rows.Length - randomNum; i++)
             {
                 Hole = new Hole();
-                Hole.IDMeasurement = Timestamp;
+                Hole.TimeStamp = timestamp;
                 Hole.X = Math.Round(rows[i].D, 1);
                 Hole.Y = Math.Round(columns[i].D, 1);
                 Hole.Radius = Math.Round(radius[i].D, 1);
                 Hole.Status = true;
                 goodHoles++;
-                Holes.Add(Hole);
+                DrawingSide.Holes.Add(Hole);
             }
 
             for (int i = rows.Length - randomNum; i < rows.Length; i++)
             {
                 Hole = new Hole();
-                Hole.IDMeasurement = Timestamp;
+                Hole.TimeStamp = timestamp;
                 Hole.X = Math.Round(rows[i].D, 1);
                 Hole.Y = Math.Round(columns[i].D, 1);
                 Hole.Radius = Math.Round(radius[i].D, 1);
                 Hole.Status = false;
                 badHoles++;
-                Holes.Add(Hole);
+                DrawingSide.Holes.Add(Hole);
             }
 
-            Plank.IDMeasurement = Timestamp;
-            Plank.TimeStamp = Timestamp;
-            Plank.Barcode = Timestamp;
-            Plank.Holes = Holes;
-            Plank.HolesCount = Holes.Count;
-            Plank.ImagePath = ImagesPath + Plank.TimeStamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
+            DrawingSide.HolesCount = DrawingSide.Holes.Count();
+            DrawingSide.TimeStamp = timestamp;
+            DrawingSide.ImagePath = ImagesPath + (DrawingSide.TimeStamp +"\\" + DrawingSide.TimeStamp).Replace('-', '_').Replace(" ", "__").Replace(':', '_')+DrawingSide.Name+".tiff";
+
+            Plank.TimeStamp = timestamp;
+            Plank.DrawingSides.Add(DrawingSide);
+            Plank.DrawingsCount = Plank.DrawingSides.Count;
 
             if (goodHoles > badHoles)
             {
+                DrawingSide.Status = true;
                 Plank.Status = true;
             }
             else
             {
+                DrawingSide.Status = false;
                 Plank.Status = false;
             }
 
@@ -135,44 +153,66 @@ namespace IkeaUI
                 //SAVING IMAGES
                 if (insertingToDatabaseStatus == true)
                 {
-                    string filePath = ImagesPath + Timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
+                    string fileName = timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_')+ DrawingSide.Name + ".tiff";
+                    string dirPath = ImagesPath + timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
+                    string filePath = dirPath +"\\" + fileName;
+
+                    Directory.CreateDirectory(dirPath);
                     HOperatorSet.WriteImage(Image, "tiff", 0, filePath);
                     ImgNum++;
-                    Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, $"Saved image to {filePath}", "|OK|");
-                }
-                else
-                {
-                    Console.WriteLine(DateTime.Now + " Error inserting");
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Saved image to {filePath}", "|OK|");
                 }
             }
+
             catch (Exception ex)
             {
-                Console.WriteLine(DateTime.Now + ex.Message);
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
         }
 
 
         private void button_RefreshTable_Click(object sender, EventArgs e)
         {
-            DataGridFunctions.UpdateTable(datagridTable_Data);
-            datagridTable_Data.ClearSelection();
+            DataGridFunctions.UpdateTable(dataGridView_Data);
+            dataGridView_ArchiveDrawingSides.Rows.Clear();
+            dataGridView_HolesData.Rows.Clear();
+            dataGridView_Data.ClearSelection();
+            Hwindow_ArchiveImage.HalconWindow.ClearWindow();
         }
+        
 
-        private void datagridTable_Data_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_Data_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
             {
                 return;
             }
 
-            datagridTable_Data.Columns[0].Selected = false;
-            datagridTable_HolesData.Rows.Clear();
-            string idMeasurement = datagridTable_Data.Rows[e.RowIndex].Cells[0].Value.ToString();
-            List<Hole> holes = DBFunctions.TakeMeasurement(idMeasurement);
-            DataGridFunctions.ShowResults(datagridTable_HolesData, holes);
+            dataGridView_Data.Columns[0].Selected = false;
+            dataGridView_HolesData.Rows.Clear();
+            dataGridView_ArchiveDrawingSides.Rows.Clear();
+            string timeStamp = dataGridView_Data.Rows[e.RowIndex].Cells[1].Value.ToString();
+            List<DrawingSide> drawingSides = DBFunctions.TakeDrawingSides(timeStamp);
+            DataGridFunctions.ShowResultsDrawingSides(dataGridView_ArchiveDrawingSides, drawingSides);
+        }
 
-            Plank = DBFunctions.TakeImage(idMeasurement);
-            string readPath = ImagesPath + Plank.TimeStamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
+
+        private void dataGridView_ArchiveDrawingSides_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DrawingSide drawingSide = new DrawingSide();
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            dataGridView_ArchiveDrawingSides.Columns[0].Selected = false;
+            dataGridView_HolesData.Rows.Clear();
+            string timeStamp = dataGridView_ArchiveDrawingSides.Rows[e.RowIndex].Cells[1].Value.ToString();
+            List<Hole> holes = DBFunctions.TakeHoles(timeStamp);
+            DataGridFunctions.ShowResultsHoles(dataGridView_HolesData, holes);
+
+            drawingSide = DBFunctions.TakeImage(timeStamp);
+            string readPath = drawingSide.ImagePath;
             HOperatorSet.ReadImage(out HObject Image, readPath);
 
             //SHOW IMAGE
@@ -228,7 +268,7 @@ namespace IkeaUI
                 string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
                 int value = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
                 PersistentVariables.CamExposureTimeSet(camName, value);
-                Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
             }
             catch (Exception ex)
             {
@@ -243,12 +283,40 @@ namespace IkeaUI
                 string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
                 int value = Convert.ToInt32(textBox_DiagnosticsGain.Text);
                 PersistentVariables.CamExposureTimeSet(camName, value);
-                Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
+        }
+
+        private void timer_CameraPing_Tick(object sender, EventArgs e)
+        {
+            // cameraStatus = DeviceManager.PingCamera(GlobalVariables.CameraNames);
+            List<bool> cameraStatus = new List<bool>() { true, true, true, true, true, true, true, true, true, true, true, true, true, true };
+            
+            for (int i = 0; i < cameraStatus.Count; i++)
+            {
+                PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
+                UpdateUI.UpdatePictureBox(pictureBox, cameraStatus[i]);
+            }
+        }
+
+        private void button_DiagnosticsInput_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void listBox_MainRecipe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
+            tabControl_MainCameras.TabPages[0].ImageIndex = default;
+
+        }
+
+        private void checkBox_MainStart_CheckedChanged(object sender, EventArgs e)
+        {
+            tabControl_MainCameras.TabPages[0].ImageIndex = 0;
         }
     }
 }

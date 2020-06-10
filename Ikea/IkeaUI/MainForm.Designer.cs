@@ -30,6 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,21 +85,28 @@
             this.Hwindow_UpperSide = new HalconDotNet.HSmartWindowControl();
             this.tabPage_LowerSide = new System.Windows.Forms.TabPage();
             this.Hwindow_LowerSide = new HalconDotNet.HSmartWindowControl();
+            this.imageList_TabMainCameras = new System.Windows.Forms.ImageList(this.components);
             this.tabPage_Archive = new System.Windows.Forms.TabPage();
+            this.groupBox_ArchiveDrawingSides = new System.Windows.Forms.GroupBox();
+            this.dataGridView_ArchiveDrawingSides = new System.Windows.Forms.DataGridView();
+            this.DrawingSideName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HolesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_TakeInfoFromDB = new System.Windows.Forms.Button();
             this.button_RefreshTable = new System.Windows.Forms.Button();
             this.groupBox_Holes = new System.Windows.Forms.GroupBox();
-            this.datagridTable_HolesData = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView_HolesData = new System.Windows.Forms.DataGridView();
+            this.TimeStampHoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Radius = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusHoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Boards = new System.Windows.Forms.GroupBox();
-            this.datagridTable_Data = new System.Windows.Forms.DataGridView();
-            this.IDMeasurement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView_Data = new System.Windows.Forms.DataGridView();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DrawingSidesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Hwindow = new System.Windows.Forms.GroupBox();
             this.Hwindow_ArchiveImage = new HalconDotNet.HSmartWindowControl();
@@ -185,24 +199,26 @@
             this.listBox_DiagnosticsCamerasSettings = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button_DiagnosticsGainSet = new System.Windows.Forms.Button();
+            this.button_DiagnosticsExposureSet = new System.Windows.Forms.Button();
             this.label_Diagnostics = new System.Windows.Forms.Label();
             this.groupBox_DiagnosticsCamInfo = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox_CamInfo14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_CamInfo2 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.pictureBox_CamInfo1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_CamInfo14 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -228,8 +244,7 @@
             this.panel_Footer = new System.Windows.Forms.Panel();
             this.pictureBox_FooterKeyBoard = new System.Windows.Forms.PictureBox();
             this.button_FooterExitApp = new System.Windows.Forms.Button();
-            this.button_DiagnosticsExposureSet = new System.Windows.Forms.Button();
-            this.button_DiagnosticsGainSet = new System.Windows.Forms.Button();
+            this.timer_CameraPing = new System.Windows.Forms.Timer(this.components);
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
@@ -248,10 +263,12 @@
             this.tabPage_UpperSide.SuspendLayout();
             this.tabPage_LowerSide.SuspendLayout();
             this.tabPage_Archive.SuspendLayout();
+            this.groupBox_ArchiveDrawingSides.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ArchiveDrawingSides)).BeginInit();
             this.groupBox_Holes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridTable_HolesData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HolesData)).BeginInit();
             this.groupBox_Boards.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridTable_Data)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).BeginInit();
             this.groupBox_Hwindow.SuspendLayout();
             this.tabPage_Diagnostics.SuspendLayout();
             this.panel_DiagnosticsAutorization.SuspendLayout();
@@ -284,20 +301,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput1)).BeginInit();
             this.groupBox_DiagnosticsCamSettings.SuspendLayout();
             this.groupBox_DiagnosticsCamInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo14)).BeginInit();
             this.groupBox_DiagnosticsDiscManagement.SuspendLayout();
             this.panel_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FooterKeyBoard)).BeginInit();
@@ -627,10 +644,16 @@
             // 
             this.listBox_MainRecipe.FormattingEnabled = true;
             this.listBox_MainRecipe.ItemHeight = 20;
+            this.listBox_MainRecipe.Items.AddRange(new object[] {
+            "DC01",
+            "DC02",
+            "DC03",
+            "DC04"});
             this.listBox_MainRecipe.Location = new System.Drawing.Point(6, 65);
             this.listBox_MainRecipe.Name = "listBox_MainRecipe";
             this.listBox_MainRecipe.Size = new System.Drawing.Size(259, 304);
             this.listBox_MainRecipe.TabIndex = 0;
+            this.listBox_MainRecipe.SelectedIndexChanged += new System.EventHandler(this.listBox_MainRecipe_SelectedIndexChanged);
             // 
             // groupBox_MainRiadenie
             // 
@@ -692,6 +715,7 @@
             this.checkBox_MainStart.Text = "Štart";
             this.checkBox_MainStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox_MainStart.UseVisualStyleBackColor = false;
+            this.checkBox_MainStart.CheckedChanged += new System.EventHandler(this.checkBox_MainStart_CheckedChanged);
             // 
             // tabControl_MainCameras
             // 
@@ -701,6 +725,7 @@
             this.tabControl_MainCameras.Controls.Add(this.tabPage_BackSide);
             this.tabControl_MainCameras.Controls.Add(this.tabPage_UpperSide);
             this.tabControl_MainCameras.Controls.Add(this.tabPage_LowerSide);
+            this.tabControl_MainCameras.ImageList = this.imageList_TabMainCameras;
             this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(250, 40);
             this.tabControl_MainCameras.Location = new System.Drawing.Point(5, 5);
             this.tabControl_MainCameras.Name = "tabControl_MainCameras";
@@ -883,9 +908,16 @@
             this.Hwindow_LowerSide.TabIndex = 2;
             this.Hwindow_LowerSide.WindowSize = new System.Drawing.Size(1490, 869);
             // 
+            // imageList_TabMainCameras
+            // 
+            this.imageList_TabMainCameras.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_TabMainCameras.ImageStream")));
+            this.imageList_TabMainCameras.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList_TabMainCameras.Images.SetKeyName(0, "red.png");
+            // 
             // tabPage_Archive
             // 
             this.tabPage_Archive.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_Archive.Controls.Add(this.groupBox_ArchiveDrawingSides);
             this.tabPage_Archive.Controls.Add(this.button_TakeInfoFromDB);
             this.tabPage_Archive.Controls.Add(this.button_RefreshTable);
             this.tabPage_Archive.Controls.Add(this.groupBox_Holes);
@@ -898,6 +930,73 @@
             this.tabPage_Archive.Size = new System.Drawing.Size(1792, 1007);
             this.tabPage_Archive.TabIndex = 1;
             this.tabPage_Archive.Text = "Archív";
+            // 
+            // groupBox_ArchiveDrawingSides
+            // 
+            this.groupBox_ArchiveDrawingSides.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_ArchiveDrawingSides.Controls.Add(this.dataGridView_ArchiveDrawingSides);
+            this.groupBox_ArchiveDrawingSides.Location = new System.Drawing.Point(1192, 315);
+            this.groupBox_ArchiveDrawingSides.Name = "groupBox_ArchiveDrawingSides";
+            this.groupBox_ArchiveDrawingSides.Size = new System.Drawing.Size(594, 206);
+            this.groupBox_ArchiveDrawingSides.TabIndex = 4;
+            this.groupBox_ArchiveDrawingSides.TabStop = false;
+            this.groupBox_ArchiveDrawingSides.Text = "Pohľady";
+            // 
+            // dataGridView_ArchiveDrawingSides
+            // 
+            this.dataGridView_ArchiveDrawingSides.AllowUserToAddRows = false;
+            this.dataGridView_ArchiveDrawingSides.AllowUserToDeleteRows = false;
+            this.dataGridView_ArchiveDrawingSides.AllowUserToResizeColumns = false;
+            this.dataGridView_ArchiveDrawingSides.AllowUserToResizeRows = false;
+            this.dataGridView_ArchiveDrawingSides.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_ArchiveDrawingSides.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataGridView_ArchiveDrawingSides.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ArchiveDrawingSides.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DrawingSideName,
+            this.dataGridViewTextBoxColumn1,
+            this.HolesCount,
+            this.dataGridViewTextBoxColumn6});
+            this.dataGridView_ArchiveDrawingSides.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_ArchiveDrawingSides.Location = new System.Drawing.Point(3, 22);
+            this.dataGridView_ArchiveDrawingSides.MultiSelect = false;
+            this.dataGridView_ArchiveDrawingSides.Name = "dataGridView_ArchiveDrawingSides";
+            this.dataGridView_ArchiveDrawingSides.RowHeadersVisible = false;
+            this.dataGridView_ArchiveDrawingSides.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView_ArchiveDrawingSides.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_ArchiveDrawingSides.Size = new System.Drawing.Size(588, 181);
+            this.dataGridView_ArchiveDrawingSides.TabIndex = 0;
+            this.dataGridView_ArchiveDrawingSides.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ArchiveDrawingSides_CellClick);
+            // 
+            // DrawingSideName
+            // 
+            this.DrawingSideName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DrawingSideName.HeaderText = "Názov";
+            this.DrawingSideName.Name = "DrawingSideName";
+            this.DrawingSideName.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // HolesCount
+            // 
+            this.HolesCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.HolesCount.HeaderText = "Poč. dier";
+            this.HolesCount.Name = "HolesCount";
+            this.HolesCount.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // button_TakeInfoFromDB
             // 
@@ -930,134 +1029,146 @@
             // groupBox_Holes
             // 
             this.groupBox_Holes.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox_Holes.Controls.Add(this.datagridTable_HolesData);
-            this.groupBox_Holes.Location = new System.Drawing.Point(1050, 471);
+            this.groupBox_Holes.Controls.Add(this.dataGridView_HolesData);
+            this.groupBox_Holes.Location = new System.Drawing.Point(1192, 527);
             this.groupBox_Holes.Name = "groupBox_Holes";
-            this.groupBox_Holes.Size = new System.Drawing.Size(736, 426);
+            this.groupBox_Holes.Size = new System.Drawing.Size(594, 371);
             this.groupBox_Holes.TabIndex = 2;
             this.groupBox_Holes.TabStop = false;
             this.groupBox_Holes.Text = "Diery";
             // 
-            // datagridTable_HolesData
+            // dataGridView_HolesData
             // 
-            this.datagridTable_HolesData.AllowUserToAddRows = false;
-            this.datagridTable_HolesData.AllowUserToDeleteRows = false;
-            this.datagridTable_HolesData.AllowUserToResizeColumns = false;
-            this.datagridTable_HolesData.AllowUserToResizeRows = false;
-            this.datagridTable_HolesData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridTable_HolesData.BackgroundColor = System.Drawing.Color.LightGray;
-            this.datagridTable_HolesData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridTable_HolesData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.dataGridView_HolesData.AllowUserToAddRows = false;
+            this.dataGridView_HolesData.AllowUserToDeleteRows = false;
+            this.dataGridView_HolesData.AllowUserToResizeColumns = false;
+            this.dataGridView_HolesData.AllowUserToResizeRows = false;
+            this.dataGridView_HolesData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_HolesData.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataGridView_HolesData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_HolesData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TimeStampHoles,
             this.X,
             this.Y,
             this.Radius,
-            this.dataGridViewTextBoxColumn2});
-            this.datagridTable_HolesData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridTable_HolesData.Location = new System.Drawing.Point(3, 22);
-            this.datagridTable_HolesData.MultiSelect = false;
-            this.datagridTable_HolesData.Name = "datagridTable_HolesData";
-            this.datagridTable_HolesData.RowHeadersVisible = false;
-            this.datagridTable_HolesData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.datagridTable_HolesData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridTable_HolesData.Size = new System.Drawing.Size(730, 401);
-            this.datagridTable_HolesData.TabIndex = 0;
+            this.StatusHoles});
+            this.dataGridView_HolesData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_HolesData.Location = new System.Drawing.Point(3, 22);
+            this.dataGridView_HolesData.MultiSelect = false;
+            this.dataGridView_HolesData.Name = "dataGridView_HolesData";
+            this.dataGridView_HolesData.RowHeadersVisible = false;
+            this.dataGridView_HolesData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView_HolesData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_HolesData.Size = new System.Drawing.Size(588, 346);
+            this.dataGridView_HolesData.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
+            // TimeStampHoles
             // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "IDMeasurement";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle17;
+            this.TimeStampHoles.FillWeight = 80.58376F;
+            this.TimeStampHoles.HeaderText = "TimeStamp";
+            this.TimeStampHoles.Name = "TimeStampHoles";
             // 
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle18;
             this.X.FillWeight = 80.58376F;
-            this.X.HeaderText = "X";
+            this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
-            this.X.Width = 115;
+            this.X.Width = 90;
             // 
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle19;
             this.Y.FillWeight = 80.58376F;
-            this.Y.HeaderText = "Y";
+            this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
-            this.Y.Width = 115;
+            this.Y.Width = 90;
             // 
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle20;
             this.Radius.FillWeight = 80.58376F;
-            this.Radius.HeaderText = "Radius";
+            this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
-            this.Radius.Width = 115;
+            this.Radius.Width = 110;
             // 
-            // dataGridViewTextBoxColumn2
+            // StatusHoles
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn2.FillWeight = 177.665F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 70;
+            this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle21;
+            this.StatusHoles.FillWeight = 177.665F;
+            this.StatusHoles.HeaderText = "Status";
+            this.StatusHoles.Name = "StatusHoles";
             // 
             // groupBox_Boards
             // 
             this.groupBox_Boards.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox_Boards.Controls.Add(this.datagridTable_Data);
-            this.groupBox_Boards.Location = new System.Drawing.Point(1050, 5);
+            this.groupBox_Boards.Controls.Add(this.dataGridView_Data);
+            this.groupBox_Boards.Location = new System.Drawing.Point(1192, 5);
             this.groupBox_Boards.Name = "groupBox_Boards";
-            this.groupBox_Boards.Size = new System.Drawing.Size(736, 462);
+            this.groupBox_Boards.Size = new System.Drawing.Size(594, 304);
             this.groupBox_Boards.TabIndex = 2;
             this.groupBox_Boards.TabStop = false;
             this.groupBox_Boards.Text = "Dielce";
             // 
-            // datagridTable_Data
+            // dataGridView_Data
             // 
-            this.datagridTable_Data.AllowUserToAddRows = false;
-            this.datagridTable_Data.AllowUserToDeleteRows = false;
-            this.datagridTable_Data.AllowUserToResizeColumns = false;
-            this.datagridTable_Data.AllowUserToResizeRows = false;
-            this.datagridTable_Data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridTable_Data.BackgroundColor = System.Drawing.Color.LightGray;
-            this.datagridTable_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridTable_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDMeasurement,
+            this.dataGridView_Data.AllowUserToAddRows = false;
+            this.dataGridView_Data.AllowUserToDeleteRows = false;
+            this.dataGridView_Data.AllowUserToResizeColumns = false;
+            this.dataGridView_Data.AllowUserToResizeRows = false;
+            this.dataGridView_Data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Data.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataGridView_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaterialName,
             this.TimeStamp,
-            this.Barcode,
+            this.DrawingSidesCount,
             this.Status});
-            this.datagridTable_Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridTable_Data.Location = new System.Drawing.Point(3, 22);
-            this.datagridTable_Data.MultiSelect = false;
-            this.datagridTable_Data.Name = "datagridTable_Data";
-            this.datagridTable_Data.RowHeadersVisible = false;
-            this.datagridTable_Data.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.datagridTable_Data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridTable_Data.Size = new System.Drawing.Size(730, 437);
-            this.datagridTable_Data.TabIndex = 1;
-            this.datagridTable_Data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridTable_Data_CellClick);
+            this.dataGridView_Data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_Data.Location = new System.Drawing.Point(3, 22);
+            this.dataGridView_Data.MultiSelect = false;
+            this.dataGridView_Data.Name = "dataGridView_Data";
+            this.dataGridView_Data.RowHeadersVisible = false;
+            this.dataGridView_Data.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView_Data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_Data.Size = new System.Drawing.Size(588, 279);
+            this.dataGridView_Data.TabIndex = 1;
+            this.dataGridView_Data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Data_CellClick);
             // 
-            // IDMeasurement
+            // MaterialName
             // 
-            this.IDMeasurement.HeaderText = "IDMeasurement";
-            this.IDMeasurement.Name = "IDMeasurement";
+            this.MaterialName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaterialName.HeaderText = "Názov";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.Width = 120;
             // 
             // TimeStamp
             // 
             this.TimeStamp.HeaderText = "TimeStamp";
             this.TimeStamp.Name = "TimeStamp";
             // 
-            // Barcode
+            // DrawingSidesCount
             // 
-            this.Barcode.HeaderText = "Barcode";
-            this.Barcode.Name = "Barcode";
+            this.DrawingSidesCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DrawingSidesCount.HeaderText = "Poč.pohľadov";
+            this.DrawingSidesCount.Name = "DrawingSidesCount";
+            this.DrawingSidesCount.Width = 150;
             // 
             // Status
             // 
             this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
-            this.Status.Width = 70;
             // 
             // groupBox_Hwindow
             // 
@@ -1065,7 +1176,7 @@
             this.groupBox_Hwindow.Controls.Add(this.Hwindow_ArchiveImage);
             this.groupBox_Hwindow.Location = new System.Drawing.Point(5, 5);
             this.groupBox_Hwindow.Name = "groupBox_Hwindow";
-            this.groupBox_Hwindow.Size = new System.Drawing.Size(1042, 955);
+            this.groupBox_Hwindow.Size = new System.Drawing.Size(1181, 955);
             this.groupBox_Hwindow.TabIndex = 1;
             this.groupBox_Hwindow.TabStop = false;
             this.groupBox_Hwindow.Text = "Obraz";
@@ -1084,9 +1195,9 @@
             this.Hwindow_ArchiveImage.Location = new System.Drawing.Point(3, 22);
             this.Hwindow_ArchiveImage.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_ArchiveImage.Name = "Hwindow_ArchiveImage";
-            this.Hwindow_ArchiveImage.Size = new System.Drawing.Size(1036, 930);
+            this.Hwindow_ArchiveImage.Size = new System.Drawing.Size(1175, 930);
             this.Hwindow_ArchiveImage.TabIndex = 0;
-            this.Hwindow_ArchiveImage.WindowSize = new System.Drawing.Size(1036, 930);
+            this.Hwindow_ArchiveImage.WindowSize = new System.Drawing.Size(1175, 930);
             // 
             // tabPage_Diagnostics
             // 
@@ -1215,6 +1326,7 @@
             this.button_DiagnosticsInput7.TabIndex = 12;
             this.button_DiagnosticsInput7.Text = "Nastaviť";
             this.button_DiagnosticsInput7.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput7.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // button_DiagnosticsInput6
             // 
@@ -1227,6 +1339,7 @@
             this.button_DiagnosticsInput6.TabIndex = 12;
             this.button_DiagnosticsInput6.Text = "Nastaviť";
             this.button_DiagnosticsInput6.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput6.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // button_DiagnosticsInput5
             // 
@@ -1239,6 +1352,7 @@
             this.button_DiagnosticsInput5.TabIndex = 12;
             this.button_DiagnosticsInput5.Text = "Nastaviť";
             this.button_DiagnosticsInput5.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput5.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // button_DiagnosticsInput4
             // 
@@ -1251,6 +1365,7 @@
             this.button_DiagnosticsInput4.TabIndex = 12;
             this.button_DiagnosticsInput4.Text = "Nastaviť";
             this.button_DiagnosticsInput4.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput4.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // button_DiagnosticsInput3
             // 
@@ -1263,6 +1378,7 @@
             this.button_DiagnosticsInput3.TabIndex = 12;
             this.button_DiagnosticsInput3.Text = "Nastaviť";
             this.button_DiagnosticsInput3.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput3.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // button_DiagnosticsInput2
             // 
@@ -1275,6 +1391,7 @@
             this.button_DiagnosticsInput2.TabIndex = 12;
             this.button_DiagnosticsInput2.Text = "Nastaviť";
             this.button_DiagnosticsInput2.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput2.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // button_DiagnosticsInput1
             // 
@@ -1287,6 +1404,7 @@
             this.button_DiagnosticsInput1.TabIndex = 12;
             this.button_DiagnosticsInput1.Text = "Nastaviť";
             this.button_DiagnosticsInput1.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput1.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // button_DiagnosticsInput0
             // 
@@ -1299,6 +1417,7 @@
             this.button_DiagnosticsInput0.TabIndex = 12;
             this.button_DiagnosticsInput0.Text = "Nastaviť";
             this.button_DiagnosticsInput0.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsInput0.Click += new System.EventHandler(this.button_DiagnosticsInput_Click);
             // 
             // pictureBox_DiagnosticsInput6
             // 
@@ -2108,6 +2227,32 @@
             this.label14.Text = "Expozičná doba:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // button_DiagnosticsGainSet
+            // 
+            this.button_DiagnosticsGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(217, 95);
+            this.button_DiagnosticsGainSet.Name = "button_DiagnosticsGainSet";
+            this.button_DiagnosticsGainSet.Size = new System.Drawing.Size(88, 26);
+            this.button_DiagnosticsGainSet.TabIndex = 12;
+            this.button_DiagnosticsGainSet.Text = "Nastaviť";
+            this.button_DiagnosticsGainSet.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsGainSet.Click += new System.EventHandler(this.button_DiagnosticsGainSet_Click);
+            // 
+            // button_DiagnosticsExposureSet
+            // 
+            this.button_DiagnosticsExposureSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsExposureSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsExposureSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(217, 45);
+            this.button_DiagnosticsExposureSet.Name = "button_DiagnosticsExposureSet";
+            this.button_DiagnosticsExposureSet.Size = new System.Drawing.Size(88, 26);
+            this.button_DiagnosticsExposureSet.TabIndex = 12;
+            this.button_DiagnosticsExposureSet.Text = "Nastaviť";
+            this.button_DiagnosticsExposureSet.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsExposureSet.Click += new System.EventHandler(this.button_DiagnosticsExposureSet_Click);
+            // 
             // label_Diagnostics
             // 
             this.label_Diagnostics.AutoSize = true;
@@ -2121,22 +2266,22 @@
             // groupBox_DiagnosticsCamInfo
             // 
             this.groupBox_DiagnosticsCamInfo.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label12);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo14);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo12);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo9);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo6);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo3);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo13);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo11);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo8);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo10);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo7);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo5);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo4);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo2);
-            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label10);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo1);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo2);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo3);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo4);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo5);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo6);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo7);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo8);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo9);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo10);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo11);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo12);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo13);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.pictureBox_CamInfo14);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label12);
+            this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label10);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label25);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label17);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label9);
@@ -2156,134 +2301,15 @@
             this.groupBox_DiagnosticsCamInfo.TabStop = false;
             this.groupBox_DiagnosticsCamInfo.Text = "Kamery";
             // 
-            // label12
+            // pictureBox_CamInfo1
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(46, 464);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 20);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Cam13:";
-            // 
-            // pictureBox_CamInfo14
-            // 
-            this.pictureBox_CamInfo14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo14.Image")));
-            this.pictureBox_CamInfo14.Location = new System.Drawing.Point(141, 493);
-            this.pictureBox_CamInfo14.Name = "pictureBox_CamInfo14";
-            this.pictureBox_CamInfo14.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo14.TabIndex = 1;
-            this.pictureBox_CamInfo14.TabStop = false;
-            // 
-            // pictureBox_CamInfo12
-            // 
-            this.pictureBox_CamInfo12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo12.Image")));
-            this.pictureBox_CamInfo12.Location = new System.Drawing.Point(141, 422);
-            this.pictureBox_CamInfo12.Name = "pictureBox_CamInfo12";
-            this.pictureBox_CamInfo12.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo12.TabIndex = 1;
-            this.pictureBox_CamInfo12.TabStop = false;
-            // 
-            // pictureBox_CamInfo9
-            // 
-            this.pictureBox_CamInfo9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo9.Image")));
-            this.pictureBox_CamInfo9.Location = new System.Drawing.Point(141, 317);
-            this.pictureBox_CamInfo9.Name = "pictureBox_CamInfo9";
-            this.pictureBox_CamInfo9.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo9.TabIndex = 1;
-            this.pictureBox_CamInfo9.TabStop = false;
-            // 
-            // pictureBox_CamInfo6
-            // 
-            this.pictureBox_CamInfo6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo6.Image")));
-            this.pictureBox_CamInfo6.Location = new System.Drawing.Point(141, 212);
-            this.pictureBox_CamInfo6.Name = "pictureBox_CamInfo6";
-            this.pictureBox_CamInfo6.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo6.TabIndex = 1;
-            this.pictureBox_CamInfo6.TabStop = false;
-            // 
-            // pictureBox_CamInfo3
-            // 
-            this.pictureBox_CamInfo3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo3.Image")));
-            this.pictureBox_CamInfo3.Location = new System.Drawing.Point(141, 107);
-            this.pictureBox_CamInfo3.Name = "pictureBox_CamInfo3";
-            this.pictureBox_CamInfo3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo3.TabIndex = 1;
-            this.pictureBox_CamInfo3.TabStop = false;
-            // 
-            // pictureBox_CamInfo13
-            // 
-            this.pictureBox_CamInfo13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo13.Image")));
-            this.pictureBox_CamInfo13.Location = new System.Drawing.Point(141, 458);
-            this.pictureBox_CamInfo13.Name = "pictureBox_CamInfo13";
-            this.pictureBox_CamInfo13.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo13.TabIndex = 1;
-            this.pictureBox_CamInfo13.TabStop = false;
-            // 
-            // pictureBox_CamInfo11
-            // 
-            this.pictureBox_CamInfo11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo11.Image")));
-            this.pictureBox_CamInfo11.Location = new System.Drawing.Point(141, 387);
-            this.pictureBox_CamInfo11.Name = "pictureBox_CamInfo11";
-            this.pictureBox_CamInfo11.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo11.TabIndex = 1;
-            this.pictureBox_CamInfo11.TabStop = false;
-            // 
-            // pictureBox_CamInfo8
-            // 
-            this.pictureBox_CamInfo8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo8.Image")));
-            this.pictureBox_CamInfo8.Location = new System.Drawing.Point(141, 283);
-            this.pictureBox_CamInfo8.Name = "pictureBox_CamInfo8";
-            this.pictureBox_CamInfo8.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo8.TabIndex = 1;
-            this.pictureBox_CamInfo8.TabStop = false;
-            // 
-            // pictureBox_CamInfo10
-            // 
-            this.pictureBox_CamInfo10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo10.Image")));
-            this.pictureBox_CamInfo10.Location = new System.Drawing.Point(141, 352);
-            this.pictureBox_CamInfo10.Name = "pictureBox_CamInfo10";
-            this.pictureBox_CamInfo10.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo10.TabIndex = 1;
-            this.pictureBox_CamInfo10.TabStop = false;
-            // 
-            // pictureBox_CamInfo7
-            // 
-            this.pictureBox_CamInfo7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo7.Image")));
-            this.pictureBox_CamInfo7.Location = new System.Drawing.Point(141, 247);
-            this.pictureBox_CamInfo7.Name = "pictureBox_CamInfo7";
-            this.pictureBox_CamInfo7.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo7.TabIndex = 1;
-            this.pictureBox_CamInfo7.TabStop = false;
-            // 
-            // pictureBox_CamInfo5
-            // 
-            this.pictureBox_CamInfo5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo5.Image")));
-            this.pictureBox_CamInfo5.Location = new System.Drawing.Point(141, 177);
-            this.pictureBox_CamInfo5.Name = "pictureBox_CamInfo5";
-            this.pictureBox_CamInfo5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo5.TabIndex = 1;
-            this.pictureBox_CamInfo5.TabStop = false;
-            // 
-            // pictureBox_CamInfo4
-            // 
-            this.pictureBox_CamInfo4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo4.Image")));
-            this.pictureBox_CamInfo4.Location = new System.Drawing.Point(141, 142);
-            this.pictureBox_CamInfo4.Name = "pictureBox_CamInfo4";
-            this.pictureBox_CamInfo4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo4.TabIndex = 1;
-            this.pictureBox_CamInfo4.TabStop = false;
+            this.pictureBox_CamInfo1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo1.Image")));
+            this.pictureBox_CamInfo1.Location = new System.Drawing.Point(141, 37);
+            this.pictureBox_CamInfo1.Name = "pictureBox_CamInfo1";
+            this.pictureBox_CamInfo1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo1.TabIndex = 1;
+            this.pictureBox_CamInfo1.TabStop = false;
             // 
             // pictureBox_CamInfo2
             // 
@@ -2295,6 +2321,135 @@
             this.pictureBox_CamInfo2.TabIndex = 1;
             this.pictureBox_CamInfo2.TabStop = false;
             // 
+            // pictureBox_CamInfo3
+            // 
+            this.pictureBox_CamInfo3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo3.Image")));
+            this.pictureBox_CamInfo3.Location = new System.Drawing.Point(141, 107);
+            this.pictureBox_CamInfo3.Name = "pictureBox_CamInfo3";
+            this.pictureBox_CamInfo3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo3.TabIndex = 1;
+            this.pictureBox_CamInfo3.TabStop = false;
+            // 
+            // pictureBox_CamInfo4
+            // 
+            this.pictureBox_CamInfo4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo4.Image")));
+            this.pictureBox_CamInfo4.Location = new System.Drawing.Point(141, 142);
+            this.pictureBox_CamInfo4.Name = "pictureBox_CamInfo4";
+            this.pictureBox_CamInfo4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo4.TabIndex = 1;
+            this.pictureBox_CamInfo4.TabStop = false;
+            // 
+            // pictureBox_CamInfo5
+            // 
+            this.pictureBox_CamInfo5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo5.Image")));
+            this.pictureBox_CamInfo5.Location = new System.Drawing.Point(141, 177);
+            this.pictureBox_CamInfo5.Name = "pictureBox_CamInfo5";
+            this.pictureBox_CamInfo5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo5.TabIndex = 1;
+            this.pictureBox_CamInfo5.TabStop = false;
+            // 
+            // pictureBox_CamInfo6
+            // 
+            this.pictureBox_CamInfo6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo6.Image")));
+            this.pictureBox_CamInfo6.Location = new System.Drawing.Point(141, 212);
+            this.pictureBox_CamInfo6.Name = "pictureBox_CamInfo6";
+            this.pictureBox_CamInfo6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo6.TabIndex = 1;
+            this.pictureBox_CamInfo6.TabStop = false;
+            // 
+            // pictureBox_CamInfo7
+            // 
+            this.pictureBox_CamInfo7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo7.Image")));
+            this.pictureBox_CamInfo7.Location = new System.Drawing.Point(141, 247);
+            this.pictureBox_CamInfo7.Name = "pictureBox_CamInfo7";
+            this.pictureBox_CamInfo7.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo7.TabIndex = 1;
+            this.pictureBox_CamInfo7.TabStop = false;
+            // 
+            // pictureBox_CamInfo8
+            // 
+            this.pictureBox_CamInfo8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo8.Image")));
+            this.pictureBox_CamInfo8.Location = new System.Drawing.Point(141, 283);
+            this.pictureBox_CamInfo8.Name = "pictureBox_CamInfo8";
+            this.pictureBox_CamInfo8.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo8.TabIndex = 1;
+            this.pictureBox_CamInfo8.TabStop = false;
+            // 
+            // pictureBox_CamInfo9
+            // 
+            this.pictureBox_CamInfo9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo9.Image")));
+            this.pictureBox_CamInfo9.Location = new System.Drawing.Point(141, 317);
+            this.pictureBox_CamInfo9.Name = "pictureBox_CamInfo9";
+            this.pictureBox_CamInfo9.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo9.TabIndex = 1;
+            this.pictureBox_CamInfo9.TabStop = false;
+            // 
+            // pictureBox_CamInfo10
+            // 
+            this.pictureBox_CamInfo10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo10.Image")));
+            this.pictureBox_CamInfo10.Location = new System.Drawing.Point(141, 352);
+            this.pictureBox_CamInfo10.Name = "pictureBox_CamInfo10";
+            this.pictureBox_CamInfo10.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo10.TabIndex = 1;
+            this.pictureBox_CamInfo10.TabStop = false;
+            // 
+            // pictureBox_CamInfo11
+            // 
+            this.pictureBox_CamInfo11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo11.Image")));
+            this.pictureBox_CamInfo11.Location = new System.Drawing.Point(141, 387);
+            this.pictureBox_CamInfo11.Name = "pictureBox_CamInfo11";
+            this.pictureBox_CamInfo11.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo11.TabIndex = 1;
+            this.pictureBox_CamInfo11.TabStop = false;
+            // 
+            // pictureBox_CamInfo12
+            // 
+            this.pictureBox_CamInfo12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo12.Image")));
+            this.pictureBox_CamInfo12.Location = new System.Drawing.Point(141, 422);
+            this.pictureBox_CamInfo12.Name = "pictureBox_CamInfo12";
+            this.pictureBox_CamInfo12.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo12.TabIndex = 1;
+            this.pictureBox_CamInfo12.TabStop = false;
+            // 
+            // pictureBox_CamInfo13
+            // 
+            this.pictureBox_CamInfo13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo13.Image")));
+            this.pictureBox_CamInfo13.Location = new System.Drawing.Point(141, 458);
+            this.pictureBox_CamInfo13.Name = "pictureBox_CamInfo13";
+            this.pictureBox_CamInfo13.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo13.TabIndex = 1;
+            this.pictureBox_CamInfo13.TabStop = false;
+            // 
+            // pictureBox_CamInfo14
+            // 
+            this.pictureBox_CamInfo14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo14.Image")));
+            this.pictureBox_CamInfo14.Location = new System.Drawing.Point(141, 493);
+            this.pictureBox_CamInfo14.Name = "pictureBox_CamInfo14";
+            this.pictureBox_CamInfo14.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox_CamInfo14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_CamInfo14.TabIndex = 1;
+            this.pictureBox_CamInfo14.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(46, 464);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 20);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Cam13:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -2303,16 +2458,6 @@
             this.label10.Size = new System.Drawing.Size(64, 20);
             this.label10.TabIndex = 0;
             this.label10.Text = "Cam14:";
-            // 
-            // pictureBox_CamInfo1
-            // 
-            this.pictureBox_CamInfo1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo1.Image")));
-            this.pictureBox_CamInfo1.Location = new System.Drawing.Point(141, 37);
-            this.pictureBox_CamInfo1.Name = "pictureBox_CamInfo1";
-            this.pictureBox_CamInfo1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox_CamInfo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CamInfo1.TabIndex = 1;
-            this.pictureBox_CamInfo1.TabStop = false;
             // 
             // label25
             // 
@@ -2543,31 +2688,10 @@
             this.button_FooterExitApp.UseVisualStyleBackColor = false;
             this.button_FooterExitApp.Click += new System.EventHandler(this.button_ExitApp_Click);
             // 
-            // button_DiagnosticsExposureSet
+            // timer_CameraPing
             // 
-            this.button_DiagnosticsExposureSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsExposureSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsExposureSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(217, 45);
-            this.button_DiagnosticsExposureSet.Name = "button_DiagnosticsExposureSet";
-            this.button_DiagnosticsExposureSet.Size = new System.Drawing.Size(88, 26);
-            this.button_DiagnosticsExposureSet.TabIndex = 12;
-            this.button_DiagnosticsExposureSet.Text = "Nastaviť";
-            this.button_DiagnosticsExposureSet.UseVisualStyleBackColor = false;
-            this.button_DiagnosticsExposureSet.Click += new System.EventHandler(this.button_DiagnosticsExposureSet_Click);
-            // 
-            // button_DiagnosticsGainSet
-            // 
-            this.button_DiagnosticsGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(217, 95);
-            this.button_DiagnosticsGainSet.Name = "button_DiagnosticsGainSet";
-            this.button_DiagnosticsGainSet.Size = new System.Drawing.Size(88, 26);
-            this.button_DiagnosticsGainSet.TabIndex = 12;
-            this.button_DiagnosticsGainSet.Text = "Nastaviť";
-            this.button_DiagnosticsGainSet.UseVisualStyleBackColor = false;
-            this.button_DiagnosticsGainSet.Click += new System.EventHandler(this.button_DiagnosticsGainSet_Click);
+            this.timer_CameraPing.Interval = 5000;
+            this.timer_CameraPing.Tick += new System.EventHandler(this.timer_CameraPing_Tick);
             // 
             // MainForm
             // 
@@ -2607,10 +2731,12 @@
             this.tabPage_UpperSide.ResumeLayout(false);
             this.tabPage_LowerSide.ResumeLayout(false);
             this.tabPage_Archive.ResumeLayout(false);
+            this.groupBox_ArchiveDrawingSides.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ArchiveDrawingSides)).EndInit();
             this.groupBox_Holes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridTable_HolesData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HolesData)).EndInit();
             this.groupBox_Boards.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridTable_Data)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Data)).EndInit();
             this.groupBox_Hwindow.ResumeLayout(false);
             this.tabPage_Diagnostics.ResumeLayout(false);
             this.tabPage_Diagnostics.PerformLayout();
@@ -2649,20 +2775,20 @@
             this.groupBox_DiagnosticsCamSettings.PerformLayout();
             this.groupBox_DiagnosticsCamInfo.ResumeLayout(false);
             this.groupBox_DiagnosticsCamInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo14)).EndInit();
             this.groupBox_DiagnosticsDiscManagement.ResumeLayout(false);
             this.groupBox_DiagnosticsDiscManagement.PerformLayout();
             this.panel_Footer.ResumeLayout(false);
@@ -2689,8 +2815,8 @@
         private System.Windows.Forms.GroupBox groupBox_Boards;
         private System.Windows.Forms.GroupBox groupBox_Hwindow;
         private HalconDotNet.HSmartWindowControl Hwindow_ArchiveImage;
-        private System.Windows.Forms.DataGridView datagridTable_HolesData;
-        private System.Windows.Forms.DataGridView datagridTable_Data;
+        private System.Windows.Forms.DataGridView dataGridView_HolesData;
+        private System.Windows.Forms.DataGridView dataGridView_Data;
         private System.Windows.Forms.GroupBox groupBox_DiagnosticsDiscManagement;
         private System.Windows.Forms.Label label_AvailableSpaceE;
         private System.Windows.Forms.Label label4;
@@ -2700,10 +2826,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_TakeInfoFromDB;
         private System.Windows.Forms.Button button_RefreshTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDMeasurement;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.Label label_Diagnostics;
         private System.Windows.Forms.GroupBox groupBox_DiagnosticsCamInfo;
         private System.Windows.Forms.PictureBox pictureBox_CamInfo12;
@@ -2730,11 +2852,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn X;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Radius;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label_AccessLevel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel_Footer;
@@ -2873,6 +2990,23 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button_DiagnosticsGainSet;
         private System.Windows.Forms.Button button_DiagnosticsExposureSet;
+        private System.Windows.Forms.Timer timer_CameraPing;
+        private System.Windows.Forms.GroupBox groupBox_ArchiveDrawingSides;
+        private System.Windows.Forms.DataGridView dataGridView_ArchiveDrawingSides;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DrawingSidesCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DrawingSideName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HolesCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeStampHoles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Radius;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusHoles;
+        public System.Windows.Forms.ImageList imageList_TabMainCameras;
     }
 }
 

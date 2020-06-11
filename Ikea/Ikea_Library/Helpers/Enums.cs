@@ -2,7 +2,7 @@
 
 namespace Ikea_Library.Helpers
 {
-    public  partial class Enums
+    public static class Enums
     {
         public enum  UserLevel
         {
@@ -26,5 +26,13 @@ namespace Ikea_Library.Helpers
         //    Cam13,
         //    Cam14 = 14
         //}
+    }
+    public enum CameraState
+    {
+        Initialization,
+        ConnectCamera,
+        GrabImage,
+        DisconnectCamera,
+        Exception
     }
 }

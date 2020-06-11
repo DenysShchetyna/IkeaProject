@@ -5,9 +5,11 @@ using Ikea_Library.DataGridTables;
 using Ikea_Library.DBAccess;
 using Ikea_Library.HDevProcedures;
 using Ikea_Library.Helpers;
+using Ikea_Library.ProduceConsumer;
 using Ikea_Library.Utilities;
 using IkeaProject;
 using IkeaUI.Properties;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,14 +27,21 @@ namespace IkeaUI
 {
     public partial class MainForm : Form
     {
+        private string RecipeMaterialName;
+
         Material Plank;
         DrawingSide DrawingSide;
         Hole Hole;
-        private string RecipeMaterialName;
 
         HDevProc Procedures;
         AdamSocket AdamSocket;
+        PersistentVariables PersistentVariables;
 
+
+        public Producer ProducerCam1;
+        public Consumer ConsumerCam1;
+
+        public int ImgNum = 0;
 
         List<string> ListOfImagesPaths = new List<string>()
         {
@@ -47,14 +56,14 @@ namespace IkeaUI
                 @"C:/Trifid/IKEA/Data/DGL_130_obycajny.bmp"
         };
 
-        public int ImgNum = 0;
-        string ImagesPath = @"C:\Trifid\IKEA\SavedImages\";
-
         public MainForm()
         {
             InitializeComponent();
 
             Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath);
+
+            PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistenCamSettingsPath);
+
             timer_Simulation.Enabled = true;
             timer_Simulation.Start();
             timer_Clock.Enabled = true;
@@ -128,7 +137,7 @@ namespace IkeaUI
 
             DrawingSide.HolesCount = DrawingSide.Holes.Count();
             DrawingSide.TimeStamp = timestamp;
-            DrawingSide.ImagePath = ImagesPath + (DrawingSide.TimeStamp +"\\" + DrawingSide.TimeStamp).Replace('-', '_').Replace(" ", "__").Replace(':', '_')+DrawingSide.Name+".tiff";
+            DrawingSide.ImagePath = GlobalVariables.SaveImagesPath + (DrawingSide.TimeStamp +"\\" + DrawingSide.TimeStamp).Replace('-', '_').Replace(" ", "__").Replace(':', '_')+DrawingSide.Name+".tiff";
 
             Plank.TimeStamp = timestamp;
             Plank.DrawingSides.Add(DrawingSide);
@@ -154,7 +163,7 @@ namespace IkeaUI
                 if (insertingToDatabaseStatus == true)
                 {
                     string fileName = timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_')+ DrawingSide.Name + ".tiff";
-                    string dirPath = ImagesPath + timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
+                    string dirPath = GlobalVariables.SaveImagesPath + timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
                     string filePath = dirPath +"\\" + fileName;
 
                     Directory.CreateDirectory(dirPath);
@@ -260,6 +269,7 @@ namespace IkeaUI
         {
             Application.Exit();
         }
+        
 
         private void button_DiagnosticsExposureSet_Click(object sender, EventArgs e)
         {
@@ -267,7 +277,7 @@ namespace IkeaUI
             {
                 string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
                 int value = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
-                PersistentVariables.CamExposureTimeSet(camName, value);
+                JsonFunctions.CamExposureTimeSet(PersistentVariables, camName, value);
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
             }
             catch (Exception ex)
@@ -282,7 +292,7 @@ namespace IkeaUI
             {
                 string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
                 int value = Convert.ToInt32(textBox_DiagnosticsGain.Text);
-                PersistentVariables.CamExposureTimeSet(camName, value);
+                JsonFunctions.CamGainSet(PersistentVariables, camName, value);
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
             }
             catch (Exception ex)
@@ -310,13 +320,28 @@ namespace IkeaUI
         private void listBox_MainRecipe_SelectedIndexChanged(object sender, EventArgs e)
         {
             RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
-            tabControl_MainCameras.TabPages[0].ImageIndex = default;
 
         }
 
-        private void checkBox_MainStart_CheckedChanged(object sender, EventArgs e)
+        private void button_MainStart_Click(object sender, EventArgs e)
         {
-            tabControl_MainCameras.TabPages[0].ImageIndex = 0;
+
+        }
+
+        private void listBox_DiagnosticsCamerasSettings_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indexSelected = listBox_DiagnosticsCamerasSettings.SelectedIndex;
+            string text = File.ReadAllText(GlobalVariables.JsonPersistenCamSettingsPath);
+            string[] splittedtex = text.Split(',');
+            string unformatedExpTime = splittedtex[indexSelected*2];
+            string unformatedGain = text.Split(',')[indexSelected*2 +1];
+            string formatedExpTime = unformatedExpTime.Split(':')[1];
+            string formatedGain = unformatedGain.Split(':')[1];
+
+            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, formatedExpTime);
+            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, formatedGain);
+
+
         }
     }
 }

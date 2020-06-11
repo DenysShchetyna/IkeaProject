@@ -1,4 +1,5 @@
-﻿using IkeaUI.Properties;
+﻿using Ikea_Library.Helpers;
+using IkeaUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,20 @@ namespace IkeaProject
     {
         private delegate void UpdateLabelTextDelegate(Label label, string text);
         private delegate void UpdatePictureBoxDelegate(PictureBox pictureBox, bool status);
+        private delegate void UpdateTextBoxTextDelegate(TextBox textBox,string text);
+
+
+        public static void UpdateTextBoxText(TextBox textBox,string text)
+        {
+            if (textBox.InvokeRequired == true)
+            {
+                textBox.Invoke(new UpdateTextBoxTextDelegate(UpdateTextBoxText), new object[] { textBox, text });
+            }
+            else
+            {
+                textBox.Text = text;
+            }
+        }
 
         public static void UpdateLabelText(Label label, string text)
         {
@@ -41,6 +56,9 @@ namespace IkeaProject
 
                     case false:
                         pictureBox.Image = Resources.red;
+                        break;
+                    default:
+                        pictureBox.Image = Resources.gray;
                         break;
                 }
             }

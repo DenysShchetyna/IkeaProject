@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,9 +69,9 @@
             this.textBox_MainSearchRecipe = new System.Windows.Forms.TextBox();
             this.listBox_MainRecipe = new System.Windows.Forms.ListBox();
             this.groupBox_MainRiadenie = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox_MainStop = new System.Windows.Forms.CheckBox();
-            this.checkBox_MainStart = new System.Windows.Forms.CheckBox();
+            this.button_MainStop = new System.Windows.Forms.Button();
+            this.button_MainSaveImg = new System.Windows.Forms.Button();
+            this.button_MainStart = new System.Windows.Forms.Button();
             this.tabControl_MainCameras = new System.Windows.Forms.TabControl();
             this.tabPage_LeftSide = new System.Windows.Forms.TabPage();
             this.Hwindow_LeftSide = new HalconDotNet.HSmartWindowControl();
@@ -658,9 +658,9 @@
             // groupBox_MainRiadenie
             // 
             this.groupBox_MainRiadenie.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox_MainRiadenie.Controls.Add(this.checkBox1);
-            this.groupBox_MainRiadenie.Controls.Add(this.checkBox_MainStop);
-            this.groupBox_MainRiadenie.Controls.Add(this.checkBox_MainStart);
+            this.groupBox_MainRiadenie.Controls.Add(this.button_MainStop);
+            this.groupBox_MainRiadenie.Controls.Add(this.button_MainSaveImg);
+            this.groupBox_MainRiadenie.Controls.Add(this.button_MainStart);
             this.groupBox_MainRiadenie.Location = new System.Drawing.Point(1515, 6);
             this.groupBox_MainRiadenie.Name = "groupBox_MainRiadenie";
             this.groupBox_MainRiadenie.Size = new System.Drawing.Size(271, 171);
@@ -668,54 +668,45 @@
             this.groupBox_MainRiadenie.TabStop = false;
             this.groupBox_MainRiadenie.Text = "Riadenie";
             // 
-            // checkBox1
+            // button_MainStop
             // 
-            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.checkBox1.FlatAppearance.BorderSize = 2;
-            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Location = new System.Drawing.Point(9, 116);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(256, 49);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Uložiť Aktuálny Obraz";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.button_MainStop.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_MainStop.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MainStop.FlatAppearance.BorderSize = 2;
+            this.button_MainStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_MainStop.Location = new System.Drawing.Point(138, 25);
+            this.button_MainStop.Name = "button_MainStop";
+            this.button_MainStop.Size = new System.Drawing.Size(127, 60);
+            this.button_MainStop.TabIndex = 2;
+            this.button_MainStop.Text = "Stop";
+            this.button_MainStop.UseVisualStyleBackColor = false;
             // 
-            // checkBox_MainStop
+            // button_MainSaveImg
             // 
-            this.checkBox_MainStop.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_MainStop.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_MainStop.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.checkBox_MainStop.FlatAppearance.BorderSize = 2;
-            this.checkBox_MainStop.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
-            this.checkBox_MainStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_MainStop.Location = new System.Drawing.Point(139, 33);
-            this.checkBox_MainStop.Name = "checkBox_MainStop";
-            this.checkBox_MainStop.Size = new System.Drawing.Size(127, 60);
-            this.checkBox_MainStop.TabIndex = 0;
-            this.checkBox_MainStop.Text = "Stop";
-            this.checkBox_MainStop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_MainStop.UseVisualStyleBackColor = false;
+            this.button_MainSaveImg.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_MainSaveImg.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MainSaveImg.FlatAppearance.BorderSize = 2;
+            this.button_MainSaveImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_MainSaveImg.Location = new System.Drawing.Point(9, 116);
+            this.button_MainSaveImg.Name = "button_MainSaveImg";
+            this.button_MainSaveImg.Size = new System.Drawing.Size(256, 49);
+            this.button_MainSaveImg.TabIndex = 1;
+            this.button_MainSaveImg.Text = "Uložiť Aktuálny Obraz";
+            this.button_MainSaveImg.UseVisualStyleBackColor = false;
             // 
-            // checkBox_MainStart
+            // button_MainStart
             // 
-            this.checkBox_MainStart.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_MainStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_MainStart.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.checkBox_MainStart.FlatAppearance.BorderSize = 2;
-            this.checkBox_MainStart.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.checkBox_MainStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_MainStart.Location = new System.Drawing.Point(6, 33);
-            this.checkBox_MainStart.Name = "checkBox_MainStart";
-            this.checkBox_MainStart.Size = new System.Drawing.Size(127, 60);
-            this.checkBox_MainStart.TabIndex = 0;
-            this.checkBox_MainStart.Text = "Štart";
-            this.checkBox_MainStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_MainStart.UseVisualStyleBackColor = false;
-            this.checkBox_MainStart.CheckedChanged += new System.EventHandler(this.checkBox_MainStart_CheckedChanged);
+            this.button_MainStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_MainStart.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MainStart.FlatAppearance.BorderSize = 2;
+            this.button_MainStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_MainStart.Location = new System.Drawing.Point(9, 25);
+            this.button_MainStart.Name = "button_MainStart";
+            this.button_MainStart.Size = new System.Drawing.Size(127, 60);
+            this.button_MainStart.TabIndex = 1;
+            this.button_MainStart.Text = "Štart";
+            this.button_MainStart.UseVisualStyleBackColor = false;
+            this.button_MainStart.Click += new System.EventHandler(this.button_MainStart_Click);
             // 
             // tabControl_MainCameras
             // 
@@ -738,6 +729,7 @@
             // 
             this.tabPage_LeftSide.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_LeftSide.Controls.Add(this.Hwindow_LeftSide);
+            this.tabPage_LeftSide.ImageIndex = 1;
             this.tabPage_LeftSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_LeftSide.Name = "tabPage_LeftSide";
             this.tabPage_LeftSide.Padding = new System.Windows.Forms.Padding(3);
@@ -767,6 +759,7 @@
             // 
             this.tabPage_RightSide.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_RightSide.Controls.Add(this.Hwindow_RightSide);
+            this.tabPage_RightSide.ImageIndex = 1;
             this.tabPage_RightSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_RightSide.Name = "tabPage_RightSide";
             this.tabPage_RightSide.Padding = new System.Windows.Forms.Padding(3);
@@ -796,6 +789,7 @@
             // 
             this.tabPage_FrontSide.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_FrontSide.Controls.Add(this.Hwindow_FrontSide);
+            this.tabPage_FrontSide.ImageIndex = 1;
             this.tabPage_FrontSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_FrontSide.Name = "tabPage_FrontSide";
             this.tabPage_FrontSide.Padding = new System.Windows.Forms.Padding(3);
@@ -825,6 +819,7 @@
             // 
             this.tabPage_BackSide.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_BackSide.Controls.Add(this.Hwindow_BackSide);
+            this.tabPage_BackSide.ImageIndex = 1;
             this.tabPage_BackSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_BackSide.Name = "tabPage_BackSide";
             this.tabPage_BackSide.Padding = new System.Windows.Forms.Padding(3);
@@ -854,6 +849,7 @@
             // 
             this.tabPage_UpperSide.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_UpperSide.Controls.Add(this.Hwindow_UpperSide);
+            this.tabPage_UpperSide.ImageIndex = 1;
             this.tabPage_UpperSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_UpperSide.Name = "tabPage_UpperSide";
             this.tabPage_UpperSide.Padding = new System.Windows.Forms.Padding(3);
@@ -883,6 +879,7 @@
             // 
             this.tabPage_LowerSide.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_LowerSide.Controls.Add(this.Hwindow_LowerSide);
+            this.tabPage_LowerSide.ImageIndex = 1;
             this.tabPage_LowerSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_LowerSide.Name = "tabPage_LowerSide";
             this.tabPage_LowerSide.Padding = new System.Windows.Forms.Padding(3);
@@ -913,6 +910,8 @@
             this.imageList_TabMainCameras.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_TabMainCameras.ImageStream")));
             this.imageList_TabMainCameras.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList_TabMainCameras.Images.SetKeyName(0, "red.png");
+            this.imageList_TabMainCameras.Images.SetKeyName(1, "gray.png");
+            this.imageList_TabMainCameras.Images.SetKeyName(2, "green.png");
             // 
             // tabPage_Archive
             // 
@@ -976,8 +975,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -992,8 +991,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1064,8 +1063,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle10;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1073,8 +1072,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle11;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1083,8 +1082,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle12;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1093,8 +1092,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle13;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1103,8 +1102,8 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle14;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -2206,6 +2205,7 @@
             this.listBox_DiagnosticsCamerasSettings.Name = "listBox_DiagnosticsCamerasSettings";
             this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(129, 64);
             this.listBox_DiagnosticsCamerasSettings.TabIndex = 0;
+            this.listBox_DiagnosticsCamerasSettings.SelectedIndexChanged += new System.EventHandler(this.listBox_DiagnosticsCamerasSettings_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -2913,8 +2913,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox_MainRiadenie;
-        private System.Windows.Forms.CheckBox checkBox_MainStop;
-        private System.Windows.Forms.CheckBox checkBox_MainStart;
         private System.Windows.Forms.GroupBox groupBox_MainDielce;
         private System.Windows.Forms.GroupBox groupBox_MainPodozrive;
         private System.Windows.Forms.ListBox listBox_MainRecipe;
@@ -2953,7 +2951,6 @@
         private System.Windows.Forms.Button button_DiagnosticsAutorisation;
         private System.Windows.Forms.PictureBox pictureBox_FooterKeyBoard;
         private System.Windows.Forms.GroupBox groupBox_MainStatistics;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button_DiagnosticsInput7;
         private System.Windows.Forms.Button button_DiagnosticsInput6;
         private System.Windows.Forms.Button button_DiagnosticsInput5;
@@ -3007,6 +3004,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Radius;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusHoles;
         public System.Windows.Forms.ImageList imageList_TabMainCameras;
+        private System.Windows.Forms.Button button_MainStop;
+        private System.Windows.Forms.Button button_MainStart;
+        private System.Windows.Forms.Button button_MainSaveImg;
     }
 }
 

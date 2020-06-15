@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
@@ -15,8 +14,7 @@ namespace Ikea_Library.Helpers
         public static string SaveImagesPath = @"C:\Trifid\IKEA\SavedImages\";
         public static string JsonPersistenCamSettingsPath = @"C:\Trifid\IKEA\IkeaProject\Ikea\Ikea_Library\Helpers\json1.json";
 
-        //Data db
-        public static string UsersDataPath = @"Data Source = C:\Trifid\Ikea\IkeaProject\Ikea\Users.db";
+
 
         public static string ConnectionStringId = "Ikea";
 

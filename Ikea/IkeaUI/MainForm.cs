@@ -343,5 +343,6 @@ namespace IkeaUI
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, formatedExpTime);
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, formatedGain);
         }
+        //hello
     }
 }

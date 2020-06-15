@@ -9,6 +9,7 @@ namespace Ikea_Library.ProduceConsumer
 {
     public class Message
     {
-        public HObject TileImage { get; set; }
+        public HObject Image { get; set; }
+        
     }
 }

@@ -3,6 +3,7 @@ using HalconDotNet;
 using Ikea_Library;
 using Ikea_Library.DataGridTables;
 using Ikea_Library.DBAccess;
+using Ikea_Library.Events;
 using Ikea_Library.HDevProcedures;
 using Ikea_Library.Helpers;
 using Ikea_Library.ProduceConsumer;
@@ -33,10 +34,11 @@ namespace IkeaUI
         DrawingSide DrawingSide;
         Hole Hole;
 
+
         HDevProc Procedures;
         AdamSocket AdamSocket;
         PersistentVariables PersistentVariables;
-
+        private EventHandler<TileImageReadyEventArgs>TileImageReady;
 
         public Producer ProducerCam1;
         public Consumer ConsumerCam1;
@@ -64,6 +66,8 @@ namespace IkeaUI
 
             PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistenCamSettingsPath);
 
+            TileImageReady += Consumer_TileImageReady;
+
             timer_Simulation.Enabled = true;
             timer_Simulation.Start();
             timer_Clock.Enabled = true;
@@ -72,6 +76,12 @@ namespace IkeaUI
             timer_DiscsCheck.Start();
             timer_CameraPing.Enabled = true;
             timer_CameraPing.Start();
+        }
+
+        private void Consumer_TileImageReady(object sender, TileImageReadyEventArgs e)
+        {
+            Hwindow_LeftSide.HalconWindow.DispObj(e.TileImage);
+            Hwindow_LeftSide.HalconWindow.SetPart(0, 0, -2, -2);
         }
 
         private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)
@@ -266,7 +276,20 @@ namespace IkeaUI
 
         private void button_ExitApp_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                if (ProducerCam1 != null)
+                {
+                    ProducerCam1.AbortThread();
+                }
+
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{ 0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+
         }
         
 
@@ -278,6 +301,7 @@ namespace IkeaUI
                 int value = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
                 JsonFunctions.CamExposureTimeSet(PersistentVariables, camName, value);
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
+
             }
             catch (Exception ex)
             {
@@ -324,7 +348,12 @@ namespace IkeaUI
 
         private void button_MainStart_Click(object sender, EventArgs e)
         {
+            
+            ConsumerCam1 = new Consumer("ConsumerCam1", "CAM1", Hwindow_LeftSide);
+            ConsumerCam1.Start();
 
+            ProducerCam1 = new Producer("ProducerCam1", "CAM1", PersistentVariables, ConsumerCam1);
+            ProducerCam1.Start();
         }
 
         private void listBox_DiagnosticsCamerasSettings_SelectedIndexChanged(object sender, EventArgs e)
@@ -343,6 +372,12 @@ namespace IkeaUI
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, formatedExpTime);
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, formatedGain);
         }
-        //hello
+
+        private void button_MainStop_Click(object sender, EventArgs e)
+        {
+            ProducerCam1.AbortThread();
+            ConsumerCam1.AbortThread();
+
+        }
     }
 }

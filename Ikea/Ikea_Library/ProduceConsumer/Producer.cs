@@ -17,24 +17,28 @@ namespace Ikea_Library.ProduceConsumer
         private string _camName { get; set; }
         private HObject _tileImage { get; set; }
 
+        private HTuple AcqHandleCam;
         private bool Run;
         private Thread ProducerThread;
-        public HDevProcedure HDevProcedures;
         public CamProcedures CamProcedures;
-        public HTuple AcqHandleCam;
         private CameraState CameraState;
+        private PersistentVariables _persistentVariables;
+        private Consumer _consumer;
+        private Message Message;
 
-        public Producer(string name, string camName)
+        public Producer(string name, string camName, PersistentVariables persistentVariables, Consumer consumer)
         {
             _name = name;
             _camName = camName;
+            _persistentVariables = persistentVariables;
+            _consumer = consumer;
         }
 
         private bool Initialize()
         {
             try
             {
-                HDevProcedures = new HDevProcedure(GlobalVariables.CameraProcedures);
+                CamProcedures = new CamProcedures(GlobalVariables.CameraProcedures);
                 return true;
             }
             catch (Exception ex)
@@ -58,9 +62,9 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             if (Initialize() == true)
                             {
-                                AcqHandleCam = new HTuple(-1);
+                                AcqHandleCam = null;
 
-                                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Initialization", "|OK|");
+                                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Initialization {_camName}", "|OK|");
                                 CameraState = CameraState.ConnectCamera;
                             }
                             else
@@ -81,61 +85,118 @@ namespace Ikea_Library.ProduceConsumer
 
                         try
                         {
-                            CamProcedures.OpenFramegrabber("CAM1", 600, 0, 2048, 50, 5000, out AcqHandleCam);
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Connecting Camera {_camName} with exp:{_persistentVariables.ExposureTimeCam1}, gain:{ _persistentVariables.GainCam1}", "|OK|");
+                            CamProcedures.OpenFramegrabber(_camName, 2048, 50, _persistentVariables.ExposureTimeCam1, _persistentVariables.GainCam1, out AcqHandleCam);
+                            Message = new Message();
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{_camName} Camera is connected", "|OK|");
 
-                            if (AcqHandleCam != -1)
-                            {
-                                switch (_camName)
-                                {
-                                    case "CAM1":
-                                        break;
-                                    case "CAM2":
-                                        break;
-                                    case "CAM3":
-                                        break;
-                                    case "CAM4":
-                                        break;
-                                    case "CAM5":
-                                        break;
-                                    case "CAM6":
-                                        break;
-                                    case "CAM7":
-                                        break;
-                                    case "CAM8":
-                                        break;
-                                    case "CAM9":
-                                        break;
-                                    case "CAM10":
-                                        break;
-                                    case "CAM11":
-                                        break;
-                                    case "CAM12":
-                                        break;
-                                    case "CAM13":
-                                        break;
-                                    case "CAM14":
-                                        break;
-                                }
-                            }
+                            CameraState = CameraState.GrabImage;
                         }
 
-                        catch
+                        catch (Exception ex)
                         {
-
+                            CameraState = CameraState.Exception;
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                         }
 
                         break;
 
                     case CameraState.GrabImage:
-                        break;
 
-                    case CameraState.DisconnectCamera:
+                        try
+                        {
+                            switch (_camName)
+                            {
+                                case "CAM1":
+
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", _persistentVariables.ExposureTimeCam1);
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", _persistentVariables.GainCam1);
+
+                                    HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out HTuple imageAvailable);
+
+                                    //if (imageAvailable.I == 1)
+                                    //{
+                                        HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
+                                        Message.Image = image;
+                                        _consumer.Enqueue(Message);
+                                        Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{_camName} Added message to collection", "|OK|");
+                                    //}
+                                    //else
+                                    //{
+                                       //Thread.Sleep(1);
+                                    //}
+
+                                    break;
+
+                                case "CAM2":
+                                    break;
+
+                                case "CAM3":
+                                    break;
+
+                                case "CAM4":
+                                    break;
+
+                                case "CAM5":
+                                    break;
+
+                                case "CAM6":
+                                    break;
+
+                                case "CAM7":
+                                    break;
+
+                                case "CAM8":
+                                    break;
+
+                                case "CAM9":
+                                    break;
+
+                                case "CAM10":
+                                    break;
+
+                                case "CAM11":
+                                    break;
+
+                                case "CAM12":
+                                    break;
+
+                                case "CAM13":
+                                    break;
+
+                                case "CAM14":
+                                    break;
+                            }
+
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                        }
+
                         break;
 
                     case CameraState.Exception:
                         break;
                 }
+
             }
+            try
+            {
+                if(AcqHandleCam != null)
+                {
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Disconnecting Camera {_camName}", "|OK|");
+                    CamProcedures.CloseFramegrabber(AcqHandleCam);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+
+            CameraState = CameraState.Initialization;
         }
 
         public void Start()
@@ -145,10 +206,11 @@ namespace Ikea_Library.ProduceConsumer
 
             ProducerThread = new Thread(MainFunction)
             {
-                Name = "ImageProcessing",
+                Name = $"ProducerThread {_camName}",
                 IsBackground = true,
                 Priority = ThreadPriority.Normal
             };
+
             ProducerThread.Start();
         }
 
@@ -157,6 +219,8 @@ namespace Ikea_Library.ProduceConsumer
             Run = false;
             ProducerThread.Join(5000);
             ProducerThread.Abort();
+            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Aborted Thread {ProducerThread.Name}", "|OK|");
+
         }
     }
 }

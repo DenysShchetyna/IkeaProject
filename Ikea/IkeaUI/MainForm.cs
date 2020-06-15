@@ -38,10 +38,10 @@ namespace IkeaUI
         HDevProc Procedures;
         AdamSocket AdamSocket;
         PersistentVariables PersistentVariables;
-        private EventHandler<TileImageReadyEventArgs>TileImageReady;
 
         public Producer ProducerCam1;
         public Consumer ConsumerCam1;
+        
 
         public int ImgNum = 0;
 
@@ -58,6 +58,9 @@ namespace IkeaUI
                 @"C:/Trifid/IKEA/Data/DGL_130_obycajny.bmp"
         };
 
+        private bool IsAdministratorLoggedIn = false;
+        private string CurrentAdministrator = "";
+
         public MainForm()
         {
             InitializeComponent();
@@ -65,8 +68,10 @@ namespace IkeaUI
             Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath);
 
             PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistenCamSettingsPath);
+            SqliteDataAccess.IsAvailable();
 
-            TileImageReady += Consumer_TileImageReady;
+
+
 
             timer_Simulation.Enabled = true;
             timer_Simulation.Start();
@@ -351,6 +356,8 @@ namespace IkeaUI
             
             ConsumerCam1 = new Consumer("ConsumerCam1", "CAM1", Hwindow_LeftSide);
             ConsumerCam1.Start();
+            ConsumerCam1.TileImageReady += Consumer_TileImageReady;
+
 
             ProducerCam1 = new Producer("ProducerCam1", "CAM1", PersistentVariables, ConsumerCam1);
             ProducerCam1.Start();
@@ -375,9 +382,97 @@ namespace IkeaUI
 
         private void button_MainStop_Click(object sender, EventArgs e)
         {
+            ConsumerCam1.TileImageReady -= Consumer_TileImageReady;
             ProducerCam1.AbortThread();
             ConsumerCam1.AbortThread();
+        }
+       
+        //autorization functions start
 
+        private void button_DiagnosticsLogOff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsAdministratorLoggedIn == true)
+                {
+                    IsAdministratorLoggedIn = false;
+                    CurrentAdministrator = "";
+                    label_AccessLevel.Text = "Operátor";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+        }
+
+        private void button_DiagnosticsChangePassword_Click(object sender, EventArgs e)
+        {
+
+            if (IsAdministratorLoggedIn == true && string.IsNullOrEmpty(textBox_UserPassword.Text) == false)
+            {
+                try
+                {
+                    SqliteDataAccess.ChangePassword(CurrentAdministrator, textBox_UserPassword.Text);
+                    MessageBox.Show("Heslo bolo zmenene", "Info");
+                    textBox_UserPassword.Clear();
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                }
+            }
+        }
+
+        private void button_DiagnosticsLogIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string password = textBox_UserPassword.Text;
+
+                if (string.IsNullOrEmpty(password) == false)
+                {
+                    PersonModel personModel = SqliteDataAccess.ChceckUserPassword(password);
+
+                    if (personModel != null)
+                    {
+                        if (personModel.Name == "Admin")
+                        {
+                            IsAdministratorLoggedIn = true;
+                            CurrentAdministrator = personModel.Name;
+                            label_AccessLevel.Text = "Administrator";
+                        }
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Nespravne heslo", "Info");
+                    }
+
+                    textBox_UserPassword.Clear();
+                }
+
+                else
+                {
+                    if (string.IsNullOrEmpty(password) == true)
+                    {
+                        MessageBox.Show("Please insert valid password", "Info");
+                    }
+                }
+
+                panel_DiagnosticsAutorization.Visible = false;
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+        }
+
+        private void button_Autorization_Click(object sender, EventArgs e)
+        {
+            panel_DiagnosticsAutorization.Visible = !panel_DiagnosticsAutorization.Visible;
         }
     }
 }

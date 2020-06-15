@@ -44,5 +44,7 @@ namespace Ikea_Library.Helpers
             "Cam13",
             "Cam14",
         };
+
+        public static string SqliteUsersDatabasePath = @"Data Source = C:\Trifid\Ikea\IkeaProject\Ikea\Users.db";
     }
 }

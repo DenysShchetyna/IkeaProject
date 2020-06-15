@@ -28,6 +28,7 @@ namespace Ikea_Library
         }
         public Material()
         {
+
         }
     }
 }

@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,8 +113,9 @@
             this.tabPage_Diagnostics = new System.Windows.Forms.TabPage();
             this.panel_DiagnosticsAutorization = new System.Windows.Forms.Panel();
             this.button_DiagnosticsChangePassword = new System.Windows.Forms.Button();
+            this.button_DiagnosticsLogOff = new System.Windows.Forms.Button();
             this.button_DiagnosticsLogIn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_UserPassword = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.button_DiagnosticsAutorisation = new System.Windows.Forms.Button();
             this.groupBox_DiagnosticsVstupy = new System.Windows.Forms.GroupBox();
@@ -680,6 +681,7 @@
             this.button_MainStop.TabIndex = 2;
             this.button_MainStop.Text = "Stop";
             this.button_MainStop.UseVisualStyleBackColor = false;
+            this.button_MainStop.Click += new System.EventHandler(this.button_MainStop_Click);
             // 
             // button_MainSaveImg
             // 
@@ -975,8 +977,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -991,8 +993,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1063,8 +1065,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle31;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1072,8 +1074,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle32;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1082,8 +1084,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle33;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1092,8 +1094,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle34;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1102,8 +1104,8 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle35;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -1221,8 +1223,9 @@
             // 
             this.panel_DiagnosticsAutorization.BackColor = System.Drawing.Color.Silver;
             this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsChangePassword);
+            this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsLogOff);
             this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsLogIn);
-            this.panel_DiagnosticsAutorization.Controls.Add(this.textBox1);
+            this.panel_DiagnosticsAutorization.Controls.Add(this.textBox_UserPassword);
             this.panel_DiagnosticsAutorization.Controls.Add(this.label38);
             this.panel_DiagnosticsAutorization.Location = new System.Drawing.Point(166, 782);
             this.panel_DiagnosticsAutorization.Name = "panel_DiagnosticsAutorization";
@@ -1240,6 +1243,20 @@
             this.button_DiagnosticsChangePassword.TabIndex = 1;
             this.button_DiagnosticsChangePassword.Text = "Zmeniť";
             this.button_DiagnosticsChangePassword.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsChangePassword.Click += new System.EventHandler(this.button_DiagnosticsChangePassword_Click);
+            // 
+            // button_DiagnosticsLogOff
+            // 
+            this.button_DiagnosticsLogOff.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsLogOff.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsLogOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsLogOff.Location = new System.Drawing.Point(78, 112);
+            this.button_DiagnosticsLogOff.Name = "button_DiagnosticsLogOff";
+            this.button_DiagnosticsLogOff.Size = new System.Drawing.Size(101, 29);
+            this.button_DiagnosticsLogOff.TabIndex = 1;
+            this.button_DiagnosticsLogOff.Text = "Odhlasiť sa";
+            this.button_DiagnosticsLogOff.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsLogOff.Click += new System.EventHandler(this.button_DiagnosticsLogOff_Click);
             // 
             // button_DiagnosticsLogIn
             // 
@@ -1252,13 +1269,14 @@
             this.button_DiagnosticsLogIn.TabIndex = 1;
             this.button_DiagnosticsLogIn.Text = "Prihlásiť sa";
             this.button_DiagnosticsLogIn.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsLogIn.Click += new System.EventHandler(this.button_DiagnosticsLogIn_Click);
             // 
-            // textBox1
+            // textBox_UserPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 26);
-            this.textBox1.TabIndex = 0;
+            this.textBox_UserPassword.Location = new System.Drawing.Point(78, 29);
+            this.textBox_UserPassword.Name = "textBox_UserPassword";
+            this.textBox_UserPassword.Size = new System.Drawing.Size(216, 26);
+            this.textBox_UserPassword.TabIndex = 0;
             // 
             // label38
             // 
@@ -1280,6 +1298,7 @@
             this.button_DiagnosticsAutorisation.TabIndex = 13;
             this.button_DiagnosticsAutorisation.Text = "Administrátor";
             this.button_DiagnosticsAutorisation.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsAutorisation.Click += new System.EventHandler(this.button_Autorization_Click);
             // 
             // groupBox_DiagnosticsVstupy
             // 
@@ -2946,7 +2965,7 @@
         private System.Windows.Forms.Panel panel_DiagnosticsAutorization;
         private System.Windows.Forms.Button button_DiagnosticsChangePassword;
         private System.Windows.Forms.Button button_DiagnosticsLogIn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_UserPassword;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button button_DiagnosticsAutorisation;
         private System.Windows.Forms.PictureBox pictureBox_FooterKeyBoard;
@@ -3007,6 +3026,7 @@
         private System.Windows.Forms.Button button_MainStop;
         private System.Windows.Forms.Button button_MainStart;
         private System.Windows.Forms.Button button_MainSaveImg;
+        private System.Windows.Forms.Button button_DiagnosticsLogOff;
     }
 }
 

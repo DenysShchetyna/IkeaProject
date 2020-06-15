@@ -86,6 +86,7 @@ namespace Ikea_Library.ProduceConsumer
             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Aborted Thread {ConsumerThread.Name}", "|OK|");
 
         }
+        
     }
 
 }

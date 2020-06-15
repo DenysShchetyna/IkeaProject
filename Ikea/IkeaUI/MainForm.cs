@@ -205,7 +205,6 @@ namespace IkeaUI
             DataGridFunctions.ShowResultsDrawingSides(dataGridView_ArchiveDrawingSides, drawingSides);
         }
 
-
         private void dataGridView_ArchiveDrawingSides_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DrawingSide drawingSide = new DrawingSide();
@@ -331,17 +330,18 @@ namespace IkeaUI
         private void listBox_DiagnosticsCamerasSettings_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indexSelected = listBox_DiagnosticsCamerasSettings.SelectedIndex;
+
             string text = File.ReadAllText(GlobalVariables.JsonPersistenCamSettingsPath);
             string[] splittedtex = text.Split(',');
+
             string unformatedExpTime = splittedtex[indexSelected*2];
             string unformatedGain = text.Split(',')[indexSelected*2 +1];
+
             string formatedExpTime = unformatedExpTime.Split(':')[1];
             string formatedGain = unformatedGain.Split(':')[1];
 
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, formatedExpTime);
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, formatedGain);
-
-
         }
     }
 }

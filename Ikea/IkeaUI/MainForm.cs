@@ -1,12 +1,14 @@
 ﻿using Advantech.Adam;
 using HalconDotNet;
 using Ikea_Library;
+using Ikea_Library.DataAccess;
 using Ikea_Library.DataGridTables;
 using Ikea_Library.DBAccess;
 using Ikea_Library.Events;
 using Ikea_Library.HDevProcedures;
 using Ikea_Library.Helpers;
 using Ikea_Library.ProduceConsumer;
+using Ikea_Library.Users;
 using Ikea_Library.Utilities;
 using IkeaProject;
 using IkeaUI.Properties;
@@ -45,6 +47,12 @@ namespace IkeaUI
 
         public int ImgNum = 0;
 
+        // Users
+        private List<PersonModel> Administrators = null;
+        private List<PersonModel> Operators = null;
+        private bool IsAdministratorLoggedIn = false;
+        private string CurrentAdministrator = "";
+
         List<string> ListOfImagesPaths = new List<string>()
         {
                 @"C:/Trifid/IKEA/Data/DGG_435_BR.bmp",
@@ -62,9 +70,9 @@ namespace IkeaUI
         {
             InitializeComponent();
 
-            Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath);
+            //Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath);
 
-            PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistenCamSettingsPath);
+            //PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistenCamSettingsPath);
 
             TileImageReady += Consumer_TileImageReady;
 
@@ -76,6 +84,8 @@ namespace IkeaUI
             timer_DiscsCheck.Start();
             timer_CameraPing.Enabled = true;
             timer_CameraPing.Start();
+
+            LoadAllUsers();
         }
 
         private void Consumer_TileImageReady(object sender, TileImageReadyEventArgs e)
@@ -147,7 +157,7 @@ namespace IkeaUI
 
             DrawingSide.HolesCount = DrawingSide.Holes.Count();
             DrawingSide.TimeStamp = timestamp;
-            DrawingSide.ImagePath = GlobalVariables.SaveImagesPath + (DrawingSide.TimeStamp +"\\" + DrawingSide.TimeStamp).Replace('-', '_').Replace(" ", "__").Replace(':', '_')+DrawingSide.Name+".tiff";
+            DrawingSide.ImagePath = GlobalVariables.SaveImagesPath + (DrawingSide.TimeStamp + "\\" + DrawingSide.TimeStamp).Replace('-', '_').Replace(" ", "__").Replace(':', '_') + DrawingSide.Name + ".tiff";
 
             Plank.TimeStamp = timestamp;
             Plank.DrawingSides.Add(DrawingSide);
@@ -172,9 +182,9 @@ namespace IkeaUI
                 //SAVING IMAGES
                 if (insertingToDatabaseStatus == true)
                 {
-                    string fileName = timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_')+ DrawingSide.Name + ".tiff";
+                    string fileName = timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_') + DrawingSide.Name + ".tiff";
                     string dirPath = GlobalVariables.SaveImagesPath + timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
-                    string filePath = dirPath +"\\" + fileName;
+                    string filePath = dirPath + "\\" + fileName;
 
                     Directory.CreateDirectory(dirPath);
                     HOperatorSet.WriteImage(Image, "tiff", 0, filePath);
@@ -198,7 +208,7 @@ namespace IkeaUI
             dataGridView_Data.ClearSelection();
             Hwindow_ArchiveImage.HalconWindow.ClearWindow();
         }
-        
+
 
         private void dataGridView_Data_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -291,7 +301,7 @@ namespace IkeaUI
             }
 
         }
-        
+
 
         private void button_DiagnosticsExposureSet_Click(object sender, EventArgs e)
         {
@@ -328,7 +338,7 @@ namespace IkeaUI
         {
             // cameraStatus = DeviceManager.PingCamera(GlobalVariables.CameraNames);
             List<bool> cameraStatus = new List<bool>() { true, true, true, true, true, true, true, true, true, true, true, true, true, true };
-            
+
             for (int i = 0; i < cameraStatus.Count; i++)
             {
                 PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
@@ -363,8 +373,8 @@ namespace IkeaUI
             string text = File.ReadAllText(GlobalVariables.JsonPersistenCamSettingsPath);
             string[] splittedtex = text.Split(',');
 
-            string unformatedExpTime = splittedtex[indexSelected*2];
-            string unformatedGain = text.Split(',')[indexSelected*2 +1];
+            string unformatedExpTime = splittedtex[indexSelected * 2];
+            string unformatedGain = text.Split(',')[indexSelected * 2 + 1];
 
             string formatedExpTime = unformatedExpTime.Split(':')[1];
             string formatedGain = unformatedGain.Split(':')[1];
@@ -372,12 +382,161 @@ namespace IkeaUI
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, formatedExpTime);
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, formatedGain);
         }
-
         private void button_MainStop_Click(object sender, EventArgs e)
         {
             ProducerCam1.AbortThread();
             ConsumerCam1.AbortThread();
 
+
         }
+
+    private void button_Autorization_Click(object sender, EventArgs e)
+        {
+            ShowHideUserManagementScreen((int)Visibility.Show);
+        }
+
+        //User Management
+
+        private void LoadAllUsers()
+        {
+            try
+            {
+                List<PersonModel> allUsers = SqliteDataAccess.SelectAllUsers();
+
+                if (allUsers != null)
+                {
+                    Administrators = new List<PersonModel>();
+                    Operators = new List<PersonModel>();
+
+                    for (int i = 0; i < allUsers.Count; i++)
+                    {
+                        if (allUsers[i].UserLevel == (int)UserLevel.Administrator)
+                        {
+                            Administrators.Add(allUsers[i]);
+                        }
+
+                        else if (allUsers[i].UserLevel == (int)UserLevel.Operator)
+                        {
+                            Operators.Add(allUsers[i]);
+                        }
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(DateTime.Now + " - " + ex.Message);
+            }
+        }
+
+        private void ShowHideUserManagementScreen(int visibility)
+        {
+            try
+            {
+                if (visibility == (int)Visibility.Hide)
+                {
+                    panel_DiagnosticsAutorization.Hide();
+                    panel_DiagnosticsAutorization.Location = new Point(-10000, 0);
+                }
+                else if (visibility == (int)Visibility.Show)
+                {
+                    panel_DiagnosticsAutorization.Location = new Point(166, 782);
+                    panel_DiagnosticsAutorization.Show();
+                    panel_DiagnosticsAutorization.BringToFront();
+                }
+                else
+                {
+                    panel_DiagnosticsAutorization.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(DateTime.Now + " - " + ex.Message);
+            }
+        }
+
+        private void button_DiagnosticsLogIn_CLick(object sender, EventArgs e)
+        {
+            try
+            {
+                string password = textBox_UserPassword.Text;
+
+                if (string.IsNullOrEmpty(password) == false)
+                {
+                    PersonModel personModel = SqliteDataAccess.SelectUser(password);
+
+
+                    if (personModel != null)
+                    {
+                        if (personModel.Name == "Admin")
+                        {
+                            IsAdministratorLoggedIn = true;
+                            CurrentAdministrator = personModel.Name;
+                            label_AccessLevel.Text = "Administrator";
+                        }
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Invalid login", "Info");
+                    }
+
+                    textBox_UserPassword.Clear();
+                }
+
+                else
+                {
+                    if (string.IsNullOrEmpty(password) == true)
+                    {
+                        MessageBox.Show("Please insert valid password", "Info");
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(DateTime.Now + " - " + ex.Message);
+            }
+        }
+
+
+        private void button_DiagnosticsLogOff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsAdministratorLoggedIn == true)
+                {
+                    IsAdministratorLoggedIn = false;
+                    CurrentAdministrator = "";
+                    label_AccessLevel.Text = "Operátor";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(DateTime.Now + " - " + ex.Message);
+            }
+        }
+        //fgfgfgfgfgfg
+
+        private void button_DiagnosticsChangePassword_Click(object sender, EventArgs e)
+        {
+
+            if (IsAdministratorLoggedIn == true && textBox_UserPassword.Text != "")
+            {
+                try
+                {
+                    PersonModel personModel = SqliteDataAccess.ChangePassword(CurrentAdministrator, textBox_UserPassword.Text);
+
+                    MessageBox.Show("Password was changed successfully", "Info");
+                    textBox_UserPassword.Clear();
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine(DateTime.Now + " - " + ex.Message);
+                }
+            }
+
+        
     }
 }

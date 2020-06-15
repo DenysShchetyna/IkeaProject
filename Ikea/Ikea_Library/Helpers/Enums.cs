@@ -35,4 +35,16 @@ namespace Ikea_Library.Helpers
         DisconnectCamera,
         Exception
     }
+
+    public enum UserLevel
+    {
+        Operator = 5,
+        Administrator = 10
+    }
+
+    public enum Visibility
+    {
+        Hide,
+        Show
+    }
 }

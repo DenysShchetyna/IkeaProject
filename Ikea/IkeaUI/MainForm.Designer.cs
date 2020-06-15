@@ -114,7 +114,7 @@
             this.panel_DiagnosticsAutorization = new System.Windows.Forms.Panel();
             this.button_DiagnosticsChangePassword = new System.Windows.Forms.Button();
             this.button_DiagnosticsLogIn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_UserPassword = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.button_DiagnosticsAutorisation = new System.Windows.Forms.Button();
             this.groupBox_DiagnosticsVstupy = new System.Windows.Forms.GroupBox();
@@ -245,6 +245,7 @@
             this.pictureBox_FooterKeyBoard = new System.Windows.Forms.PictureBox();
             this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.timer_CameraPing = new System.Windows.Forms.Timer(this.components);
+            this.button_DiagnosticsLogOff = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
@@ -413,7 +414,7 @@
             this.tabControl_MainControl.Name = "tabControl_MainControl";
             this.tabControl_MainControl.Padding = new System.Drawing.Point(0, 0);
             this.tabControl_MainControl.SelectedIndex = 0;
-            this.tabControl_MainControl.Size = new System.Drawing.Size(1920, 1015);
+            this.tabControl_MainControl.Size = new System.Drawing.Size(1920, 996);
             this.tabControl_MainControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl_MainControl.TabIndex = 8;
             this.tabControl_MainControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_MainControl_DrawItem);
@@ -435,7 +436,7 @@
             this.tabPage_Main.Location = new System.Drawing.Point(124, 4);
             this.tabPage_Main.Name = "tabPage_Main";
             this.tabPage_Main.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Main.Size = new System.Drawing.Size(1792, 1007);
+            this.tabPage_Main.Size = new System.Drawing.Size(1792, 988);
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "Hlavná";
             // 
@@ -926,7 +927,7 @@
             this.tabPage_Archive.Location = new System.Drawing.Point(124, 4);
             this.tabPage_Archive.Name = "tabPage_Archive";
             this.tabPage_Archive.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Archive.Size = new System.Drawing.Size(1792, 1007);
+            this.tabPage_Archive.Size = new System.Drawing.Size(1792, 988);
             this.tabPage_Archive.TabIndex = 1;
             this.tabPage_Archive.Text = "Archív";
             // 
@@ -1213,16 +1214,17 @@
             this.tabPage_Diagnostics.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabPage_Diagnostics.Location = new System.Drawing.Point(124, 4);
             this.tabPage_Diagnostics.Name = "tabPage_Diagnostics";
-            this.tabPage_Diagnostics.Size = new System.Drawing.Size(1792, 1007);
+            this.tabPage_Diagnostics.Size = new System.Drawing.Size(1792, 988);
             this.tabPage_Diagnostics.TabIndex = 2;
             this.tabPage_Diagnostics.Text = "Servis";
             // 
             // panel_DiagnosticsAutorization
             // 
             this.panel_DiagnosticsAutorization.BackColor = System.Drawing.Color.Silver;
+            this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsLogOff);
             this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsChangePassword);
             this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsLogIn);
-            this.panel_DiagnosticsAutorization.Controls.Add(this.textBox1);
+            this.panel_DiagnosticsAutorization.Controls.Add(this.textBox_UserPassword);
             this.panel_DiagnosticsAutorization.Controls.Add(this.label38);
             this.panel_DiagnosticsAutorization.Location = new System.Drawing.Point(166, 782);
             this.panel_DiagnosticsAutorization.Name = "panel_DiagnosticsAutorization";
@@ -1240,6 +1242,7 @@
             this.button_DiagnosticsChangePassword.TabIndex = 1;
             this.button_DiagnosticsChangePassword.Text = "Zmeniť";
             this.button_DiagnosticsChangePassword.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsChangePassword.Click += new System.EventHandler(this.button_DiagnosticsChangePassword_Click);
             // 
             // button_DiagnosticsLogIn
             // 
@@ -1252,13 +1255,14 @@
             this.button_DiagnosticsLogIn.TabIndex = 1;
             this.button_DiagnosticsLogIn.Text = "Prihlásiť sa";
             this.button_DiagnosticsLogIn.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsLogIn.Click += new System.EventHandler(this.button_DiagnosticsLogIn_CLick);
             // 
-            // textBox1
+            // textBox_UserPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 26);
-            this.textBox1.TabIndex = 0;
+            this.textBox_UserPassword.Location = new System.Drawing.Point(78, 29);
+            this.textBox_UserPassword.Name = "textBox_UserPassword";
+            this.textBox_UserPassword.Size = new System.Drawing.Size(216, 26);
+            this.textBox_UserPassword.TabIndex = 0;
             // 
             // label38
             // 
@@ -1280,6 +1284,7 @@
             this.button_DiagnosticsAutorisation.TabIndex = 13;
             this.button_DiagnosticsAutorisation.Text = "Administrátor";
             this.button_DiagnosticsAutorisation.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsAutorisation.Click += new System.EventHandler(this.button_Autorization_Click);
             // 
             // groupBox_DiagnosticsVstupy
             // 
@@ -2658,7 +2663,7 @@
             this.panel_Footer.Controls.Add(this.pictureBox_FooterKeyBoard);
             this.panel_Footer.Controls.Add(this.button_FooterExitApp);
             this.panel_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_Footer.Location = new System.Drawing.Point(0, 1029);
+            this.panel_Footer.Location = new System.Drawing.Point(0, 1010);
             this.panel_Footer.Name = "panel_Footer";
             this.panel_Footer.Size = new System.Drawing.Size(1920, 51);
             this.panel_Footer.TabIndex = 9;
@@ -2693,11 +2698,24 @@
             this.timer_CameraPing.Interval = 5000;
             this.timer_CameraPing.Tick += new System.EventHandler(this.timer_CameraPing_Tick);
             // 
+            // button_DiagnosticsLogOff
+            // 
+            this.button_DiagnosticsLogOff.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsLogOff.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsLogOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsLogOff.Location = new System.Drawing.Point(78, 112);
+            this.button_DiagnosticsLogOff.Name = "button_DiagnosticsLogOff";
+            this.button_DiagnosticsLogOff.Size = new System.Drawing.Size(101, 29);
+            this.button_DiagnosticsLogOff.TabIndex = 2;
+            this.button_DiagnosticsLogOff.Text = "Odhlasiť sa";
+            this.button_DiagnosticsLogOff.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsLogOff.Click += new System.EventHandler(this.button_DiagnosticsLogOff_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.ClientSize = new System.Drawing.Size(1920, 1061);
             this.Controls.Add(this.panel_Footer);
             this.Controls.Add(this.tabControl_MainControl);
             this.Controls.Add(this.panel_Header);
@@ -2946,7 +2964,7 @@
         private System.Windows.Forms.Panel panel_DiagnosticsAutorization;
         private System.Windows.Forms.Button button_DiagnosticsChangePassword;
         private System.Windows.Forms.Button button_DiagnosticsLogIn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_UserPassword;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button button_DiagnosticsAutorisation;
         private System.Windows.Forms.PictureBox pictureBox_FooterKeyBoard;
@@ -3007,6 +3025,7 @@
         private System.Windows.Forms.Button button_MainStop;
         private System.Windows.Forms.Button button_MainStart;
         private System.Windows.Forms.Button button_MainSaveImg;
+        private System.Windows.Forms.Button button_DiagnosticsLogOff;
     }
 }
 

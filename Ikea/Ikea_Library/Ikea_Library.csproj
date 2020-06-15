@@ -85,6 +85,7 @@
     <Compile Include="DataGridTables\DataGridFunctions.cs" />
     <Compile Include="DBAccess\DBFunctions.cs" />
     <Compile Include="DrawingSide.cs" />
+    <Compile Include="Events\TimeImageReadyEventArgs.cs" />
     <Compile Include="HdevProcedures\CamProcedures.cs" />
     <Compile Include="HdevProcedures\FindHoles.cs" />
     <Compile Include="HdevProcedures\FindHolesTest.cs" />

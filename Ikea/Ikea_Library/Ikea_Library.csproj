@@ -52,6 +52,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>trifid_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Advantech.Adam, Version=2.2.12.0, Culture=neutral, PublicKeyToken=6929fc9ed10b8f2c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -91,17 +94,23 @@
     <Compile Include="DBAccess\DBFunctions.cs" />
     <Compile Include="DBAccess\SqliteDataAccess.cs" />
     <Compile Include="DrawingSide.cs" />
-    <Compile Include="Events\TimeImageReadyEventArgs.cs" />
+    <Compile Include="Events\TileImageReadyEventArgs.cs" />
     <Compile Include="Hash.cs" />
     <Compile Include="HdevProcedures\CamProcedures.cs" />
     <Compile Include="HdevProcedures\FindHoles.cs" />
     <Compile Include="HdevProcedures\FindHolesTest.cs" />
+    <Compile Include="HdevProcedures\ReadDrawings.cs" />
     <Compile Include="Helpers\Colors.cs" />
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\PersistentVariables.cs" />
     <Compile Include="Helpers\JsonFunctions.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Hole.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Users\PersonModel.cs" />
     <Compile Include="ProduceConsumer\Consumer.cs" />
     <Compile Include="ProduceConsumer\Message.cs" />
@@ -112,8 +121,13 @@
     <Compile Include="Helpers\GlobalVariables.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Helpers\json1.json" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -123,6 +137,7 @@
     <Content Include="Libs\Advantech.Adam.DLL" />
     <Content Include="Libs\halcondotnet.dll" />
     <Content Include="Libs\hdevenginedotnet.dll" />
+    <Content Include="trifid_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets')" />

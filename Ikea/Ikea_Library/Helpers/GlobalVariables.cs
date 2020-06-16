@@ -46,5 +46,6 @@ namespace Ikea_Library.Helpers
         };
 
         public static string SqliteUsersDatabasePath = @"Data Source = C:\Trifid\Ikea\IkeaProject\Ikea\Users.db";
+        public static string DrawingsPath = @"C:/Trifid/IKEA/Vykresy";
     }
 }

@@ -12,6 +12,7 @@ namespace Ikea_Library.Utilities
         public static List<bool> PingCamera(List<string> cameras)
         {
             List<bool> status = new List<bool>();
+
             try
             {
                 using (Ping ping = new Ping())

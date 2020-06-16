@@ -4,6 +4,7 @@ using Ikea_Library;
 using Ikea_Library.DataGridTables;
 using Ikea_Library.DBAccess;
 using Ikea_Library.Events;
+using Ikea_Library.HdevProcedures;
 using Ikea_Library.HDevProcedures;
 using Ikea_Library.Helpers;
 using Ikea_Library.ProduceConsumer;
@@ -29,11 +30,11 @@ namespace IkeaUI
     public partial class MainForm : Form
     {
         private string RecipeMaterialName;
+        private ReadDrawings ReadDrawings;
 
         Material Plank;
         DrawingSide DrawingSide;
         Hole Hole;
-
 
         HDevProc Procedures;
         AdamSocket AdamSocket;
@@ -41,7 +42,7 @@ namespace IkeaUI
 
         public Producer ProducerCam1;
         public Consumer ConsumerCam1;
-        
+
 
         public int ImgNum = 0;
 
@@ -70,9 +71,6 @@ namespace IkeaUI
             PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistenCamSettingsPath);
             SqliteDataAccess.IsAvailable();
 
-
-
-
             timer_Simulation.Enabled = true;
             timer_Simulation.Start();
             timer_Clock.Enabled = true;
@@ -83,9 +81,60 @@ namespace IkeaUI
             timer_CameraPing.Start();
         }
 
-        private void Consumer_TileImageReady(object sender, TileImageReadyEventArgs e)
+        private void Cunsumer_TileImages(object sender, TileImageReadyEventArgs e)
         {
-            Hwindow_LeftSide.HalconWindow.DispObj(e.TileImage);
+            switch (e.CamName)
+            {
+                case "CAM1":
+                    break;
+
+                case "CAM2":
+                    break;
+
+                case "CAM3":
+                    break;
+
+                case "CAM4":
+                    break;
+
+                case "CAM5":
+                    break;
+
+                case "CAM6":
+                    break;
+
+                case "CAM7":
+                    break;
+
+                case "CAM8":
+                    break;
+
+                case "CAM9":
+                    break;
+
+                case "CAM10":
+                    break;
+
+                case "CAM11":
+                    break;
+
+                case "CAM12":
+                    break;
+
+                case "CAM13":
+                    break;
+
+                case "CAM14":
+                    break;
+            }
+
+            HObject firstImage = e.TileImageCam1;
+            HObject secondImage = e.TileImageCam2;
+
+            Hwindow_LeftSide.HalconWindow.DispObj(firstImage);
+            Hwindow_RightSide.HalconWindow.DispObj(firstImage);
+
+            Hwindow_RightSide.HalconWindow.SetPart(0, 0, -2, -2);
             Hwindow_LeftSide.HalconWindow.SetPart(0, 0, -2, -2);
         }
 
@@ -152,7 +201,7 @@ namespace IkeaUI
 
             DrawingSide.HolesCount = DrawingSide.Holes.Count();
             DrawingSide.TimeStamp = timestamp;
-            DrawingSide.ImagePath = GlobalVariables.SaveImagesPath + (DrawingSide.TimeStamp +"\\" + DrawingSide.TimeStamp).Replace('-', '_').Replace(" ", "__").Replace(':', '_')+DrawingSide.Name+".tiff";
+            DrawingSide.ImagePath = GlobalVariables.SaveImagesPath + (DrawingSide.TimeStamp + "\\" + DrawingSide.TimeStamp).Replace('-', '_').Replace(" ", "__").Replace(':', '_') + DrawingSide.Name + ".tiff";
 
             Plank.TimeStamp = timestamp;
             Plank.DrawingSides.Add(DrawingSide);
@@ -177,9 +226,9 @@ namespace IkeaUI
                 //SAVING IMAGES
                 if (insertingToDatabaseStatus == true)
                 {
-                    string fileName = timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_')+ DrawingSide.Name + ".tiff";
+                    string fileName = timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_') + DrawingSide.Name + ".tiff";
                     string dirPath = GlobalVariables.SaveImagesPath + timestamp.Replace('-', '_').Replace(" ", "__").Replace(':', '_');
-                    string filePath = dirPath +"\\" + fileName;
+                    string filePath = dirPath + "\\" + fileName;
 
                     Directory.CreateDirectory(dirPath);
                     HOperatorSet.WriteImage(Image, "tiff", 0, filePath);
@@ -194,7 +243,6 @@ namespace IkeaUI
             }
         }
 
-
         private void button_RefreshTable_Click(object sender, EventArgs e)
         {
             DataGridFunctions.UpdateTable(dataGridView_Data);
@@ -203,7 +251,7 @@ namespace IkeaUI
             dataGridView_Data.ClearSelection();
             Hwindow_ArchiveImage.HalconWindow.ClearWindow();
         }
-        
+
 
         private void dataGridView_Data_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -223,6 +271,7 @@ namespace IkeaUI
         private void dataGridView_ArchiveDrawingSides_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DrawingSide drawingSide = new DrawingSide();
+
             if (e.RowIndex < 0)
             {
                 return;
@@ -294,9 +343,7 @@ namespace IkeaUI
             {
                 Console.WriteLine("{ 0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
-
         }
-        
 
         private void button_DiagnosticsExposureSet_Click(object sender, EventArgs e)
         {
@@ -333,7 +380,7 @@ namespace IkeaUI
         {
             // cameraStatus = DeviceManager.PingCamera(GlobalVariables.CameraNames);
             List<bool> cameraStatus = new List<bool>() { true, true, true, true, true, true, true, true, true, true, true, true, true, true };
-            
+
             for (int i = 0; i < cameraStatus.Count; i++)
             {
                 PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
@@ -348,15 +395,25 @@ namespace IkeaUI
         private void listBox_MainRecipe_SelectedIndexChanged(object sender, EventArgs e)
         {
             RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
+            ReadDrawings = new ReadDrawings();
+            ReadDrawings.Function_ReadDrawing(RecipeMaterialName, out HObject CountersRead, out HObject Cross);
 
+            if (CountersRead != null && Cross != null)
+            {
+                Hwindow_Diagnostika.HalconWindow.DispObj(CountersRead);
+                Hwindow_Diagnostika.HalconWindow.DispObj(Cross);
+                Hwindow_Diagnostika.HalconWindow.SetPart(0, 0, -2, -2);
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Drawing of {RecipeMaterialName} showed", "|OK|");
+
+            }
         }
 
         private void button_MainStart_Click(object sender, EventArgs e)
         {
-            
-            ConsumerCam1 = new Consumer("ConsumerCam1", "CAM1", Hwindow_LeftSide);
+
+            ConsumerCam1 = new Consumer("CAM1", 100);
             ConsumerCam1.Start();
-            ConsumerCam1.TileImageReady += Consumer_TileImageReady;
+            ConsumerCam1.TileImageReady += Cunsumer_TileImages;
 
 
             ProducerCam1 = new Producer("ProducerCam1", "CAM1", PersistentVariables, ConsumerCam1);
@@ -370,8 +427,8 @@ namespace IkeaUI
             string text = File.ReadAllText(GlobalVariables.JsonPersistenCamSettingsPath);
             string[] splittedtex = text.Split(',');
 
-            string unformatedExpTime = splittedtex[indexSelected*2];
-            string unformatedGain = text.Split(',')[indexSelected*2 +1];
+            string unformatedExpTime = splittedtex[indexSelected * 2];
+            string unformatedGain = text.Split(',')[indexSelected * 2 + 1];
 
             string formatedExpTime = unformatedExpTime.Split(':')[1];
             string formatedGain = unformatedGain.Split(':')[1];
@@ -382,13 +439,13 @@ namespace IkeaUI
 
         private void button_MainStop_Click(object sender, EventArgs e)
         {
-            ConsumerCam1.TileImageReady -= Consumer_TileImageReady;
+            ConsumerCam1.TileImageReady -= Cunsumer_TileImages;
             ProducerCam1.AbortThread();
             ConsumerCam1.AbortThread();
         }
-       
-        //autorization functions start
 
+
+        //autorization functions start
         private void button_DiagnosticsLogOff_Click(object sender, EventArgs e)
         {
             try
@@ -398,6 +455,10 @@ namespace IkeaUI
                     IsAdministratorLoggedIn = false;
                     CurrentAdministrator = "";
                     label_AccessLevel.Text = "Operátor";
+                    button_DiagnosticsChangePassword.Enabled = false;
+                    panel_DiagnosticsAutorization.Visible = false;
+                    textBox_UserPassword.Text = "";
+
                 }
             }
             catch (Exception ex)
@@ -423,6 +484,7 @@ namespace IkeaUI
                     Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                 }
             }
+            panel_DiagnosticsAutorization.Visible = false;
         }
 
         private void button_DiagnosticsLogIn_Click(object sender, EventArgs e)
@@ -430,6 +492,7 @@ namespace IkeaUI
             try
             {
                 string password = textBox_UserPassword.Text;
+                textBox_UserPassword.Clear();
 
                 if (string.IsNullOrEmpty(password) == false)
                 {
@@ -442,26 +505,34 @@ namespace IkeaUI
                             IsAdministratorLoggedIn = true;
                             CurrentAdministrator = personModel.Name;
                             label_AccessLevel.Text = "Administrator";
+                            button_DiagnosticsChangePassword.Enabled = true;
+                            panel_DiagnosticsAutorization.Visible = false;
+
+                        }
+                        else
+                        {
+                            IsAdministratorLoggedIn = false;
+                            button_DiagnosticsChangePassword.Enabled = false;
+                            label_AccessLevel.Text = "Operator";
+                            CurrentAdministrator = "";
                         }
                     }
 
                     else
                     {
                         MessageBox.Show("Nespravne heslo", "Info");
+                        panel_DiagnosticsAutorization.Visible = true;
                     }
 
-                    textBox_UserPassword.Clear();
                 }
 
                 else
                 {
-                    if (string.IsNullOrEmpty(password) == true)
-                    {
-                        MessageBox.Show("Please insert valid password", "Info");
-                    }
+                    MessageBox.Show("Please insert valid password", "Info");
+                    panel_DiagnosticsAutorization.Visible = true;
+
                 }
 
-                panel_DiagnosticsAutorization.Visible = false;
             }
 
             catch (Exception ex)

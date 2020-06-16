@@ -50,13 +50,13 @@ namespace Ikea_Library.DBAccess
                     output = cnn.QueryFirst<PersonModel>(sql, new { password });
                 }
             }
+
             catch (Exception ex)
             {
                 output = null;
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
 
             }
-
 
             return output;
         }

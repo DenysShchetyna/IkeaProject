@@ -12,23 +12,19 @@ namespace Ikea_Library.ProduceConsumer
 {
     public class Consumer
     {
-        private string _name { get; set; }
-        private string _camName { get; set; }
+        private string CamName { get; set; }
 
         public event EventHandler<TileImageReadyEventArgs> TileImageReady;
 
         private bool Run;
         private Thread ConsumerThread;
-        private HSmartWindowControl _hWindow;
         private BlockingCollection<Message> Messages = new BlockingCollection<Message>(10);
         private Message Message;
         HObject ImagesBuffer = new HObject();
 
-        public Consumer(string name, string camName, HSmartWindowControl hWindow)
+        public Consumer(string camName,int countOfSegments)
         {
-            _name = name;
-            _camName = camName;
-            _hWindow = hWindow;
+            CamName = camName;
         }
 
         public void Enqueue(Message message)
@@ -48,11 +44,8 @@ namespace Ikea_Library.ProduceConsumer
                 if (ImagesBuffer.CountObj() == 100)
                 {
                     HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
-                    
 
-                    TileImageReady?.Invoke(this,new TileImageReadyEventArgs(_camName,BigImage));
-                    BigImage = null;
-
+                    TileImageReady?.Invoke(this,new TileImageReadyEventArgs(CamName,BigImage));
                     ImagesBuffer.GenEmptyObj();
                 }
 
@@ -71,7 +64,7 @@ namespace Ikea_Library.ProduceConsumer
 
             ConsumerThread = new Thread(MainFunction)
             {
-                Name = $"ConsumerThread {_camName}",
+                Name = $"ConsumerThread {CamName}",
                 IsBackground = true,
                 Priority = ThreadPriority.Normal
             };

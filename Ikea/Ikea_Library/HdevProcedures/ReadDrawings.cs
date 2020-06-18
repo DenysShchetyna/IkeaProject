@@ -17,7 +17,7 @@ namespace Ikea_Library.HdevProcedures
         HDevProgram Program;
         HDevProcedure ReadDrawing;
         HDevProcedureCall ReadDrawing_Call;
-        string ProcedurePath = @"C:\Trifid\IKEA\ImageAquisition\read_dxf_v03.hdev";
+        readonly string ProcedurePath = @"C:\Trifid\IKEA\ImageAquisition\read_dxf_v03.hdev";
         
         private string CheckIfDrawingExist(string recipeName)
         {
@@ -34,7 +34,7 @@ namespace Ikea_Library.HdevProcedures
         }
         private bool InitializeProcedures()
         {
-            bool ok = false;
+            bool ok;
             try
             {
                 Program = new HDevProgram(ProcedurePath);
@@ -52,7 +52,7 @@ namespace Ikea_Library.HdevProcedures
             return ok;
         }
 
-        public void Function_ReadDrawing(string recipeName, out HObject ContoursRead, out HObject Cross)
+        public void Function_ReadDrawing(string recipeName, out HXLD ContoursRead, out HXLD Cross)
         {
             ContoursRead = null;
             Cross = null;
@@ -67,8 +67,8 @@ namespace Ikea_Library.HdevProcedures
                 {
                     ReadDrawing_Call.SetInputCtrlParamTuple("DrawingPath", drawingPath);
                     ReadDrawing_Call.Execute();
-                    ContoursRead = ReadDrawing_Call.GetOutputIconicParamObject("ContoursRead");
-                    Cross = ReadDrawing_Call.GetOutputIconicParamObject("Cross");
+                    ContoursRead = ReadDrawing_Call.GetOutputIconicParamXld("ContoursRead");
+                    Cross = ReadDrawing_Call.GetOutputIconicParamXld("Cross");
                 }
             }
 

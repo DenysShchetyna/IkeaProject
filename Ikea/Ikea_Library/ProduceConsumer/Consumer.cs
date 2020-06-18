@@ -21,16 +21,17 @@ namespace Ikea_Library.ProduceConsumer
         private BlockingCollection<Message> Messages = new BlockingCollection<Message>(10);
         private Message Message;
         HObject ImagesBuffer = new HObject();
+        private int CountOfSegments;
 
         public Consumer(string camName,int countOfSegments)
         {
             CamName = camName;
+            CountOfSegments = countOfSegments;
         }
 
         public void Enqueue(Message message)
         {
             Messages.Add(message);
-            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{Messages.Count} image(s) in collection", "|OK|");
         }
 
         private void MainFunction()
@@ -41,9 +42,10 @@ namespace Ikea_Library.ProduceConsumer
             while (Run == true)
             {
 
-                if (ImagesBuffer.CountObj() == 100)
+                if (ImagesBuffer.CountObj() == CountOfSegments)
                 {
                     HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"100 images are showed", "|OK|");
 
                     TileImageReady?.Invoke(this,new TileImageReadyEventArgs(CamName,BigImage));
                     ImagesBuffer.GenEmptyObj();
@@ -52,7 +54,6 @@ namespace Ikea_Library.ProduceConsumer
                 else
                 {
                     Message = Messages.Take();
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Took 1 image from collection, {Messages.Count} images left", "|OK|");
                     HOperatorSet.ConcatObj(Message.Image, ImagesBuffer, out ImagesBuffer);
                 }
             }
@@ -77,9 +78,7 @@ namespace Ikea_Library.ProduceConsumer
             ConsumerThread.Join(5000);
             ConsumerThread.Abort();
             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Aborted Thread {ConsumerThread.Name}", "|OK|");
-
         }
-        
     }
 
 }

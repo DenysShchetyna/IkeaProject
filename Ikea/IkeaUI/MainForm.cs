@@ -45,6 +45,7 @@ namespace IkeaUI
 
 
         public int ImgNum = 0;
+        bool FirstStart = true;
 
         List<string> ListOfImagesPaths = new List<string>()
         {
@@ -141,11 +142,19 @@ namespace IkeaUI
         private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;
+           
             var text = tabControl_MainControl.TabPages[e.Index].Text;
-            var x = e.Bounds.Left + 20;
+            var x = e.Bounds.Left + 25;
             var y = e.Bounds.Top + 25;
             g.FillRectangle(Brushes.Silver, e.Bounds);
             g.DrawString(text, tabControl_MainControl.Font, Brushes.Black, x, y);
+
+            if (tabControl_MainControl.TabPages[e.Index] == tabControl_MainControl.SelectedTab)
+            {
+                g.FillRectangle(Brushes.LightSteelBlue, e.Bounds);
+                g.DrawString(text, tabControl_MainControl.Font, Brushes.Black, x, y);
+            }
+
         }
 
         private void button_TakeInfoFromDB_Click(object sender, EventArgs e)
@@ -243,6 +252,7 @@ namespace IkeaUI
             }
         }
 
+
         private void button_RefreshTable_Click(object sender, EventArgs e)
         {
             DataGridFunctions.UpdateTable(dataGridView_Data);
@@ -270,7 +280,6 @@ namespace IkeaUI
 
         private void dataGridView_ArchiveDrawingSides_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DrawingSide drawingSide = new DrawingSide();
 
             if (e.RowIndex < 0)
             {
@@ -283,7 +292,7 @@ namespace IkeaUI
             List<Hole> holes = DBFunctions.TakeHoles(timeStamp);
             DataGridFunctions.ShowResultsHoles(dataGridView_HolesData, holes);
 
-            drawingSide = DBFunctions.TakeImage(timeStamp);
+            DrawingSide drawingSide = DBFunctions.TakeImage(timeStamp);
             string readPath = drawingSide.ImagePath;
             HOperatorSet.ReadImage(out HObject Image, readPath);
 
@@ -353,11 +362,15 @@ namespace IkeaUI
                 int value = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
                 JsonFunctions.CamExposureTimeSet(PersistentVariables, camName, value);
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
+                Loging.MakeLog(DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
 
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine("{ 0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
+
             }
         }
 
@@ -369,10 +382,13 @@ namespace IkeaUI
                 int value = Convert.ToInt32(textBox_DiagnosticsGain.Text);
                 JsonFunctions.CamGainSet(PersistentVariables, camName, value);
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
+                Loging.MakeLog(DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -396,28 +412,37 @@ namespace IkeaUI
         {
             RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
             ReadDrawings = new ReadDrawings();
-            ReadDrawings.Function_ReadDrawing(RecipeMaterialName, out HObject CountersRead, out HObject Cross);
+            ReadDrawings.Function_ReadDrawing(RecipeMaterialName, out HXLD CountersRead, out HXLD Cross);
 
             if (CountersRead != null && Cross != null)
             {
-                Hwindow_Diagnostika.HalconWindow.DispObj(CountersRead);
-                Hwindow_Diagnostika.HalconWindow.DispObj(Cross);
-                Hwindow_Diagnostika.HalconWindow.SetPart(0, 0, -2, -2);
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Drawing of {RecipeMaterialName} showed", "|OK|");
-
+                Hwindow_Diagnostika.HalconWindow.DispXld(CountersRead);
+                Hwindow_Diagnostika.HalconWindow.DispXld(Cross);
+                Hwindow_Diagnostika.HalconWindow.SetPart(-300, -150, 600,1000) ;
+                Loging.MakeLog(DateTime.Now, "Vybrany novy recept", "|OK|");
             }
         }
 
         private void button_MainStart_Click(object sender, EventArgs e)
         {
 
-            ConsumerCam1 = new Consumer("CAM1", 100);
-            ConsumerCam1.Start();
-            ConsumerCam1.TileImageReady += Cunsumer_TileImages;
+            try
+            {
+                ConsumerCam1 = new Consumer("CAM1", 100);
+                ConsumerCam1.Start();
+                ConsumerCam1.TileImageReady += Cunsumer_TileImages;
 
+                ProducerCam1 = new Producer("CAM1", PersistentVariables, ConsumerCam1);
+                ProducerCam1.Start();
 
-            ProducerCam1 = new Producer("ProducerCam1", "CAM1", PersistentVariables, ConsumerCam1);
-            ProducerCam1.Start();
+                Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, "System Start", "|Error|");
+            }
         }
 
         private void listBox_DiagnosticsCamerasSettings_SelectedIndexChanged(object sender, EventArgs e)
@@ -444,7 +469,6 @@ namespace IkeaUI
             ConsumerCam1.AbortThread();
         }
 
-
         //autorization functions start
         private void button_DiagnosticsLogOff_Click(object sender, EventArgs e)
         {
@@ -458,18 +482,19 @@ namespace IkeaUI
                     button_DiagnosticsChangePassword.Enabled = false;
                     panel_DiagnosticsAutorization.Visible = false;
                     textBox_UserPassword.Text = "";
-
+                    Loging.MakeLog(DateTime.Now, "Odhlasenie Administratora", "|OK|");
                 }
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, "Odhlasenie Administratora", "|Error|");
             }
         }
 
         private void button_DiagnosticsChangePassword_Click(object sender, EventArgs e)
         {
-
             if (IsAdministratorLoggedIn == true && string.IsNullOrEmpty(textBox_UserPassword.Text) == false)
             {
                 try
@@ -477,11 +502,15 @@ namespace IkeaUI
                     SqliteDataAccess.ChangePassword(CurrentAdministrator, textBox_UserPassword.Text);
                     MessageBox.Show("Heslo bolo zmenene", "Info");
                     textBox_UserPassword.Clear();
+
+                    Loging.MakeLog(DateTime.Now, "Zmena hesla", "|OK|");
                 }
 
                 catch (Exception ex)
                 {
                     Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                    Loging.MakeLog(DateTime.Now, "Zmena hesla", "|Error|");
+
                 }
             }
             panel_DiagnosticsAutorization.Visible = false;
@@ -507,8 +536,9 @@ namespace IkeaUI
                             label_AccessLevel.Text = "Administrator";
                             button_DiagnosticsChangePassword.Enabled = true;
                             panel_DiagnosticsAutorization.Visible = false;
-
+                            Loging.MakeLog(DateTime.Now, "Administrator prihlaseny", "|OK|");
                         }
+
                         else
                         {
                             IsAdministratorLoggedIn = false;
@@ -545,5 +575,6 @@ namespace IkeaUI
         {
             panel_DiagnosticsAutorization.Visible = !panel_DiagnosticsAutorization.Visible;
         }
+       
     }
 }

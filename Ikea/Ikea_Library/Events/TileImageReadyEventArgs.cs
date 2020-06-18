@@ -24,7 +24,6 @@ namespace Ikea_Library.Events
         public HObject TileImageCam13 { get; set; }
         public HObject TileImageCam14 { get; set; }
 
-
         public string CamName { get; set; }
 
         public TileImageReadyEventArgs(string camName, HObject tileImage)
@@ -41,7 +40,6 @@ namespace Ikea_Library.Events
 
                 case "CAM3":
                     TileImageCam3 = tileImage;
-
                     break;
 
                 case "CAM4":
@@ -62,27 +60,22 @@ namespace Ikea_Library.Events
 
                 case "CAM8":
                     TileImageCam8 = tileImage;
-
                     break;
 
                 case "CAM9":
                     TileImageCam9 = tileImage;
-
                     break;
 
                 case "CAM10":
                     TileImageCam10 = tileImage;
-
                     break;
 
                 case "CAM11":
                     TileImageCam11 = tileImage;
-
                     break;
 
                 case "CAM12":
                     TileImageCam12 = tileImage;
-
                     break;
 
                 case "CAM13":

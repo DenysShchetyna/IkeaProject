@@ -104,8 +104,10 @@
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\PersistentVariables.cs" />
     <Compile Include="Helpers\JsonFunctions.cs" />
+    <Compile Include="Loging.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Hole.cs" />
+    <Compile Include="ProduceConsumer\ResultEvaluation.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

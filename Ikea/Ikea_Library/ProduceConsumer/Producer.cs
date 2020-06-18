@@ -13,25 +13,22 @@ namespace Ikea_Library.ProduceConsumer
 {
     public class Producer
     {
-        private string _name { get; set; }
-        private string _camName { get; set; }
-        private HObject _tileImage { get; set; }
+        private string CamName { get; set; }
 
         private HTuple AcqHandleCam;
         private bool Run;
         private Thread ProducerThread;
         public CamProcedures CamProcedures;
         private CameraState CameraState;
-        private PersistentVariables _persistentVariables;
-        private Consumer _consumer;
+        private PersistentVariables PersistentVariables;
+        private Consumer Consumer;
         private Message Message;
 
-        public Producer(string name, string camName, PersistentVariables persistentVariables, Consumer consumer)
+        public Producer(string camName, PersistentVariables persistentVariables, Consumer consumer)
         {
-            _name = name;
-            _camName = camName;
-            _persistentVariables = persistentVariables;
-            _consumer = consumer;
+            CamName = camName;
+            PersistentVariables = persistentVariables;
+            Consumer = consumer;
         }
 
         private bool Initialize()
@@ -64,7 +61,7 @@ namespace Ikea_Library.ProduceConsumer
                             {
                                 AcqHandleCam = null;
 
-                                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Initialization {_camName}", "|OK|");
+                                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Initialization {CamName}", "|OK|");
                                 CameraState = CameraState.ConnectCamera;
                             }
                             else
@@ -85,10 +82,10 @@ namespace Ikea_Library.ProduceConsumer
 
                         try
                         {
-                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Connecting Camera {_camName} with exp:{_persistentVariables.ExposureTimeCam1}, gain:{ _persistentVariables.GainCam1}", "|OK|");
-                            CamProcedures.OpenFramegrabber(_camName, 2048, 50, _persistentVariables.ExposureTimeCam1, _persistentVariables.GainCam1, out AcqHandleCam);
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Connecting Camera {CamName} with exp:{PersistentVariables.ExposureTimeCam1}, gain:{ PersistentVariables.GainCam1}", "|OK|");
+                            CamProcedures.OpenFramegrabber(CamName, 2048, 50, PersistentVariables.ExposureTimeCam1, PersistentVariables.GainCam1, out AcqHandleCam);
                             Message = new Message();
-                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{_camName} Camera is connected", "|OK|");
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} Camera is connected", "|OK|");
 
                             CameraState = CameraState.GrabImage;
                         }
@@ -105,12 +102,12 @@ namespace Ikea_Library.ProduceConsumer
 
                         try
                         {
-                            switch (_camName)
+                            switch (CamName)
                             {
                                 case "CAM1":
 
-                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", _persistentVariables.ExposureTimeCam1);
-                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", _persistentVariables.GainCam1);
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam1);
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam1);
 
                                     HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out HTuple imageAvailable);
 
@@ -118,8 +115,7 @@ namespace Ikea_Library.ProduceConsumer
                                     //{
                                         HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
                                         Message.Image = image;
-                                        _consumer.Enqueue(Message);
-                                        Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{_camName} Added message to collection", "|OK|");
+                                        Consumer.Enqueue(Message);
                                     //}
                                     //else
                                     //{
@@ -186,7 +182,7 @@ namespace Ikea_Library.ProduceConsumer
             {
                 if(AcqHandleCam != null)
                 {
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Disconnecting Camera {_camName}", "|OK|");
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Disconnecting Camera {CamName}", "|OK|");
                     CamProcedures.CloseFramegrabber(AcqHandleCam);
                 }
 
@@ -206,7 +202,7 @@ namespace Ikea_Library.ProduceConsumer
 
             ProducerThread = new Thread(MainFunction)
             {
-                Name = $"ProducerThread {_camName}",
+                Name = $"ProducerThread {CamName}",
                 IsBackground = true,
                 Priority = ThreadPriority.Normal
             };

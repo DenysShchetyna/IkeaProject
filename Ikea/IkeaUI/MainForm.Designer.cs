@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -409,10 +409,9 @@
             this.tabControl_MainControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabControl_MainControl.ItemSize = new System.Drawing.Size(80, 120);
             this.tabControl_MainControl.Location = new System.Drawing.Point(0, 65);
-            this.tabControl_MainControl.Margin = new System.Windows.Forms.Padding(5);
             this.tabControl_MainControl.Multiline = true;
             this.tabControl_MainControl.Name = "tabControl_MainControl";
-            this.tabControl_MainControl.Padding = new System.Drawing.Point(0, 0);
+            this.tabControl_MainControl.Padding = new System.Drawing.Point(3, 3);
             this.tabControl_MainControl.SelectedIndex = 0;
             this.tabControl_MainControl.Size = new System.Drawing.Size(1920, 1015);
             this.tabControl_MainControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -434,8 +433,8 @@
             this.tabPage_Main.Controls.Add(this.tabControl_MainCameras);
             this.tabPage_Main.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabPage_Main.Location = new System.Drawing.Point(124, 4);
+            this.tabPage_Main.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Main.Name = "tabPage_Main";
-            this.tabPage_Main.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_Main.Size = new System.Drawing.Size(1792, 1007);
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "Hlavná";
@@ -721,7 +720,9 @@
             this.tabControl_MainCameras.ImageList = this.imageList_TabMainCameras;
             this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(250, 40);
             this.tabControl_MainCameras.Location = new System.Drawing.Point(5, 5);
+            this.tabControl_MainCameras.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl_MainCameras.Name = "tabControl_MainCameras";
+            this.tabControl_MainCameras.Padding = new System.Drawing.Point(0, 0);
             this.tabControl_MainCameras.SelectedIndex = 0;
             this.tabControl_MainCameras.Size = new System.Drawing.Size(1504, 923);
             this.tabControl_MainCameras.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -746,7 +747,7 @@
             this.Hwindow_LeftSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Hwindow_LeftSide.HDoubleClickToFitContent = true;
             this.Hwindow_LeftSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_LeftSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_LeftSide.HImagePart = new System.Drawing.Rectangle(0, 0, 800, 600);
             this.Hwindow_LeftSide.HKeepAspectRatio = true;
             this.Hwindow_LeftSide.HMoveContent = true;
             this.Hwindow_LeftSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
@@ -926,15 +927,15 @@
             this.tabPage_Archive.Controls.Add(this.groupBox_Hwindow);
             this.tabPage_Archive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabPage_Archive.Location = new System.Drawing.Point(124, 4);
+            this.tabPage_Archive.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Archive.Name = "tabPage_Archive";
-            this.tabPage_Archive.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_Archive.Size = new System.Drawing.Size(1792, 1007);
             this.tabPage_Archive.TabIndex = 1;
             this.tabPage_Archive.Text = "Archív";
             // 
             // groupBox_ArchiveDrawingSides
             // 
-            this.groupBox_ArchiveDrawingSides.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_ArchiveDrawingSides.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_ArchiveDrawingSides.Controls.Add(this.dataGridView_ArchiveDrawingSides);
             this.groupBox_ArchiveDrawingSides.Location = new System.Drawing.Point(1192, 315);
             this.groupBox_ArchiveDrawingSides.Name = "groupBox_ArchiveDrawingSides";
@@ -950,7 +951,7 @@
             this.dataGridView_ArchiveDrawingSides.AllowUserToResizeColumns = false;
             this.dataGridView_ArchiveDrawingSides.AllowUserToResizeRows = false;
             this.dataGridView_ArchiveDrawingSides.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_ArchiveDrawingSides.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataGridView_ArchiveDrawingSides.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView_ArchiveDrawingSides.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ArchiveDrawingSides.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DrawingSideName,
@@ -977,8 +978,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -993,8 +994,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1045,7 +1046,7 @@
             this.dataGridView_HolesData.AllowUserToResizeColumns = false;
             this.dataGridView_HolesData.AllowUserToResizeRows = false;
             this.dataGridView_HolesData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_HolesData.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataGridView_HolesData.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView_HolesData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_HolesData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TimeStampHoles,
@@ -1065,8 +1066,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle8;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1074,8 +1075,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle9;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1084,8 +1085,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle10;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1094,8 +1095,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle11;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1104,15 +1105,15 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle12;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
             // 
             // groupBox_Boards
             // 
-            this.groupBox_Boards.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_Boards.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_Boards.Controls.Add(this.dataGridView_Data);
             this.groupBox_Boards.Location = new System.Drawing.Point(1192, 5);
             this.groupBox_Boards.Name = "groupBox_Boards";
@@ -1128,7 +1129,7 @@
             this.dataGridView_Data.AllowUserToResizeColumns = false;
             this.dataGridView_Data.AllowUserToResizeRows = false;
             this.dataGridView_Data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_Data.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataGridView_Data.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaterialName,
@@ -1173,8 +1174,9 @@
             // 
             // groupBox_Hwindow
             // 
-            this.groupBox_Hwindow.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_Hwindow.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_Hwindow.Controls.Add(this.Hwindow_ArchiveImage);
+            this.groupBox_Hwindow.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox_Hwindow.Location = new System.Drawing.Point(5, 5);
             this.groupBox_Hwindow.Name = "groupBox_Hwindow";
             this.groupBox_Hwindow.Size = new System.Drawing.Size(1181, 955);
@@ -1214,6 +1216,7 @@
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsDiscManagement);
             this.tabPage_Diagnostics.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabPage_Diagnostics.Location = new System.Drawing.Point(124, 4);
+            this.tabPage_Diagnostics.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Diagnostics.Name = "tabPage_Diagnostics";
             this.tabPage_Diagnostics.Size = new System.Drawing.Size(1792, 1007);
             this.tabPage_Diagnostics.TabIndex = 2;
@@ -1607,10 +1610,10 @@
             this.Hwindow_Diagnostika.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Hwindow_Diagnostika.HDoubleClickToFitContent = true;
             this.Hwindow_Diagnostika.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_Diagnostika.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_Diagnostika.HImagePart = new System.Drawing.Rectangle(0, 0, 800, 480);
             this.Hwindow_Diagnostika.HKeepAspectRatio = true;
             this.Hwindow_Diagnostika.HMoveContent = true;
-            this.Hwindow_Diagnostika.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_Diagnostika.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelBackwardZoomsIn;
             this.Hwindow_Diagnostika.Location = new System.Drawing.Point(3, 22);
             this.Hwindow_Diagnostika.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_Diagnostika.Name = "Hwindow_Diagnostika";

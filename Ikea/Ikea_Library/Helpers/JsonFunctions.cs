@@ -13,14 +13,14 @@ namespace Ikea_Library.Helpers
     {
         public static PersistentVariables ReadJsonFunc(string path)
         {
-            string textFromJason = File.ReadAllText(GlobalVariables.JsonPersistenCamSettingsPath);
+            string textFromJason = File.ReadAllText(GlobalVariables.JsonPersistentCamSettingsPath);
             return JsonConvert.DeserializeObject<PersistentVariables>(textFromJason);
         }
 
         public static void WriteJsonFunc(PersistentVariables persistentVariables)
         {
             string jsonString = JsonConvert.SerializeObject(persistentVariables);
-            File.WriteAllText(GlobalVariables.JsonPersistenCamSettingsPath, jsonString);
+            File.WriteAllText(GlobalVariables.JsonPersistentCamSettingsPath, jsonString);
         }
 
         public static void CamExposureTimeSet(PersistentVariables persistentVariables, string cameraName, int value)

@@ -59,7 +59,7 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             if (Initialize() == true)
                             {
-                                AcqHandleCam = null;
+                                AcqHandleCam = new HTuple(-1);
 
                                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Initialization {CamName}", "|OK|");
                                 CameraState = CameraState.ConnectCamera;
@@ -111,16 +111,10 @@ namespace Ikea_Library.ProduceConsumer
 
                                     HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out HTuple imageAvailable);
 
-                                    //if (imageAvailable.I == 1)
-                                    //{
+                                    
                                         HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
                                         Message.Image = image;
                                         Consumer.Enqueue(Message);
-                                    //}
-                                    //else
-                                    //{
-                                       //Thread.Sleep(1);
-                                    //}
 
                                     break;
 
@@ -174,6 +168,19 @@ namespace Ikea_Library.ProduceConsumer
                         break;
 
                     case CameraState.Exception:
+                        try
+                        {
+                            CameraState = CameraState.Initialization;
+                            if(AcqHandleCam != -1)
+                            {
+                                CamProcedures.CloseFramegrabber(AcqHandleCam);
+                            }
+                        }
+
+                        catch (Exception ex )
+                        {
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                        }
                         break;
                 }
 

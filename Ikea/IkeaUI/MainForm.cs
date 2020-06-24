@@ -19,6 +19,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,7 +47,6 @@ namespace IkeaUI
 
 
         public int ImgNum = 0;
-        bool FirstStart = true;
 
         List<string> ListOfImagesPaths = new List<string>()
         {
@@ -69,7 +70,7 @@ namespace IkeaUI
 
             Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath);
 
-            PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistenCamSettingsPath);
+            PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistentCamSettingsPath);
             SqliteDataAccess.IsAvailable();
 
             timer_Simulation.Enabled = true;
@@ -80,6 +81,9 @@ namespace IkeaUI
             timer_DiscsCheck.Start();
             timer_CameraPing.Enabled = true;
             timer_CameraPing.Start();
+
+            Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
+
         }
 
         private void Cunsumer_TileImages(object sender, TileImageReadyEventArgs e)
@@ -142,7 +146,7 @@ namespace IkeaUI
         private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;
-           
+
             var text = tabControl_MainControl.TabPages[e.Index].Text;
             var x = e.Bounds.Left + 25;
             var y = e.Bounds.Top + 25;
@@ -392,16 +396,19 @@ namespace IkeaUI
             }
         }
 
-        private void timer_CameraPing_Tick(object sender, EventArgs e)
+        private async void timer_CameraPing_Tick(object sender, EventArgs e)
         {
-            // cameraStatus = DeviceManager.PingCamera(GlobalVariables.CameraNames);
-            List<bool> cameraStatus = new List<bool>() { true, true, true, true, true, true, true, true, true, true, true, true, true, true };
+            timer_CameraPing.Stop();
+            bool cam1 = await Task.Run(()=>DeviceManager.PingCamera(GlobalVariables.CameraAdresses[0]));
+            Console.WriteLine(cam1);
 
-            for (int i = 0; i < cameraStatus.Count; i++)
-            {
-                PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
-                UpdateUI.UpdatePictureBox(pictureBox, cameraStatus[i]);
-            }
+            //for (int i = 0; i < statuses.Count; i++)
+            //{
+            //    PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
+            //    UpdateUI.UpdatePictureBox(pictureBox, statuses[i]);
+            //}
+
+            timer_CameraPing.Start();
         }
 
         private void button_DiagnosticsInput_Click(object sender, EventArgs e)
@@ -418,7 +425,7 @@ namespace IkeaUI
             {
                 Hwindow_Diagnostika.HalconWindow.DispXld(CountersRead);
                 Hwindow_Diagnostika.HalconWindow.DispXld(Cross);
-                Hwindow_Diagnostika.HalconWindow.SetPart(-300, -150, 600,1000) ;
+                Hwindow_Diagnostika.HalconWindow.SetPart(-300, -150, 600, 1000);
                 Loging.MakeLog(DateTime.Now, "Vybrany novy recept", "|OK|");
             }
         }
@@ -435,13 +442,13 @@ namespace IkeaUI
                 ProducerCam1 = new Producer("CAM1", PersistentVariables, ConsumerCam1);
                 ProducerCam1.Start();
 
-                Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
+                Loging.MakeLog(DateTime.Now, "Vision Process Start", "|OK|");
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-                Loging.MakeLog(DateTime.Now, "System Start", "|Error|");
+                Loging.MakeLog(DateTime.Now, "Vision Process Start", " |Error| ");
             }
         }
 
@@ -449,7 +456,7 @@ namespace IkeaUI
         {
             int indexSelected = listBox_DiagnosticsCamerasSettings.SelectedIndex;
 
-            string text = File.ReadAllText(GlobalVariables.JsonPersistenCamSettingsPath);
+            string text = File.ReadAllText(GlobalVariables.JsonPersistentCamSettingsPath);
             string[] splittedtex = text.Split(',');
 
             string unformatedExpTime = splittedtex[indexSelected * 2];
@@ -575,6 +582,6 @@ namespace IkeaUI
         {
             panel_DiagnosticsAutorization.Visible = !panel_DiagnosticsAutorization.Visible;
         }
-       
+
     }
 }

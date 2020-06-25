@@ -27,60 +27,60 @@ namespace Ikea_Library.Helpers
         {
             switch (cameraName)
             {
-                case "Cam1":
-                    persistentVariables.ExposureTimeCam1 = value;
+                case "Cam1LsTopL":
+                    persistentVariables.ExposureTimeCam1LsTopL = value;
                     break;
 
-                case "Cam2":
-                    persistentVariables.ExposureTimeCam2 = value;
+                case "Cam2LsTopR":
+                    persistentVariables.ExposureTimeCam2LsTopR = value;
                     break;
 
-                case "Cam3":
-                    persistentVariables.ExposureTimeCam3 = value;
+                case "Cam3LsBottomL":
+                    persistentVariables.ExposureTimeCam3LsBottomL = value;
                     break;
 
-                case "Cam4":
-                    persistentVariables.ExposureTimeCam4 = value;
+                case "Cam4LsBottomR":
+                    persistentVariables.ExposureTimeCam4LsBottomR = value;
                     break;
 
-                case "Cam5":
-                    persistentVariables.ExposureTimeCam5 = value;
+                case "Cam5LsLeft":
+                    persistentVariables.ExposureTimeCam5LsLeft = value;
                     break;
 
-                case "Cam6":
-                    persistentVariables.ExposureTimeCam6 = value;
+                case "Cam6LsRight":
+                    persistentVariables.ExposureTimeCam6LsRight = value;
                     break;
 
-                case "Cam7":
-                    persistentVariables.ExposureTimeCam7 = value;
+                case "Cam7ArFrontL":
+                    persistentVariables.ExposureTimeCam7ArFrontL = value;
                     break;
 
-                case "Cam8":
-                    persistentVariables.ExposureTimeCam8 = value;
+                case "Cam8ArFrontR":
+                    persistentVariables.ExposureTimeCam8ArFrontR = value;
                     break;
 
-                case "Cam9":
-                    persistentVariables.ExposureTimeCam9 = value;
+                case "Cam9ArRearL":
+                    persistentVariables.ExposureTimeCam9ArRearL = value;
                     break;
 
-                case "Cam10":
-                    persistentVariables.ExposureTimeCam10 = value;
+                case "Cam10ArRearR":
+                    persistentVariables.ExposureTimeCam10ArRearR = value;
                     break;
 
-                case "Cam11":
-                    persistentVariables.ExposureTimeCam11 = value;
+                case "Cam11ArTopL":
+                    persistentVariables.ExposureTimeCam11ArTopL = value;
                     break;
 
-                case "Cam12":
-                    persistentVariables.ExposureTimeCam12 = value;
+                case "Cam12ArTopR":
+                    persistentVariables.ExposureTimeCam12ArTopR = value;
                     break;
 
-                case "Cam13":
-                    persistentVariables.ExposureTimeCam13 = value;
+                case "Cam13ArBottomL":
+                    persistentVariables.ExposureTimeCam13ArBottomL = value;
                     break;
 
-                case "Cam14":
-                    persistentVariables.ExposureTimeCam14 = value;
+                case "Cam14ArBottomR":
+                    persistentVariables.ExposureTimeCam14ArBottomR = value;
                     break;
             }
 
@@ -91,60 +91,60 @@ namespace Ikea_Library.Helpers
         {
             switch (cameraName)
             {
-                case "Cam1":
-                    persistentVariables.GainCam1 = value;
+                case "Cam1LsTopL":
+                    persistentVariables.GainCam1LsTopL = value;
                     break;
 
-                case "Cam2":
-                    persistentVariables.GainCam2 = value;
+                case "Cam2LsTopR":
+                    persistentVariables.GainCam2LsTopR = value;
                     break;
 
-                case "Cam3":
-                    persistentVariables.GainCam3 = value;
+                case "Cam3LsBottomL":
+                    persistentVariables.GainCam3LsBottomL = value;
                     break;
 
-                case "Cam4":
-                    persistentVariables.GainCam4 = value;
+                case "Cam4LsBottomR":
+                    persistentVariables.GainCam4LsBottomR = value;
                     break;
 
-                case "Cam5":
-                    persistentVariables.GainCam5 = value;
+                case "Cam5LsLeft":
+                    persistentVariables.GainCam5LsLeft = value;
                     break;
 
-                case "Cam6":
-                    persistentVariables.GainCam6 = value;
+                case "Cam6LsRight":
+                    persistentVariables.GainCam6LsRight = value;
                     break;
 
-                case "Cam7":
-                    persistentVariables.GainCam7 = value;
+                case "Cam7ArFrontL":
+                    persistentVariables.GainCam7ArFrontL = value;
                     break;
 
-                case "Cam8":
-                    persistentVariables.GainCam8 = value;
+                case "Cam8ArFrontR":
+                    persistentVariables.GainCam8ArFrontR = value;
                     break;
 
-                case "Cam9":
-                    persistentVariables.GainCam9 = value;
+                case "Cam9ArRearL":
+                    persistentVariables.GainCam9ArRearL = value;
                     break;
 
-                case "Cam10":
-                    persistentVariables.GainCam10 = value;
+                case "Cam10ArRearR":
+                    persistentVariables.GainCam10ArRearR = value;
                     break;
 
-                case "Cam11":
-                    persistentVariables.GainCam11 = value;
+                case "Cam11ArTopL":
+                    persistentVariables.GainCam11ArTopL = value;
                     break;
 
-                case "Cam12":
-                    persistentVariables.GainCam12 = value;
+                case "Cam12ArTopR":
+                    persistentVariables.GainCam12ArTopR = value;
                     break;
 
-                case "Cam13":
-                    persistentVariables.GainCam13 = value;
+                case "Cam13ArBottomL":
+                    persistentVariables.GainCam13ArBottomL = value;
                     break;
 
-                case "Cam14":
-                    persistentVariables.GainCam14 = value;
+                case "Cam14ArBottomR":
+                    persistentVariables.GainCam14ArBottomR = value;
                     break;
             }
             WriteJsonFunc(persistentVariables);

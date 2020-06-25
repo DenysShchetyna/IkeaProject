@@ -82,10 +82,59 @@ namespace Ikea_Library.ProduceConsumer
 
                         try
                         {
-                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Connecting Camera {CamName} with exp:{PersistentVariables.ExposureTimeCam1}, gain:{ PersistentVariables.GainCam1}", "|OK|");
-                            CamProcedures.OpenFramegrabber(CamName, 2048, 50, PersistentVariables.ExposureTimeCam1, PersistentVariables.GainCam1, out AcqHandleCam);
-                            Message = new Message();
-                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} Camera is connected", "|OK|");
+                            switch (CamName)
+                            {
+                                case "CAM1":
+
+                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now,
+                                        $"Connecting Camera {CamName} with exp:{PersistentVariables.ExposureTimeCam1LsTopL}, " +
+                                        $"gain:{ PersistentVariables.GainCam1LsTopL}", "|OK|");
+
+                                    CamProcedures.OpenFramegrabber(CamName, 2048, 50, PersistentVariables.ExposureTimeCam1LsTopL, PersistentVariables.GainCam1LsTopL, out AcqHandleCam);
+                                    Message = new Message();
+                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} Camera is connected", "|OK|");
+
+                                    break;
+
+                                case "CAM2":
+                                    break;
+
+                                case "CAM3":
+                                    break;
+
+                                case "CAM4":
+                                    break;
+
+                                case "CAM5":
+                                    break;
+
+                                case "CAM6":
+                                    break;
+
+                                case "CAM7":
+                                    break;
+
+                                case "CAM8":
+                                    break;
+
+                                case "CAM9":
+                                    break;
+
+                                case "CAM10":
+                                    break;
+
+                                case "CAM11":
+                                    break;
+
+                                case "CAM12":
+                                    break;
+
+                                case "CAM13":
+                                    break;
+
+                                case "CAM14":
+                                    break;
+                            }
 
                             CameraState = CameraState.GrabImage;
                         }
@@ -106,15 +155,15 @@ namespace Ikea_Library.ProduceConsumer
                             {
                                 case "CAM1":
 
-                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam1);
-                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam1);
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam1LsTopL);
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam1LsTopL);
 
                                     HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out HTuple imageAvailable);
 
-                                    
-                                        HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
-                                        Message.Image = image;
-                                        Consumer.Enqueue(Message);
+
+                                    HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
+                                    Message.Image = image;
+                                    Consumer.Enqueue(Message);
 
                                     break;
 
@@ -171,13 +220,13 @@ namespace Ikea_Library.ProduceConsumer
                         try
                         {
                             CameraState = CameraState.Initialization;
-                            if(AcqHandleCam != -1)
+                            if (AcqHandleCam != -1)
                             {
                                 CamProcedures.CloseFramegrabber(AcqHandleCam);
                             }
                         }
 
-                        catch (Exception ex )
+                        catch (Exception ex)
                         {
                             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                         }
@@ -187,7 +236,7 @@ namespace Ikea_Library.ProduceConsumer
             }
             try
             {
-                if(AcqHandleCam != null)
+                if (AcqHandleCam != null)
                 {
                     Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Disconnecting Camera {CamName}", "|OK|");
                     CamProcedures.CloseFramegrabber(AcqHandleCam);

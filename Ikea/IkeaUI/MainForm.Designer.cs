@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +46,21 @@
             this.pictureBox_TrifidLogo = new System.Windows.Forms.PictureBox();
             this.tabControl_MainControl = new System.Windows.Forms.TabControl();
             this.tabPage_Main = new System.Windows.Forms.TabPage();
+            this.groupBox_MainTabControlCameras = new System.Windows.Forms.GroupBox();
+            this.tabControl_MainCameras = new System.Windows.Forms.TabControl();
+            this.tabPage_LeftSide = new System.Windows.Forms.TabPage();
+            this.Hwindow_LeftSide = new HalconDotNet.HSmartWindowControl();
+            this.tabPage_RightSide = new System.Windows.Forms.TabPage();
+            this.Hwindow_RightSide = new HalconDotNet.HSmartWindowControl();
+            this.tabPage_FrontSide = new System.Windows.Forms.TabPage();
+            this.Hwindow_FrontSide = new HalconDotNet.HSmartWindowControl();
+            this.tabPage_BackSide = new System.Windows.Forms.TabPage();
+            this.Hwindow_BackSide = new HalconDotNet.HSmartWindowControl();
+            this.tabPage_UpperSide = new System.Windows.Forms.TabPage();
+            this.Hwindow_UpperSide = new HalconDotNet.HSmartWindowControl();
+            this.tabPage_LowerSide = new System.Windows.Forms.TabPage();
+            this.Hwindow_LowerSide = new HalconDotNet.HSmartWindowControl();
+            this.imageList_TabMainCameras = new System.Windows.Forms.ImageList(this.components);
             this.groupBox_MainStatistics = new System.Windows.Forms.GroupBox();
             this.label_MainStatisticsOverall = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -72,20 +87,6 @@
             this.button_MainStop = new System.Windows.Forms.Button();
             this.button_MainSaveImg = new System.Windows.Forms.Button();
             this.button_MainStart = new System.Windows.Forms.Button();
-            this.tabControl_MainCameras = new System.Windows.Forms.TabControl();
-            this.tabPage_LeftSide = new System.Windows.Forms.TabPage();
-            this.Hwindow_LeftSide = new HalconDotNet.HSmartWindowControl();
-            this.tabPage_RightSide = new System.Windows.Forms.TabPage();
-            this.Hwindow_RightSide = new HalconDotNet.HSmartWindowControl();
-            this.tabPage_FrontSide = new System.Windows.Forms.TabPage();
-            this.Hwindow_FrontSide = new HalconDotNet.HSmartWindowControl();
-            this.tabPage_BackSide = new System.Windows.Forms.TabPage();
-            this.Hwindow_BackSide = new HalconDotNet.HSmartWindowControl();
-            this.tabPage_UpperSide = new System.Windows.Forms.TabPage();
-            this.Hwindow_UpperSide = new HalconDotNet.HSmartWindowControl();
-            this.tabPage_LowerSide = new System.Windows.Forms.TabPage();
-            this.Hwindow_LowerSide = new HalconDotNet.HSmartWindowControl();
-            this.imageList_TabMainCameras = new System.Windows.Forms.ImageList(this.components);
             this.tabPage_Archive = new System.Windows.Forms.TabPage();
             this.groupBox_ArchiveDrawingSides = new System.Windows.Forms.GroupBox();
             this.dataGridView_ArchiveDrawingSides = new System.Windows.Forms.DataGridView();
@@ -251,11 +252,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
             this.tabControl_MainControl.SuspendLayout();
             this.tabPage_Main.SuspendLayout();
-            this.groupBox_MainStatistics.SuspendLayout();
-            this.groupBox_MainPodozrive.SuspendLayout();
-            this.groupBox_MainDielce.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox_MainRiadenie.SuspendLayout();
+            this.groupBox_MainTabControlCameras.SuspendLayout();
             this.tabControl_MainCameras.SuspendLayout();
             this.tabPage_LeftSide.SuspendLayout();
             this.tabPage_RightSide.SuspendLayout();
@@ -263,6 +260,11 @@
             this.tabPage_BackSide.SuspendLayout();
             this.tabPage_UpperSide.SuspendLayout();
             this.tabPage_LowerSide.SuspendLayout();
+            this.groupBox_MainStatistics.SuspendLayout();
+            this.groupBox_MainPodozrive.SuspendLayout();
+            this.groupBox_MainDielce.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox_MainRiadenie.SuspendLayout();
             this.tabPage_Archive.SuspendLayout();
             this.groupBox_ArchiveDrawingSides.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ArchiveDrawingSides)).BeginInit();
@@ -411,7 +413,7 @@
             this.tabControl_MainControl.Location = new System.Drawing.Point(0, 65);
             this.tabControl_MainControl.Multiline = true;
             this.tabControl_MainControl.Name = "tabControl_MainControl";
-            this.tabControl_MainControl.Padding = new System.Drawing.Point(3, 3);
+            this.tabControl_MainControl.Padding = new System.Drawing.Point(0, 0);
             this.tabControl_MainControl.SelectedIndex = 0;
             this.tabControl_MainControl.Size = new System.Drawing.Size(1920, 1015);
             this.tabControl_MainControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -421,6 +423,7 @@
             // tabPage_Main
             // 
             this.tabPage_Main.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_Main.Controls.Add(this.groupBox_MainTabControlCameras);
             this.tabPage_Main.Controls.Add(this.groupBox_MainStatistics);
             this.tabPage_Main.Controls.Add(this.label_MainSystemMessage);
             this.tabPage_Main.Controls.Add(this.label_MainPoznamka);
@@ -430,7 +433,6 @@
             this.tabPage_Main.Controls.Add(this.groupBox_MainPodozrive);
             this.tabPage_Main.Controls.Add(this.groupBox_MainDielce);
             this.tabPage_Main.Controls.Add(this.groupBox_MainRiadenie);
-            this.tabPage_Main.Controls.Add(this.tabControl_MainCameras);
             this.tabPage_Main.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabPage_Main.Location = new System.Drawing.Point(124, 4);
             this.tabPage_Main.Margin = new System.Windows.Forms.Padding(0);
@@ -439,9 +441,229 @@
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "Hlavná";
             // 
+            // groupBox_MainTabControlCameras
+            // 
+            this.groupBox_MainTabControlCameras.Controls.Add(this.tabControl_MainCameras);
+            this.groupBox_MainTabControlCameras.Location = new System.Drawing.Point(4, 4);
+            this.groupBox_MainTabControlCameras.Name = "groupBox_MainTabControlCameras";
+            this.groupBox_MainTabControlCameras.Size = new System.Drawing.Size(1509, 915);
+            this.groupBox_MainTabControlCameras.TabIndex = 7;
+            this.groupBox_MainTabControlCameras.TabStop = false;
+            this.groupBox_MainTabControlCameras.Text = "Pohľady zo strán";
+            // 
+            // tabControl_MainCameras
+            // 
+            this.tabControl_MainCameras.Controls.Add(this.tabPage_LeftSide);
+            this.tabControl_MainCameras.Controls.Add(this.tabPage_RightSide);
+            this.tabControl_MainCameras.Controls.Add(this.tabPage_FrontSide);
+            this.tabControl_MainCameras.Controls.Add(this.tabPage_BackSide);
+            this.tabControl_MainCameras.Controls.Add(this.tabPage_UpperSide);
+            this.tabControl_MainCameras.Controls.Add(this.tabPage_LowerSide);
+            this.tabControl_MainCameras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl_MainCameras.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControl_MainCameras.ImageList = this.imageList_TabMainCameras;
+            this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(250, 40);
+            this.tabControl_MainCameras.Location = new System.Drawing.Point(3, 22);
+            this.tabControl_MainCameras.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl_MainCameras.Name = "tabControl_MainCameras";
+            this.tabControl_MainCameras.Padding = new System.Drawing.Point(0, 0);
+            this.tabControl_MainCameras.SelectedIndex = 0;
+            this.tabControl_MainCameras.Size = new System.Drawing.Size(1503, 890);
+            this.tabControl_MainCameras.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl_MainCameras.TabIndex = 0;
+            this.tabControl_MainCameras.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_MainCameras_DrawItem);
+            // 
+            // tabPage_LeftSide
+            // 
+            this.tabPage_LeftSide.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_LeftSide.Controls.Add(this.Hwindow_LeftSide);
+            this.tabPage_LeftSide.ImageIndex = 1;
+            this.tabPage_LeftSide.Location = new System.Drawing.Point(4, 44);
+            this.tabPage_LeftSide.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage_LeftSide.Name = "tabPage_LeftSide";
+            this.tabPage_LeftSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_LeftSide.TabIndex = 0;
+            this.tabPage_LeftSide.Text = "Ľavá strana";
+            // 
+            // Hwindow_LeftSide
+            // 
+            this.Hwindow_LeftSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Hwindow_LeftSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_LeftSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Hwindow_LeftSide.HDoubleClickToFitContent = true;
+            this.Hwindow_LeftSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
+            this.Hwindow_LeftSide.HImagePart = new System.Drawing.Rectangle(0, 0, 800, 600);
+            this.Hwindow_LeftSide.HKeepAspectRatio = true;
+            this.Hwindow_LeftSide.HMoveContent = true;
+            this.Hwindow_LeftSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_LeftSide.Location = new System.Drawing.Point(0, 0);
+            this.Hwindow_LeftSide.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_LeftSide.Name = "Hwindow_LeftSide";
+            this.Hwindow_LeftSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_LeftSide.TabIndex = 1;
+            this.Hwindow_LeftSide.WindowSize = new System.Drawing.Size(1495, 842);
+            // 
+            // tabPage_RightSide
+            // 
+            this.tabPage_RightSide.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_RightSide.Controls.Add(this.Hwindow_RightSide);
+            this.tabPage_RightSide.ImageIndex = 1;
+            this.tabPage_RightSide.Location = new System.Drawing.Point(4, 44);
+            this.tabPage_RightSide.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage_RightSide.Name = "tabPage_RightSide";
+            this.tabPage_RightSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_RightSide.TabIndex = 1;
+            this.tabPage_RightSide.Text = "Pravá strana";
+            // 
+            // Hwindow_RightSide
+            // 
+            this.Hwindow_RightSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Hwindow_RightSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_RightSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Hwindow_RightSide.HDoubleClickToFitContent = true;
+            this.Hwindow_RightSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
+            this.Hwindow_RightSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_RightSide.HKeepAspectRatio = true;
+            this.Hwindow_RightSide.HMoveContent = true;
+            this.Hwindow_RightSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_RightSide.Location = new System.Drawing.Point(0, 0);
+            this.Hwindow_RightSide.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_RightSide.Name = "Hwindow_RightSide";
+            this.Hwindow_RightSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_RightSide.TabIndex = 0;
+            this.Hwindow_RightSide.WindowSize = new System.Drawing.Size(1495, 842);
+            // 
+            // tabPage_FrontSide
+            // 
+            this.tabPage_FrontSide.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_FrontSide.Controls.Add(this.Hwindow_FrontSide);
+            this.tabPage_FrontSide.ImageIndex = 1;
+            this.tabPage_FrontSide.Location = new System.Drawing.Point(4, 44);
+            this.tabPage_FrontSide.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage_FrontSide.Name = "tabPage_FrontSide";
+            this.tabPage_FrontSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_FrontSide.TabIndex = 2;
+            this.tabPage_FrontSide.Text = "Predná strana";
+            // 
+            // Hwindow_FrontSide
+            // 
+            this.Hwindow_FrontSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Hwindow_FrontSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_FrontSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Hwindow_FrontSide.HDoubleClickToFitContent = true;
+            this.Hwindow_FrontSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
+            this.Hwindow_FrontSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_FrontSide.HKeepAspectRatio = true;
+            this.Hwindow_FrontSide.HMoveContent = true;
+            this.Hwindow_FrontSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_FrontSide.Location = new System.Drawing.Point(0, 0);
+            this.Hwindow_FrontSide.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_FrontSide.Name = "Hwindow_FrontSide";
+            this.Hwindow_FrontSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_FrontSide.TabIndex = 1;
+            this.Hwindow_FrontSide.WindowSize = new System.Drawing.Size(1495, 842);
+            // 
+            // tabPage_BackSide
+            // 
+            this.tabPage_BackSide.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_BackSide.Controls.Add(this.Hwindow_BackSide);
+            this.tabPage_BackSide.ImageIndex = 1;
+            this.tabPage_BackSide.Location = new System.Drawing.Point(4, 44);
+            this.tabPage_BackSide.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage_BackSide.Name = "tabPage_BackSide";
+            this.tabPage_BackSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_BackSide.TabIndex = 3;
+            this.tabPage_BackSide.Text = "Zadná strana";
+            // 
+            // Hwindow_BackSide
+            // 
+            this.Hwindow_BackSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Hwindow_BackSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_BackSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Hwindow_BackSide.HDoubleClickToFitContent = true;
+            this.Hwindow_BackSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
+            this.Hwindow_BackSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_BackSide.HKeepAspectRatio = true;
+            this.Hwindow_BackSide.HMoveContent = true;
+            this.Hwindow_BackSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_BackSide.Location = new System.Drawing.Point(0, 0);
+            this.Hwindow_BackSide.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_BackSide.Name = "Hwindow_BackSide";
+            this.Hwindow_BackSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_BackSide.TabIndex = 2;
+            this.Hwindow_BackSide.WindowSize = new System.Drawing.Size(1495, 842);
+            // 
+            // tabPage_UpperSide
+            // 
+            this.tabPage_UpperSide.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_UpperSide.Controls.Add(this.Hwindow_UpperSide);
+            this.tabPage_UpperSide.ImageIndex = 1;
+            this.tabPage_UpperSide.Location = new System.Drawing.Point(4, 44);
+            this.tabPage_UpperSide.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage_UpperSide.Name = "tabPage_UpperSide";
+            this.tabPage_UpperSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_UpperSide.TabIndex = 4;
+            this.tabPage_UpperSide.Text = "Horná strana";
+            // 
+            // Hwindow_UpperSide
+            // 
+            this.Hwindow_UpperSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Hwindow_UpperSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_UpperSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Hwindow_UpperSide.HDoubleClickToFitContent = true;
+            this.Hwindow_UpperSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
+            this.Hwindow_UpperSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_UpperSide.HKeepAspectRatio = true;
+            this.Hwindow_UpperSide.HMoveContent = true;
+            this.Hwindow_UpperSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_UpperSide.Location = new System.Drawing.Point(0, 0);
+            this.Hwindow_UpperSide.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_UpperSide.Name = "Hwindow_UpperSide";
+            this.Hwindow_UpperSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_UpperSide.TabIndex = 2;
+            this.Hwindow_UpperSide.WindowSize = new System.Drawing.Size(1495, 842);
+            // 
+            // tabPage_LowerSide
+            // 
+            this.tabPage_LowerSide.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_LowerSide.Controls.Add(this.Hwindow_LowerSide);
+            this.tabPage_LowerSide.ImageIndex = 1;
+            this.tabPage_LowerSide.Location = new System.Drawing.Point(4, 44);
+            this.tabPage_LowerSide.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage_LowerSide.Name = "tabPage_LowerSide";
+            this.tabPage_LowerSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_LowerSide.TabIndex = 5;
+            this.tabPage_LowerSide.Text = "Dolná strana";
+            // 
+            // Hwindow_LowerSide
+            // 
+            this.Hwindow_LowerSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Hwindow_LowerSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_LowerSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Hwindow_LowerSide.HDoubleClickToFitContent = true;
+            this.Hwindow_LowerSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
+            this.Hwindow_LowerSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.Hwindow_LowerSide.HKeepAspectRatio = true;
+            this.Hwindow_LowerSide.HMoveContent = true;
+            this.Hwindow_LowerSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_LowerSide.Location = new System.Drawing.Point(0, 0);
+            this.Hwindow_LowerSide.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_LowerSide.Name = "Hwindow_LowerSide";
+            this.Hwindow_LowerSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_LowerSide.TabIndex = 2;
+            this.Hwindow_LowerSide.WindowSize = new System.Drawing.Size(1495, 842);
+            // 
+            // imageList_TabMainCameras
+            // 
+            this.imageList_TabMainCameras.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_TabMainCameras.ImageStream")));
+            this.imageList_TabMainCameras.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList_TabMainCameras.Images.SetKeyName(0, "red.png");
+            this.imageList_TabMainCameras.Images.SetKeyName(1, "gray.png");
+            this.imageList_TabMainCameras.Images.SetKeyName(2, "green.png");
+            // 
             // groupBox_MainStatistics
             // 
-            this.groupBox_MainStatistics.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_MainStatistics.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsOverall);
             this.groupBox_MainStatistics.Controls.Add(this.label46);
             this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsSuspicious);
@@ -593,7 +815,7 @@
             // 
             // groupBox_MainPodozrive
             // 
-            this.groupBox_MainPodozrive.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_MainPodozrive.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_MainPodozrive.Controls.Add(this.progressBar_MainPodozrive);
             this.groupBox_MainPodozrive.Location = new System.Drawing.Point(1518, 571);
             this.groupBox_MainPodozrive.Name = "groupBox_MainPodozrive";
@@ -606,13 +828,14 @@
             // 
             this.progressBar_MainPodozrive.BackColor = System.Drawing.Color.DarkGray;
             this.progressBar_MainPodozrive.Location = new System.Drawing.Point(6, 38);
+            this.progressBar_MainPodozrive.Maximum = 5;
             this.progressBar_MainPodozrive.Name = "progressBar_MainPodozrive";
             this.progressBar_MainPodozrive.Size = new System.Drawing.Size(263, 23);
             this.progressBar_MainPodozrive.TabIndex = 0;
             // 
             // groupBox_MainDielce
             // 
-            this.groupBox_MainDielce.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_MainDielce.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_MainDielce.Controls.Add(this.pictureBox1);
             this.groupBox_MainDielce.Controls.Add(this.textBox_MainSearchRecipe);
             this.groupBox_MainDielce.Controls.Add(this.listBox_MainRecipe);
@@ -657,7 +880,7 @@
             // 
             // groupBox_MainRiadenie
             // 
-            this.groupBox_MainRiadenie.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_MainRiadenie.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStop);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainSaveImg);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStart);
@@ -708,213 +931,6 @@
             this.button_MainStart.Text = "Štart";
             this.button_MainStart.UseVisualStyleBackColor = false;
             this.button_MainStart.Click += new System.EventHandler(this.button_MainStart_Click);
-            // 
-            // tabControl_MainCameras
-            // 
-            this.tabControl_MainCameras.Controls.Add(this.tabPage_LeftSide);
-            this.tabControl_MainCameras.Controls.Add(this.tabPage_RightSide);
-            this.tabControl_MainCameras.Controls.Add(this.tabPage_FrontSide);
-            this.tabControl_MainCameras.Controls.Add(this.tabPage_BackSide);
-            this.tabControl_MainCameras.Controls.Add(this.tabPage_UpperSide);
-            this.tabControl_MainCameras.Controls.Add(this.tabPage_LowerSide);
-            this.tabControl_MainCameras.ImageList = this.imageList_TabMainCameras;
-            this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(250, 40);
-            this.tabControl_MainCameras.Location = new System.Drawing.Point(5, 5);
-            this.tabControl_MainCameras.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl_MainCameras.Name = "tabControl_MainCameras";
-            this.tabControl_MainCameras.Padding = new System.Drawing.Point(0, 0);
-            this.tabControl_MainCameras.SelectedIndex = 0;
-            this.tabControl_MainCameras.Size = new System.Drawing.Size(1504, 923);
-            this.tabControl_MainCameras.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl_MainCameras.TabIndex = 0;
-            // 
-            // tabPage_LeftSide
-            // 
-            this.tabPage_LeftSide.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage_LeftSide.Controls.Add(this.Hwindow_LeftSide);
-            this.tabPage_LeftSide.ImageIndex = 1;
-            this.tabPage_LeftSide.Location = new System.Drawing.Point(4, 44);
-            this.tabPage_LeftSide.Name = "tabPage_LeftSide";
-            this.tabPage_LeftSide.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_LeftSide.Size = new System.Drawing.Size(1496, 875);
-            this.tabPage_LeftSide.TabIndex = 0;
-            this.tabPage_LeftSide.Text = "Ľavá strana";
-            // 
-            // Hwindow_LeftSide
-            // 
-            this.Hwindow_LeftSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Hwindow_LeftSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Hwindow_LeftSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Hwindow_LeftSide.HDoubleClickToFitContent = true;
-            this.Hwindow_LeftSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_LeftSide.HImagePart = new System.Drawing.Rectangle(0, 0, 800, 600);
-            this.Hwindow_LeftSide.HKeepAspectRatio = true;
-            this.Hwindow_LeftSide.HMoveContent = true;
-            this.Hwindow_LeftSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.Hwindow_LeftSide.Location = new System.Drawing.Point(3, 3);
-            this.Hwindow_LeftSide.Margin = new System.Windows.Forms.Padding(0);
-            this.Hwindow_LeftSide.Name = "Hwindow_LeftSide";
-            this.Hwindow_LeftSide.Size = new System.Drawing.Size(1490, 869);
-            this.Hwindow_LeftSide.TabIndex = 1;
-            this.Hwindow_LeftSide.WindowSize = new System.Drawing.Size(1490, 869);
-            // 
-            // tabPage_RightSide
-            // 
-            this.tabPage_RightSide.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage_RightSide.Controls.Add(this.Hwindow_RightSide);
-            this.tabPage_RightSide.ImageIndex = 1;
-            this.tabPage_RightSide.Location = new System.Drawing.Point(4, 44);
-            this.tabPage_RightSide.Name = "tabPage_RightSide";
-            this.tabPage_RightSide.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_RightSide.Size = new System.Drawing.Size(1496, 875);
-            this.tabPage_RightSide.TabIndex = 1;
-            this.tabPage_RightSide.Text = "Pravá strana";
-            // 
-            // Hwindow_RightSide
-            // 
-            this.Hwindow_RightSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Hwindow_RightSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Hwindow_RightSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Hwindow_RightSide.HDoubleClickToFitContent = true;
-            this.Hwindow_RightSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_RightSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.Hwindow_RightSide.HKeepAspectRatio = true;
-            this.Hwindow_RightSide.HMoveContent = true;
-            this.Hwindow_RightSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.Hwindow_RightSide.Location = new System.Drawing.Point(3, 3);
-            this.Hwindow_RightSide.Margin = new System.Windows.Forms.Padding(0);
-            this.Hwindow_RightSide.Name = "Hwindow_RightSide";
-            this.Hwindow_RightSide.Size = new System.Drawing.Size(1490, 869);
-            this.Hwindow_RightSide.TabIndex = 0;
-            this.Hwindow_RightSide.WindowSize = new System.Drawing.Size(1490, 869);
-            // 
-            // tabPage_FrontSide
-            // 
-            this.tabPage_FrontSide.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage_FrontSide.Controls.Add(this.Hwindow_FrontSide);
-            this.tabPage_FrontSide.ImageIndex = 1;
-            this.tabPage_FrontSide.Location = new System.Drawing.Point(4, 44);
-            this.tabPage_FrontSide.Name = "tabPage_FrontSide";
-            this.tabPage_FrontSide.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_FrontSide.Size = new System.Drawing.Size(1496, 875);
-            this.tabPage_FrontSide.TabIndex = 2;
-            this.tabPage_FrontSide.Text = "Predná strana";
-            // 
-            // Hwindow_FrontSide
-            // 
-            this.Hwindow_FrontSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Hwindow_FrontSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Hwindow_FrontSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Hwindow_FrontSide.HDoubleClickToFitContent = true;
-            this.Hwindow_FrontSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_FrontSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.Hwindow_FrontSide.HKeepAspectRatio = true;
-            this.Hwindow_FrontSide.HMoveContent = true;
-            this.Hwindow_FrontSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.Hwindow_FrontSide.Location = new System.Drawing.Point(3, 3);
-            this.Hwindow_FrontSide.Margin = new System.Windows.Forms.Padding(0);
-            this.Hwindow_FrontSide.Name = "Hwindow_FrontSide";
-            this.Hwindow_FrontSide.Size = new System.Drawing.Size(1490, 869);
-            this.Hwindow_FrontSide.TabIndex = 1;
-            this.Hwindow_FrontSide.WindowSize = new System.Drawing.Size(1490, 869);
-            // 
-            // tabPage_BackSide
-            // 
-            this.tabPage_BackSide.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage_BackSide.Controls.Add(this.Hwindow_BackSide);
-            this.tabPage_BackSide.ImageIndex = 1;
-            this.tabPage_BackSide.Location = new System.Drawing.Point(4, 44);
-            this.tabPage_BackSide.Name = "tabPage_BackSide";
-            this.tabPage_BackSide.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_BackSide.Size = new System.Drawing.Size(1496, 875);
-            this.tabPage_BackSide.TabIndex = 3;
-            this.tabPage_BackSide.Text = "Zadná strana";
-            // 
-            // Hwindow_BackSide
-            // 
-            this.Hwindow_BackSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Hwindow_BackSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Hwindow_BackSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Hwindow_BackSide.HDoubleClickToFitContent = true;
-            this.Hwindow_BackSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_BackSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.Hwindow_BackSide.HKeepAspectRatio = true;
-            this.Hwindow_BackSide.HMoveContent = true;
-            this.Hwindow_BackSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.Hwindow_BackSide.Location = new System.Drawing.Point(3, 3);
-            this.Hwindow_BackSide.Margin = new System.Windows.Forms.Padding(0);
-            this.Hwindow_BackSide.Name = "Hwindow_BackSide";
-            this.Hwindow_BackSide.Size = new System.Drawing.Size(1490, 869);
-            this.Hwindow_BackSide.TabIndex = 2;
-            this.Hwindow_BackSide.WindowSize = new System.Drawing.Size(1490, 869);
-            // 
-            // tabPage_UpperSide
-            // 
-            this.tabPage_UpperSide.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage_UpperSide.Controls.Add(this.Hwindow_UpperSide);
-            this.tabPage_UpperSide.ImageIndex = 1;
-            this.tabPage_UpperSide.Location = new System.Drawing.Point(4, 44);
-            this.tabPage_UpperSide.Name = "tabPage_UpperSide";
-            this.tabPage_UpperSide.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_UpperSide.Size = new System.Drawing.Size(1496, 875);
-            this.tabPage_UpperSide.TabIndex = 4;
-            this.tabPage_UpperSide.Text = "Horná strana";
-            // 
-            // Hwindow_UpperSide
-            // 
-            this.Hwindow_UpperSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Hwindow_UpperSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Hwindow_UpperSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Hwindow_UpperSide.HDoubleClickToFitContent = true;
-            this.Hwindow_UpperSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_UpperSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.Hwindow_UpperSide.HKeepAspectRatio = true;
-            this.Hwindow_UpperSide.HMoveContent = true;
-            this.Hwindow_UpperSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.Hwindow_UpperSide.Location = new System.Drawing.Point(3, 3);
-            this.Hwindow_UpperSide.Margin = new System.Windows.Forms.Padding(0);
-            this.Hwindow_UpperSide.Name = "Hwindow_UpperSide";
-            this.Hwindow_UpperSide.Size = new System.Drawing.Size(1490, 869);
-            this.Hwindow_UpperSide.TabIndex = 2;
-            this.Hwindow_UpperSide.WindowSize = new System.Drawing.Size(1490, 869);
-            // 
-            // tabPage_LowerSide
-            // 
-            this.tabPage_LowerSide.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage_LowerSide.Controls.Add(this.Hwindow_LowerSide);
-            this.tabPage_LowerSide.ImageIndex = 1;
-            this.tabPage_LowerSide.Location = new System.Drawing.Point(4, 44);
-            this.tabPage_LowerSide.Name = "tabPage_LowerSide";
-            this.tabPage_LowerSide.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_LowerSide.Size = new System.Drawing.Size(1496, 875);
-            this.tabPage_LowerSide.TabIndex = 5;
-            this.tabPage_LowerSide.Text = "Dolná strana";
-            // 
-            // Hwindow_LowerSide
-            // 
-            this.Hwindow_LowerSide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Hwindow_LowerSide.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Hwindow_LowerSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Hwindow_LowerSide.HDoubleClickToFitContent = true;
-            this.Hwindow_LowerSide.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
-            this.Hwindow_LowerSide.HImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
-            this.Hwindow_LowerSide.HKeepAspectRatio = true;
-            this.Hwindow_LowerSide.HMoveContent = true;
-            this.Hwindow_LowerSide.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.Hwindow_LowerSide.Location = new System.Drawing.Point(3, 3);
-            this.Hwindow_LowerSide.Margin = new System.Windows.Forms.Padding(0);
-            this.Hwindow_LowerSide.Name = "Hwindow_LowerSide";
-            this.Hwindow_LowerSide.Size = new System.Drawing.Size(1490, 869);
-            this.Hwindow_LowerSide.TabIndex = 2;
-            this.Hwindow_LowerSide.WindowSize = new System.Drawing.Size(1490, 869);
-            // 
-            // imageList_TabMainCameras
-            // 
-            this.imageList_TabMainCameras.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_TabMainCameras.ImageStream")));
-            this.imageList_TabMainCameras.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList_TabMainCameras.Images.SetKeyName(0, "red.png");
-            this.imageList_TabMainCameras.Images.SetKeyName(1, "gray.png");
-            this.imageList_TabMainCameras.Images.SetKeyName(2, "green.png");
             // 
             // tabPage_Archive
             // 
@@ -978,8 +994,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -994,8 +1010,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1030,7 +1046,7 @@
             // 
             // groupBox_Holes
             // 
-            this.groupBox_Holes.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox_Holes.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_Holes.Controls.Add(this.dataGridView_HolesData);
             this.groupBox_Holes.Location = new System.Drawing.Point(1192, 527);
             this.groupBox_Holes.Name = "groupBox_Holes";
@@ -1066,8 +1082,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle3;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1075,8 +1091,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle4;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1085,8 +1101,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle5;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1095,8 +1111,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle6;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1105,8 +1121,8 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle7;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -1177,8 +1193,9 @@
             this.groupBox_Hwindow.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_Hwindow.Controls.Add(this.Hwindow_ArchiveImage);
             this.groupBox_Hwindow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox_Hwindow.Location = new System.Drawing.Point(5, 5);
+            this.groupBox_Hwindow.Location = new System.Drawing.Point(4, 4);
             this.groupBox_Hwindow.Name = "groupBox_Hwindow";
+            this.groupBox_Hwindow.Padding = new System.Windows.Forms.Padding(7);
             this.groupBox_Hwindow.Size = new System.Drawing.Size(1181, 955);
             this.groupBox_Hwindow.TabIndex = 1;
             this.groupBox_Hwindow.TabStop = false;
@@ -1195,12 +1212,12 @@
             this.Hwindow_ArchiveImage.HKeepAspectRatio = true;
             this.Hwindow_ArchiveImage.HMoveContent = true;
             this.Hwindow_ArchiveImage.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
-            this.Hwindow_ArchiveImage.Location = new System.Drawing.Point(3, 22);
-            this.Hwindow_ArchiveImage.Margin = new System.Windows.Forms.Padding(0);
+            this.Hwindow_ArchiveImage.Location = new System.Drawing.Point(7, 26);
+            this.Hwindow_ArchiveImage.Margin = new System.Windows.Forms.Padding(7);
             this.Hwindow_ArchiveImage.Name = "Hwindow_ArchiveImage";
-            this.Hwindow_ArchiveImage.Size = new System.Drawing.Size(1175, 930);
+            this.Hwindow_ArchiveImage.Size = new System.Drawing.Size(1167, 922);
             this.Hwindow_ArchiveImage.TabIndex = 0;
-            this.Hwindow_ArchiveImage.WindowSize = new System.Drawing.Size(1175, 930);
+            this.Hwindow_ArchiveImage.WindowSize = new System.Drawing.Size(1167, 922);
             // 
             // tabPage_Diagnostics
             // 
@@ -1598,6 +1615,7 @@
             this.groupBox_DiagnosticsVykres.Controls.Add(this.Hwindow_Diagnostika);
             this.groupBox_DiagnosticsVykres.Location = new System.Drawing.Point(759, 71);
             this.groupBox_DiagnosticsVykres.Name = "groupBox_DiagnosticsVykres";
+            this.groupBox_DiagnosticsVykres.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox_DiagnosticsVykres.Size = new System.Drawing.Size(1030, 889);
             this.groupBox_DiagnosticsVykres.TabIndex = 5;
             this.groupBox_DiagnosticsVykres.TabStop = false;
@@ -1614,12 +1632,12 @@
             this.Hwindow_Diagnostika.HKeepAspectRatio = true;
             this.Hwindow_Diagnostika.HMoveContent = true;
             this.Hwindow_Diagnostika.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelBackwardZoomsIn;
-            this.Hwindow_Diagnostika.Location = new System.Drawing.Point(3, 22);
+            this.Hwindow_Diagnostika.Location = new System.Drawing.Point(0, 19);
             this.Hwindow_Diagnostika.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_Diagnostika.Name = "Hwindow_Diagnostika";
-            this.Hwindow_Diagnostika.Size = new System.Drawing.Size(1024, 864);
+            this.Hwindow_Diagnostika.Size = new System.Drawing.Size(1030, 870);
             this.Hwindow_Diagnostika.TabIndex = 4;
-            this.Hwindow_Diagnostika.WindowSize = new System.Drawing.Size(1024, 864);
+            this.Hwindow_Diagnostika.WindowSize = new System.Drawing.Size(1030, 870);
             // 
             // groupBox_DiagnosticsOutputs
             // 
@@ -1869,6 +1887,7 @@
             this.button_DiagnosticsOutput0.TabIndex = 12;
             this.button_DiagnosticsOutput0.Text = "Nastaviť";
             this.button_DiagnosticsOutput0.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsOutput0.Click += new System.EventHandler(this.button_DiagnosticsOutput0_Click);
             // 
             // pictureBox_DiagnosticsOutput14
             // 
@@ -2192,16 +2211,16 @@
             // 
             // textBox_DiagnosticsGain
             // 
-            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(132, 95);
+            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(132, 83);
             this.textBox_DiagnosticsGain.Name = "textBox_DiagnosticsGain";
-            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(79, 26);
+            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(62, 26);
             this.textBox_DiagnosticsGain.TabIndex = 1;
             // 
             // textBox_DiagnosticsExposureTime
             // 
             this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(132, 45);
             this.textBox_DiagnosticsExposureTime.Name = "textBox_DiagnosticsExposureTime";
-            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(79, 26);
+            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(62, 26);
             this.textBox_DiagnosticsExposureTime.TabIndex = 1;
             // 
             // listBox_DiagnosticsCamerasSettings
@@ -2209,31 +2228,30 @@
             this.listBox_DiagnosticsCamerasSettings.FormattingEnabled = true;
             this.listBox_DiagnosticsCamerasSettings.ItemHeight = 20;
             this.listBox_DiagnosticsCamerasSettings.Items.AddRange(new object[] {
-            "Cam1",
-            "Cam2",
-            "Cam3",
-            "Cam4",
-            "Cam5",
-            "Cam6",
-            "Cam7",
-            "Cam8",
-            "Cam9",
-            "Cam10",
-            "Cam11",
-            "Cam12",
-            "Cam13",
-            "Cam14",
-            ""});
-            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(332, 45);
+            "Cam1LsTopL",
+            "Cam2LsTopR",
+            "Cam3LsBottomL",
+            "Cam4LsBottomR",
+            "Cam5LsLeft",
+            "Cam6LsRight",
+            "Cam7ArFrontL",
+            "Cam8ArFrontR",
+            "Cam9ArRearL",
+            "Cam10ArRearR",
+            "Cam11ArTopL               ",
+            "Cam12ArTopR",
+            "Cam13ArBottomL",
+            "Cam14ArBottomR"});
+            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(294, 25);
             this.listBox_DiagnosticsCamerasSettings.Name = "listBox_DiagnosticsCamerasSettings";
-            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(129, 64);
+            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(167, 84);
             this.listBox_DiagnosticsCamerasSettings.TabIndex = 0;
             this.listBox_DiagnosticsCamerasSettings.SelectedIndexChanged += new System.EventHandler(this.listBox_DiagnosticsCamerasSettings_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(41, 98);
+            this.label16.Location = new System.Drawing.Point(41, 86);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(85, 20);
             this.label16.TabIndex = 0;
@@ -2255,7 +2273,7 @@
             this.button_DiagnosticsGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(217, 95);
+            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(200, 83);
             this.button_DiagnosticsGainSet.Name = "button_DiagnosticsGainSet";
             this.button_DiagnosticsGainSet.Size = new System.Drawing.Size(88, 26);
             this.button_DiagnosticsGainSet.TabIndex = 12;
@@ -2268,7 +2286,7 @@
             this.button_DiagnosticsExposureSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsExposureSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsExposureSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(217, 45);
+            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(200, 45);
             this.button_DiagnosticsExposureSet.Name = "button_DiagnosticsExposureSet";
             this.button_DiagnosticsExposureSet.Size = new System.Drawing.Size(88, 26);
             this.button_DiagnosticsExposureSet.TabIndex = 12;
@@ -2695,6 +2713,7 @@
             this.pictureBox_FooterKeyBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_FooterKeyBoard.TabIndex = 5;
             this.pictureBox_FooterKeyBoard.TabStop = false;
+            this.pictureBox_FooterKeyBoard.Click += new System.EventHandler(this.pictureBox_FooterKeyBoard_Click);
             // 
             // button_FooterExitApp
             // 
@@ -2739,13 +2758,7 @@
             this.tabControl_MainControl.ResumeLayout(false);
             this.tabPage_Main.ResumeLayout(false);
             this.tabPage_Main.PerformLayout();
-            this.groupBox_MainStatistics.ResumeLayout(false);
-            this.groupBox_MainStatistics.PerformLayout();
-            this.groupBox_MainPodozrive.ResumeLayout(false);
-            this.groupBox_MainDielce.ResumeLayout(false);
-            this.groupBox_MainDielce.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox_MainRiadenie.ResumeLayout(false);
+            this.groupBox_MainTabControlCameras.ResumeLayout(false);
             this.tabControl_MainCameras.ResumeLayout(false);
             this.tabPage_LeftSide.ResumeLayout(false);
             this.tabPage_RightSide.ResumeLayout(false);
@@ -2753,6 +2766,13 @@
             this.tabPage_BackSide.ResumeLayout(false);
             this.tabPage_UpperSide.ResumeLayout(false);
             this.tabPage_LowerSide.ResumeLayout(false);
+            this.groupBox_MainStatistics.ResumeLayout(false);
+            this.groupBox_MainStatistics.PerformLayout();
+            this.groupBox_MainPodozrive.ResumeLayout(false);
+            this.groupBox_MainDielce.ResumeLayout(false);
+            this.groupBox_MainDielce.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox_MainRiadenie.ResumeLayout(false);
             this.tabPage_Archive.ResumeLayout(false);
             this.groupBox_ArchiveDrawingSides.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ArchiveDrawingSides)).EndInit();
@@ -3031,6 +3051,7 @@
         private System.Windows.Forms.Button button_MainStart;
         private System.Windows.Forms.Button button_MainSaveImg;
         private System.Windows.Forms.Button button_DiagnosticsLogOff;
+        private System.Windows.Forms.GroupBox groupBox_MainTabControlCameras;
     }
 }
 

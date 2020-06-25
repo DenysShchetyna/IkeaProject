@@ -11,49 +11,48 @@ namespace Ikea_Library.Helpers
 {
     public  class PersistentVariables
     {
-        public  int ExposureTimeCam1 { get; set; }
+        public  int ExposureTimeCam1LsTopL { get; set; }
 
-        public  int GainCam1 { get; set; } 
+        public  int GainCam1LsTopL { get; set; } 
 
-        public  int ExposureTimeCam2 { get; set; } 
-        public  int GainCam2 { get; set; } 
+        public  int ExposureTimeCam2LsTopR { get; set; } 
+        public  int GainCam2LsTopR { get; set; } 
 
-        public  int ExposureTimeCam3 { get; set; }
-        public  int GainCam3 { get; set; }
+        public  int ExposureTimeCam3LsBottomL { get; set; }
+        public  int GainCam3LsBottomL { get; set; }
 
-        public  int ExposureTimeCam4 { get; set; }
-        public  int GainCam4 { get; set; } 
+        public  int ExposureTimeCam4LsBottomR { get; set; }
+        public  int GainCam4LsBottomR { get; set; } 
 
-        public  int ExposureTimeCam5 { get; set; } 
-        public  int GainCam5 { get; set; } 
+        public  int ExposureTimeCam5LsLeft { get; set; } 
+        public  int GainCam5LsLeft { get; set; } 
 
-        public  int ExposureTimeCam6 { get; set; } 
-        public  int GainCam6 { get; set; } 
+        public  int ExposureTimeCam6LsRight { get; set; } 
+        public  int GainCam6LsRight { get; set; } 
 
-        public  int ExposureTimeCam7 { get; set; } 
-        public  int GainCam7 { get; set; } 
+        public  int ExposureTimeCam7ArFrontL { get; set; } 
+        public  int GainCam7ArFrontL { get; set; } 
 
-        public  int ExposureTimeCam8 { get; set; } 
-        public  int GainCam8 { get; set; } 
+        public  int ExposureTimeCam8ArFrontR { get; set; } 
+        public  int GainCam8ArFrontR { get; set; } 
 
-        public  int ExposureTimeCam9 { get; set; } 
-        public  int GainCam9 { get; set; }
+        public  int ExposureTimeCam9ArRearL { get; set; } 
+        public  int GainCam9ArRearL { get; set; }
 
-        public  int ExposureTimeCam10 { get; set; }
-        public  int GainCam10 { get; set; } 
+        public  int ExposureTimeCam10ArRearR { get; set; }
+        public  int GainCam10ArRearR { get; set; } 
 
-        public  int ExposureTimeCam11 { get; set; } 
-        public  int GainCam11 { get; set; }
+        public  int ExposureTimeCam11ArTopL { get; set; } 
+        public  int GainCam11ArTopL { get; set; }
 
-        public  int ExposureTimeCam12 { get; set; }
-        public  int GainCam12 { get; set; } 
+        public  int ExposureTimeCam12ArTopR { get; set; }
+        public  int GainCam12ArTopR { get; set; } 
 
-        public  int ExposureTimeCam13 { get; set; } 
-        public  int GainCam13 { get; set; } 
+        public  int ExposureTimeCam13ArBottomL { get; set; } 
+        public  int GainCam13ArBottomL { get; set; } 
 
-        public  int ExposureTimeCam14 { get; set; }
-        
-        public  int GainCam14 { get; set; }
+        public  int ExposureTimeCam14ArBottomR { get; set; }
+        public  int GainCam14ArBottomR { get; set; }
 
         
     }

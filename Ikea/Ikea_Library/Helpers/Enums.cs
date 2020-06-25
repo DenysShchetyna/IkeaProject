@@ -4,11 +4,6 @@ namespace Ikea_Library.Helpers
 {
     public static class Enums
     {
-        public enum  UserLevel
-        {
-            Operator = 0,
-            Admin = 1
-        }
         //public enum CameraNumber
         //{
         //    Cam1 = "Cam1",
@@ -36,15 +31,4 @@ namespace Ikea_Library.Helpers
         Exception
     }
 
-    public enum UserLevel
-    {
-        Operator = 5,
-        Administrator = 10
-    }
-
-    public enum Visibility
-    {
-        Hide,
-        Show
-    }
 }

@@ -48,6 +48,9 @@ namespace IkeaUI
 
         private bool KeyboardIsShowed = false;
 
+        private DeviceManager Adam1;
+        private DeviceManager Adam2;
+
 
         public int ImgNum = 0;
 
@@ -84,6 +87,11 @@ namespace IkeaUI
             timer_DiscsCheck.Start();
             timer_CameraPing.Enabled = true;
             timer_CameraPing.Start();
+            timer_AdamCoilsRead.Enabled = true;
+            timer_AdamCoilsRead.Start();
+
+            Adam1 = new DeviceManager(" ");
+            Adam2 = new DeviceManager(" ");
 
             Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
         }
@@ -445,52 +453,134 @@ namespace IkeaUI
             timer_CameraPing.Start();
         }
 
-        private void button_DiagnosticsInput_Click(object sender, EventArgs e)
+        private void button_DiagnosticsOutput_Click(object sender, EventArgs e)
         {
             bool resultStatus = false;
             bool coilStatus = false;
+
             try
             {
                 Button btn = (Button)sender;
-                List<bool> coilStatuses = DeviceManager.ReadAdamCoils();
-                switch (btn.Name.ToString())
+                List<bool> coilStatusesAdam1 = Adam1.ReadAdamCoils(15);
+                List<bool> coilStatusesAdam2 = Adam2.ReadAdamCoils(16);
+                if (coilStatusesAdam1 != null && coilStatusesAdam2 != null)
                 {
-                    case "button_DiagnosticsInput0":
-                        coilStatus = !coilStatuses[0];
-                        DeviceManager.WriteAdamCoils(0 + 17, coilStatus, out resultStatus);
-                        break;
+                    switch (btn.Name.ToString())
+                    {
+                        case "button_DiagnosticsOutput1Adam8":
+                            coilStatus = !coilStatusesAdam1[7];
+                            Adam1.WriteAdamCoils(8 + 17, coilStatus, out resultStatus);
+                            break;
 
-                    case "button_DiagnosticsInput01":
-                        coilStatus = !coilStatuses[1];
-                        DeviceManager.WriteAdamCoils(1 + 17, coilStatus, out resultStatus);
-                        break;
+                        case "button_DiagnosticsOutput1Adam9":
+                            coilStatus = !coilStatusesAdam1[8];
+                            Adam1.WriteAdamCoils(9 + 17, coilStatus, out resultStatus);
+                            break;
 
-                    case "button_DiagnosticsInput2":
-                        coilStatus = !coilStatuses[2];
-                        DeviceManager.WriteAdamCoils(2 + 17, coilStatus, out resultStatus);
-                        break;
+                        case "button_DiagnosticsOutput1Adam10":
+                            coilStatus = !coilStatusesAdam1[10];
+                            Adam1.WriteAdamCoils(10 + 17, coilStatus, out resultStatus);
+                            break;
 
-                    case "button_DiagnosticsInput3":
-                        coilStatus = !coilStatuses[3];
-                        DeviceManager.WriteAdamCoils(3 + 17, coilStatus, out resultStatus);
-                        break;
+                        case "button_DiagnosticsOutput1Adam11":
+                            coilStatus = !coilStatusesAdam1[11];
+                            Adam1.WriteAdamCoils(11 + 17, coilStatus, out resultStatus);
+                            break;
 
-                    case "button_DiagnosticsInput4":
-                        coilStatus = !coilStatuses[4];
-                        DeviceManager.WriteAdamCoils(4 + 17, coilStatus, out resultStatus);
-                        break;
-                    case "button_DiagnosticsInput5":
-                        coilStatus = !coilStatuses[5];
-                        DeviceManager.WriteAdamCoils(5 + 17, coilStatus, out resultStatus);
-                        break;
-                    case "button_DiagnosticsInput6":
-                        coilStatus = !coilStatuses[6];
-                        DeviceManager.WriteAdamCoils(6 + 17, coilStatus, out resultStatus);
-                        break;
-                    case "button_DiagnosticsInput7":
-                        coilStatus = !coilStatuses[7];
-                        DeviceManager.WriteAdamCoils(7 + 17, coilStatus, out resultStatus);
-                        break;
+                        case "button_DiagnosticsOutput1Adam12":
+                            coilStatus = !coilStatusesAdam1[12];
+                            Adam1.WriteAdamCoils(12 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput1Adam13":
+                            coilStatus = !coilStatusesAdam1[13];
+                            Adam1.WriteAdamCoils(13 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput1Adam14":
+                            coilStatus = !coilStatusesAdam1[14];
+                            Adam1.WriteAdamCoils(14 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam0":
+                            coilStatus = !coilStatusesAdam2[0];
+                            Adam2.WriteAdamCoils(0 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam1":
+                            coilStatus = !coilStatusesAdam2[1];
+                            Adam2.WriteAdamCoils(1 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam2":
+                            coilStatus = !coilStatusesAdam2[2];
+                            Adam2.WriteAdamCoils(2 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam3":
+                            coilStatus = !coilStatusesAdam2[3];
+                            Adam2.WriteAdamCoils(3 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam4":
+                            coilStatus = !coilStatusesAdam2[4];
+                            Adam2.WriteAdamCoils(4 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam5":
+                            coilStatus = !coilStatusesAdam2[5];
+                            Adam2.WriteAdamCoils(5 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam6":
+                            coilStatus = !coilStatusesAdam2[6];
+                            Adam2.WriteAdamCoils(6 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam7":
+                            coilStatus = !coilStatusesAdam2[7];
+                            Adam2.WriteAdamCoils(7 + 17, coilStatus, out resultStatus);
+                            break;
+                        case "button_DiagnosticsOutput2Adam8":
+                            coilStatus = !coilStatusesAdam2[8];
+                            Adam2.WriteAdamCoils(8 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam9":
+                            coilStatus = !coilStatusesAdam2[9];
+                            Adam2.WriteAdamCoils(9 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam10":
+                            coilStatus = !coilStatusesAdam2[10];
+                            Adam2.WriteAdamCoils(10 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam11":
+                            coilStatus = !coilStatusesAdam2[11];
+                            Adam2.WriteAdamCoils(11 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam12":
+                            coilStatus = !coilStatusesAdam2[12];
+                            Adam2.WriteAdamCoils(12 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam13":
+                            coilStatus = !coilStatusesAdam1[13];
+                            Adam2.WriteAdamCoils(13 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam14":
+                            coilStatus = !coilStatusesAdam2[14];
+                            Adam2.WriteAdamCoils(14 + 17, coilStatus, out resultStatus);
+                            break;
+
+                        case "button_DiagnosticsOutput2Adam15":
+                            coilStatus = !coilStatusesAdam2[15];
+                            Adam2.WriteAdamCoils(15 + 17, coilStatus, out resultStatus);
+                            break;
+                    }
                 }
 
                 if (resultStatus == true)
@@ -499,17 +589,15 @@ namespace IkeaUI
                 }
                 else
                 {
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{btn.Name} set to {coilStatus}", "|OK|");
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{btn.Name} set to {coilStatus}", "|Failed|");
                 }
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-
             }
-           
-        } 
+        }
 
         private void listBox_MainRecipe_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -519,13 +607,10 @@ namespace IkeaUI
                 ReadDrawings = new ReadDrawings();
                 ReadDrawings.Function_ReadDrawing(RecipeMaterialName, out HXLD CountersRead, out HXLD Cross);
 
-                //if (CountersRead != null && Cross != null)
-                //{
                 Hwindow_Diagnostika.HalconWindow.DispXld(CountersRead);
                 Hwindow_Diagnostika.HalconWindow.DispXld(Cross);
                 Hwindow_Diagnostika.HalconWindow.SetPart(-300, -150, 600, 1000);
                 Loging.MakeLog(DateTime.Now, "Vybrany novy recept", "|OK|");
-                // }
             }
             catch (Exception ex)
             {
@@ -540,10 +625,10 @@ namespace IkeaUI
             try
             {
                 ConsumerCam1LsTopL = new Consumer("Cam1LsTopL", 100);
-                ConsumerCam1LsTopL.Start();
                 ConsumerCam1LsTopL.TileImageReady += Cunsumer_TileImages;
+                ConsumerCam1LsTopL.Start();
 
-                ProducerCam1LsTopL = new Producer("CAM1", PersistentVariables, ConsumerCam1LsTopL);
+                ProducerCam1LsTopL = new Producer("Cam1LsTopL", PersistentVariables, ConsumerCam1LsTopL);
                 ProducerCam1LsTopL.Start();
 
                 Loging.MakeLog(DateTime.Now, "Vision Process Start", "|OK|");
@@ -712,6 +797,45 @@ namespace IkeaUI
         private void button_DiagnosticsOutput0_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer_AdamCoilsRead_Tick(object sender, EventArgs e)
+        {
+            List<bool> coilsStatusAdam1 = Adam1.ReadAdamCoils(15);
+            List<bool> coilsStatusAdam2 = Adam2.ReadAdamCoils(16);
+
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam0,coilsStatusAdam1[0]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam1, coilsStatusAdam1[1]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam2,coilsStatusAdam1[2]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam3, coilsStatusAdam1[3]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam4, coilsStatusAdam1[4]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam5, coilsStatusAdam1[5]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam6, coilsStatusAdam1[6]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam7, coilsStatusAdam1[7]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam8, coilsStatusAdam1[8]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam9, coilsStatusAdam1[9]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam10, coilsStatusAdam1[10]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam11, coilsStatusAdam1[11]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam12, coilsStatusAdam1[12]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam13, coilsStatusAdam1[13]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam14, coilsStatusAdam1[14]);
+
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam0,coilsStatusAdam2[0]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam1, coilsStatusAdam2[1]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam2, coilsStatusAdam2[2]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam3, coilsStatusAdam2[3]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam4, coilsStatusAdam2[4]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam5, coilsStatusAdam2[5]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam6, coilsStatusAdam2[6]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam7, coilsStatusAdam2[7]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam8, coilsStatusAdam2[8]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam9, coilsStatusAdam2[9]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam10, coilsStatusAdam2[10]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam11, coilsStatusAdam2[11]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam12, coilsStatusAdam2[12]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam13, coilsStatusAdam2[13]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam14, coilsStatusAdam2[14]);
+            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam15, coilsStatusAdam2[15]);
         }
     }
 }

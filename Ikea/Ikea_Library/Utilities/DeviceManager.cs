@@ -15,23 +15,45 @@ namespace Ikea_Library.Utilities
 {
     public class DeviceManager
     {
-        private static AdamSocket Initialization()
+        private string Ip { get; set; }
+        private AdamSocket Adam { get; set; }
+        public DeviceManager(string ip)
         {
-            AdamSocket adamModbus = new AdamSocket();
-            adamModbus.Connect("192.168.20.201", ProtocolType.Tcp, 502);
-            return adamModbus;
+            Ip = ip;
+            Initialization();
         }
 
-        public static List<bool> ReadAdamCoils()
+        private void Initialization()
         {
-            AdamSocket adamModbus = Initialization();
-            adamModbus.Modbus().ReadCoilStatus(1, 16, out bool[] statusCoil);
-            return statusCoil.ToList();
+            Adam = new AdamSocket();
+            Adam.Connect(Ip, ProtocolType.Tcp, 502);
         }
-        public static void WriteAdamCoils(int coilNum,bool status,out bool resultStatus)
+
+        public List<bool> ReadAdamCoils(int totalCoils)
         {
-            AdamSocket adamModbus = Initialization();
-            resultStatus = adamModbus.Modbus().ForceSingleCoil(coilNum, status);
+            try
+            {
+                Adam.Modbus().ReadCoilStatus(0, totalCoils, out bool[] statusCoil);
+                return statusCoil.ToList();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                return null;
+            }
+
+        }
+        public void WriteAdamCoils(int coilNum, bool status, out bool resultStatus)
+        {
+            try
+            {
+                resultStatus = Adam.Modbus().ForceSingleCoil(coilNum, status);
+            }
+            catch (Exception ex)
+            {
+                resultStatus = false;
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
         }
     }
 }

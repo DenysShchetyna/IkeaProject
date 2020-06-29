@@ -84,7 +84,7 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             switch (CamName)
                             {
-                                case "CAM1":
+                                case "Cam1LsTopL":
 
                                     Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now,
                                         $"Connecting Camera {CamName} with exp:{PersistentVariables.ExposureTimeCam1LsTopL}, " +
@@ -153,13 +153,12 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             switch (CamName)
                             {
-                                case "CAM1":
+                                case "Cam1LsTopL":
 
                                     CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam1LsTopL);
                                     CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam1LsTopL);
 
                                     HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out HTuple imageAvailable);
-
 
                                     HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
                                     Message.Image = image;
@@ -211,6 +210,7 @@ namespace Ikea_Library.ProduceConsumer
                         }
                         catch (Exception ex)
                         {
+                            CameraState = CameraState.Exception;
                             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                         }
 
@@ -220,10 +220,10 @@ namespace Ikea_Library.ProduceConsumer
                         try
                         {
                             CameraState = CameraState.Initialization;
-                            if (AcqHandleCam != -1)
-                            {
+                            //if (AcqHandleCam != -1)
+                            //{
                                 CamProcedures.CloseFramegrabber(AcqHandleCam);
-                            }
+                           // }
                         }
 
                         catch (Exception ex)

@@ -23,7 +23,7 @@ namespace Ikea_Library.ProduceConsumer
         HObject ImagesBuffer = new HObject();
         private int CountOfSegments;
 
-        public Consumer(string camName,int countOfSegments)
+        public Consumer(string camName, int countOfSegments)
         {
             CamName = camName;
             CountOfSegments = countOfSegments;
@@ -41,20 +41,25 @@ namespace Ikea_Library.ProduceConsumer
 
             while (Run == true)
             {
-
-                if (ImagesBuffer.CountObj() == CountOfSegments)
+                switch (CamName)
                 {
-                    HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"100 images are showed", "|OK|");
+                    case "Cam1LsTopL":
+                        if (ImagesBuffer.CountObj() == CountOfSegments)
+                        {
+                            HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"100 images are showed", "|OK|");
 
-                    TileImageReady?.Invoke(this,new TileImageReadyEventArgs(CamName,BigImage));
-                    ImagesBuffer.GenEmptyObj();
-                }
+                            TileImageReady?.Invoke(this, new TileImageReadyEventArgs(CamName, BigImage));
+                            ImagesBuffer.GenEmptyObj();
+                        }
 
-                else
-                {
-                    Message = Messages.Take();
-                    HOperatorSet.ConcatObj(Message.Image, ImagesBuffer, out ImagesBuffer);
+                        else
+                        {
+                            Message = Messages.Take();
+                            HOperatorSet.ConcatObj(Message.Image, ImagesBuffer, out ImagesBuffer);
+                        }
+
+                        break;
                 }
             }
         }
@@ -69,9 +74,9 @@ namespace Ikea_Library.ProduceConsumer
                 IsBackground = true,
                 Priority = ThreadPriority.Normal
             };
-
             ConsumerThread.Start();
         }
+
         public void AbortThread()
         {
             Run = false;

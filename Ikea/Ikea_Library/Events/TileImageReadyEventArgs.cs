@@ -30,7 +30,7 @@ namespace Ikea_Library.Events
         {
             switch (camName)
             {
-                case "CAM1":
+                case "Cam1LsTopL":
                     TileImageCam1 = tileImage;
                     break;
 

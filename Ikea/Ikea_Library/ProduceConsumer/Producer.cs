@@ -3,6 +3,7 @@ using Ikea_Library.HdevProcedures;
 using Ikea_Library.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -157,13 +158,13 @@ namespace Ikea_Library.ProduceConsumer
 
                                     CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam1LsTopL);
                                     CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam1LsTopL);
-
                                     HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out HTuple imageAvailable);
-
-                                    HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
-                                    Message.Image = image;
-                                    Consumer.Enqueue(Message);
-
+                                    if(imageAvailable == true)
+                                    {
+                                        HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
+                                        Message.Image = image;
+                                        Consumer.Enqueue(Message);
+                                    }
                                     break;
 
                                 case "CAM2":
@@ -205,9 +206,8 @@ namespace Ikea_Library.ProduceConsumer
                                 case "CAM14":
                                     break;
                             }
-
-
                         }
+
                         catch (Exception ex)
                         {
                             CameraState = CameraState.Exception;
@@ -272,7 +272,6 @@ namespace Ikea_Library.ProduceConsumer
             ProducerThread.Join(5000);
             ProducerThread.Abort();
             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Aborted Thread {ProducerThread.Name}", "|OK|");
-
         }
     }
 }

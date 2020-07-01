@@ -31,15 +31,19 @@ namespace Ikea_Library.Utilities
 
         public List<bool> ReadAdamCoils(int totalCoils)
         {
+            bool[] statusCoil = new bool[totalCoils];
             try
             {
-                Adam.Modbus().ReadCoilStatus(0, totalCoils, out bool[] statusCoil);
+                if(Adam.Connected == true)
+                {
+                    Adam.Modbus().ReadCoilStatus(0, totalCoils, out statusCoil);
+                }
                 return statusCoil.ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-                return null;
+                return statusCoil.ToList();
             }
 
         }
@@ -47,8 +51,16 @@ namespace Ikea_Library.Utilities
         {
             try
             {
-                resultStatus = Adam.Modbus().ForceSingleCoil(coilNum, status);
+                if (Adam.Connected == true)
+                {
+                    resultStatus = Adam.Modbus().ForceSingleCoil(coilNum, status);
+                }
+                else
+                {
+                    resultStatus = false;
+                }
             }
+
             catch (Exception ex)
             {
                 resultStatus = false;

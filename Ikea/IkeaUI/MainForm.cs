@@ -33,14 +33,13 @@ namespace IkeaUI
     public partial class MainForm : Form
     {
         private string RecipeMaterialName;
-        private ReadDrawings ReadDrawings;
+        private ReadDrawingsProcedure ReadDrawings;
 
         Material Plank;
         DrawingSide DrawingSide;
         Hole Hole;
 
         HDevProc Procedures;
-        AdamSocket AdamSocket;
         PersistentVariables PersistentVariables;
 
         public Producer ProducerCam1LsTopL;
@@ -92,8 +91,51 @@ namespace IkeaUI
 
             Adam1 = new DeviceManager(" ");
             Adam2 = new DeviceManager(" ");
+            CameraDefaultSettings.SetCameraDefaultSettingsFromFile(GlobalVariables.SetCamParameteresPFSFilePath);
 
             Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
+        }
+
+        private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            var text = tabControl_MainControl.TabPages[e.Index].Text;
+            var x = e.Bounds.Left + 25;
+            var y = e.Bounds.Top + 25;
+            g.FillRectangle(Brushes.Silver, e.Bounds);
+            g.DrawString(text, tabControl_MainControl.Font, Brushes.Black, x, y);
+
+            if (tabControl_MainControl.TabPages[e.Index] == tabControl_MainControl.SelectedTab)
+            {
+                g.FillRectangle(Brushes.LightSteelBlue, e.Bounds);
+                g.DrawString(text, tabControl_MainControl.Font, Brushes.Black, x, y);
+            }
+        }
+
+        private void tabControl_MainCameras_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            try
+            {
+                Graphics g = e.Graphics;
+
+                var text = tabControl_MainCameras.TabPages[e.Index].Text;
+                var x = e.Bounds.Left + 70;
+                var y = e.Bounds.Top + 13;
+                g.FillRectangle(Brushes.Silver, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height + 2));
+                g.DrawString(text, tabControl_MainCameras.Font, Brushes.Black, x, y);
+
+                if (tabControl_MainCameras.TabPages[e.Index] == tabControl_MainCameras.SelectedTab)
+                {
+                    g.FillRectangle(Brushes.LightSteelBlue, e.Bounds);
+                    g.DrawString(text, tabControl_MainCameras.Font, Brushes.Black, x, y);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
         }
 
         private void Cunsumer_TileImages(object sender, TileImageReadyEventArgs e)
@@ -149,49 +191,8 @@ namespace IkeaUI
             Hwindow_LeftSide.HalconWindow.DispObj(firstImage);
             Hwindow_RightSide.HalconWindow.DispObj(firstImage);
 
-            Hwindow_RightSide.HalconWindow.SetPart(0, 0, -2, -2);
-            Hwindow_LeftSide.HalconWindow.SetPart(0, 0, -2, -2);
-        }
-
-        private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            Graphics g = e.Graphics;
-
-            var text = tabControl_MainControl.TabPages[e.Index].Text;
-            var x = e.Bounds.Left + 25;
-            var y = e.Bounds.Top + 25;
-            g.FillRectangle(Brushes.Silver, e.Bounds);
-            g.DrawString(text, tabControl_MainControl.Font, Brushes.Black, x, y);
-
-            if (tabControl_MainControl.TabPages[e.Index] == tabControl_MainControl.SelectedTab)
-            {
-                g.FillRectangle(Brushes.LightSteelBlue, e.Bounds);
-                g.DrawString(text, tabControl_MainControl.Font, Brushes.Black, x, y);
-            }
-        }
-        private void tabControl_MainCameras_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            try
-            {
-                Graphics g = e.Graphics;
-
-                var text = tabControl_MainCameras.TabPages[e.Index].Text;
-                var x = e.Bounds.Left + 70;
-                var y = e.Bounds.Top + 13;
-                g.FillRectangle(Brushes.Silver,new Rectangle(e.Bounds.X,e.Bounds.Y,e.Bounds.Width,e.Bounds.Height+2));
-                g.DrawString(text, tabControl_MainCameras.Font, Brushes.Black, x, y);
-
-                if (tabControl_MainCameras.TabPages[e.Index] == tabControl_MainCameras.SelectedTab)
-                {
-                    g.FillRectangle(Brushes.LightSteelBlue, e.Bounds);
-                    g.DrawString(text, tabControl_MainCameras.Font, Brushes.Black, x, y);
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-            }
+            Hwindow_LeftSide.HalconWindow.SetPart(0, 0, -1, -1);
+            Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
         }
 
         private void button_TakeInfoFromDB_Click(object sender, EventArgs e)
@@ -388,7 +389,7 @@ namespace IkeaUI
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{ 0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -401,14 +402,12 @@ namespace IkeaUI
                 JsonFunctions.CamExposureTimeSet(PersistentVariables, camName, value);
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
                 Loging.MakeLog(DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
-
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine("{ 0,-30}|{1,-70}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                 Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
-
             }
         }
 
@@ -434,12 +433,12 @@ namespace IkeaUI
         {
             timer_CameraPing.Stop();
             var pingTargetHosts = GlobalVariables.CameraAdresses;
-            var pingTasks = pingTargetHosts.Select(
-                 host => new Ping().SendPingAsync(host, 3000)).ToList();
+            var pingTasks = pingTargetHosts.Select(host => new Ping().SendPingAsync(host, 3000)).ToList();
             var pingResults = await Task.WhenAll(pingTasks);
+
             for (int i = 0; i < pingResults.Length; i++)
             {
-               if(pingResults[i].Status == IPStatus.Success)
+                if (pingResults[i].Status == IPStatus.Success)
                 {
                     PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
                     UpdateUI.UpdatePictureBox(pictureBox, true);
@@ -604,7 +603,7 @@ namespace IkeaUI
             try
             {
                 RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
-                ReadDrawings = new ReadDrawings();
+                ReadDrawings = new ReadDrawingsProcedure();
                 ReadDrawings.Function_ReadDrawing(RecipeMaterialName, out HXLD CountersRead, out HXLD Cross);
 
                 Hwindow_Diagnostika.HalconWindow.DispXld(CountersRead);
@@ -616,7 +615,7 @@ namespace IkeaUI
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
-           
+
         }
 
         private void button_MainStart_Click(object sender, EventArgs e)
@@ -696,7 +695,7 @@ namespace IkeaUI
                 try
                 {
                     SqliteDataAccess.ChangePassword(CurrentAdministrator, textBox_UserPassword.Text);
-                    MessageBox.Show("Heslo bolo zmenene", "Info");
+                    MessageBox.Show("Heslo bolo zmenene", "Message");
                     textBox_UserPassword.Clear();
 
                     Loging.MakeLog(DateTime.Now, "Zmena hesla", "|OK|");
@@ -749,16 +748,13 @@ namespace IkeaUI
                         MessageBox.Show("Nespravne heslo", "Info");
                         panel_DiagnosticsAutorization.Visible = true;
                     }
-
                 }
 
                 else
                 {
                     MessageBox.Show("Please insert valid password", "Info");
                     panel_DiagnosticsAutorization.Visible = true;
-
                 }
-
             }
 
             catch (Exception ex)
@@ -776,16 +772,7 @@ namespace IkeaUI
         {
             try
             {
-                if (KeyboardIsShowed == true)
-                {
-                    Process.GetProcessesByName("osk")[0].Kill();
-                    KeyboardIsShowed = false;
-                }
-                else
-                {
-                    Process.Start("osk.exe");
-                    KeyboardIsShowed = true;
-                }
+                ShowKeyBoard();
             }
 
             catch (Exception ex)
@@ -794,48 +781,132 @@ namespace IkeaUI
             }
         }
 
-        private void button_DiagnosticsOutput0_Click(object sender, EventArgs e)
+        private void ShowKeyBoard()
         {
+            Process[] keyboard = new Process[1];
+            keyboard = Process.GetProcessesByName("osk");
 
+            if (KeyboardIsShowed == true && keyboard.Length >= 1)
+            {
+                keyboard[0].Kill();
+                KeyboardIsShowed = false;
+            }
+            else
+            {
+                Process.Start("osk.exe");
+                KeyboardIsShowed = true;
+            }
         }
 
         private void timer_AdamCoilsRead_Tick(object sender, EventArgs e)
         {
-            List<bool> coilsStatusAdam1 = Adam1.ReadAdamCoils(15);
-            List<bool> coilsStatusAdam2 = Adam2.ReadAdamCoils(16);
+            try
+            {
+                List<bool> coilsStatusAdam1 = Adam1.ReadAdamCoils(15);
+                List<bool> coilsStatusAdam2 = Adam2.ReadAdamCoils(16);
 
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam0,coilsStatusAdam1[0]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam1, coilsStatusAdam1[1]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam2,coilsStatusAdam1[2]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam3, coilsStatusAdam1[3]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam4, coilsStatusAdam1[4]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam5, coilsStatusAdam1[5]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam6, coilsStatusAdam1[6]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam7, coilsStatusAdam1[7]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam8, coilsStatusAdam1[8]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam9, coilsStatusAdam1[9]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam10, coilsStatusAdam1[10]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam11, coilsStatusAdam1[11]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam12, coilsStatusAdam1[12]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam13, coilsStatusAdam1[13]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam14, coilsStatusAdam1[14]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam0, coilsStatusAdam1[0]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam1, coilsStatusAdam1[1]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam2, coilsStatusAdam1[2]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam3, coilsStatusAdam1[3]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam4, coilsStatusAdam1[4]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam5, coilsStatusAdam1[5]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam6, coilsStatusAdam1[6]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam7, coilsStatusAdam1[7]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam8, coilsStatusAdam1[8]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam9, coilsStatusAdam1[9]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam10, coilsStatusAdam1[10]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam11, coilsStatusAdam1[11]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam12, coilsStatusAdam1[12]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam13, coilsStatusAdam1[13]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam14, coilsStatusAdam1[14]);
 
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam0,coilsStatusAdam2[0]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam1, coilsStatusAdam2[1]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam2, coilsStatusAdam2[2]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam3, coilsStatusAdam2[3]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam4, coilsStatusAdam2[4]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam5, coilsStatusAdam2[5]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam6, coilsStatusAdam2[6]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam7, coilsStatusAdam2[7]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam8, coilsStatusAdam2[8]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam9, coilsStatusAdam2[9]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam10, coilsStatusAdam2[10]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam11, coilsStatusAdam2[11]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam12, coilsStatusAdam2[12]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam13, coilsStatusAdam2[13]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam14, coilsStatusAdam2[14]);
-            UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam15, coilsStatusAdam2[15]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam0, coilsStatusAdam2[0]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam1, coilsStatusAdam2[1]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam2, coilsStatusAdam2[2]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam3, coilsStatusAdam2[3]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam4, coilsStatusAdam2[4]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam5, coilsStatusAdam2[5]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam6, coilsStatusAdam2[6]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam7, coilsStatusAdam2[7]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam8, coilsStatusAdam2[8]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam9, coilsStatusAdam2[9]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam10, coilsStatusAdam2[10]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam11, coilsStatusAdam2[11]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam12, coilsStatusAdam2[12]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam13, coilsStatusAdam2[13]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam14, coilsStatusAdam2[14]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam15, coilsStatusAdam2[15]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+        }
+
+        private void button_MainSaveImg_Click(object sender, EventArgs e)
+        {
+            HObject image = new HObject();
+            HOperatorSet.GenEmptyObj(out image);
+            string timeStamp = DateTime.Now.ToString("MM_dd_yyyy HH_mm_ss");
+            if(listBox_MainRecipe.SelectedItem == null || listBox_MainRecipe.SelectedItem == "")
+            {
+                return;
+            }
+            try
+            {
+                if (checkBox_SaveOnlyOneSide.CheckState == CheckState.Checked)
+                {
+                    switch (tabControl_MainCameras.SelectedTab.Name)
+                    {
+                        case "tabPage_LeftSide":
+                            HOperatorSet.DumpWindowImage(out image, Hwindow_LeftSide.HalconWindow);
+                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\LeftSide\\{timeStamp}__LeftSideImage_{listBox_MainRecipe.SelectedItem}"); 
+                            break;
+                        case "tabPage_RightSide":
+                            HOperatorSet.DumpWindowImage(out image, Hwindow_RightSide.HalconWindow);
+                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\RightSide\\{timeStamp}__RightSideImage_{listBox_MainRecipe.SelectedItem}");
+                            break;
+                        case "tabPage_FrontSide":
+                            HOperatorSet.DumpWindowImage(out image, Hwindow_FrontSide.HalconWindow);
+                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\FrontSide\\{timeStamp}__FrontSideImage_{listBox_MainRecipe.SelectedItem}");
+                            break;
+                        case "tabPage_BackSide":
+                            HOperatorSet.DumpWindowImage(out image, Hwindow_BackSide.HalconWindow);
+                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\BackSide\\{timeStamp}__BackSideImage_{listBox_MainRecipe.SelectedItem}");
+                            break;
+                        case "tabPage_UpperSide":
+                            HOperatorSet.DumpWindowImage(out image, Hwindow_UpperSide.HalconWindow);
+                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\UpperSide\\{timeStamp}__UpperSideImage_{listBox_MainRecipe.SelectedItem}");
+                            break;
+                        case "tabPage_LowerSide":
+                            HOperatorSet.DumpWindowImage(out image, Hwindow_LowerSide.HalconWindow);
+                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\LowerSide\\{timeStamp}__LowerSideImage_{listBox_MainRecipe.SelectedItem}");
+                            break;
+                    }
+                }
+
+                else
+                {
+                    HOperatorSet.DumpWindowImage(out image, Hwindow_LeftSide.HalconWindow);
+                    HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\LeftSide\\{timeStamp}__LeftSideImage_{listBox_MainRecipe.SelectedItem}");
+                    HOperatorSet.DumpWindowImage(out image, Hwindow_RightSide.HalconWindow);
+                    HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\RightSide\\{timeStamp}__RightSideImage_{listBox_MainRecipe.SelectedItem}");
+                    HOperatorSet.DumpWindowImage(out image, Hwindow_FrontSide.HalconWindow);
+                    HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\FrontSide\\{timeStamp}__FrontSideImage_{listBox_MainRecipe.SelectedItem}");
+                    HOperatorSet.DumpWindowImage(out image, Hwindow_BackSide.HalconWindow);
+                    HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\BackSide\\{timeStamp}__BackSideImage_{listBox_MainRecipe.SelectedItem}");
+                    HOperatorSet.DumpWindowImage(out image, Hwindow_UpperSide.HalconWindow);
+                    HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\UpperSide\\{timeStamp}__UpperSideImage_{listBox_MainRecipe.SelectedItem}");
+                    HOperatorSet.DumpWindowImage(out image, Hwindow_LowerSide.HalconWindow);
+                    HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\LowerSide\\{timeStamp}__LowerSideImage_{listBox_MainRecipe.SelectedItem}");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Ikea_Library.HdevProcedures
 {
-    public class ReadDrawings
+    public class ReadDrawingsProcedure
     {
         HDevProgram Program;
         HDevProcedure ReadDrawing;

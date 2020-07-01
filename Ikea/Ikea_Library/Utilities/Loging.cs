@@ -39,7 +39,6 @@ namespace Ikea_Library
 
         private static bool CreateLogFile()
         {
-
             bool ok;
             try
             {

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Ikea_Library.HdevProcedures
 {
-    class FindHoles
+    class FindHolesProcedure
     {
         private HDevProgram Program;
         private HDevProcedureCall Function_A0670_HolesDetectionAndMeasureViaLaserScannerMethod_Call;
 
-        public FindHoles(string programPath)
+        public FindHolesProcedure(string programPath)
         {
             Program = new HDevProgram(programPath);
             Initialize();

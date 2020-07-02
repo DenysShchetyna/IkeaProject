@@ -14,11 +14,12 @@ namespace Ikea_Library.Helpers
         public static string SaveImagesPath = @"C:\Trifid\IKEA\SavedImages\";
         public static string SavedImagesFromProgramPath = @"C:\Trifid\IKEA\SavedImagesFromProgram";
 
-        
+
+
         public static string JsonPersistentCamSettingsPath = @"C:\Trifid\IKEA\IkeaProject\Ikea\Ikea_Library\Helpers\CameraSettings.json";
 
         public static string SqliteUsersDatabasePath = @"Data Source = C:\Trifid\Ikea\IkeaProject\Ikea\Users.db";
-        public static string DrawingsPath = @"C:/Trifid/IKEA/Vykresy";
+        public static string DrawingsPath = @"C:\Trifid\IKEA\Vykresy";
 
         public static string ConnectionStringId = "Ikea";
 
@@ -33,20 +34,20 @@ namespace Ikea_Library.Helpers
         //all camera names
         public static List<string> CameraAdresses = new List<string>()
         {
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
-            "192.168.20.203",
+            "192.168.10.203",
+            "192.168.10.204",
+            "192.168.10.205",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
+            "192.168.10.203",
         };
 
         public static string SetCamParameteresPFSFilePath = @"C:\Trifid\IKEA\ProceduryHALCON\LFunction_PfsWriteCameraParameters.hdev";

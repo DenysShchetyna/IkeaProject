@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,6 +84,7 @@
             this.textBox_MainSearchRecipe = new System.Windows.Forms.TextBox();
             this.listBox_MainRecipe = new System.Windows.Forms.ListBox();
             this.groupBox_MainRiadenie = new System.Windows.Forms.GroupBox();
+            this.checkBox_SaveOnlyOneSide = new System.Windows.Forms.CheckBox();
             this.button_MainStop = new System.Windows.Forms.Button();
             this.button_MainSaveImg = new System.Windows.Forms.Button();
             this.button_MainStart = new System.Windows.Forms.Button();
@@ -260,7 +261,6 @@
             this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.timer_CameraPing = new System.Windows.Forms.Timer(this.components);
             this.timer_AdamCoilsRead = new System.Windows.Forms.Timer(this.components);
-            this.checkBox_SaveOnlyOneSide = new System.Windows.Forms.CheckBox();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
@@ -883,16 +883,12 @@
             this.textBox_MainSearchRecipe.Name = "textBox_MainSearchRecipe";
             this.textBox_MainSearchRecipe.Size = new System.Drawing.Size(209, 26);
             this.textBox_MainSearchRecipe.TabIndex = 1;
+            this.textBox_MainSearchRecipe.TextChanged += new System.EventHandler(this.textBox_MainSearchRecipe_TextChanged);
             // 
             // listBox_MainRecipe
             // 
             this.listBox_MainRecipe.FormattingEnabled = true;
             this.listBox_MainRecipe.ItemHeight = 20;
-            this.listBox_MainRecipe.Items.AddRange(new object[] {
-            "ZSH09565",
-            "DC02",
-            "DC03",
-            "DC04"});
             this.listBox_MainRecipe.Location = new System.Drawing.Point(6, 65);
             this.listBox_MainRecipe.Name = "listBox_MainRecipe";
             this.listBox_MainRecipe.Size = new System.Drawing.Size(259, 304);
@@ -912,6 +908,16 @@
             this.groupBox_MainRiadenie.TabIndex = 1;
             this.groupBox_MainRiadenie.TabStop = false;
             this.groupBox_MainRiadenie.Text = "Riadenie";
+            // 
+            // checkBox_SaveOnlyOneSide
+            // 
+            this.checkBox_SaveOnlyOneSide.AutoSize = true;
+            this.checkBox_SaveOnlyOneSide.Location = new System.Drawing.Point(9, 146);
+            this.checkBox_SaveOnlyOneSide.Name = "checkBox_SaveOnlyOneSide";
+            this.checkBox_SaveOnlyOneSide.Size = new System.Drawing.Size(203, 24);
+            this.checkBox_SaveOnlyOneSide.TabIndex = 3;
+            this.checkBox_SaveOnlyOneSide.Text = "Ukladat iba jeden pohlad";
+            this.checkBox_SaveOnlyOneSide.UseVisualStyleBackColor = true;
             // 
             // button_MainStop
             // 
@@ -1017,8 +1023,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1033,8 +1039,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1105,8 +1111,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle17;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1114,8 +1120,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle18;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1124,8 +1130,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle19;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1134,8 +1140,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle20;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1144,8 +1150,8 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle21;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -1786,7 +1792,7 @@
             this.Hwindow_Diagnostika.HImagePart = new System.Drawing.Rectangle(0, 0, 800, 480);
             this.Hwindow_Diagnostika.HKeepAspectRatio = true;
             this.Hwindow_Diagnostika.HMoveContent = true;
-            this.Hwindow_Diagnostika.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelBackwardZoomsIn;
+            this.Hwindow_Diagnostika.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
             this.Hwindow_Diagnostika.Location = new System.Drawing.Point(0, 19);
             this.Hwindow_Diagnostika.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_Diagnostika.Name = "Hwindow_Diagnostika";
@@ -2899,16 +2905,6 @@
             // 
             this.timer_AdamCoilsRead.Interval = 1000;
             this.timer_AdamCoilsRead.Tick += new System.EventHandler(this.timer_AdamCoilsRead_Tick);
-            // 
-            // checkBox_SaveOnlyOneSide
-            // 
-            this.checkBox_SaveOnlyOneSide.AutoSize = true;
-            this.checkBox_SaveOnlyOneSide.Location = new System.Drawing.Point(9, 146);
-            this.checkBox_SaveOnlyOneSide.Name = "checkBox_SaveOnlyOneSide";
-            this.checkBox_SaveOnlyOneSide.Size = new System.Drawing.Size(203, 24);
-            this.checkBox_SaveOnlyOneSide.TabIndex = 3;
-            this.checkBox_SaveOnlyOneSide.Text = "Ukladat iba jeden pohlad";
-            this.checkBox_SaveOnlyOneSide.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

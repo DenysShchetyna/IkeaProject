@@ -32,14 +32,17 @@ namespace Ikea_Library.Events
             {
                 case "Cam1LsTopL":
                     TileImageCam1 = tileImage;
+                    CamName = camName;
                     break;
 
-                case "CAM2":
+                case "Cam2LsTopR":
                     TileImageCam2 = tileImage;
+                    CamName = camName;
                     break;
 
                 case "CAM3":
                     TileImageCam3 = tileImage;
+                    CamName = camName;
                     break;
 
                 case "CAM4":

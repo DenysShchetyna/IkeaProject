@@ -22,6 +22,7 @@ using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -44,6 +45,9 @@ namespace IkeaUI
 
         public Producer ProducerCam1LsTopL;
         public Consumer ConsumerCam1LsTopL;
+
+        public Producer ProducerCam2LsTopR;
+        public Consumer ConsumerCam2LsTopR;
 
         private bool KeyboardIsShowed = false;
 
@@ -92,8 +96,10 @@ namespace IkeaUI
             Adam1 = new DeviceManager(" ");
             Adam2 = new DeviceManager(" ");
             CameraDefaultSettings.SetCameraDefaultSettingsFromFile(GlobalVariables.SetCamParameteresPFSFilePath);
+            ReadAllRecipes();
 
             Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
+
         }
 
         private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)
@@ -143,9 +149,16 @@ namespace IkeaUI
             switch (e.CamName)
             {
                 case "Cam1LsTopL":
+                    HObject firstImage = e.TileImageCam1;
+                    Hwindow_LeftSide.HalconWindow.DispObj(firstImage);
+                    Hwindow_LeftSide.HalconWindow.SetPart(0, 0, -1, -1);
+
                     break;
 
                 case "Cam2LsTopR":
+                    HObject secondImage = e.TileImageCam2;
+                    Hwindow_RightSide.HalconWindow.DispObj(secondImage);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
                     break;
 
                 case "Cam3LsBottomL":
@@ -185,14 +198,6 @@ namespace IkeaUI
                     break;
             }
 
-            HObject firstImage = e.TileImageCam1;
-            HObject secondImage = e.TileImageCam2;
-
-            Hwindow_LeftSide.HalconWindow.DispObj(firstImage);
-            Hwindow_RightSide.HalconWindow.DispObj(firstImage);
-
-            Hwindow_LeftSide.HalconWindow.SetPart(0, 0, -1, -1);
-            Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
         }
 
         private void button_TakeInfoFromDB_Click(object sender, EventArgs e)
@@ -383,6 +388,7 @@ namespace IkeaUI
                 if (ProducerCam1LsTopL != null)
                 {
                     ProducerCam1LsTopL.AbortThread();
+                    ProducerCam2LsTopR.AbortThread();
                 }
 
                 Application.Exit();
@@ -602,14 +608,51 @@ namespace IkeaUI
         {
             try
             {
+                Hwindow_Diagnostika.HalconWindow.ClearWindow();
                 RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
                 ReadDrawings = new ReadDrawingsProcedure();
-                ReadDrawings.Function_ReadDrawing(RecipeMaterialName, out HXLD CountersRead, out HXLD Cross);
-
-                Hwindow_Diagnostika.HalconWindow.DispXld(CountersRead);
-                Hwindow_Diagnostika.HalconWindow.DispXld(Cross);
-                Hwindow_Diagnostika.HalconWindow.SetPart(-300, -150, 600, 1000);
+                ReadDrawings.Function_ReadDrawing(
+                        RecipeMaterialName,
+                        out HObject RegionRight,
+                        out HObject RegionFront,
+                        out HObject RegionBottom,
+                        out HObject RegionBack,
+                        out HObject RegionTop,
+                        out HObject RegionLeft,
+                        out HObject CirclesInRegionRight,
+                        out HObject CirclesInRegionFront,
+                        out HObject CirclesInRegionBottom,
+                        out HObject CirclesInRegionBack,
+                        out HObject CirclesInRegionTop,
+                        out HObject CirclesInRegionLeft,
+                        out HObject ContourOnlyFromCircles,
+                        out HTuple Recipe_LengthOfBoardMm,
+                        out HTuple Recipe_WitdhOfBoardMm,
+                        out HTuple Recipe_ThickessOfBoardMm,
+                        out HTuple h_mix_arrException);
+                if (h_mix_arrException.Length <= 0)
+                {
+                    Hwindow_Diagnostika.HalconWindow.SetDraw("margin");
+                    Hwindow_Diagnostika.HalconWindow.SetLineWidth(1);
+                    Hwindow_Diagnostika.HalconWindow.SetColor("white");
+                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionRight);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionFront);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionBottom);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionBack);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionTop);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionLeft);
+                    Hwindow_Diagnostika.HalconWindow.SetColor("green");
+                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionRight);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionFront);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionBottom);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionBack);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionTop);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionLeft);
+                    Hwindow_Diagnostika.HalconWindow.DispObj(ContourOnlyFromCircles);
+                Hwindow_Diagnostika.HalconWindow.SetPart(0,0,-1,-1);
                 Loging.MakeLog(DateTime.Now, "Vybrany novy recept", "|OK|");
+                }
+
             }
             catch (Exception ex)
             {
@@ -630,6 +673,14 @@ namespace IkeaUI
                 ProducerCam1LsTopL = new Producer("Cam1LsTopL", PersistentVariables, ConsumerCam1LsTopL);
                 ProducerCam1LsTopL.Start();
 
+                ConsumerCam2LsTopR = new Consumer("Cam2LsTopR", 100);
+                ConsumerCam2LsTopR.TileImageReady += Cunsumer_TileImages;
+                ConsumerCam2LsTopR.Start();
+
+                ProducerCam2LsTopR = new Producer("Cam2LsTopR", PersistentVariables, ConsumerCam2LsTopR);
+                ProducerCam2LsTopR.Start();
+
+
                 Loging.MakeLog(DateTime.Now, "Vision Process Start", "|OK|");
             }
 
@@ -647,21 +698,28 @@ namespace IkeaUI
             string text = File.ReadAllText(GlobalVariables.JsonPersistentCamSettingsPath);
             string[] splittedtex = text.Split(',');
 
-            string unformatedExpTime = splittedtex[indexSelected * 2];
-            string unformatedGain = text.Split(',')[indexSelected * 2 + 1];
+            string expTime = splittedtex[indexSelected * 2];
+            string gain = text.Split(',')[indexSelected * 2 + 1];
 
-            string formatedExpTime = unformatedExpTime.Split(':')[1];
-            string formatedGain = unformatedGain.Split(':')[1];
+            string changedExpTime = expTime.Split(':')[1];
+            string changedGain = gain.Split(':')[1];
 
-            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, formatedExpTime);
-            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, formatedGain);
+            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, changedExpTime);
+            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, changedGain);
         }
 
-        private void button_MainStop_Click(object sender, EventArgs e)
+        private async void button_MainStop_Click(object sender, EventArgs e)
         {
-            ConsumerCam1LsTopL.TileImageReady -= Cunsumer_TileImages;
-            ProducerCam1LsTopL.AbortThread();
-            ConsumerCam1LsTopL.AbortThread();
+            Parallel.Invoke(() =>
+            {
+                ConsumerCam1LsTopL.TileImageReady -= Cunsumer_TileImages;
+                ConsumerCam2LsTopR.TileImageReady -= Cunsumer_TileImages;
+                ProducerCam1LsTopL.AbortThread();
+                ProducerCam2LsTopR.AbortThread();
+
+                ConsumerCam1LsTopL.AbortThread();
+                ConsumerCam2LsTopR.AbortThread();
+            });
         }
 
         //autorization functions start
@@ -849,10 +907,11 @@ namespace IkeaUI
             HObject image = new HObject();
             HOperatorSet.GenEmptyObj(out image);
             string timeStamp = DateTime.Now.ToString("MM_dd_yyyy HH_mm_ss");
-            if(listBox_MainRecipe.SelectedItem == null || listBox_MainRecipe.SelectedItem == "")
+            if(listBox_MainRecipe.SelectedItem == null || listBox_MainRecipe.SelectedItem.ToString() == "")
             {
                 return;
             }
+
             try
             {
                 if (checkBox_SaveOnlyOneSide.CheckState == CheckState.Checked)
@@ -900,13 +959,36 @@ namespace IkeaUI
                     HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\UpperSide\\{timeStamp}__UpperSideImage_{listBox_MainRecipe.SelectedItem}");
                     HOperatorSet.DumpWindowImage(out image, Hwindow_LowerSide.HalconWindow);
                     HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\LowerSide\\{timeStamp}__LowerSideImage_{listBox_MainRecipe.SelectedItem}");
-
                 }
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
+        }
+        private void ReadAllRecipes()
+        {
+            List<string> allRecipes = Directory.GetFiles(GlobalVariables.DrawingsPath).ToList();
+            foreach(string line in allRecipes)
+            {
+                listBox_MainRecipe.Items.Add(line.Split('\\')[4]);
+            }
+
+        }
+        private void ReadAllRecipes(string text)
+        {
+            List<string> allRecipes = Directory.EnumerateFiles(GlobalVariables.DrawingsPath, "*.*", SearchOption.AllDirectories).Where(s => s.Contains(text)).ToList();
+            foreach (string line in allRecipes)
+            {
+                listBox_MainRecipe.Items.Add(line.Split('\\')[4]);
+            }
+        }
+
+        private void textBox_MainSearchRecipe_TextChanged(object sender, EventArgs e)
+        {
+            listBox_MainRecipe.Items.Clear();
+            ReadAllRecipes(textBox_MainSearchRecipe.Text);
         }
     }
 }

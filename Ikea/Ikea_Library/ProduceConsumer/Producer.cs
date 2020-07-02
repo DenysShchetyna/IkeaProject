@@ -97,7 +97,14 @@ namespace Ikea_Library.ProduceConsumer
 
                                     break;
 
-                                case "CAM2":
+                                case "Cam2LsTopR":
+                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now,
+                                       $"Connecting Camera {CamName} with exp:{PersistentVariables.ExposureTimeCam2LsTopR}, " +
+                                       $"gain:{ PersistentVariables.GainCam2LsTopR}", "|OK|");
+
+                                    CamProcedures.OpenFramegrabber(CamName, 2048, 50, PersistentVariables.ExposureTimeCam2LsTopR, PersistentVariables.GainCam2LsTopR, out AcqHandleCam);
+                                    Message = new Message();
+                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} Camera is connected", "|OK|");
                                     break;
 
                                 case "CAM3":
@@ -149,7 +156,7 @@ namespace Ikea_Library.ProduceConsumer
                         break;
 
                     case CameraState.GrabImage:
-
+                        HTuple imageAvailable = new HTuple(false);
                         try
                         {
                             switch (CamName)
@@ -158,7 +165,7 @@ namespace Ikea_Library.ProduceConsumer
 
                                     CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam1LsTopL);
                                     CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam1LsTopL);
-                                    HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out HTuple imageAvailable);
+                                    HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
                                     if(imageAvailable == true)
                                     {
                                         HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
@@ -167,7 +174,16 @@ namespace Ikea_Library.ProduceConsumer
                                     }
                                     break;
 
-                                case "CAM2":
+                                case "Cam2LsTopR":
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam2LsTopR);
+                                    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam2LsTopR);
+                                    HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
+                                    if (imageAvailable == true)
+                                    {
+                                        HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
+                                        Message.Image = image;
+                                        Consumer.Enqueue(Message);
+                                    }
                                     break;
 
                                 case "CAM3":

@@ -47,7 +47,25 @@ namespace Ikea_Library.ProduceConsumer
                         if (ImagesBuffer.CountObj() == CountOfSegments)
                         {
                             HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
-                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"100 images are showed", "|OK|");
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} 100 images are showed", "|OK|");
+
+                            TileImageReady?.Invoke(this, new TileImageReadyEventArgs(CamName, BigImage));
+                            ImagesBuffer.GenEmptyObj();
+                        }
+
+                        else
+                        {
+                            Message = Messages.Take();
+                            HOperatorSet.ConcatObj(Message.Image, ImagesBuffer, out ImagesBuffer);
+                        }
+
+                        break;
+
+                    case "Cam2LsTopR":
+                        if (ImagesBuffer.CountObj() == CountOfSegments)
+                        {
+                            HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
+                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} 100 images are showed", "|OK|");
 
                             TileImageReady?.Invoke(this, new TileImageReadyEventArgs(CamName, BigImage));
                             ImagesBuffer.GenEmptyObj();

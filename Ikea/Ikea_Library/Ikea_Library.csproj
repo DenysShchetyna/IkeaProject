@@ -95,15 +95,15 @@
     <Compile Include="DBAccess\DBFunctions.cs" />
     <Compile Include="DBAccess\SqliteDataAccess.cs" />
     <Compile Include="DrawingSide.cs" />
+    <Compile Include="DrawingVariables.cs" />
     <Compile Include="Events\TileImageReadyEventArgs.cs" />
     <Compile Include="HdevProcedures\WriteCameraParametersProcedure.cs" />
-    <Compile Include="RecipeVariables.cs" />
+    <Compile Include="Helpers\RecipeVariables.cs" />
     <Compile Include="Utilities\CameraDefaultSettings.cs" />
     <Compile Include="Utilities\Hash.cs" />
     <Compile Include="HdevProcedures\CamProcedures.cs" />
-    <Compile Include="HdevProcedures\FindHolesProcedure.cs" />
     <Compile Include="HdevProcedures\FindHolesTestProcedure.cs" />
-    <Compile Include="HdevProcedures\ReadDrawingsProcedure.cs" />
+    <Compile Include="HdevProcedures\MainProgramProcedures.cs" />
     <Compile Include="Helpers\Colors.cs" />
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\PersistentVariables.cs" />
@@ -141,8 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs\Advantech.Adam.DLL" />
-    <Content Include="Libs\halcondotnet.dll" />
-    <Content Include="Libs\hdevenginedotnet.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets')" />

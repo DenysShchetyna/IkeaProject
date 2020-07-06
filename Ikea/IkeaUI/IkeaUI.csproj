@@ -64,8 +64,13 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="halcondotnet">
-      <HintPath>..\Ikea_Library\Libs\halcondotnet.dll</HintPath>
+    <Reference Include="halcondotnet, Version=18.11.2.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files\MVTec\HALCON-18.11-Steady\bin\dotnet35\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="hdevenginedotnet, Version=18.11.2.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files\MVTec\HALCON-18.11-Steady\bin\dotnet35\hdevenginedotnet.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>

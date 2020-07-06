@@ -34,7 +34,7 @@ namespace IkeaUI
     public partial class MainForm : Form
     {
         private string RecipeMaterialName;
-        private ReadDrawingsProcedure ReadDrawings;
+        private MainProgramProcedures MainProcedures;
 
         Material Plank;
         DrawingSide DrawingSide;
@@ -59,15 +59,15 @@ namespace IkeaUI
 
         List<string> ListOfImagesPaths = new List<string>()
         {
-                @"C:/Trifid/IKEA/Data/DGG_435_BR.bmp",
-                @"C:/Trifid/IKEA/Data/DGG_441_JS_DB.bmp",
-                @"C:/Trifid/IKEA/Data/DGG_506_BR.bmp",
-                @"C:/Trifid/IKEA/Data/DGG07440.bmp",
-                @"C:/Trifid/IKEA/Data/FBA_025_obycajny_papier.bmp",
-                @"C:/Trifid/IKEA/Data/DGG_400.bmp",
-                @"C:/Trifid/IKEA/Data/DGL_016_biely.bmp",
-                @"C:/Trifid/IKEA/Data/DGN_706_obycajny.jpg",
-                @"C:/Trifid/IKEA/Data/DGL_130_obycajny.bmp"
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGG_435_BR.bmp",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGG_441_JS_DB.bmp",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGG_506_BR.bmp",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGG07440.bmp",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/FBA_025_obycajny_papier.bmp",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGG_400.bmp",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGL_016_biely.bmp",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGN_706_obycajny.jpg",
+                @"C:\Trifid\A0670\SW\C#\IKEA\Data/DGL_130_obycajny.bmp"
         };
 
         private bool IsAdministratorLoggedIn = false;
@@ -77,7 +77,9 @@ namespace IkeaUI
         {
             InitializeComponent();
 
-            Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath);
+            Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath); //testova
+
+            MainProcedures = new MainProgramProcedures();
 
             PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistentCamSettingsPath);
             SqliteDataAccess.IsAvailable();
@@ -95,8 +97,8 @@ namespace IkeaUI
 
             Adam1 = new DeviceManager(" ");
             Adam2 = new DeviceManager(" ");
-            CameraDefaultSettings.SetCameraDefaultSettingsFromFile(GlobalVariables.SetCamParameteresPFSFilePath);
-            ReadAllRecipes();
+            // CameraDefaultSettings.SetCameraDefaultSettingsFromFile(GlobalVariables.SetCamParameteresPFSFilePath);
+            LoadAllRecipes();
 
             Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
 
@@ -608,11 +610,67 @@ namespace IkeaUI
         {
             try
             {
+                string recipeDrawingName = listBox_MainRecipe.SelectedItem.ToString();
+                string recipeName = recipeDrawingName.Replace(".DXF", ".txt");
+
+                ReadDrawing(recipeDrawingName);
+                ReadRecipe(recipeName);
+
+                Loging.MakeLog(DateTime.Now, $"Vybrany novy recept {recipeName}", "|OK|");
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"New recipe {recipeName} is selected", "|OK|");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
+            }
+        }
+
+        private void ReadRecipe(string recipeName)
+        {
+            try
+            {
+                MainProcedures.Function_RecipeReader(
+                   recipeName,
+                   out HTuple h_realTolerancePositionPlusMinusMm,
+                   out HTuple h_realToleranceDiameterPlusMinusMm,
+                   out HTuple h_intMaxAllowedNumberErrorsPosition,
+                   out HTuple h_intMaxAllowedNumberErrorsDiameter,
+                   out HTuple Exception);
+
+                RecipeVariables.RecipeToleranceDiameter = h_realToleranceDiameterPlusMinusMm.D.ToString();
+                RecipeVariables.RecipeTolerancePosiion = h_realTolerancePositionPlusMinusMm.D.ToString();
+                RecipeVariables.RecipeMaxPositionError = h_intMaxAllowedNumberErrorsPosition.D.ToString();
+                RecipeVariables.RecipeMaxDiameterError = h_intMaxAllowedNumberErrorsDiameter.D.ToString();
+
+                textBox_MainToleranceDiameter.Text = RecipeVariables.RecipeToleranceDiameter;
+                textBox_MainTolerancePosition.Text = RecipeVariables.RecipeTolerancePosiion;
+                textBox_MainMaxPosErrors.Text = RecipeVariables.RecipeMaxPositionError;
+                textBox_MainMaxDiameterErrors.Text = RecipeVariables.RecipeMaxDiameterError;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+
+        }
+        private void ReadDrawing(string recipeDrawingName)
+        {
+            try
+            {
                 Hwindow_Diagnostika.HalconWindow.ClearWindow();
                 RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
-                ReadDrawings = new ReadDrawingsProcedure();
-                ReadDrawings.Function_ReadDrawing(
-                        RecipeMaterialName,
+                MainProcedures.Function_ReadDrawing(
+                        recipeDrawingName,
+                        0,
+                        out HObject h_reg_arrRoiMmTopPartSmallHolesForLsCameras,
+                        out HObject h_reg_arrRoiMmTopPartLargeHolesForArCameras,
+                        out HObject h_reg_arrRoiMmBottomPartSmallHolesForLsCameras,
+                        out HObject h_reg_arrRoiMmBottomPartLargeHolesForArCameras,
+                        out HObject h_reg_arrRoiMmLeftPartHolesForLsCameras,
+                        out HObject h_reg_arrRoiMmRightPartHolesForLsCameras,
+                        out HObject h_reg_arrRoiMmFrontPartHolesForArCameras,
+                        out HObject h_reg_arrRoiMmBackPartHolesForArCameras,
                         out HObject RegionRight,
                         out HObject RegionFront,
                         out HObject RegionBottom,
@@ -625,33 +683,47 @@ namespace IkeaUI
                         out HObject CirclesInRegionBack,
                         out HObject CirclesInRegionTop,
                         out HObject CirclesInRegionLeft,
-                        out HObject ContourOnlyFromCircles,
-                        out HTuple Recipe_LengthOfBoardMm,
-                        out HTuple Recipe_WitdhOfBoardMm,
-                        out HTuple Recipe_ThickessOfBoardMm,
+                        out HTuple h_intSurfaceTypeFromDrawing,
+                        out HTuple h_realRecipeLengthOfBoardMm,
+                        out HTuple h_realRecipeWitdhOfBoardMm,
+                        out HTuple h_realRecipeThickessOfBoardMm,
+                        out HTuple h_real_arrXPositionMmRightFromDrawing,
+                        out HTuple h_real_arrYPositionMmRightFromDrawing,
+                        out HTuple h_real_arrDiameterMmRightFromDrawing,
+                        out HTuple h_real_arrXPositionMmFrontFromDrawing,
+                        out HTuple h_real_arrYPositionMmFrontFromDrawing,
+                        out HTuple h_real_arrDiameterMmFrontFromDrawing,
+                        out HTuple h_real_arrXPositionMmBottomFromDrawing,
+                        out HTuple h_real_arrYPositionMmBottomFromDrawing,
+                        out HTuple h_real_arrDiameterMmBottomFromDrawing,
+                        out HTuple h_real_arrXPositionMmBackFromDrawing,
+                        out HTuple h_real_arrYPositionMmBackFromDrawing,
+                        out HTuple h_real_arrDiameterMmBackFromDrawing,
+                        out HTuple h_real_arrXPositionMmTopFromDrawing,
+                        out HTuple h_real_arrYPositionMmTopFromDrawing,
+                        out HTuple h_real_arrDiameterMmTopFromDrawing,
+                        out HTuple h_real_arrXPositionMmLeftFromDrawing,
+                        out HTuple h_real_arrYPositionMmLeftFromDrawing,
+                        out HTuple h_real_arrDiameterMmLeftFromDrawing,
                         out HTuple h_mix_arrException);
-                if (h_mix_arrException.Length <= 0)
-                {
-                    Hwindow_Diagnostika.HalconWindow.SetDraw("margin");
-                    Hwindow_Diagnostika.HalconWindow.SetLineWidth(1);
-                    Hwindow_Diagnostika.HalconWindow.SetColor("white");
-                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionRight);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionFront);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionBottom);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionBack);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionTop);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(RegionLeft);
-                    Hwindow_Diagnostika.HalconWindow.SetColor("green");
-                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionRight);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionFront);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionBottom);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionBack);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionTop);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionLeft);
-                    Hwindow_Diagnostika.HalconWindow.DispObj(ContourOnlyFromCircles);
-                Hwindow_Diagnostika.HalconWindow.SetPart(0,0,-1,-1);
-                Loging.MakeLog(DateTime.Now, "Vybrany novy recept", "|OK|");
-                }
+
+                Hwindow_Diagnostika.HalconWindow.SetDraw("margin");
+                Hwindow_Diagnostika.HalconWindow.SetLineWidth(2);
+                Hwindow_Diagnostika.HalconWindow.SetColor("white");
+                Hwindow_Diagnostika.HalconWindow.DispObj(RegionRight);
+                Hwindow_Diagnostika.HalconWindow.DispObj(RegionFront);
+                Hwindow_Diagnostika.HalconWindow.DispObj(RegionBottom);
+                Hwindow_Diagnostika.HalconWindow.DispObj(RegionBack);
+                Hwindow_Diagnostika.HalconWindow.DispObj(RegionTop);
+                Hwindow_Diagnostika.HalconWindow.DispObj(RegionLeft);
+                Hwindow_Diagnostika.HalconWindow.SetColor("green");
+                Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionRight);
+                Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionFront);
+                Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionBottom);
+                Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionBack);
+                Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionTop);
+                Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionLeft);
+                Hwindow_Diagnostika.HalconWindow.SetPart(0, 0, -1, -1);
 
             }
             catch (Exception ex)
@@ -663,7 +735,6 @@ namespace IkeaUI
 
         private void button_MainStart_Click(object sender, EventArgs e)
         {
-
             try
             {
                 ConsumerCam1LsTopL = new Consumer("Cam1LsTopL", 100);
@@ -707,19 +778,46 @@ namespace IkeaUI
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, changedExpTime);
             UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, changedGain);
         }
-
-        private async void button_MainStop_Click(object sender, EventArgs e)
+        private void button_MainStop_Click(object sender, EventArgs e)
         {
-            Parallel.Invoke(() =>
+            try
             {
-                ConsumerCam1LsTopL.TileImageReady -= Cunsumer_TileImages;
-                ConsumerCam2LsTopR.TileImageReady -= Cunsumer_TileImages;
-                ProducerCam1LsTopL.AbortThread();
-                ProducerCam2LsTopR.AbortThread();
+                Parallel.Invoke(() =>
+                {
+                    try
+                    {
+                        if (ConsumerCam1LsTopL != null)
+                        {
+                            ConsumerCam1LsTopL.TileImageReady -= Cunsumer_TileImages;
+                        }
+                        if (ConsumerCam2LsTopR != null)
+                        {
+                            ConsumerCam2LsTopR.TileImageReady -= Cunsumer_TileImages;
+                        }
 
-                ConsumerCam1LsTopL.AbortThread();
-                ConsumerCam2LsTopR.AbortThread();
-            });
+                        ProducerCam1LsTopL.AbortThread();
+                        ProducerCam2LsTopR.AbortThread();
+
+                        ConsumerCam1LsTopL.AbortThread();
+                        ConsumerCam2LsTopR.AbortThread();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                        Loging.MakeLog(DateTime.Now, "Main Stop", "|Error|");
+                    }
+
+                });
+                Loging.MakeLog(DateTime.Now, "All thread aborted", "|OK|");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, "Main Stop", "|Error|");
+
+            }
+
         }
 
         //autorization functions start
@@ -824,6 +922,7 @@ namespace IkeaUI
         private void button_Autorization_Click(object sender, EventArgs e)
         {
             panel_DiagnosticsAutorization.Visible = !panel_DiagnosticsAutorization.Visible;
+            tabControl_MainControl.SelectedTab = tabControl_MainControl.TabPages[2];
         }
 
         private void pictureBox_FooterKeyBoard_Click(object sender, EventArgs e)
@@ -907,7 +1006,7 @@ namespace IkeaUI
             HObject image = new HObject();
             HOperatorSet.GenEmptyObj(out image);
             string timeStamp = DateTime.Now.ToString("MM_dd_yyyy HH_mm_ss");
-            if(listBox_MainRecipe.SelectedItem == null || listBox_MainRecipe.SelectedItem.ToString() == "")
+            if (listBox_MainRecipe.SelectedItem == null || listBox_MainRecipe.SelectedItem.ToString() == "")
             {
                 return;
             }
@@ -920,7 +1019,7 @@ namespace IkeaUI
                     {
                         case "tabPage_LeftSide":
                             HOperatorSet.DumpWindowImage(out image, Hwindow_LeftSide.HalconWindow);
-                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\LeftSide\\{timeStamp}__LeftSideImage_{listBox_MainRecipe.SelectedItem}"); 
+                            HOperatorSet.WriteImage(image, "tiff", 0, $"{GlobalVariables.SavedImagesFromProgramPath}\\LeftSide\\{timeStamp}__LeftSideImage_{listBox_MainRecipe.SelectedItem}");
                             break;
                         case "tabPage_RightSide":
                             HOperatorSet.DumpWindowImage(out image, Hwindow_RightSide.HalconWindow);
@@ -967,21 +1066,21 @@ namespace IkeaUI
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
         }
-        private void ReadAllRecipes()
+        private void LoadAllRecipes()
         {
             List<string> allRecipes = Directory.GetFiles(GlobalVariables.DrawingsPath).ToList();
-            foreach(string line in allRecipes)
+            foreach (string line in allRecipes)
             {
-                listBox_MainRecipe.Items.Add(line.Split('\\')[4]);
+                listBox_MainRecipe.Items.Add(line.Split('\\')[6]);
             }
 
         }
         private void ReadAllRecipes(string text)
         {
-            List<string> allRecipes = Directory.EnumerateFiles(GlobalVariables.DrawingsPath, "*.*", SearchOption.AllDirectories).Where(s => s.Contains(text)).ToList();
+            List<string> allRecipes = Directory.EnumerateFiles(GlobalVariables.DrawingsPath, "*.DXF", SearchOption.AllDirectories).Where(s => s.Contains(text)).ToList();
             foreach (string line in allRecipes)
             {
-                listBox_MainRecipe.Items.Add(line.Split('\\')[4]);
+                listBox_MainRecipe.Items.Add(line.Split('\\')[6]);
             }
         }
 
@@ -989,6 +1088,28 @@ namespace IkeaUI
         {
             listBox_MainRecipe.Items.Clear();
             ReadAllRecipes(textBox_MainSearchRecipe.Text);
+        }
+
+        private void button_Trigger_click(object sender, EventArgs e)
+        {
+            ProducerCam1LsTopL.Start2();
+            ProducerCam2LsTopR.Start2();
+        }
+
+        private void button_MainChangeRecipeValues_Click(object sender, EventArgs e)
+        {
+            string recipeName = listBox_MainRecipe.SelectedItem.ToString().Replace(".DXF", ".txt");
+            string tolerPos = textBox_MainTolerancePosition.Text;
+            string tolerDiameter = textBox_MainToleranceDiameter.Text;
+            string maxPosErrors = textBox_MainMaxPosErrors.Text;
+            string maxDiameterErrors = textBox_MainMaxDiameterErrors.Text;
+
+            tolerPos = tolerPos.Contains(',') ? tolerPos.Replace(',', '.') : tolerPos;
+            tolerDiameter = tolerDiameter.Contains(',') ? tolerDiameter.Replace(',', '.') : tolerDiameter;
+            maxPosErrors = maxPosErrors.Contains(',') ? maxPosErrors.Replace(',', '.') : maxPosErrors;
+            maxDiameterErrors = maxDiameterErrors.Contains(',') ? maxDiameterErrors.Replace(',', '.') : maxDiameterErrors;
+
+            MainProcedures.Function_RecipeWriter(recipeName, tolerPos, tolerDiameter, maxPosErrors, maxDiameterErrors,out HTuple h_mix_arrException);
         }
     }
 }

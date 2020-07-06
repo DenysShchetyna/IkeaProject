@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,6 +80,14 @@
             this.groupBox_MainPodozrive = new System.Windows.Forms.GroupBox();
             this.progressBar_MainPodozrive = new System.Windows.Forms.ProgressBar();
             this.groupBox_MainDielce = new System.Windows.Forms.GroupBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox_MainMaxDiameterErrors = new System.Windows.Forms.TextBox();
+            this.textBox_MainMaxPosErrors = new System.Windows.Forms.TextBox();
+            this.textBox_MainToleranceDiameter = new System.Windows.Forms.TextBox();
+            this.textBox_MainTolerancePosition = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox_MainSearchRecipe = new System.Windows.Forms.TextBox();
             this.listBox_MainRecipe = new System.Windows.Forms.ListBox();
@@ -87,6 +95,7 @@
             this.checkBox_SaveOnlyOneSide = new System.Windows.Forms.CheckBox();
             this.button_MainStop = new System.Windows.Forms.Button();
             this.button_MainSaveImg = new System.Windows.Forms.Button();
+            this.button_trigger = new System.Windows.Forms.Button();
             this.button_MainStart = new System.Windows.Forms.Button();
             this.tabPage_Archive = new System.Windows.Forms.TabPage();
             this.groupBox_ArchiveDrawingSides = new System.Windows.Forms.GroupBox();
@@ -261,6 +270,10 @@
             this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.timer_CameraPing = new System.Windows.Forms.Timer(this.components);
             this.timer_AdamCoilsRead = new System.Windows.Forms.Timer(this.components);
+            this.button_MainChangeTolPos = new System.Windows.Forms.Button();
+            this.button_MainChangeTolDiameter = new System.Windows.Forms.Button();
+            this.button_MainChangeMaxErrorsPos = new System.Windows.Forms.Button();
+            this.button_MainChangeMaxErrorsDiameter = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
@@ -467,7 +480,7 @@
             this.groupBox_MainTabControlCameras.Controls.Add(this.tabControl_MainCameras);
             this.groupBox_MainTabControlCameras.Location = new System.Drawing.Point(4, 4);
             this.groupBox_MainTabControlCameras.Name = "groupBox_MainTabControlCameras";
-            this.groupBox_MainTabControlCameras.Size = new System.Drawing.Size(1509, 915);
+            this.groupBox_MainTabControlCameras.Size = new System.Drawing.Size(1471, 915);
             this.groupBox_MainTabControlCameras.TabIndex = 7;
             this.groupBox_MainTabControlCameras.TabStop = false;
             this.groupBox_MainTabControlCameras.Text = "Pohľady zo strán";
@@ -483,13 +496,13 @@
             this.tabControl_MainCameras.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_MainCameras.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl_MainCameras.ImageList = this.imageList_TabMainCameras;
-            this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(250, 40);
+            this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(243, 40);
             this.tabControl_MainCameras.Location = new System.Drawing.Point(3, 22);
             this.tabControl_MainCameras.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl_MainCameras.Name = "tabControl_MainCameras";
             this.tabControl_MainCameras.Padding = new System.Drawing.Point(0, 0);
             this.tabControl_MainCameras.SelectedIndex = 0;
-            this.tabControl_MainCameras.Size = new System.Drawing.Size(1503, 890);
+            this.tabControl_MainCameras.Size = new System.Drawing.Size(1465, 890);
             this.tabControl_MainCameras.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl_MainCameras.TabIndex = 0;
             this.tabControl_MainCameras.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_MainCameras_DrawItem);
@@ -502,7 +515,7 @@
             this.tabPage_LeftSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_LeftSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_LeftSide.Name = "tabPage_LeftSide";
-            this.tabPage_LeftSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_LeftSide.Size = new System.Drawing.Size(1457, 842);
             this.tabPage_LeftSide.TabIndex = 0;
             this.tabPage_LeftSide.Text = "Ľavá strana";
             // 
@@ -520,9 +533,9 @@
             this.Hwindow_LeftSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_LeftSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_LeftSide.Name = "Hwindow_LeftSide";
-            this.Hwindow_LeftSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_LeftSide.Size = new System.Drawing.Size(1457, 842);
             this.Hwindow_LeftSide.TabIndex = 0;
-            this.Hwindow_LeftSide.WindowSize = new System.Drawing.Size(1495, 842);
+            this.Hwindow_LeftSide.WindowSize = new System.Drawing.Size(1457, 842);
             // 
             // tabPage_RightSide
             // 
@@ -532,7 +545,7 @@
             this.tabPage_RightSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_RightSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_RightSide.Name = "tabPage_RightSide";
-            this.tabPage_RightSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_RightSide.Size = new System.Drawing.Size(1457, 842);
             this.tabPage_RightSide.TabIndex = 1;
             this.tabPage_RightSide.Text = "Pravá strana";
             // 
@@ -550,9 +563,9 @@
             this.Hwindow_RightSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_RightSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_RightSide.Name = "Hwindow_RightSide";
-            this.Hwindow_RightSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_RightSide.Size = new System.Drawing.Size(1457, 842);
             this.Hwindow_RightSide.TabIndex = 0;
-            this.Hwindow_RightSide.WindowSize = new System.Drawing.Size(1495, 842);
+            this.Hwindow_RightSide.WindowSize = new System.Drawing.Size(1457, 842);
             // 
             // tabPage_FrontSide
             // 
@@ -562,7 +575,7 @@
             this.tabPage_FrontSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_FrontSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_FrontSide.Name = "tabPage_FrontSide";
-            this.tabPage_FrontSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_FrontSide.Size = new System.Drawing.Size(1457, 842);
             this.tabPage_FrontSide.TabIndex = 2;
             this.tabPage_FrontSide.Text = "Predná strana";
             // 
@@ -580,9 +593,9 @@
             this.Hwindow_FrontSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_FrontSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_FrontSide.Name = "Hwindow_FrontSide";
-            this.Hwindow_FrontSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_FrontSide.Size = new System.Drawing.Size(1457, 842);
             this.Hwindow_FrontSide.TabIndex = 1;
-            this.Hwindow_FrontSide.WindowSize = new System.Drawing.Size(1495, 842);
+            this.Hwindow_FrontSide.WindowSize = new System.Drawing.Size(1457, 842);
             // 
             // tabPage_BackSide
             // 
@@ -592,7 +605,7 @@
             this.tabPage_BackSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_BackSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_BackSide.Name = "tabPage_BackSide";
-            this.tabPage_BackSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_BackSide.Size = new System.Drawing.Size(1457, 842);
             this.tabPage_BackSide.TabIndex = 3;
             this.tabPage_BackSide.Text = "Zadná strana";
             // 
@@ -610,9 +623,9 @@
             this.Hwindow_BackSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_BackSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_BackSide.Name = "Hwindow_BackSide";
-            this.Hwindow_BackSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_BackSide.Size = new System.Drawing.Size(1457, 842);
             this.Hwindow_BackSide.TabIndex = 2;
-            this.Hwindow_BackSide.WindowSize = new System.Drawing.Size(1495, 842);
+            this.Hwindow_BackSide.WindowSize = new System.Drawing.Size(1457, 842);
             // 
             // tabPage_UpperSide
             // 
@@ -622,7 +635,7 @@
             this.tabPage_UpperSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_UpperSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_UpperSide.Name = "tabPage_UpperSide";
-            this.tabPage_UpperSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_UpperSide.Size = new System.Drawing.Size(1457, 842);
             this.tabPage_UpperSide.TabIndex = 4;
             this.tabPage_UpperSide.Text = "Horná strana";
             // 
@@ -640,9 +653,9 @@
             this.Hwindow_UpperSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_UpperSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_UpperSide.Name = "Hwindow_UpperSide";
-            this.Hwindow_UpperSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_UpperSide.Size = new System.Drawing.Size(1457, 842);
             this.Hwindow_UpperSide.TabIndex = 2;
-            this.Hwindow_UpperSide.WindowSize = new System.Drawing.Size(1495, 842);
+            this.Hwindow_UpperSide.WindowSize = new System.Drawing.Size(1457, 842);
             // 
             // tabPage_LowerSide
             // 
@@ -652,7 +665,7 @@
             this.tabPage_LowerSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_LowerSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_LowerSide.Name = "tabPage_LowerSide";
-            this.tabPage_LowerSide.Size = new System.Drawing.Size(1495, 842);
+            this.tabPage_LowerSide.Size = new System.Drawing.Size(1457, 842);
             this.tabPage_LowerSide.TabIndex = 5;
             this.tabPage_LowerSide.Text = "Dolná strana";
             // 
@@ -670,9 +683,9 @@
             this.Hwindow_LowerSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_LowerSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_LowerSide.Name = "Hwindow_LowerSide";
-            this.Hwindow_LowerSide.Size = new System.Drawing.Size(1495, 842);
+            this.Hwindow_LowerSide.Size = new System.Drawing.Size(1457, 842);
             this.Hwindow_LowerSide.TabIndex = 2;
-            this.Hwindow_LowerSide.WindowSize = new System.Drawing.Size(1495, 842);
+            this.Hwindow_LowerSide.WindowSize = new System.Drawing.Size(1457, 842);
             // 
             // imageList_TabMainCameras
             // 
@@ -695,9 +708,9 @@
             this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsNOK);
             this.groupBox_MainStatistics.Controls.Add(this.label41);
             this.groupBox_MainStatistics.Controls.Add(this.label39);
-            this.groupBox_MainStatistics.Location = new System.Drawing.Point(1518, 663);
+            this.groupBox_MainStatistics.Location = new System.Drawing.Point(1481, 727);
             this.groupBox_MainStatistics.Name = "groupBox_MainStatistics";
-            this.groupBox_MainStatistics.Size = new System.Drawing.Size(271, 258);
+            this.groupBox_MainStatistics.Size = new System.Drawing.Size(309, 230);
             this.groupBox_MainStatistics.TabIndex = 6;
             this.groupBox_MainStatistics.TabStop = false;
             this.groupBox_MainStatistics.Text = "Štatistika";
@@ -823,7 +836,7 @@
             this.textBox_MainSystemMessage.Location = new System.Drawing.Point(1028, 927);
             this.textBox_MainSystemMessage.Multiline = true;
             this.textBox_MainSystemMessage.Name = "textBox_MainSystemMessage";
-            this.textBox_MainSystemMessage.Size = new System.Drawing.Size(474, 32);
+            this.textBox_MainSystemMessage.Size = new System.Drawing.Size(447, 32);
             this.textBox_MainSystemMessage.TabIndex = 4;
             // 
             // textBox_MainPoznamka
@@ -838,9 +851,9 @@
             // 
             this.groupBox_MainPodozrive.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_MainPodozrive.Controls.Add(this.progressBar_MainPodozrive);
-            this.groupBox_MainPodozrive.Location = new System.Drawing.Point(1518, 571);
+            this.groupBox_MainPodozrive.Location = new System.Drawing.Point(1481, 635);
             this.groupBox_MainPodozrive.Name = "groupBox_MainPodozrive";
-            this.groupBox_MainPodozrive.Size = new System.Drawing.Size(271, 86);
+            this.groupBox_MainPodozrive.Size = new System.Drawing.Size(305, 86);
             this.groupBox_MainPodozrive.TabIndex = 3;
             this.groupBox_MainPodozrive.TabStop = false;
             this.groupBox_MainPodozrive.Text = "Podozrivé dielce";
@@ -851,26 +864,102 @@
             this.progressBar_MainPodozrive.Location = new System.Drawing.Point(6, 38);
             this.progressBar_MainPodozrive.Maximum = 5;
             this.progressBar_MainPodozrive.Name = "progressBar_MainPodozrive";
-            this.progressBar_MainPodozrive.Size = new System.Drawing.Size(263, 23);
+            this.progressBar_MainPodozrive.Size = new System.Drawing.Size(289, 23);
             this.progressBar_MainPodozrive.TabIndex = 0;
             // 
             // groupBox_MainDielce
             // 
             this.groupBox_MainDielce.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeMaxErrorsDiameter);
+            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeMaxErrorsPos);
+            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeTolDiameter);
+            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeTolPos);
+            this.groupBox_MainDielce.Controls.Add(this.label61);
+            this.groupBox_MainDielce.Controls.Add(this.label60);
+            this.groupBox_MainDielce.Controls.Add(this.label59);
+            this.groupBox_MainDielce.Controls.Add(this.label58);
+            this.groupBox_MainDielce.Controls.Add(this.textBox_MainMaxDiameterErrors);
+            this.groupBox_MainDielce.Controls.Add(this.textBox_MainMaxPosErrors);
+            this.groupBox_MainDielce.Controls.Add(this.textBox_MainToleranceDiameter);
+            this.groupBox_MainDielce.Controls.Add(this.textBox_MainTolerancePosition);
             this.groupBox_MainDielce.Controls.Add(this.pictureBox1);
             this.groupBox_MainDielce.Controls.Add(this.textBox_MainSearchRecipe);
             this.groupBox_MainDielce.Controls.Add(this.listBox_MainRecipe);
-            this.groupBox_MainDielce.Location = new System.Drawing.Point(1518, 183);
+            this.groupBox_MainDielce.Location = new System.Drawing.Point(1481, 183);
             this.groupBox_MainDielce.Name = "groupBox_MainDielce";
-            this.groupBox_MainDielce.Size = new System.Drawing.Size(271, 382);
+            this.groupBox_MainDielce.Size = new System.Drawing.Size(308, 446);
             this.groupBox_MainDielce.TabIndex = 2;
             this.groupBox_MainDielce.TabStop = false;
             this.groupBox_MainDielce.Text = "Dielce";
             // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(2, 377);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(134, 20);
+            this.label61.TabIndex = 4;
+            this.label61.Text = "Max. chyb polom.:";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(2, 345);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(117, 20);
+            this.label60.TabIndex = 4;
+            this.label60.Text = "Max. chyb poz.:";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(2, 313);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(156, 20);
+            this.label59.TabIndex = 4;
+            this.label59.Text = "Tolerancia polomeru:";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(2, 281);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(139, 20);
+            this.label58.TabIndex = 4;
+            this.label58.Text = "Tolerancia pozicie:";
+            // 
+            // textBox_MainMaxDiameterErrors
+            // 
+            this.textBox_MainMaxDiameterErrors.Location = new System.Drawing.Point(165, 371);
+            this.textBox_MainMaxDiameterErrors.Name = "textBox_MainMaxDiameterErrors";
+            this.textBox_MainMaxDiameterErrors.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainMaxDiameterErrors.TabIndex = 3;
+            // 
+            // textBox_MainMaxPosErrors
+            // 
+            this.textBox_MainMaxPosErrors.Location = new System.Drawing.Point(165, 340);
+            this.textBox_MainMaxPosErrors.Name = "textBox_MainMaxPosErrors";
+            this.textBox_MainMaxPosErrors.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainMaxPosErrors.TabIndex = 3;
+            // 
+            // textBox_MainToleranceDiameter
+            // 
+            this.textBox_MainToleranceDiameter.Location = new System.Drawing.Point(165, 309);
+            this.textBox_MainToleranceDiameter.Name = "textBox_MainToleranceDiameter";
+            this.textBox_MainToleranceDiameter.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainToleranceDiameter.TabIndex = 3;
+            // 
+            // textBox_MainTolerancePosition
+            // 
+            this.textBox_MainTolerancePosition.Location = new System.Drawing.Point(165, 278);
+            this.textBox_MainTolerancePosition.Name = "textBox_MainTolerancePosition";
+            this.textBox_MainTolerancePosition.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainTolerancePosition.TabIndex = 3;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::IkeaUI.Properties.Resources.search_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(228, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(265, 25);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -881,17 +970,18 @@
             // 
             this.textBox_MainSearchRecipe.Location = new System.Drawing.Point(6, 25);
             this.textBox_MainSearchRecipe.Name = "textBox_MainSearchRecipe";
-            this.textBox_MainSearchRecipe.Size = new System.Drawing.Size(209, 26);
+            this.textBox_MainSearchRecipe.Size = new System.Drawing.Size(253, 26);
             this.textBox_MainSearchRecipe.TabIndex = 1;
             this.textBox_MainSearchRecipe.TextChanged += new System.EventHandler(this.textBox_MainSearchRecipe_TextChanged);
             // 
             // listBox_MainRecipe
             // 
             this.listBox_MainRecipe.FormattingEnabled = true;
+            this.listBox_MainRecipe.HorizontalScrollbar = true;
             this.listBox_MainRecipe.ItemHeight = 20;
             this.listBox_MainRecipe.Location = new System.Drawing.Point(6, 65);
             this.listBox_MainRecipe.Name = "listBox_MainRecipe";
-            this.listBox_MainRecipe.Size = new System.Drawing.Size(259, 304);
+            this.listBox_MainRecipe.Size = new System.Drawing.Size(289, 204);
             this.listBox_MainRecipe.TabIndex = 0;
             this.listBox_MainRecipe.SelectedIndexChanged += new System.EventHandler(this.listBox_MainRecipe_SelectedIndexChanged);
             // 
@@ -901,10 +991,11 @@
             this.groupBox_MainRiadenie.Controls.Add(this.checkBox_SaveOnlyOneSide);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStop);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainSaveImg);
+            this.groupBox_MainRiadenie.Controls.Add(this.button_trigger);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStart);
-            this.groupBox_MainRiadenie.Location = new System.Drawing.Point(1515, 6);
+            this.groupBox_MainRiadenie.Location = new System.Drawing.Point(1481, 6);
             this.groupBox_MainRiadenie.Name = "groupBox_MainRiadenie";
-            this.groupBox_MainRiadenie.Size = new System.Drawing.Size(271, 171);
+            this.groupBox_MainRiadenie.Size = new System.Drawing.Size(305, 171);
             this.groupBox_MainRiadenie.TabIndex = 1;
             this.groupBox_MainRiadenie.TabStop = false;
             this.groupBox_MainRiadenie.Text = "Riadenie";
@@ -912,7 +1003,7 @@
             // checkBox_SaveOnlyOneSide
             // 
             this.checkBox_SaveOnlyOneSide.AutoSize = true;
-            this.checkBox_SaveOnlyOneSide.Location = new System.Drawing.Point(9, 146);
+            this.checkBox_SaveOnlyOneSide.Location = new System.Drawing.Point(25, 147);
             this.checkBox_SaveOnlyOneSide.Name = "checkBox_SaveOnlyOneSide";
             this.checkBox_SaveOnlyOneSide.Size = new System.Drawing.Size(203, 24);
             this.checkBox_SaveOnlyOneSide.TabIndex = 3;
@@ -925,7 +1016,7 @@
             this.button_MainStop.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_MainStop.FlatAppearance.BorderSize = 2;
             this.button_MainStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MainStop.Location = new System.Drawing.Point(138, 25);
+            this.button_MainStop.Location = new System.Drawing.Point(154, 25);
             this.button_MainStop.Name = "button_MainStop";
             this.button_MainStop.Size = new System.Drawing.Size(127, 60);
             this.button_MainStop.TabIndex = 2;
@@ -939,7 +1030,7 @@
             this.button_MainSaveImg.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_MainSaveImg.FlatAppearance.BorderSize = 2;
             this.button_MainSaveImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MainSaveImg.Location = new System.Drawing.Point(9, 91);
+            this.button_MainSaveImg.Location = new System.Drawing.Point(25, 91);
             this.button_MainSaveImg.Name = "button_MainSaveImg";
             this.button_MainSaveImg.Size = new System.Drawing.Size(256, 49);
             this.button_MainSaveImg.TabIndex = 1;
@@ -947,13 +1038,27 @@
             this.button_MainSaveImg.UseVisualStyleBackColor = false;
             this.button_MainSaveImg.Click += new System.EventHandler(this.button_MainSaveImg_Click);
             // 
+            // button_trigger
+            // 
+            this.button_trigger.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_trigger.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_trigger.FlatAppearance.BorderSize = 2;
+            this.button_trigger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_trigger.Location = new System.Drawing.Point(154, 111);
+            this.button_trigger.Name = "button_trigger";
+            this.button_trigger.Size = new System.Drawing.Size(127, 60);
+            this.button_trigger.TabIndex = 1;
+            this.button_trigger.Text = "Štart";
+            this.button_trigger.UseVisualStyleBackColor = false;
+            this.button_trigger.Click += new System.EventHandler(this.button_Trigger_click);
+            // 
             // button_MainStart
             // 
             this.button_MainStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_MainStart.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_MainStart.FlatAppearance.BorderSize = 2;
             this.button_MainStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MainStart.Location = new System.Drawing.Point(9, 25);
+            this.button_MainStart.Location = new System.Drawing.Point(25, 25);
             this.button_MainStart.Name = "button_MainStart";
             this.button_MainStart.Size = new System.Drawing.Size(127, 60);
             this.button_MainStart.TabIndex = 1;
@@ -1023,8 +1128,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1039,8 +1144,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1111,8 +1216,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle24;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1120,8 +1225,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle25;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1130,8 +1235,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle26;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1140,8 +1245,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle27;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1150,8 +1255,8 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle28;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -1252,11 +1357,10 @@
             // 
             this.tabPage_Diagnostics.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_Diagnostics.Controls.Add(this.panel_DiagnosticsAutorization);
-            this.tabPage_Diagnostics.Controls.Add(this.button_DiagnosticsAutorisation);
+            this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsCamSettings);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsVstupy);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsVykres);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsOutputs);
-            this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsCamSettings);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsCamInfo);
             this.tabPage_Diagnostics.Controls.Add(this.groupBox_DiagnosticsDiscManagement);
             this.tabPage_Diagnostics.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -1275,9 +1379,9 @@
             this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsLogIn);
             this.panel_DiagnosticsAutorization.Controls.Add(this.textBox_UserPassword);
             this.panel_DiagnosticsAutorization.Controls.Add(this.label38);
-            this.panel_DiagnosticsAutorization.Location = new System.Drawing.Point(166, 782);
+            this.panel_DiagnosticsAutorization.Location = new System.Drawing.Point(3, 813);
             this.panel_DiagnosticsAutorization.Name = "panel_DiagnosticsAutorization";
-            this.panel_DiagnosticsAutorization.Size = new System.Drawing.Size(331, 172);
+            this.panel_DiagnosticsAutorization.Size = new System.Drawing.Size(340, 146);
             this.panel_DiagnosticsAutorization.TabIndex = 14;
             // 
             // button_DiagnosticsChangePassword
@@ -1286,7 +1390,7 @@
             this.button_DiagnosticsChangePassword.Enabled = false;
             this.button_DiagnosticsChangePassword.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsChangePassword.Location = new System.Drawing.Point(193, 76);
+            this.button_DiagnosticsChangePassword.Location = new System.Drawing.Point(220, 79);
             this.button_DiagnosticsChangePassword.Name = "button_DiagnosticsChangePassword";
             this.button_DiagnosticsChangePassword.Size = new System.Drawing.Size(101, 29);
             this.button_DiagnosticsChangePassword.TabIndex = 1;
@@ -1299,7 +1403,7 @@
             this.button_DiagnosticsLogOff.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsLogOff.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsLogOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsLogOff.Location = new System.Drawing.Point(78, 112);
+            this.button_DiagnosticsLogOff.Location = new System.Drawing.Point(109, 114);
             this.button_DiagnosticsLogOff.Name = "button_DiagnosticsLogOff";
             this.button_DiagnosticsLogOff.Size = new System.Drawing.Size(101, 29);
             this.button_DiagnosticsLogOff.TabIndex = 1;
@@ -1312,7 +1416,7 @@
             this.button_DiagnosticsLogIn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsLogIn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsLogIn.Location = new System.Drawing.Point(78, 76);
+            this.button_DiagnosticsLogIn.Location = new System.Drawing.Point(109, 79);
             this.button_DiagnosticsLogIn.Name = "button_DiagnosticsLogIn";
             this.button_DiagnosticsLogIn.Size = new System.Drawing.Size(101, 29);
             this.button_DiagnosticsLogIn.TabIndex = 1;
@@ -1322,28 +1426,28 @@
             // 
             // textBox_UserPassword
             // 
-            this.textBox_UserPassword.Location = new System.Drawing.Point(78, 29);
+            this.textBox_UserPassword.Location = new System.Drawing.Point(109, 28);
             this.textBox_UserPassword.Name = "textBox_UserPassword";
-            this.textBox_UserPassword.Size = new System.Drawing.Size(216, 26);
+            this.textBox_UserPassword.Size = new System.Drawing.Size(212, 26);
             this.textBox_UserPassword.TabIndex = 0;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(6, 32);
+            this.label38.Location = new System.Drawing.Point(21, 31);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(58, 20);
+            this.label38.Size = new System.Drawing.Size(72, 20);
             this.label38.TabIndex = 0;
-            this.label38.Text = "Heslo: ";
+            this.label38.Text = "HESLO: ";
             // 
             // button_DiagnosticsAutorisation
             // 
             this.button_DiagnosticsAutorisation.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsAutorisation.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsAutorisation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsAutorisation.Location = new System.Drawing.Point(8, 894);
+            this.button_DiagnosticsAutorisation.Location = new System.Drawing.Point(124, 3);
             this.button_DiagnosticsAutorisation.Name = "button_DiagnosticsAutorisation";
-            this.button_DiagnosticsAutorisation.Size = new System.Drawing.Size(120, 60);
+            this.button_DiagnosticsAutorisation.Size = new System.Drawing.Size(120, 40);
             this.button_DiagnosticsAutorisation.TabIndex = 13;
             this.button_DiagnosticsAutorisation.Text = "Administrátor";
             this.button_DiagnosticsAutorisation.UseVisualStyleBackColor = false;
@@ -1388,9 +1492,9 @@
             this.groupBox_DiagnosticsVstupy.Controls.Add(this.label55);
             this.groupBox_DiagnosticsVstupy.Controls.Add(this.label56);
             this.groupBox_DiagnosticsVstupy.Controls.Add(this.label57);
-            this.groupBox_DiagnosticsVstupy.Location = new System.Drawing.Point(283, 176);
+            this.groupBox_DiagnosticsVstupy.Location = new System.Drawing.Point(206, 169);
             this.groupBox_DiagnosticsVstupy.Name = "groupBox_DiagnosticsVstupy";
-            this.groupBox_DiagnosticsVstupy.Size = new System.Drawing.Size(211, 596);
+            this.groupBox_DiagnosticsVstupy.Size = new System.Drawing.Size(199, 596);
             this.groupBox_DiagnosticsVstupy.TabIndex = 12;
             this.groupBox_DiagnosticsVstupy.TabStop = false;
             this.groupBox_DiagnosticsVstupy.Text = "Adam1";
@@ -1774,10 +1878,10 @@
             // groupBox_DiagnosticsVykres
             // 
             this.groupBox_DiagnosticsVykres.Controls.Add(this.Hwindow_Diagnostika);
-            this.groupBox_DiagnosticsVykres.Location = new System.Drawing.Point(756, 3);
+            this.groupBox_DiagnosticsVykres.Location = new System.Drawing.Point(662, 3);
             this.groupBox_DiagnosticsVykres.Name = "groupBox_DiagnosticsVykres";
             this.groupBox_DiagnosticsVykres.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox_DiagnosticsVykres.Size = new System.Drawing.Size(1030, 951);
+            this.groupBox_DiagnosticsVykres.Size = new System.Drawing.Size(1124, 956);
             this.groupBox_DiagnosticsVykres.TabIndex = 5;
             this.groupBox_DiagnosticsVykres.TabStop = false;
             this.groupBox_DiagnosticsVykres.Text = "Výkres";
@@ -1786,19 +1890,21 @@
             // 
             this.Hwindow_Diagnostika.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Hwindow_Diagnostika.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Hwindow_Diagnostika.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Hwindow_Diagnostika.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Hwindow_Diagnostika.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Hwindow_Diagnostika.HDoubleClickToFitContent = true;
             this.Hwindow_Diagnostika.HDrawingObjectsModifier = HalconDotNet.HSmartWindowControl.DrawingObjectsModifier.None;
             this.Hwindow_Diagnostika.HImagePart = new System.Drawing.Rectangle(0, 0, 800, 480);
-            this.Hwindow_Diagnostika.HKeepAspectRatio = true;
+            this.Hwindow_Diagnostika.HKeepAspectRatio = false;
             this.Hwindow_Diagnostika.HMoveContent = true;
-            this.Hwindow_Diagnostika.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelForwardZoomsIn;
+            this.Hwindow_Diagnostika.HZoomContent = HalconDotNet.HSmartWindowControl.ZoomContent.WheelBackwardZoomsIn;
             this.Hwindow_Diagnostika.Location = new System.Drawing.Point(0, 19);
             this.Hwindow_Diagnostika.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_Diagnostika.Name = "Hwindow_Diagnostika";
-            this.Hwindow_Diagnostika.Size = new System.Drawing.Size(1030, 932);
+            this.Hwindow_Diagnostika.Size = new System.Drawing.Size(1124, 937);
             this.Hwindow_Diagnostika.TabIndex = 4;
-            this.Hwindow_Diagnostika.WindowSize = new System.Drawing.Size(1030, 932);
+            this.Hwindow_Diagnostika.WindowSize = new System.Drawing.Size(1124, 937);
             // 
             // groupBox_DiagnosticsOutputs
             // 
@@ -1850,9 +1956,9 @@
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.label30);
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.label18);
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.label19);
-            this.groupBox_DiagnosticsOutputs.Location = new System.Drawing.Point(500, 176);
+            this.groupBox_DiagnosticsOutputs.Location = new System.Drawing.Point(3, 169);
             this.groupBox_DiagnosticsOutputs.Name = "groupBox_DiagnosticsOutputs";
-            this.groupBox_DiagnosticsOutputs.Size = new System.Drawing.Size(250, 596);
+            this.groupBox_DiagnosticsOutputs.Size = new System.Drawing.Size(197, 596);
             this.groupBox_DiagnosticsOutputs.TabIndex = 3;
             this.groupBox_DiagnosticsOutputs.TabStop = false;
             this.groupBox_DiagnosticsOutputs.Text = "Adam2";
@@ -2378,25 +2484,25 @@
             this.groupBox_DiagnosticsCamSettings.Controls.Add(this.label14);
             this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsGainSet);
             this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsExposureSet);
-            this.groupBox_DiagnosticsCamSettings.Location = new System.Drawing.Point(283, 3);
+            this.groupBox_DiagnosticsCamSettings.Location = new System.Drawing.Point(3, 5);
             this.groupBox_DiagnosticsCamSettings.Name = "groupBox_DiagnosticsCamSettings";
-            this.groupBox_DiagnosticsCamSettings.Size = new System.Drawing.Size(467, 158);
+            this.groupBox_DiagnosticsCamSettings.Size = new System.Drawing.Size(653, 158);
             this.groupBox_DiagnosticsCamSettings.TabIndex = 2;
             this.groupBox_DiagnosticsCamSettings.TabStop = false;
             this.groupBox_DiagnosticsCamSettings.Text = "Nastavenia Kamier 1-14";
             // 
             // textBox_DiagnosticsGain
             // 
-            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(132, 83);
+            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(174, 96);
             this.textBox_DiagnosticsGain.Name = "textBox_DiagnosticsGain";
-            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(62, 26);
+            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(87, 26);
             this.textBox_DiagnosticsGain.TabIndex = 1;
             // 
             // textBox_DiagnosticsExposureTime
             // 
-            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(132, 45);
+            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(174, 58);
             this.textBox_DiagnosticsExposureTime.Name = "textBox_DiagnosticsExposureTime";
-            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(62, 26);
+            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(87, 26);
             this.textBox_DiagnosticsExposureTime.TabIndex = 1;
             // 
             // listBox_DiagnosticsCamerasSettings
@@ -2418,16 +2524,16 @@
             "Cam12ArTopR",
             "Cam13ArBottomL",
             "Cam14ArBottomR"});
-            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(294, 25);
+            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(417, 25);
             this.listBox_DiagnosticsCamerasSettings.Name = "listBox_DiagnosticsCamerasSettings";
-            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(167, 84);
+            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(190, 124);
             this.listBox_DiagnosticsCamerasSettings.TabIndex = 0;
             this.listBox_DiagnosticsCamerasSettings.SelectedIndexChanged += new System.EventHandler(this.listBox_DiagnosticsCamerasSettings_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(41, 86);
+            this.label16.Location = new System.Drawing.Point(83, 99);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(85, 20);
             this.label16.TabIndex = 0;
@@ -2437,7 +2543,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(0, 48);
+            this.label14.Location = new System.Drawing.Point(42, 61);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(126, 20);
             this.label14.TabIndex = 0;
@@ -2449,7 +2555,7 @@
             this.button_DiagnosticsGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(200, 83);
+            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(267, 96);
             this.button_DiagnosticsGainSet.Name = "button_DiagnosticsGainSet";
             this.button_DiagnosticsGainSet.Size = new System.Drawing.Size(88, 26);
             this.button_DiagnosticsGainSet.TabIndex = 12;
@@ -2462,7 +2568,7 @@
             this.button_DiagnosticsExposureSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsExposureSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsExposureSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(200, 45);
+            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(267, 58);
             this.button_DiagnosticsExposureSet.Name = "button_DiagnosticsExposureSet";
             this.button_DiagnosticsExposureSet.Size = new System.Drawing.Size(88, 26);
             this.button_DiagnosticsExposureSet.TabIndex = 12;
@@ -2501,9 +2607,9 @@
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label20);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label11);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label13);
-            this.groupBox_DiagnosticsCamInfo.Location = new System.Drawing.Point(5, 176);
+            this.groupBox_DiagnosticsCamInfo.Location = new System.Drawing.Point(411, 169);
             this.groupBox_DiagnosticsCamInfo.Name = "groupBox_DiagnosticsCamInfo";
-            this.groupBox_DiagnosticsCamInfo.Size = new System.Drawing.Size(236, 527);
+            this.groupBox_DiagnosticsCamInfo.Size = new System.Drawing.Size(245, 596);
             this.groupBox_DiagnosticsCamInfo.TabIndex = 0;
             this.groupBox_DiagnosticsCamInfo.TabStop = false;
             this.groupBox_DiagnosticsCamInfo.Text = "Kamery";
@@ -2783,9 +2889,9 @@
             this.groupBox_DiagnosticsDiscManagement.Controls.Add(this.label_AvailableSpaceD);
             this.groupBox_DiagnosticsDiscManagement.Controls.Add(this.label3);
             this.groupBox_DiagnosticsDiscManagement.Controls.Add(this.label2);
-            this.groupBox_DiagnosticsDiscManagement.Location = new System.Drawing.Point(5, 3);
+            this.groupBox_DiagnosticsDiscManagement.Location = new System.Drawing.Point(411, 813);
             this.groupBox_DiagnosticsDiscManagement.Name = "groupBox_DiagnosticsDiscManagement";
-            this.groupBox_DiagnosticsDiscManagement.Size = new System.Drawing.Size(236, 158);
+            this.groupBox_DiagnosticsDiscManagement.Size = new System.Drawing.Size(245, 146);
             this.groupBox_DiagnosticsDiscManagement.TabIndex = 0;
             this.groupBox_DiagnosticsDiscManagement.TabStop = false;
             this.groupBox_DiagnosticsDiscManagement.Text = "Info úložiska";
@@ -2863,11 +2969,13 @@
             // 
             this.panel_Footer.BackColor = System.Drawing.Color.Silver;
             this.panel_Footer.Controls.Add(this.pictureBox_FooterKeyBoard);
+            this.panel_Footer.Controls.Add(this.button_DiagnosticsAutorisation);
             this.panel_Footer.Controls.Add(this.button_FooterExitApp);
             this.panel_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_Footer.Location = new System.Drawing.Point(0, 1029);
+            this.panel_Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.panel_Footer.Location = new System.Drawing.Point(0, 1034);
             this.panel_Footer.Name = "panel_Footer";
-            this.panel_Footer.Size = new System.Drawing.Size(1920, 51);
+            this.panel_Footer.Size = new System.Drawing.Size(1920, 46);
             this.panel_Footer.TabIndex = 9;
             // 
             // pictureBox_FooterKeyBoard
@@ -2888,7 +2996,7 @@
             this.button_FooterExitApp.FlatAppearance.BorderSize = 2;
             this.button_FooterExitApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_FooterExitApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_FooterExitApp.Location = new System.Drawing.Point(1810, 6);
+            this.button_FooterExitApp.Location = new System.Drawing.Point(1810, 3);
             this.button_FooterExitApp.Name = "button_FooterExitApp";
             this.button_FooterExitApp.Size = new System.Drawing.Size(100, 40);
             this.button_FooterExitApp.TabIndex = 4;
@@ -2905,6 +3013,46 @@
             // 
             this.timer_AdamCoilsRead.Interval = 1000;
             this.timer_AdamCoilsRead.Tick += new System.EventHandler(this.timer_AdamCoilsRead_Tick);
+            // 
+            // button_MainChangeTolPos
+            // 
+            this.button_MainChangeTolPos.Location = new System.Drawing.Point(220, 278);
+            this.button_MainChangeTolPos.Name = "button_MainChangeTolPos";
+            this.button_MainChangeTolPos.Size = new System.Drawing.Size(75, 26);
+            this.button_MainChangeTolPos.TabIndex = 5;
+            this.button_MainChangeTolPos.Text = "Zmeniť";
+            this.button_MainChangeTolPos.UseVisualStyleBackColor = true;
+            this.button_MainChangeTolPos.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
+            // 
+            // button_MainChangeTolDiameter
+            // 
+            this.button_MainChangeTolDiameter.Location = new System.Drawing.Point(220, 309);
+            this.button_MainChangeTolDiameter.Name = "button_MainChangeTolDiameter";
+            this.button_MainChangeTolDiameter.Size = new System.Drawing.Size(75, 26);
+            this.button_MainChangeTolDiameter.TabIndex = 5;
+            this.button_MainChangeTolDiameter.Text = "Zmeniť";
+            this.button_MainChangeTolDiameter.UseVisualStyleBackColor = true;
+            this.button_MainChangeTolDiameter.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
+            // 
+            // button_MainChangeMaxErrorsPos
+            // 
+            this.button_MainChangeMaxErrorsPos.Location = new System.Drawing.Point(220, 340);
+            this.button_MainChangeMaxErrorsPos.Name = "button_MainChangeMaxErrorsPos";
+            this.button_MainChangeMaxErrorsPos.Size = new System.Drawing.Size(75, 26);
+            this.button_MainChangeMaxErrorsPos.TabIndex = 5;
+            this.button_MainChangeMaxErrorsPos.Text = "Zmeniť";
+            this.button_MainChangeMaxErrorsPos.UseVisualStyleBackColor = true;
+            this.button_MainChangeMaxErrorsPos.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
+            // 
+            // button_MainChangeMaxErrorsDiameter
+            // 
+            this.button_MainChangeMaxErrorsDiameter.Location = new System.Drawing.Point(220, 371);
+            this.button_MainChangeMaxErrorsDiameter.Name = "button_MainChangeMaxErrorsDiameter";
+            this.button_MainChangeMaxErrorsDiameter.Size = new System.Drawing.Size(75, 26);
+            this.button_MainChangeMaxErrorsDiameter.TabIndex = 5;
+            this.button_MainChangeMaxErrorsDiameter.Text = "Zmeniť";
+            this.button_MainChangeMaxErrorsDiameter.UseVisualStyleBackColor = true;
+            this.button_MainChangeMaxErrorsDiameter.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
             // 
             // MainForm
             // 
@@ -3244,6 +3392,19 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.CheckBox checkBox_SaveOnlyOneSide;
+        private System.Windows.Forms.TextBox textBox_MainTolerancePosition;
+        private System.Windows.Forms.Button button_trigger;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TextBox textBox_MainMaxDiameterErrors;
+        private System.Windows.Forms.TextBox textBox_MainMaxPosErrors;
+        private System.Windows.Forms.TextBox textBox_MainToleranceDiameter;
+        private System.Windows.Forms.Button button_MainChangeMaxErrorsDiameter;
+        private System.Windows.Forms.Button button_MainChangeMaxErrorsPos;
+        private System.Windows.Forms.Button button_MainChangeTolDiameter;
+        private System.Windows.Forms.Button button_MainChangeTolPos;
     }
 }
 

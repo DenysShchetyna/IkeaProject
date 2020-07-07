@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -128,7 +128,13 @@
             this.button_DiagnosticsLogIn = new System.Windows.Forms.Button();
             this.textBox_UserPassword = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.button_DiagnosticsAutorisation = new System.Windows.Forms.Button();
+            this.groupBox_DiagnosticsCamSettings = new System.Windows.Forms.GroupBox();
+            this.textBox_DiagnosticsGain = new System.Windows.Forms.TextBox();
+            this.textBox_DiagnosticsExposureTime = new System.Windows.Forms.TextBox();
+            this.listBox_DiagnosticsCamerasSettings = new System.Windows.Forms.ListBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button_DiagnosticsExposureTimeAndGainSet = new System.Windows.Forms.Button();
             this.groupBox_DiagnosticsVstupy = new System.Windows.Forms.GroupBox();
             this.button_DiagnosticsOutput1Adam14 = new System.Windows.Forms.Button();
             this.button_DiagnosticsOutput1Adam13 = new System.Windows.Forms.Button();
@@ -218,14 +224,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.groupBox_DiagnosticsCamSettings = new System.Windows.Forms.GroupBox();
-            this.textBox_DiagnosticsGain = new System.Windows.Forms.TextBox();
-            this.textBox_DiagnosticsExposureTime = new System.Windows.Forms.TextBox();
-            this.listBox_DiagnosticsCamerasSettings = new System.Windows.Forms.ListBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.button_DiagnosticsGainSet = new System.Windows.Forms.Button();
-            this.button_DiagnosticsExposureSet = new System.Windows.Forms.Button();
             this.groupBox_DiagnosticsCamInfo = new System.Windows.Forms.GroupBox();
             this.pictureBox_CamInfo1 = new System.Windows.Forms.PictureBox();
             this.pictureBox_CamInfo2 = new System.Windows.Forms.PictureBox();
@@ -262,6 +260,7 @@
             this.label_AvailableSpaceD = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button_DiagnosticsAutorisation = new System.Windows.Forms.Button();
             this.timer_Simulation = new System.Windows.Forms.Timer(this.components);
             this.timer_Clock = new System.Windows.Forms.Timer(this.components);
             this.timer_DiscsCheck = new System.Windows.Forms.Timer(this.components);
@@ -270,10 +269,7 @@
             this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.timer_CameraPing = new System.Windows.Forms.Timer(this.components);
             this.timer_AdamCoilsRead = new System.Windows.Forms.Timer(this.components);
-            this.button_MainChangeTolPos = new System.Windows.Forms.Button();
-            this.button_MainChangeTolDiameter = new System.Windows.Forms.Button();
-            this.button_MainChangeMaxErrorsPos = new System.Windows.Forms.Button();
-            this.button_MainChangeMaxErrorsDiameter = new System.Windows.Forms.Button();
+            this.button_MainChangeRecipeSettings = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
@@ -302,6 +298,7 @@
             this.groupBox_Hwindow.SuspendLayout();
             this.tabPage_Diagnostics.SuspendLayout();
             this.panel_DiagnosticsAutorization.SuspendLayout();
+            this.groupBox_DiagnosticsCamSettings.SuspendLayout();
             this.groupBox_DiagnosticsVstupy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput1Adam10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput1Adam9)).BeginInit();
@@ -336,7 +333,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput2Adam2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput2Adam9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput2Adam1)).BeginInit();
-            this.groupBox_DiagnosticsCamSettings.SuspendLayout();
             this.groupBox_DiagnosticsCamInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo2)).BeginInit();
@@ -807,7 +803,7 @@
             // 
             // label_MainSystemMessage
             // 
-            this.label_MainSystemMessage.Location = new System.Drawing.Point(950, 927);
+            this.label_MainSystemMessage.Location = new System.Drawing.Point(692, 927);
             this.label_MainSystemMessage.Name = "label_MainSystemMessage";
             this.label_MainSystemMessage.Size = new System.Drawing.Size(72, 30);
             this.label_MainSystemMessage.TabIndex = 5;
@@ -833,10 +829,11 @@
             // 
             // textBox_MainSystemMessage
             // 
-            this.textBox_MainSystemMessage.Location = new System.Drawing.Point(1028, 927);
+            this.textBox_MainSystemMessage.Location = new System.Drawing.Point(764, 927);
             this.textBox_MainSystemMessage.Multiline = true;
             this.textBox_MainSystemMessage.Name = "textBox_MainSystemMessage";
-            this.textBox_MainSystemMessage.Size = new System.Drawing.Size(447, 32);
+            this.textBox_MainSystemMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_MainSystemMessage.Size = new System.Drawing.Size(711, 32);
             this.textBox_MainSystemMessage.TabIndex = 4;
             // 
             // textBox_MainPoznamka
@@ -844,7 +841,7 @@
             this.textBox_MainPoznamka.Location = new System.Drawing.Point(109, 927);
             this.textBox_MainPoznamka.Multiline = true;
             this.textBox_MainPoznamka.Name = "textBox_MainPoznamka";
-            this.textBox_MainPoznamka.Size = new System.Drawing.Size(813, 32);
+            this.textBox_MainPoznamka.Size = new System.Drawing.Size(564, 32);
             this.textBox_MainPoznamka.TabIndex = 4;
             // 
             // groupBox_MainPodozrive
@@ -870,10 +867,7 @@
             // groupBox_MainDielce
             // 
             this.groupBox_MainDielce.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeMaxErrorsDiameter);
-            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeMaxErrorsPos);
-            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeTolDiameter);
-            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeTolPos);
+            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeRecipeSettings);
             this.groupBox_MainDielce.Controls.Add(this.label61);
             this.groupBox_MainDielce.Controls.Add(this.label60);
             this.groupBox_MainDielce.Controls.Add(this.label59);
@@ -932,28 +926,28 @@
             // 
             this.textBox_MainMaxDiameterErrors.Location = new System.Drawing.Point(165, 371);
             this.textBox_MainMaxDiameterErrors.Name = "textBox_MainMaxDiameterErrors";
-            this.textBox_MainMaxDiameterErrors.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainMaxDiameterErrors.Size = new System.Drawing.Size(130, 26);
             this.textBox_MainMaxDiameterErrors.TabIndex = 3;
             // 
             // textBox_MainMaxPosErrors
             // 
             this.textBox_MainMaxPosErrors.Location = new System.Drawing.Point(165, 340);
             this.textBox_MainMaxPosErrors.Name = "textBox_MainMaxPosErrors";
-            this.textBox_MainMaxPosErrors.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainMaxPosErrors.Size = new System.Drawing.Size(130, 26);
             this.textBox_MainMaxPosErrors.TabIndex = 3;
             // 
             // textBox_MainToleranceDiameter
             // 
             this.textBox_MainToleranceDiameter.Location = new System.Drawing.Point(165, 309);
             this.textBox_MainToleranceDiameter.Name = "textBox_MainToleranceDiameter";
-            this.textBox_MainToleranceDiameter.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainToleranceDiameter.Size = new System.Drawing.Size(130, 26);
             this.textBox_MainToleranceDiameter.TabIndex = 3;
             // 
             // textBox_MainTolerancePosition
             // 
             this.textBox_MainTolerancePosition.Location = new System.Drawing.Point(165, 278);
             this.textBox_MainTolerancePosition.Name = "textBox_MainTolerancePosition";
-            this.textBox_MainTolerancePosition.Size = new System.Drawing.Size(41, 26);
+            this.textBox_MainTolerancePosition.Size = new System.Drawing.Size(130, 26);
             this.textBox_MainTolerancePosition.TabIndex = 3;
             // 
             // pictureBox1
@@ -1128,8 +1122,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1144,8 +1138,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1216,8 +1210,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle10;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1225,8 +1219,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle11;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1235,8 +1229,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle12;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1245,8 +1239,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle13;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1255,8 +1249,8 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle14;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -1440,18 +1434,92 @@
             this.label38.TabIndex = 0;
             this.label38.Text = "HESLO: ";
             // 
-            // button_DiagnosticsAutorisation
+            // groupBox_DiagnosticsCamSettings
             // 
-            this.button_DiagnosticsAutorisation.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsAutorisation.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsAutorisation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsAutorisation.Location = new System.Drawing.Point(124, 3);
-            this.button_DiagnosticsAutorisation.Name = "button_DiagnosticsAutorisation";
-            this.button_DiagnosticsAutorisation.Size = new System.Drawing.Size(120, 40);
-            this.button_DiagnosticsAutorisation.TabIndex = 13;
-            this.button_DiagnosticsAutorisation.Text = "Administrátor";
-            this.button_DiagnosticsAutorisation.UseVisualStyleBackColor = false;
-            this.button_DiagnosticsAutorisation.Click += new System.EventHandler(this.button_Autorization_Click);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.textBox_DiagnosticsGain);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.textBox_DiagnosticsExposureTime);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.listBox_DiagnosticsCamerasSettings);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.label16);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.label14);
+            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsExposureTimeAndGainSet);
+            this.groupBox_DiagnosticsCamSettings.Location = new System.Drawing.Point(3, 5);
+            this.groupBox_DiagnosticsCamSettings.Name = "groupBox_DiagnosticsCamSettings";
+            this.groupBox_DiagnosticsCamSettings.Size = new System.Drawing.Size(653, 158);
+            this.groupBox_DiagnosticsCamSettings.TabIndex = 2;
+            this.groupBox_DiagnosticsCamSettings.TabStop = false;
+            this.groupBox_DiagnosticsCamSettings.Text = "Nastavenia Kamier 1-14";
+            // 
+            // textBox_DiagnosticsGain
+            // 
+            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(174, 96);
+            this.textBox_DiagnosticsGain.Name = "textBox_DiagnosticsGain";
+            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(87, 26);
+            this.textBox_DiagnosticsGain.TabIndex = 1;
+            // 
+            // textBox_DiagnosticsExposureTime
+            // 
+            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(174, 58);
+            this.textBox_DiagnosticsExposureTime.Name = "textBox_DiagnosticsExposureTime";
+            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(87, 26);
+            this.textBox_DiagnosticsExposureTime.TabIndex = 1;
+            // 
+            // listBox_DiagnosticsCamerasSettings
+            // 
+            this.listBox_DiagnosticsCamerasSettings.FormattingEnabled = true;
+            this.listBox_DiagnosticsCamerasSettings.ItemHeight = 20;
+            this.listBox_DiagnosticsCamerasSettings.Items.AddRange(new object[] {
+            "Cam1LsTopL",
+            "Cam2LsTopR",
+            "Cam3LsBottomL",
+            "Cam4LsBottomR",
+            "Cam5LsLeft",
+            "Cam6LsRight",
+            "Cam7ArFrontL",
+            "Cam8ArFrontR",
+            "Cam9ArRearL",
+            "Cam10ArRearR",
+            "Cam11ArTopL               ",
+            "Cam12ArTopR",
+            "Cam13ArBottomL",
+            "Cam14ArBottomR"});
+            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(292, 17);
+            this.listBox_DiagnosticsCamerasSettings.Name = "listBox_DiagnosticsCamerasSettings";
+            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(190, 124);
+            this.listBox_DiagnosticsCamerasSettings.TabIndex = 0;
+            this.listBox_DiagnosticsCamerasSettings.SelectedIndexChanged += new System.EventHandler(this.listBox_DiagnosticsCamerasSettings_SelectedIndexChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(83, 99);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 20);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Zosilnenie:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(42, 61);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(126, 20);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Expozičná doba:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // button_DiagnosticsExposureTimeAndGainSet
+            // 
+            this.button_DiagnosticsExposureTimeAndGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsExposureTimeAndGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsExposureTimeAndGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsExposureTimeAndGainSet.Location = new System.Drawing.Point(555, 99);
+            this.button_DiagnosticsExposureTimeAndGainSet.Name = "button_DiagnosticsExposureTimeAndGainSet";
+            this.button_DiagnosticsExposureTimeAndGainSet.Size = new System.Drawing.Size(98, 53);
+            this.button_DiagnosticsExposureTimeAndGainSet.TabIndex = 12;
+            this.button_DiagnosticsExposureTimeAndGainSet.Text = "Nastaviť";
+            this.button_DiagnosticsExposureTimeAndGainSet.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsExposureTimeAndGainSet.Click += new System.EventHandler(this.button_DiagnosticSetExpTimeAndGain);
             // 
             // groupBox_DiagnosticsVstupy
             // 
@@ -2475,107 +2543,6 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "DO01:";
             // 
-            // groupBox_DiagnosticsCamSettings
-            // 
-            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.textBox_DiagnosticsGain);
-            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.textBox_DiagnosticsExposureTime);
-            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.listBox_DiagnosticsCamerasSettings);
-            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.label16);
-            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.label14);
-            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsGainSet);
-            this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsExposureSet);
-            this.groupBox_DiagnosticsCamSettings.Location = new System.Drawing.Point(3, 5);
-            this.groupBox_DiagnosticsCamSettings.Name = "groupBox_DiagnosticsCamSettings";
-            this.groupBox_DiagnosticsCamSettings.Size = new System.Drawing.Size(653, 158);
-            this.groupBox_DiagnosticsCamSettings.TabIndex = 2;
-            this.groupBox_DiagnosticsCamSettings.TabStop = false;
-            this.groupBox_DiagnosticsCamSettings.Text = "Nastavenia Kamier 1-14";
-            // 
-            // textBox_DiagnosticsGain
-            // 
-            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(174, 96);
-            this.textBox_DiagnosticsGain.Name = "textBox_DiagnosticsGain";
-            this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(87, 26);
-            this.textBox_DiagnosticsGain.TabIndex = 1;
-            // 
-            // textBox_DiagnosticsExposureTime
-            // 
-            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(174, 58);
-            this.textBox_DiagnosticsExposureTime.Name = "textBox_DiagnosticsExposureTime";
-            this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(87, 26);
-            this.textBox_DiagnosticsExposureTime.TabIndex = 1;
-            // 
-            // listBox_DiagnosticsCamerasSettings
-            // 
-            this.listBox_DiagnosticsCamerasSettings.FormattingEnabled = true;
-            this.listBox_DiagnosticsCamerasSettings.ItemHeight = 20;
-            this.listBox_DiagnosticsCamerasSettings.Items.AddRange(new object[] {
-            "Cam1LsTopL",
-            "Cam2LsTopR",
-            "Cam3LsBottomL",
-            "Cam4LsBottomR",
-            "Cam5LsLeft",
-            "Cam6LsRight",
-            "Cam7ArFrontL",
-            "Cam8ArFrontR",
-            "Cam9ArRearL",
-            "Cam10ArRearR",
-            "Cam11ArTopL               ",
-            "Cam12ArTopR",
-            "Cam13ArBottomL",
-            "Cam14ArBottomR"});
-            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(417, 25);
-            this.listBox_DiagnosticsCamerasSettings.Name = "listBox_DiagnosticsCamerasSettings";
-            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(190, 124);
-            this.listBox_DiagnosticsCamerasSettings.TabIndex = 0;
-            this.listBox_DiagnosticsCamerasSettings.SelectedIndexChanged += new System.EventHandler(this.listBox_DiagnosticsCamerasSettings_SelectedIndexChanged);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(83, 99);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 20);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Zosilnenie:";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(42, 61);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(126, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Expozičná doba:";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // button_DiagnosticsGainSet
-            // 
-            this.button_DiagnosticsGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsGainSet.Location = new System.Drawing.Point(267, 96);
-            this.button_DiagnosticsGainSet.Name = "button_DiagnosticsGainSet";
-            this.button_DiagnosticsGainSet.Size = new System.Drawing.Size(88, 26);
-            this.button_DiagnosticsGainSet.TabIndex = 12;
-            this.button_DiagnosticsGainSet.Text = "Nastaviť";
-            this.button_DiagnosticsGainSet.UseVisualStyleBackColor = false;
-            this.button_DiagnosticsGainSet.Click += new System.EventHandler(this.button_DiagnosticsGainSet_Click);
-            // 
-            // button_DiagnosticsExposureSet
-            // 
-            this.button_DiagnosticsExposureSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_DiagnosticsExposureSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_DiagnosticsExposureSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsExposureSet.Location = new System.Drawing.Point(267, 58);
-            this.button_DiagnosticsExposureSet.Name = "button_DiagnosticsExposureSet";
-            this.button_DiagnosticsExposureSet.Size = new System.Drawing.Size(88, 26);
-            this.button_DiagnosticsExposureSet.TabIndex = 12;
-            this.button_DiagnosticsExposureSet.Text = "Nastaviť";
-            this.button_DiagnosticsExposureSet.UseVisualStyleBackColor = false;
-            this.button_DiagnosticsExposureSet.Click += new System.EventHandler(this.button_DiagnosticsExposureSet_Click);
-            // 
             // groupBox_DiagnosticsCamInfo
             // 
             this.groupBox_DiagnosticsCamInfo.BackColor = System.Drawing.Color.Transparent;
@@ -2950,6 +2917,19 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Disk D:";
             // 
+            // button_DiagnosticsAutorisation
+            // 
+            this.button_DiagnosticsAutorisation.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DiagnosticsAutorisation.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_DiagnosticsAutorisation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DiagnosticsAutorisation.Location = new System.Drawing.Point(124, 3);
+            this.button_DiagnosticsAutorisation.Name = "button_DiagnosticsAutorisation";
+            this.button_DiagnosticsAutorisation.Size = new System.Drawing.Size(120, 40);
+            this.button_DiagnosticsAutorisation.TabIndex = 13;
+            this.button_DiagnosticsAutorisation.Text = "Administrátor";
+            this.button_DiagnosticsAutorisation.UseVisualStyleBackColor = false;
+            this.button_DiagnosticsAutorisation.Click += new System.EventHandler(this.button_Autorization_Click);
+            // 
             // timer_Simulation
             // 
             this.timer_Simulation.Interval = 2000;
@@ -3014,45 +2994,18 @@
             this.timer_AdamCoilsRead.Interval = 1000;
             this.timer_AdamCoilsRead.Tick += new System.EventHandler(this.timer_AdamCoilsRead_Tick);
             // 
-            // button_MainChangeTolPos
+            // button_MainChangeRecipeSettings
             // 
-            this.button_MainChangeTolPos.Location = new System.Drawing.Point(220, 278);
-            this.button_MainChangeTolPos.Name = "button_MainChangeTolPos";
-            this.button_MainChangeTolPos.Size = new System.Drawing.Size(75, 26);
-            this.button_MainChangeTolPos.TabIndex = 5;
-            this.button_MainChangeTolPos.Text = "Zmeniť";
-            this.button_MainChangeTolPos.UseVisualStyleBackColor = true;
-            this.button_MainChangeTolPos.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
-            // 
-            // button_MainChangeTolDiameter
-            // 
-            this.button_MainChangeTolDiameter.Location = new System.Drawing.Point(220, 309);
-            this.button_MainChangeTolDiameter.Name = "button_MainChangeTolDiameter";
-            this.button_MainChangeTolDiameter.Size = new System.Drawing.Size(75, 26);
-            this.button_MainChangeTolDiameter.TabIndex = 5;
-            this.button_MainChangeTolDiameter.Text = "Zmeniť";
-            this.button_MainChangeTolDiameter.UseVisualStyleBackColor = true;
-            this.button_MainChangeTolDiameter.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
-            // 
-            // button_MainChangeMaxErrorsPos
-            // 
-            this.button_MainChangeMaxErrorsPos.Location = new System.Drawing.Point(220, 340);
-            this.button_MainChangeMaxErrorsPos.Name = "button_MainChangeMaxErrorsPos";
-            this.button_MainChangeMaxErrorsPos.Size = new System.Drawing.Size(75, 26);
-            this.button_MainChangeMaxErrorsPos.TabIndex = 5;
-            this.button_MainChangeMaxErrorsPos.Text = "Zmeniť";
-            this.button_MainChangeMaxErrorsPos.UseVisualStyleBackColor = true;
-            this.button_MainChangeMaxErrorsPos.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
-            // 
-            // button_MainChangeMaxErrorsDiameter
-            // 
-            this.button_MainChangeMaxErrorsDiameter.Location = new System.Drawing.Point(220, 371);
-            this.button_MainChangeMaxErrorsDiameter.Name = "button_MainChangeMaxErrorsDiameter";
-            this.button_MainChangeMaxErrorsDiameter.Size = new System.Drawing.Size(75, 26);
-            this.button_MainChangeMaxErrorsDiameter.TabIndex = 5;
-            this.button_MainChangeMaxErrorsDiameter.Text = "Zmeniť";
-            this.button_MainChangeMaxErrorsDiameter.UseVisualStyleBackColor = true;
-            this.button_MainChangeMaxErrorsDiameter.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
+            this.button_MainChangeRecipeSettings.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_MainChangeRecipeSettings.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MainChangeRecipeSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_MainChangeRecipeSettings.Location = new System.Drawing.Point(205, 403);
+            this.button_MainChangeRecipeSettings.Name = "button_MainChangeRecipeSettings";
+            this.button_MainChangeRecipeSettings.Size = new System.Drawing.Size(90, 37);
+            this.button_MainChangeRecipeSettings.TabIndex = 13;
+            this.button_MainChangeRecipeSettings.Text = "Zmeniť";
+            this.button_MainChangeRecipeSettings.UseVisualStyleBackColor = false;
+            this.button_MainChangeRecipeSettings.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
             // 
             // MainForm
             // 
@@ -3104,6 +3057,8 @@
             this.tabPage_Diagnostics.ResumeLayout(false);
             this.panel_DiagnosticsAutorization.ResumeLayout(false);
             this.panel_DiagnosticsAutorization.PerformLayout();
+            this.groupBox_DiagnosticsCamSettings.ResumeLayout(false);
+            this.groupBox_DiagnosticsCamSettings.PerformLayout();
             this.groupBox_DiagnosticsVstupy.ResumeLayout(false);
             this.groupBox_DiagnosticsVstupy.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput1Adam10)).EndInit();
@@ -3140,8 +3095,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput2Adam2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput2Adam9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DiagnosticsOutput2Adam1)).EndInit();
-            this.groupBox_DiagnosticsCamSettings.ResumeLayout(false);
-            this.groupBox_DiagnosticsCamSettings.PerformLayout();
             this.groupBox_DiagnosticsCamInfo.ResumeLayout(false);
             this.groupBox_DiagnosticsCamInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CamInfo1)).EndInit();
@@ -3344,8 +3297,7 @@
         private System.Windows.Forms.Label label_MainStatisticsNOK;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button button_DiagnosticsGainSet;
-        private System.Windows.Forms.Button button_DiagnosticsExposureSet;
+        private System.Windows.Forms.Button button_DiagnosticsExposureTimeAndGainSet;
         private System.Windows.Forms.Timer timer_CameraPing;
         private System.Windows.Forms.GroupBox groupBox_ArchiveDrawingSides;
         private System.Windows.Forms.DataGridView dataGridView_ArchiveDrawingSides;
@@ -3401,10 +3353,7 @@
         private System.Windows.Forms.TextBox textBox_MainMaxDiameterErrors;
         private System.Windows.Forms.TextBox textBox_MainMaxPosErrors;
         private System.Windows.Forms.TextBox textBox_MainToleranceDiameter;
-        private System.Windows.Forms.Button button_MainChangeMaxErrorsDiameter;
-        private System.Windows.Forms.Button button_MainChangeMaxErrorsPos;
-        private System.Windows.Forms.Button button_MainChangeTolDiameter;
-        private System.Windows.Forms.Button button_MainChangeTolPos;
+        private System.Windows.Forms.Button button_MainChangeRecipeSettings;
     }
 }
 

@@ -28,13 +28,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace IkeaUI
 {
     public partial class MainForm : Form
     {
         private string RecipeMaterialName;
         private MainProgramProcedures MainProcedures;
+        private DrawingVariables DrawingVariables;
+        private RecipeVariables RecipeVariables;
+
 
         Material Plank;
         DrawingSide DrawingSide;
@@ -403,38 +405,25 @@ namespace IkeaUI
 
         private void button_DiagnosticsExposureSet_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
-                int value = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
-                JsonFunctions.CamExposureTimeSet(PersistentVariables, camName, value);
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
-                Loging.MakeLog(DateTime.Now, $"Changed Exposure time for {camName} to {value} ", "|OK|");
-            }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
-            }
         }
 
         private void button_DiagnosticsGainSet_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
-                int value = Convert.ToInt32(textBox_DiagnosticsGain.Text);
-                JsonFunctions.CamGainSet(PersistentVariables, camName, value);
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
-                Loging.MakeLog(DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
-            }
+            //try
+            //{
+            //    string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
+            //    int value = Convert.ToInt32(textBox_DiagnosticsGain.Text);
+            //    JsonFunctions.CamGainSet(PersistentVariables, camName, value);
+            //    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
+            //    Loging.MakeLog(DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
+            //}
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
-            }
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            //    Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
+            //}
         }
 
         private async void timer_CameraPing_Tick(object sender, EventArgs e)
@@ -610,6 +599,7 @@ namespace IkeaUI
         {
             try
             {
+
                 string recipeDrawingName = listBox_MainRecipe.SelectedItem.ToString();
                 string recipeName = recipeDrawingName.Replace(".DXF", ".txt");
 
@@ -630,7 +620,7 @@ namespace IkeaUI
         {
             try
             {
-                MainProcedures.Function_RecipeReader(
+                RecipeVariables = MainProcedures.Function_RecipeReader(
                    recipeName,
                    out HTuple h_realTolerancePositionPlusMinusMm,
                    out HTuple h_realToleranceDiameterPlusMinusMm,
@@ -638,16 +628,15 @@ namespace IkeaUI
                    out HTuple h_intMaxAllowedNumberErrorsDiameter,
                    out HTuple Exception);
 
-                RecipeVariables.RecipeToleranceDiameter = h_realToleranceDiameterPlusMinusMm.D.ToString();
-                RecipeVariables.RecipeTolerancePosiion = h_realTolerancePositionPlusMinusMm.D.ToString();
-                RecipeVariables.RecipeMaxPositionError = h_intMaxAllowedNumberErrorsPosition.D.ToString();
-                RecipeVariables.RecipeMaxDiameterError = h_intMaxAllowedNumberErrorsDiameter.D.ToString();
-
-                textBox_MainToleranceDiameter.Text = RecipeVariables.RecipeToleranceDiameter;
-                textBox_MainTolerancePosition.Text = RecipeVariables.RecipeTolerancePosiion;
-                textBox_MainMaxPosErrors.Text = RecipeVariables.RecipeMaxPositionError;
-                textBox_MainMaxDiameterErrors.Text = RecipeVariables.RecipeMaxDiameterError;
+                if (RecipeVariables != null)
+                {
+                    textBox_MainToleranceDiameter.Text = RecipeVariables.RecipeToleranceDiameter;
+                    textBox_MainTolerancePosition.Text = RecipeVariables.RecipeTolerancePosition;
+                    textBox_MainMaxPosErrors.Text = RecipeVariables.RecipeMaxPositionError;
+                    textBox_MainMaxDiameterErrors.Text = RecipeVariables.RecipeMaxDiameterError;
+                }
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
@@ -660,7 +649,8 @@ namespace IkeaUI
             {
                 Hwindow_Diagnostika.HalconWindow.ClearWindow();
                 RecipeMaterialName = listBox_MainRecipe.SelectedItem.ToString();
-                MainProcedures.Function_ReadDrawing(
+
+                DrawingVariables = MainProcedures.Function_ReadDrawing(
                         recipeDrawingName,
                         0,
                         out HObject h_reg_arrRoiMmTopPartSmallHolesForLsCameras,
@@ -707,6 +697,7 @@ namespace IkeaUI
                         out HTuple h_real_arrDiameterMmLeftFromDrawing,
                         out HTuple h_mix_arrException);
 
+
                 Hwindow_Diagnostika.HalconWindow.SetDraw("margin");
                 Hwindow_Diagnostika.HalconWindow.SetLineWidth(2);
                 Hwindow_Diagnostika.HalconWindow.SetColor("white");
@@ -724,13 +715,11 @@ namespace IkeaUI
                 Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionTop);
                 Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionLeft);
                 Hwindow_Diagnostika.HalconWindow.SetPart(0, 0, -1, -1);
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
-
         }
 
         private void button_MainStart_Click(object sender, EventArgs e)
@@ -764,19 +753,47 @@ namespace IkeaUI
 
         private void listBox_DiagnosticsCamerasSettings_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int indexSelected = listBox_DiagnosticsCamerasSettings.SelectedIndex;
+            try
+            {
+                string gainRaw;
+                string exposureTime;
+                if (DrawingVariables != null && DrawingVariables.IntSurfaceTypeFromDrawing != null)
+                {
+                    string cameraPfsFileName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString() + DrawingVariables.IntSurfaceTypeFromDrawing + ".pfs";
+                    var text = File.ReadAllLines(GlobalVariables.CamPfsFilesName + cameraPfsFileName);
 
-            string text = File.ReadAllText(GlobalVariables.JsonPersistentCamSettingsPath);
-            string[] splittedtex = text.Split(',');
+                    if (cameraPfsFileName.Contains("Ls") == true)
+                    {
+                        gainRaw = text[7].Split('\t')[1];
+                        exposureTime = text[60].Split('\t')[1];
 
-            string expTime = splittedtex[indexSelected * 2];
-            string gain = text.Split(',')[indexSelected * 2 + 1];
+                    }
+                    else
+                    {
+                        gainRaw = text[9].Split('\t')[1];
+                        exposureTime = text[54].Split('\t')[1];
+                    }
 
-            string changedExpTime = expTime.Split(':')[1];
-            string changedGain = gain.Split(':')[1];
+                    UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, exposureTime);
+                    UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, gainRaw);
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, "Vision Process Start", " |Error| ");
+            }
+            
 
-            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsExposureTime, changedExpTime);
-            UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, changedGain);
+            //string[] splittedtex = text.Split(',');
+
+            //string expTime = splittedtex[indexSelected * 2];
+            //string gain = text.Split(',')[indexSelected * 2 + 1];
+
+            //string changedExpTime = expTime.Split(':')[1];
+            //string changedGain = gain.Split(':')[1];
+
+           
         }
         private void button_MainStop_Click(object sender, EventArgs e)
         {
@@ -940,18 +957,26 @@ namespace IkeaUI
 
         private void ShowKeyBoard()
         {
-            Process[] keyboard = new Process[1];
-            keyboard = Process.GetProcessesByName("osk");
+            try
+            {
+                Process[] keyboard = new Process[1];
+                keyboard = Process.GetProcessesByName("osk");
 
-            if (KeyboardIsShowed == true && keyboard.Length >= 1)
-            {
-                keyboard[0].Kill();
-                KeyboardIsShowed = false;
+                if (KeyboardIsShowed == true && keyboard.Length >= 1)
+                {
+                    keyboard[0].Kill();
+                    KeyboardIsShowed = false;
+                }
+                else
+                {
+                    Process.Start("osk.exe");
+                    KeyboardIsShowed = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Process.Start("osk.exe");
-                KeyboardIsShowed = true;
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+
             }
         }
 
@@ -1098,18 +1123,66 @@ namespace IkeaUI
 
         private void button_MainChangeRecipeValues_Click(object sender, EventArgs e)
         {
-            string recipeName = listBox_MainRecipe.SelectedItem.ToString().Replace(".DXF", ".txt");
-            string tolerPos = textBox_MainTolerancePosition.Text;
-            string tolerDiameter = textBox_MainToleranceDiameter.Text;
-            string maxPosErrors = textBox_MainMaxPosErrors.Text;
-            string maxDiameterErrors = textBox_MainMaxDiameterErrors.Text;
+            try
+            {
+                string recipeName = listBox_MainRecipe.SelectedItem.ToString().Replace(".DXF", ".txt");
+                string tolerPos = textBox_MainTolerancePosition.Text;
+                string tolerDiameter = textBox_MainToleranceDiameter.Text;
+                string maxPosErrors = textBox_MainMaxPosErrors.Text;
+                string maxDiameterErrors = textBox_MainMaxDiameterErrors.Text;
 
-            tolerPos = tolerPos.Contains(',') ? tolerPos.Replace(',', '.') : tolerPos;
-            tolerDiameter = tolerDiameter.Contains(',') ? tolerDiameter.Replace(',', '.') : tolerDiameter;
-            maxPosErrors = maxPosErrors.Contains(',') ? maxPosErrors.Replace(',', '.') : maxPosErrors;
-            maxDiameterErrors = maxDiameterErrors.Contains(',') ? maxDiameterErrors.Replace(',', '.') : maxDiameterErrors;
+                tolerPos = tolerPos.Contains(',') ? tolerPos.Replace(',', '.') : tolerPos;
+                tolerDiameter = tolerDiameter.Contains(',') ? tolerDiameter.Replace(',', '.') : tolerDiameter;
+                maxPosErrors = maxPosErrors.Contains(',') ? maxPosErrors.Replace(',', '.') : maxPosErrors;
+                maxDiameterErrors = maxDiameterErrors.Contains(',') ? maxDiameterErrors.Replace(',', '.') : maxDiameterErrors;
 
-            MainProcedures.Function_RecipeWriter(recipeName, tolerPos, tolerDiameter, maxPosErrors, maxDiameterErrors,out HTuple h_mix_arrException);
+                if ((double.TryParse(tolerPos, out double res1) == true || string.IsNullOrEmpty(tolerPos) == true)
+                    && (double.TryParse(tolerDiameter, out double res2) == true || string.IsNullOrEmpty(tolerDiameter) == true)
+                    && (double.TryParse(maxPosErrors, out double res3) == true || string.IsNullOrEmpty(maxPosErrors) == true)
+                    && (double.TryParse(maxDiameterErrors, out double res4) == true || string.IsNullOrEmpty(maxDiameterErrors) == true))
+                {
+                    MainProcedures.Function_RecipeWriter(recipeName, res1, res2, res3, res4, out HTuple h_mix_arrException);
+                    if (h_mix_arrException.Length < 1)
+                    {
+                        textBox_MainSystemMessage.Text = $"{DateTime.Now} Receptove hodnoty pre {recipeName.Replace(".txt", "")} boli zmenene";
+                    }
+                }
+                else
+                {
+                    textBox_MainSystemMessage.Text = $"{DateTime.Now} Nespravne zadane parametre pre {recipeName.Replace(".txt", "")}";
+                    textBox_MainToleranceDiameter.Text = RecipeVariables.RecipeToleranceDiameter;
+                    textBox_MainTolerancePosition.Text = RecipeVariables.RecipeTolerancePosition;
+                    textBox_MainMaxPosErrors.Text = RecipeVariables.RecipeMaxPositionError;
+                    textBox_MainMaxDiameterErrors.Text = RecipeVariables.RecipeMaxDiameterError;
+                }
+            }
+            catch (Exception ex )
+            {
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+            }
+        }
+
+        private void button_DiagnosticSetExpTimeAndGain(object sender, EventArgs e)
+        {
+            try
+            {
+                string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
+                int exposureTimeValue = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
+                int gainValue = Convert.ToInt32(textBox_DiagnosticsGain.Text);
+
+                MainProcedures.Function_PfsParametersModify(DrawingVariables.IntSurfaceTypeFromDrawing, camName, exposureTimeValue, gainValue, out HTuple h_mix_arrException);
+                if (h_mix_arrException.Length < 1)
+                {
+                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time and gain for {camName} to {exposureTimeValue} and {gainValue} ", "|OK|");
+                    Loging.MakeLog(DateTime.Now, $"Changed Exposure time and gain for {camName} to {exposureTimeValue} and {gainValue} ", "|OK|");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
+            }
         }
     }
 }

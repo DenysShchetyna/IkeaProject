@@ -80,7 +80,6 @@ namespace Ikea_Library.HdevProcedures
             h_mix_arrException = ChangePfsCamParams_Call.GetOutputCtrlParamTuple("h_mix_arrException");
         }
 
-
         public void Function_RecipeWriter(
             HTuple recipeName,
              HTuple h_realTolerancePositionPlusMinusMm,
@@ -98,7 +97,7 @@ namespace Ikea_Library.HdevProcedures
             h_mix_arrException = WriteRecipe_Call.GetOutputCtrlParamTuple("h_mix_arrException");
         }
 
-        public void Function_RecipeReader(
+        public RecipeVariables Function_RecipeReader(
             HTuple recipeName,
             out HTuple h_realTolerancePositionPlusMinusMm,
             out HTuple h_realToleranceDiameterPlusMinusMm,
@@ -113,9 +112,21 @@ namespace Ikea_Library.HdevProcedures
             h_intMaxAllowedNumberErrorsPosition = ReadRecipe_Call.GetOutputCtrlParamTuple("h_intMaxAllowedNumberErrorsPosition");
             h_intMaxAllowedNumberErrorsDiameter = ReadRecipe_Call.GetOutputCtrlParamTuple("h_intMaxAllowedNumberErrorsDiameter");
             h_mix_arrException = ReadRecipe_Call.GetOutputCtrlParamTuple("h_mix_arrException");
+
+            if (h_mix_arrException.Length < 1)
+            {
+                RecipeVariables recipeVariables = new RecipeVariables(
+                     recipeName,
+                     h_realTolerancePositionPlusMinusMm,
+                     h_realToleranceDiameterPlusMinusMm,
+                     h_intMaxAllowedNumberErrorsPosition,
+                     h_intMaxAllowedNumberErrorsDiameter);
+                return recipeVariables;
+            }
+            return null;
         }
 
-        public void Function_ReadDrawing(
+        public DrawingVariables Function_ReadDrawing(
             HTuple recipeName,
             HTuple h_intOfflineImageProcessing,
             out HObject h_reg_arrRoiMmTopPartSmallHolesForLsCameras,
@@ -160,9 +171,10 @@ namespace Ikea_Library.HdevProcedures
             out HTuple h_real_arrXPositionMmLeftFromDrawing,
             out HTuple h_real_arrYPositionMmLeftFromDrawing,
             out HTuple h_real_arrDiameterMmLeftFromDrawing,
-            
+
             out HTuple h_mix_arrException)
         {
+
             ReadDrawing_Call.SetInputCtrlParamTuple("h_strDxfName", recipeName);
             ReadDrawing_Call.SetInputCtrlParamTuple("h_intOfflineImageProcessing", h_intOfflineImageProcessing);
             ReadDrawing_Call.Execute();
@@ -174,6 +186,18 @@ namespace Ikea_Library.HdevProcedures
             h_reg_arrRoiMmRightPartHolesForLsCameras = ReadDrawing_Call.GetOutputIconicParamObject("h_reg_arrRoiMmRightPartHolesForLsCameras");
             h_reg_arrRoiMmFrontPartHolesForArCameras = ReadDrawing_Call.GetOutputIconicParamObject("h_reg_arrRoiMmFrontPartHolesForArCameras");
             h_reg_arrRoiMmBackPartHolesForArCameras = ReadDrawing_Call.GetOutputIconicParamObject("h_reg_arrRoiMmBackPartHolesForArCameras");
+            RegionRight = ReadDrawing_Call.GetOutputIconicParamObject("RegionRight");
+            RegionFront = ReadDrawing_Call.GetOutputIconicParamObject("RegionFront");
+            RegionBottom = ReadDrawing_Call.GetOutputIconicParamObject("RegionBottom");
+            RegionBack = ReadDrawing_Call.GetOutputIconicParamObject("RegionBack");
+            RegionTop = ReadDrawing_Call.GetOutputIconicParamObject("RegionTop");
+            RegionLeft = ReadDrawing_Call.GetOutputIconicParamObject("RegionLeft");
+            CirclesInRegionRight = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionRight");
+            CirclesInRegionFront = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionFront");
+            CirclesInRegionBottom = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionBottom");
+            CirclesInRegionBack = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionBack");
+            CirclesInRegionTop = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionTop");
+            CirclesInRegionLeft = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionLeft");
             h_intSurfaceTypeFromDrawing = ReadDrawing_Call.GetOutputCtrlParamTuple("h_intSurfaceTypeFromDrawing");
             h_realRecipeLengthOfBoardMm = ReadDrawing_Call.GetOutputCtrlParamTuple("h_realRecipeLengthOfBoardMm");
             h_realRecipeWitdhOfBoardMm = ReadDrawing_Call.GetOutputCtrlParamTuple("h_realRecipeWitdhOfBoardMm");
@@ -196,19 +220,56 @@ namespace Ikea_Library.HdevProcedures
             h_real_arrXPositionMmLeftFromDrawing = ReadDrawing_Call.GetOutputCtrlParamTuple("h_real_arrXPositionMmLeftFromDrawing");
             h_real_arrYPositionMmLeftFromDrawing = ReadDrawing_Call.GetOutputCtrlParamTuple("h_real_arrYPositionMmLeftFromDrawing");
             h_real_arrDiameterMmLeftFromDrawing = ReadDrawing_Call.GetOutputCtrlParamTuple("h_real_arrDiameterMmLeftFromDrawing");
-            RegionRight = ReadDrawing_Call.GetOutputIconicParamObject("RegionRight");
-            RegionFront = ReadDrawing_Call.GetOutputIconicParamObject("RegionFront");
-            RegionBottom = ReadDrawing_Call.GetOutputIconicParamObject("RegionBottom");
-            RegionBack = ReadDrawing_Call.GetOutputIconicParamObject("RegionBack");
-            RegionTop = ReadDrawing_Call.GetOutputIconicParamObject("RegionTop");
-            RegionLeft = ReadDrawing_Call.GetOutputIconicParamObject("RegionLeft");
-            CirclesInRegionRight = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionRight");
-            CirclesInRegionFront = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionFront");
-            CirclesInRegionBottom = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionBottom");
-            CirclesInRegionBack = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionBack");
-            CirclesInRegionTop = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionTop");
-            CirclesInRegionLeft = ReadDrawing_Call.GetOutputIconicParamObject("CirclesInRegionLeft");
             h_mix_arrException = ReadDrawing_Call.GetOutputCtrlParamTuple("h_mix_arrException");
+
+            if (h_mix_arrException.Length < 1)
+            {
+                DrawingVariables drawingVariables = new DrawingVariables(
+           h_reg_arrRoiMmTopPartSmallHolesForLsCameras,
+           h_reg_arrRoiMmTopPartLargeHolesForArCameras,
+           h_reg_arrRoiMmBottomPartSmallHolesForLsCameras,
+           h_reg_arrRoiMmBottomPartLargeHolesForArCameras,
+           h_reg_arrRoiMmLeftPartHolesForLsCameras,
+           h_reg_arrRoiMmRightPartHolesForLsCameras,
+           h_reg_arrRoiMmFrontPartHolesForArCameras,
+           h_reg_arrRoiMmBackPartHolesForArCameras,
+           RegionRight,
+           RegionFront,
+           RegionBottom,
+           RegionBack,
+           RegionTop,
+           RegionLeft,
+           CirclesInRegionRight,
+           CirclesInRegionFront,
+           CirclesInRegionBottom,
+           CirclesInRegionBack,
+           CirclesInRegionTop,
+           CirclesInRegionLeft,
+           h_intSurfaceTypeFromDrawing,
+           h_realRecipeLengthOfBoardMm,
+           h_realRecipeWitdhOfBoardMm,
+           h_realRecipeThickessOfBoardMm,
+           h_real_arrXPositionMmRightFromDrawing,
+           h_real_arrYPositionMmRightFromDrawing,
+           h_real_arrDiameterMmRightFromDrawing,
+           h_real_arrXPositionMmFrontFromDrawing,
+           h_real_arrYPositionMmFrontFromDrawing,
+           h_real_arrDiameterMmFrontFromDrawing,
+           h_real_arrXPositionMmBottomFromDrawing,
+           h_real_arrYPositionMmBottomFromDrawing,
+           h_real_arrDiameterMmBottomFromDrawing,
+           h_real_arrXPositionMmBackFromDrawing,
+           h_real_arrYPositionMmBackFromDrawing,
+           h_real_arrDiameterMmBackFromDrawing,
+           h_real_arrXPositionMmTopFromDrawing,
+           h_real_arrYPositionMmTopFromDrawing,
+           h_real_arrDiameterMmTopFromDrawing,
+           h_real_arrXPositionMmLeftFromDrawing,
+           h_real_arrYPositionMmLeftFromDrawing,
+           h_real_arrDiameterMmLeftFromDrawing);
+                return drawingVariables;
+            }
+            return null;
         }
     }
 }

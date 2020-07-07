@@ -19,6 +19,7 @@ namespace Ikea_Library.Helpers
         public static string SqliteUsersDatabasePath = @"Data Source = C:\Trifid\A0670\SW\C#\IKEA\IkeaProject\Ikea\Users.db";
         public static string DrawingsPath = @"C:\Trifid\A0670\SW\Halcon\Drawings";
         public static string RecipesPath = @"C:\Trifid\A0670\SW\Halcon\Recipes\";
+        public static string CamPfsFilesName = @"C:\Trifid\A0670\SW\Halcon\CamParam\";
 
         public static string ConnectionStringId = "Ikea";
 

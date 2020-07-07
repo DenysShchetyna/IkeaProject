@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ikea_Library.DBAccess
 {
-    public static class SqliteDataAccess
+    public class SqliteDataAccess
     {
         private static string CreateTableOrder = "create table if not exists `Users` ( `Name` text not null, `Password` text not null);";
         private static string CreateDefaultAdminOrder = "insert into Users(Name,Password) Values ('Admin','Admin')";
@@ -81,7 +81,6 @@ namespace Ikea_Library.DBAccess
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
-
         }
 
         private static void InsertPerson(string name, string newPassword)
@@ -97,7 +96,6 @@ namespace Ikea_Library.DBAccess
                     string sqlInsertOrder = $"insert into Users (Name, Password) Values(@Name, @Password);";
                     cnn.Execute(sqlInsertOrder, newPersonModel);
                 }
-
             }
             catch (Exception ex )
             {

@@ -103,7 +103,6 @@ namespace IkeaUI
             LoadAllRecipes();
 
             Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
-
         }
 
         private void tabControl_MainControl_DrawItem(object sender, DrawItemEventArgs e)

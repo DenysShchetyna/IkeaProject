@@ -3,6 +3,7 @@ using Ikea_Library.Events;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -19,14 +20,20 @@ namespace Ikea_Library.ProduceConsumer
         private bool Run;
         private Thread ConsumerThread;
         private BlockingCollection<Message> Messages = new BlockingCollection<Message>(10);
-        private Message Message;
-        HObject ImagesBuffer = new HObject();
-        private int CountOfSegments;
 
-        public Consumer(string camName, int countOfSegments)
+        private Message Message;
+
+
+        HObject ImagesBuffer = new HObject();
+        private HTuple ImgWidth;
+        HObject ImagePartial;
+        private int CamImgHeight = 512;
+
+
+
+        public Consumer(string camName)
         {
             CamName = camName;
-            CountOfSegments = countOfSegments;
         }
 
         public void Enqueue(Message message)
@@ -37,46 +44,67 @@ namespace Ikea_Library.ProduceConsumer
         private void MainFunction()
         {
             ImagesBuffer.GenEmptyObj();
+            HOperatorSet.GenEmptyObj(out ImagePartial);
+
+
             Message = new Message();
+
 
             while (Run == true)
             {
                 switch (CamName)
                 {
-                    case "Cam1LsTopL":
-                        if (ImagesBuffer.CountObj() == CountOfSegments)
-                        {
-                            HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
-                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} 100 images are showed", "|OK|");
+                    case "Cam5LsLeft":
 
-                            TileImageReady?.Invoke(this, new TileImageReadyEventArgs(CamName, BigImage));
-                            ImagesBuffer.GenEmptyObj();
+                        Message = Messages.Take();
+
+
+                        if (Message.LastImage == false)
+                        {
+                            HOperatorSet.GetImageSize(Message.Image, out ImgWidth, out HTuple imgHeight);
+                            Console.WriteLine(imgHeight.ToString() + "first");
+
+                            if ((imgHeight < CamImgHeight) && (imgHeight > 0))
+                            {
+                                ImagePartial = Message.Image;
+                            }
+                            else
+                            {
+                                HOperatorSet.ConcatObj(ImagesBuffer, Message.Image, out ImagesBuffer);
+                            }
                         }
 
-                        else
+                        else if (Message.LastImage == true)
                         {
-                            Message = Messages.Take();
-                            HOperatorSet.ConcatObj(Message.Image, ImagesBuffer, out ImagesBuffer);
+                            AfterLastImageFunc();
                         }
 
                         break;
 
-                    case "Cam2LsTopR":
-                        if (ImagesBuffer.CountObj() == CountOfSegments)
-                        {
-                            HOperatorSet.TileImages(ImagesBuffer, out HObject BigImage, 1, "vertical");
-                            Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} 100 images are showed", "|OK|");
+                    case "Cam6LsRight":
+                        Message = Messages.Take();
 
-                            TileImageReady?.Invoke(this, new TileImageReadyEventArgs(CamName, BigImage));
-                            ImagesBuffer.GenEmptyObj();
+
+                        if (Message.LastImage == false)
+                        {
+                            HOperatorSet.GetImageSize(Message.Image, out ImgWidth, out HTuple imgHeight);
+                            Console.WriteLine(imgHeight.ToString() + "first");
+
+                            if ((imgHeight < CamImgHeight) && (imgHeight > 0))
+                            {
+                                ImagePartial = Message.Image;
+                            }
+                            else
+                            {
+                                HOperatorSet.ConcatObj(ImagesBuffer, Message.Image, out ImagesBuffer);
+                            }
                         }
 
-                        else
+                        else if (Message.LastImage == true)
                         {
-                            Message = Messages.Take();
-                            HOperatorSet.ConcatObj(Message.Image, ImagesBuffer, out ImagesBuffer);
-                        }
 
+                            AfterLastImageFunc();
+                        }
                         break;
                 }
             }
@@ -101,6 +129,38 @@ namespace Ikea_Library.ProduceConsumer
             ConsumerThread.Join(5000);
             ConsumerThread.Abort();
             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Aborted Thread {ConsumerThread.Name}", "|OK|");
+        }
+
+        public void AfterLastImageFunc()
+        {
+            HOperatorSet.GenImageConst(out HObject emptyImage1, "byte", ImgWidth, CamImgHeight);
+            if (ImagePartial != null)
+            {
+                HOperatorSet.ConcatObj(emptyImage1, ImagePartial, out HObject concatedPartial);
+                HOperatorSet.TileImagesOffset(concatedPartial, out HObject PartialTiledImages, new HTuple(0, 0), new HTuple(0, 0), new HTuple(-1, -1), new HTuple(-1, -1), new HTuple(-1, -1), new HTuple(-1, -1), ImgWidth, CamImgHeight);
+
+                HOperatorSet.ConcatObj(ImagesBuffer, PartialTiledImages, out HObject concatedFull);
+
+                HOperatorSet.TileImages(concatedFull, out HObject bigImage, 1, "vertical");
+
+
+                string filePath2 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName;
+                HOperatorSet.WriteImage(bigImage, "tiff", 0, filePath2);
+                concatedPartial.GenEmptyObj();
+                concatedFull.GenEmptyObj();
+                emptyImage1.GenEmptyObj();
+            }
+            else
+            {
+                HOperatorSet.TileImages(ImagesBuffer, out HObject bigImage, 1, "vertical");
+
+                string filePath2 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName;
+                HOperatorSet.WriteImage(bigImage, "tiff", 0, filePath2);
+            }
+
+
+            ImagesBuffer.Dispose();
+            ImagesBuffer.GenEmptyObj();
         }
     }
 

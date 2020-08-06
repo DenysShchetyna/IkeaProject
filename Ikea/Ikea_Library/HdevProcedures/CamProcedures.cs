@@ -37,13 +37,9 @@ namespace Ikea_Library.HdevProcedures
             GetFramegrabberParameter_Call = new HDevProcedureCall(GetFramegrabberParameter);
 
         }
-        public void OpenFramegrabber(HTuple cameraName, HTuple width, HTuple height, HTuple exposureTime, HTuple gain, out HTuple acqHandle)
+        public void OpenFramegrabber(HTuple cameraName, out HTuple acqHandle)
         {
             OpenFramegrabber_Call.SetInputCtrlParamTuple("cameraName", cameraName);
-            OpenFramegrabber_Call.SetInputCtrlParamTuple("Width", width);
-            OpenFramegrabber_Call.SetInputCtrlParamTuple("Height", height);
-            OpenFramegrabber_Call.SetInputCtrlParamTuple("ExposureTimeAbs", exposureTime);
-            OpenFramegrabber_Call.SetInputCtrlParamTuple("Gain", gain);
 
             OpenFramegrabber_Call.Execute();
             acqHandle = OpenFramegrabber_Call.GetOutputCtrlParamTuple("AcqHandle");

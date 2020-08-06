@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="18.11.2.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image, 'C:/Trifid/Poject ikea/Images/DGG_435_BR.bmp')</l>
+<c></c>
+<l>FindHole (Image, ContCircleNOK, Rows, Columns, Radius)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="FindHole">
+<interface>
+<io>
+<par name="Image" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="ContCircle" base_type="iconic" dimension="0"/>
+</oo>
+<oc>
+<par name="Rows" base_type="ctrl" dimension="0"/>
+<par name="Columns" base_type="ctrl" dimension="0"/>
+<par name="Radius" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<l>edges_sub_pix (Image, Edges, 'canny', 4, 20, 40)</l>
+<l>select_shape_xld (Edges, ContCircle, 'circularity', 'and', 0.7, 1.0)</l>
+<l>sort_contours_xld (ContCircle, ContCircle, 'upper_left', 'true', 'row')</l>
+<c>* Determine the midpoints</c>
+<c></c>
+<l>smallest_circle_xld (ContCircle, Rows, Columns, Radius)</l>
+<c></c>
+<l>dev_get_window(WindowHandle)</l>
+<c></c>
+<l>gen_circle_contour_xld (ContCircle, Rows, Columns, Radius + 5, 0, 6.28318, 'positive', 1)</l>
+<c></c>
+<l>dev_clear_window()</l>
+<l>dev_display(Image)</l>
+<l>dev_set_line_width(2)</l>
+<l>dev_set_color('green')</l>
+<l>dev_display (ContCircle)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c>**gen_contour_region_xld(Holes,Contours, 'border')</c>
+<c></c>
+<l>return ()</l>
+</body>
+<docu id="FindHole">
+<parameters>
+<parameter id="Columns"/>
+<parameter id="ContCircle"/>
+<parameter id="Image"/>
+<parameter id="Radius"/>
+<parameter id="Rows"/>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

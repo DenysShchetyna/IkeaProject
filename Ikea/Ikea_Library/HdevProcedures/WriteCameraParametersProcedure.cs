@@ -23,12 +23,12 @@ namespace Ikea_Library.HdevProcedures
             LFunction_PfsWriteCameraParameters = new HDevProcedure(Program, "LFunction_PfsWriteCameraParameters");
             LFunction_PfsWriteCameraParameters_Call = new HDevProcedureCall(LFunction_PfsWriteCameraParameters);
         }
-        public void LFunction_PfsWriteCameraParameters_Func(HTuple h_strCamName, HTuple h_strPfsPath, out HTuple exception)
+        public void LFunction_PfsWriteCameraParameters_Func(HTuple h_strCamName, HTuple h_intSurfaceTypeFromDrawing, out HTuple h_mix_arrException)
         {
             LFunction_PfsWriteCameraParameters_Call.SetInputCtrlParamTuple("h_strCamName", h_strCamName);
-            LFunction_PfsWriteCameraParameters_Call.SetInputCtrlParamTuple("h_strPfsPath", h_strPfsPath);
+            LFunction_PfsWriteCameraParameters_Call.SetInputCtrlParamTuple("h_intSurfaceTypeFromDrawing", h_intSurfaceTypeFromDrawing);
             LFunction_PfsWriteCameraParameters_Call.Execute();
-            exception =  LFunction_PfsWriteCameraParameters_Call.GetOutputCtrlParamTuple("Exception");
+            h_mix_arrException =  LFunction_PfsWriteCameraParameters_Call.GetOutputCtrlParamTuple("h_mix_arrException");
         }
     }
 }

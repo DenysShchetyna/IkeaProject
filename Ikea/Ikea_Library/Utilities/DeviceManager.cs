@@ -34,9 +34,16 @@ namespace Ikea_Library.Utilities
             bool[] statusCoil = new bool[totalCoils];
             try
             {
-                if(Adam.Connected == true)
+                if (Adam.Connected == true)
                 {
-                    Adam.Modbus().ReadCoilStatus(0, totalCoils, out statusCoil);
+                    if (Ip == "192.168.200.22") 
+                    {
+                        Adam.Modbus().ReadCoilStatus(17, totalCoils, out statusCoil);
+                    }
+                    else if (Ip == "192.168.200.21")
+                    {
+                        Adam.Modbus().ReadCoilStatus(1, totalCoils, out statusCoil);
+                    }
                 }
                 return statusCoil.ToList();
             }

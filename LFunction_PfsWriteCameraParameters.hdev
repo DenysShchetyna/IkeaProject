@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="18.11.2.0">
+<procedure name="main">
+<interface/>
+<body>
+<c>****Function:                        LFunction_PfsWriteCameraParameters****</c>
+<c>****Changelog                         Version 1.0 – 2020-06-25 Palkovic J.</c>
+<c>****                                  – Initial Version</c>
+<c>****Description:                     function for write Cognex cameras parameters from .pfs file generated in Pylon Viewer</c>
+<c>****Inputs:                          h_strCamName</c>
+<c>****                                 h_strPfsPath</c>
+<c>**Start of function</c>
+<c></c>
+<l>h_strCamName := 'CAM1'</l>
+<l>h_strPfsPath := './CIC-4000_22534176.pfs'</l>
+<c></c>
+<l>open_framegrabber ('GigEVision2', 0, 0, 0, 0, 0, 0, 'progressive', -1, 'default', -1, 'false', 'default', h_strCamName, 0, -1, AcqHandle)</l>
+<l>open_file(h_strPfsPath,'input', FileHandle)</l>
+<l>for Index := 1 to 1000 by 1</l>
+<l>        try</l>
+<l>        fread_line(FileHandle, OutLine, IsEOF)</l>
+<l>        if (IsEOF = 1)</l>
+<l>          break</l>
+<l>        endif</l>
+<l>        tuple_strchr(OutLine, '#', Position)</l>
+<l>        if (Position != 0)</l>
+<l>            tuple_strchr(OutLine, '\t', Position1)</l>
+<l>            tuple_str_first_n(OutLine, Position1-1, Substring)</l>
+<l>            tuple_str_last_n(OutLine, Position1+1, Substring1)</l>
+<l>            tuple_strlen(Substring1, Length)</l>
+<l>            tuple_str_first_n(Substring1, Length-2, Substring2)</l>
+<c>            *</c>
+<l>            tuple_is_number(Substring2, IsNumber)</l>
+<l>            if (IsNumber = 1)</l>
+<l>                tuple_number(Substring2, Substring2)</l>
+<l>            endif</l>
+<l>            set_framegrabber_param (AcqHandle, Substring, Substring2)</l>
+<l>        endif</l>
+<l>        catch(Exception)</l>
+<l>            *stop()</l>
+<l>        endtry</l>
+<l>endfor</l>
+<l>close_framegrabber (AcqHandle)</l>
+<l>close_file(FileHandle)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

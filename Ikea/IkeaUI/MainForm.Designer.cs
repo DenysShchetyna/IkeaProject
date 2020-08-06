@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
             this.groupBox_MainPodozrive = new System.Windows.Forms.GroupBox();
             this.progressBar_MainPodozrive = new System.Windows.Forms.ProgressBar();
             this.groupBox_MainDielce = new System.Windows.Forms.GroupBox();
+            this.button_MainChangeRecipeSettings = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
@@ -95,7 +96,6 @@
             this.checkBox_SaveOnlyOneSide = new System.Windows.Forms.CheckBox();
             this.button_MainStop = new System.Windows.Forms.Button();
             this.button_MainSaveImg = new System.Windows.Forms.Button();
-            this.button_trigger = new System.Windows.Forms.Button();
             this.button_MainStart = new System.Windows.Forms.Button();
             this.tabPage_Archive = new System.Windows.Forms.TabPage();
             this.groupBox_ArchiveDrawingSides = new System.Windows.Forms.GroupBox();
@@ -269,7 +269,6 @@
             this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.timer_CameraPing = new System.Windows.Forms.Timer(this.components);
             this.timer_AdamCoilsRead = new System.Windows.Forms.Timer(this.components);
-            this.button_MainChangeRecipeSettings = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
@@ -445,7 +444,7 @@
             this.tabControl_MainControl.Name = "tabControl_MainControl";
             this.tabControl_MainControl.Padding = new System.Drawing.Point(0, 0);
             this.tabControl_MainControl.SelectedIndex = 0;
-            this.tabControl_MainControl.Size = new System.Drawing.Size(1920, 1015);
+            this.tabControl_MainControl.Size = new System.Drawing.Size(1920, 952);
             this.tabControl_MainControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl_MainControl.TabIndex = 8;
             this.tabControl_MainControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_MainControl_DrawItem);
@@ -467,7 +466,7 @@
             this.tabPage_Main.Location = new System.Drawing.Point(124, 4);
             this.tabPage_Main.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Main.Name = "tabPage_Main";
-            this.tabPage_Main.Size = new System.Drawing.Size(1792, 1007);
+            this.tabPage_Main.Size = new System.Drawing.Size(1792, 944);
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "Hlavná";
             // 
@@ -886,6 +885,19 @@
             this.groupBox_MainDielce.TabStop = false;
             this.groupBox_MainDielce.Text = "Dielce";
             // 
+            // button_MainChangeRecipeSettings
+            // 
+            this.button_MainChangeRecipeSettings.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_MainChangeRecipeSettings.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MainChangeRecipeSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_MainChangeRecipeSettings.Location = new System.Drawing.Point(205, 403);
+            this.button_MainChangeRecipeSettings.Name = "button_MainChangeRecipeSettings";
+            this.button_MainChangeRecipeSettings.Size = new System.Drawing.Size(90, 37);
+            this.button_MainChangeRecipeSettings.TabIndex = 13;
+            this.button_MainChangeRecipeSettings.Text = "Zmeniť";
+            this.button_MainChangeRecipeSettings.UseVisualStyleBackColor = false;
+            this.button_MainChangeRecipeSettings.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
+            // 
             // label61
             // 
             this.label61.AutoSize = true;
@@ -985,7 +997,6 @@
             this.groupBox_MainRiadenie.Controls.Add(this.checkBox_SaveOnlyOneSide);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStop);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainSaveImg);
-            this.groupBox_MainRiadenie.Controls.Add(this.button_trigger);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStart);
             this.groupBox_MainRiadenie.Location = new System.Drawing.Point(1481, 6);
             this.groupBox_MainRiadenie.Name = "groupBox_MainRiadenie";
@@ -1032,20 +1043,6 @@
             this.button_MainSaveImg.UseVisualStyleBackColor = false;
             this.button_MainSaveImg.Click += new System.EventHandler(this.button_MainSaveImg_Click);
             // 
-            // button_trigger
-            // 
-            this.button_trigger.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_trigger.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_trigger.FlatAppearance.BorderSize = 2;
-            this.button_trigger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_trigger.Location = new System.Drawing.Point(154, 111);
-            this.button_trigger.Name = "button_trigger";
-            this.button_trigger.Size = new System.Drawing.Size(127, 60);
-            this.button_trigger.TabIndex = 1;
-            this.button_trigger.Text = "Štart";
-            this.button_trigger.UseVisualStyleBackColor = false;
-            this.button_trigger.Click += new System.EventHandler(this.button_Trigger_click);
-            // 
             // button_MainStart
             // 
             this.button_MainStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1073,7 +1070,7 @@
             this.tabPage_Archive.Location = new System.Drawing.Point(124, 4);
             this.tabPage_Archive.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Archive.Name = "tabPage_Archive";
-            this.tabPage_Archive.Size = new System.Drawing.Size(1792, 1007);
+            this.tabPage_Archive.Size = new System.Drawing.Size(1792, 944);
             this.tabPage_Archive.TabIndex = 1;
             this.tabPage_Archive.Text = "Archív";
             // 
@@ -1122,8 +1119,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
             this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1138,8 +1135,8 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
             this.dataGridViewTextBoxColumn6.HeaderText = "Status";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -1210,8 +1207,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle3;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1219,8 +1216,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle4;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1229,8 +1226,8 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle5;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
@@ -1239,8 +1236,8 @@
             // Radius
             // 
             this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Radius.DefaultCellStyle = dataGridViewCellStyle6;
             this.Radius.FillWeight = 80.58376F;
             this.Radius.HeaderText = "Radius[mm]";
             this.Radius.Name = "Radius";
@@ -1249,8 +1246,8 @@
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle7;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -1361,7 +1358,7 @@
             this.tabPage_Diagnostics.Location = new System.Drawing.Point(124, 4);
             this.tabPage_Diagnostics.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Diagnostics.Name = "tabPage_Diagnostics";
-            this.tabPage_Diagnostics.Size = new System.Drawing.Size(1792, 1007);
+            this.tabPage_Diagnostics.Size = new System.Drawing.Size(1792, 944);
             this.tabPage_Diagnostics.TabIndex = 2;
             this.tabPage_Diagnostics.Text = "Servis";
             // 
@@ -1373,7 +1370,7 @@
             this.panel_DiagnosticsAutorization.Controls.Add(this.button_DiagnosticsLogIn);
             this.panel_DiagnosticsAutorization.Controls.Add(this.textBox_UserPassword);
             this.panel_DiagnosticsAutorization.Controls.Add(this.label38);
-            this.panel_DiagnosticsAutorization.Location = new System.Drawing.Point(3, 813);
+            this.panel_DiagnosticsAutorization.Location = new System.Drawing.Point(3, 802);
             this.panel_DiagnosticsAutorization.Name = "panel_DiagnosticsAutorization";
             this.panel_DiagnosticsAutorization.Size = new System.Drawing.Size(340, 146);
             this.panel_DiagnosticsAutorization.TabIndex = 14;
@@ -1444,21 +1441,21 @@
             this.groupBox_DiagnosticsCamSettings.Controls.Add(this.button_DiagnosticsExposureTimeAndGainSet);
             this.groupBox_DiagnosticsCamSettings.Location = new System.Drawing.Point(3, 5);
             this.groupBox_DiagnosticsCamSettings.Name = "groupBox_DiagnosticsCamSettings";
-            this.groupBox_DiagnosticsCamSettings.Size = new System.Drawing.Size(653, 158);
+            this.groupBox_DiagnosticsCamSettings.Size = new System.Drawing.Size(737, 141);
             this.groupBox_DiagnosticsCamSettings.TabIndex = 2;
             this.groupBox_DiagnosticsCamSettings.TabStop = false;
             this.groupBox_DiagnosticsCamSettings.Text = "Nastavenia Kamier 1-14";
             // 
             // textBox_DiagnosticsGain
             // 
-            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(174, 96);
+            this.textBox_DiagnosticsGain.Location = new System.Drawing.Point(142, 85);
             this.textBox_DiagnosticsGain.Name = "textBox_DiagnosticsGain";
             this.textBox_DiagnosticsGain.Size = new System.Drawing.Size(87, 26);
             this.textBox_DiagnosticsGain.TabIndex = 1;
             // 
             // textBox_DiagnosticsExposureTime
             // 
-            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(174, 58);
+            this.textBox_DiagnosticsExposureTime.Location = new System.Drawing.Point(142, 47);
             this.textBox_DiagnosticsExposureTime.Name = "textBox_DiagnosticsExposureTime";
             this.textBox_DiagnosticsExposureTime.Size = new System.Drawing.Size(87, 26);
             this.textBox_DiagnosticsExposureTime.TabIndex = 1;
@@ -1482,16 +1479,16 @@
             "Cam12ArTopR",
             "Cam13ArBottomL",
             "Cam14ArBottomR"});
-            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(292, 17);
+            this.listBox_DiagnosticsCamerasSettings.Location = new System.Drawing.Point(310, 14);
             this.listBox_DiagnosticsCamerasSettings.Name = "listBox_DiagnosticsCamerasSettings";
-            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(190, 124);
+            this.listBox_DiagnosticsCamerasSettings.Size = new System.Drawing.Size(238, 124);
             this.listBox_DiagnosticsCamerasSettings.TabIndex = 0;
             this.listBox_DiagnosticsCamerasSettings.SelectedIndexChanged += new System.EventHandler(this.listBox_DiagnosticsCamerasSettings_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(83, 99);
+            this.label16.Location = new System.Drawing.Point(51, 88);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(85, 20);
             this.label16.TabIndex = 0;
@@ -1501,7 +1498,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(42, 61);
+            this.label14.Location = new System.Drawing.Point(10, 50);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(126, 20);
             this.label14.TabIndex = 0;
@@ -1513,7 +1510,7 @@
             this.button_DiagnosticsExposureTimeAndGainSet.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsExposureTimeAndGainSet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsExposureTimeAndGainSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsExposureTimeAndGainSet.Location = new System.Drawing.Point(555, 99);
+            this.button_DiagnosticsExposureTimeAndGainSet.Location = new System.Drawing.Point(633, 85);
             this.button_DiagnosticsExposureTimeAndGainSet.Name = "button_DiagnosticsExposureTimeAndGainSet";
             this.button_DiagnosticsExposureTimeAndGainSet.Size = new System.Drawing.Size(98, 53);
             this.button_DiagnosticsExposureTimeAndGainSet.TabIndex = 12;
@@ -1560,9 +1557,9 @@
             this.groupBox_DiagnosticsVstupy.Controls.Add(this.label55);
             this.groupBox_DiagnosticsVstupy.Controls.Add(this.label56);
             this.groupBox_DiagnosticsVstupy.Controls.Add(this.label57);
-            this.groupBox_DiagnosticsVstupy.Location = new System.Drawing.Point(206, 169);
+            this.groupBox_DiagnosticsVstupy.Location = new System.Drawing.Point(281, 169);
             this.groupBox_DiagnosticsVstupy.Name = "groupBox_DiagnosticsVstupy";
-            this.groupBox_DiagnosticsVstupy.Size = new System.Drawing.Size(199, 596);
+            this.groupBox_DiagnosticsVstupy.Size = new System.Drawing.Size(241, 596);
             this.groupBox_DiagnosticsVstupy.TabIndex = 12;
             this.groupBox_DiagnosticsVstupy.TabStop = false;
             this.groupBox_DiagnosticsVstupy.Text = "Adam1";
@@ -1572,7 +1569,7 @@
             this.button_DiagnosticsOutput1Adam14.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput1Adam14.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput1Adam14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1Adam14.Location = new System.Drawing.Point(111, 525);
+            this.button_DiagnosticsOutput1Adam14.Location = new System.Drawing.Point(149, 525);
             this.button_DiagnosticsOutput1Adam14.Name = "button_DiagnosticsOutput1Adam14";
             this.button_DiagnosticsOutput1Adam14.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput1Adam14.TabIndex = 12;
@@ -1585,7 +1582,7 @@
             this.button_DiagnosticsOutput1Adam13.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput1Adam13.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput1Adam13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1Adam13.Location = new System.Drawing.Point(111, 490);
+            this.button_DiagnosticsOutput1Adam13.Location = new System.Drawing.Point(149, 490);
             this.button_DiagnosticsOutput1Adam13.Name = "button_DiagnosticsOutput1Adam13";
             this.button_DiagnosticsOutput1Adam13.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput1Adam13.TabIndex = 12;
@@ -1598,7 +1595,7 @@
             this.button_DiagnosticsOutput1Adam12.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput1Adam12.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput1Adam12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1Adam12.Location = new System.Drawing.Point(111, 455);
+            this.button_DiagnosticsOutput1Adam12.Location = new System.Drawing.Point(149, 455);
             this.button_DiagnosticsOutput1Adam12.Name = "button_DiagnosticsOutput1Adam12";
             this.button_DiagnosticsOutput1Adam12.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput1Adam12.TabIndex = 12;
@@ -1609,7 +1606,7 @@
             // pictureBox_DiagnosticsOutput1Adam10
             // 
             this.pictureBox_DiagnosticsOutput1Adam10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1Adam10.Image")));
-            this.pictureBox_DiagnosticsOutput1Adam10.Location = new System.Drawing.Point(55, 385);
+            this.pictureBox_DiagnosticsOutput1Adam10.Location = new System.Drawing.Point(93, 385);
             this.pictureBox_DiagnosticsOutput1Adam10.Name = "pictureBox_DiagnosticsOutput1Adam10";
             this.pictureBox_DiagnosticsOutput1Adam10.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1Adam10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1619,7 +1616,7 @@
             // pictureBox_DiagnosticsOutput1Adam9
             // 
             this.pictureBox_DiagnosticsOutput1Adam9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1Adam9.Image")));
-            this.pictureBox_DiagnosticsOutput1Adam9.Location = new System.Drawing.Point(55, 352);
+            this.pictureBox_DiagnosticsOutput1Adam9.Location = new System.Drawing.Point(93, 352);
             this.pictureBox_DiagnosticsOutput1Adam9.Name = "pictureBox_DiagnosticsOutput1Adam9";
             this.pictureBox_DiagnosticsOutput1Adam9.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1Adam9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1640,7 +1637,7 @@
             this.button_DiagnosticsOutput1Adam11.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput1Adam11.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput1Adam11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1Adam11.Location = new System.Drawing.Point(111, 420);
+            this.button_DiagnosticsOutput1Adam11.Location = new System.Drawing.Point(149, 420);
             this.button_DiagnosticsOutput1Adam11.Name = "button_DiagnosticsOutput1Adam11";
             this.button_DiagnosticsOutput1Adam11.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput1Adam11.TabIndex = 12;
@@ -1651,7 +1648,7 @@
             // pictureBox_DiagnosticsInput1Adam6
             // 
             this.pictureBox_DiagnosticsInput1Adam6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam6.Image")));
-            this.pictureBox_DiagnosticsInput1Adam6.Location = new System.Drawing.Point(55, 246);
+            this.pictureBox_DiagnosticsInput1Adam6.Location = new System.Drawing.Point(93, 246);
             this.pictureBox_DiagnosticsInput1Adam6.Name = "pictureBox_DiagnosticsInput1Adam6";
             this.pictureBox_DiagnosticsInput1Adam6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1663,7 +1660,7 @@
             this.button_DiagnosticsOutput1Adam10.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput1Adam10.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput1Adam10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1Adam10.Location = new System.Drawing.Point(111, 385);
+            this.button_DiagnosticsOutput1Adam10.Location = new System.Drawing.Point(149, 385);
             this.button_DiagnosticsOutput1Adam10.Name = "button_DiagnosticsOutput1Adam10";
             this.button_DiagnosticsOutput1Adam10.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput1Adam10.TabIndex = 12;
@@ -1674,7 +1671,7 @@
             // pictureBox_DiagnosticsInput1Adam3
             // 
             this.pictureBox_DiagnosticsInput1Adam3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam3.Image")));
-            this.pictureBox_DiagnosticsInput1Adam3.Location = new System.Drawing.Point(55, 142);
+            this.pictureBox_DiagnosticsInput1Adam3.Location = new System.Drawing.Point(93, 142);
             this.pictureBox_DiagnosticsInput1Adam3.Name = "pictureBox_DiagnosticsInput1Adam3";
             this.pictureBox_DiagnosticsInput1Adam3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1684,7 +1681,7 @@
             // pictureBox_DiagnosticsInput1Adam0
             // 
             this.pictureBox_DiagnosticsInput1Adam0.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam0.Image")));
-            this.pictureBox_DiagnosticsInput1Adam0.Location = new System.Drawing.Point(55, 37);
+            this.pictureBox_DiagnosticsInput1Adam0.Location = new System.Drawing.Point(93, 37);
             this.pictureBox_DiagnosticsInput1Adam0.Name = "pictureBox_DiagnosticsInput1Adam0";
             this.pictureBox_DiagnosticsInput1Adam0.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1696,7 +1693,7 @@
             this.button_DiagnosticsOutput1Adam9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput1Adam9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput1Adam9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1Adam9.Location = new System.Drawing.Point(111, 350);
+            this.button_DiagnosticsOutput1Adam9.Location = new System.Drawing.Point(149, 350);
             this.button_DiagnosticsOutput1Adam9.Name = "button_DiagnosticsOutput1Adam9";
             this.button_DiagnosticsOutput1Adam9.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput1Adam9.TabIndex = 12;
@@ -1707,7 +1704,7 @@
             // pictureBox_DiagnosticsInput1Adam7
             // 
             this.pictureBox_DiagnosticsInput1Adam7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam7.Image")));
-            this.pictureBox_DiagnosticsInput1Adam7.Location = new System.Drawing.Point(55, 281);
+            this.pictureBox_DiagnosticsInput1Adam7.Location = new System.Drawing.Point(93, 281);
             this.pictureBox_DiagnosticsInput1Adam7.Name = "pictureBox_DiagnosticsInput1Adam7";
             this.pictureBox_DiagnosticsInput1Adam7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1719,7 +1716,7 @@
             this.button_DiagnosticsOutput1Adam8.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput1Adam8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput1Adam8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput1Adam8.Location = new System.Drawing.Point(111, 316);
+            this.button_DiagnosticsOutput1Adam8.Location = new System.Drawing.Point(149, 316);
             this.button_DiagnosticsOutput1Adam8.Name = "button_DiagnosticsOutput1Adam8";
             this.button_DiagnosticsOutput1Adam8.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput1Adam8.TabIndex = 12;
@@ -1730,7 +1727,7 @@
             // pictureBox_DiagnosticsInput1Adam5
             // 
             this.pictureBox_DiagnosticsInput1Adam5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam5.Image")));
-            this.pictureBox_DiagnosticsInput1Adam5.Location = new System.Drawing.Point(55, 212);
+            this.pictureBox_DiagnosticsInput1Adam5.Location = new System.Drawing.Point(93, 212);
             this.pictureBox_DiagnosticsInput1Adam5.Name = "pictureBox_DiagnosticsInput1Adam5";
             this.pictureBox_DiagnosticsInput1Adam5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1740,7 +1737,7 @@
             // pictureBox_DiagnosticsInput1Adam4
             // 
             this.pictureBox_DiagnosticsInput1Adam4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam4.Image")));
-            this.pictureBox_DiagnosticsInput1Adam4.Location = new System.Drawing.Point(55, 177);
+            this.pictureBox_DiagnosticsInput1Adam4.Location = new System.Drawing.Point(93, 177);
             this.pictureBox_DiagnosticsInput1Adam4.Name = "pictureBox_DiagnosticsInput1Adam4";
             this.pictureBox_DiagnosticsInput1Adam4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1750,7 +1747,7 @@
             // pictureBox_DiagnosticsInput1Adam2
             // 
             this.pictureBox_DiagnosticsInput1Adam2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam2.Image")));
-            this.pictureBox_DiagnosticsInput1Adam2.Location = new System.Drawing.Point(55, 107);
+            this.pictureBox_DiagnosticsInput1Adam2.Location = new System.Drawing.Point(93, 107);
             this.pictureBox_DiagnosticsInput1Adam2.Name = "pictureBox_DiagnosticsInput1Adam2";
             this.pictureBox_DiagnosticsInput1Adam2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1760,7 +1757,7 @@
             // pictureBox_DiagnosticsOutput1Adam14
             // 
             this.pictureBox_DiagnosticsOutput1Adam14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1Adam14.Image")));
-            this.pictureBox_DiagnosticsOutput1Adam14.Location = new System.Drawing.Point(55, 525);
+            this.pictureBox_DiagnosticsOutput1Adam14.Location = new System.Drawing.Point(93, 525);
             this.pictureBox_DiagnosticsOutput1Adam14.Name = "pictureBox_DiagnosticsOutput1Adam14";
             this.pictureBox_DiagnosticsOutput1Adam14.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1Adam14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1770,7 +1767,7 @@
             // pictureBox_DiagnosticsInput1Adam1
             // 
             this.pictureBox_DiagnosticsInput1Adam1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsInput1Adam1.Image")));
-            this.pictureBox_DiagnosticsInput1Adam1.Location = new System.Drawing.Point(55, 72);
+            this.pictureBox_DiagnosticsInput1Adam1.Location = new System.Drawing.Point(93, 72);
             this.pictureBox_DiagnosticsInput1Adam1.Name = "pictureBox_DiagnosticsInput1Adam1";
             this.pictureBox_DiagnosticsInput1Adam1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsInput1Adam1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1780,7 +1777,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 42);
+            this.label8.Location = new System.Drawing.Point(4, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 0;
@@ -1789,7 +1786,7 @@
             // pictureBox_DiagnosticsOutput1Adam11
             // 
             this.pictureBox_DiagnosticsOutput1Adam11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1Adam11.Image")));
-            this.pictureBox_DiagnosticsOutput1Adam11.Location = new System.Drawing.Point(55, 420);
+            this.pictureBox_DiagnosticsOutput1Adam11.Location = new System.Drawing.Point(93, 420);
             this.pictureBox_DiagnosticsOutput1Adam11.Name = "pictureBox_DiagnosticsOutput1Adam11";
             this.pictureBox_DiagnosticsOutput1Adam11.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1Adam11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1799,7 +1796,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(11, 286);
+            this.label40.Location = new System.Drawing.Point(4, 286);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(48, 20);
             this.label40.TabIndex = 0;
@@ -1808,7 +1805,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(11, 182);
+            this.label43.Location = new System.Drawing.Point(4, 182);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(48, 20);
             this.label43.TabIndex = 0;
@@ -1817,7 +1814,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(11, 251);
+            this.label45.Location = new System.Drawing.Point(4, 251);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(48, 20);
             this.label45.TabIndex = 0;
@@ -1826,7 +1823,7 @@
             // pictureBox_DiagnosticsOutput1Adam8
             // 
             this.pictureBox_DiagnosticsOutput1Adam8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1Adam8.Image")));
-            this.pictureBox_DiagnosticsOutput1Adam8.Location = new System.Drawing.Point(55, 316);
+            this.pictureBox_DiagnosticsOutput1Adam8.Location = new System.Drawing.Point(93, 316);
             this.pictureBox_DiagnosticsOutput1Adam8.Name = "pictureBox_DiagnosticsOutput1Adam8";
             this.pictureBox_DiagnosticsOutput1Adam8.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1Adam8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1836,7 +1833,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(11, 147);
+            this.label47.Location = new System.Drawing.Point(4, 147);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(48, 20);
             this.label47.TabIndex = 0;
@@ -1845,7 +1842,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(11, 217);
+            this.label49.Location = new System.Drawing.Point(4, 217);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(48, 20);
             this.label49.TabIndex = 0;
@@ -1854,7 +1851,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(11, 112);
+            this.label51.Location = new System.Drawing.Point(4, 112);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(48, 20);
             this.label51.TabIndex = 0;
@@ -1863,7 +1860,7 @@
             // pictureBox_DiagnosticsOutput1Adam13
             // 
             this.pictureBox_DiagnosticsOutput1Adam13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1Adam13.Image")));
-            this.pictureBox_DiagnosticsOutput1Adam13.Location = new System.Drawing.Point(55, 490);
+            this.pictureBox_DiagnosticsOutput1Adam13.Location = new System.Drawing.Point(93, 490);
             this.pictureBox_DiagnosticsOutput1Adam13.Name = "pictureBox_DiagnosticsOutput1Adam13";
             this.pictureBox_DiagnosticsOutput1Adam13.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1Adam13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1873,7 +1870,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(11, 77);
+            this.label52.Location = new System.Drawing.Point(4, 77);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(48, 20);
             this.label52.TabIndex = 0;
@@ -1882,7 +1879,7 @@
             // pictureBox_DiagnosticsOutput1Adam12
             // 
             this.pictureBox_DiagnosticsOutput1Adam12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput1Adam12.Image")));
-            this.pictureBox_DiagnosticsOutput1Adam12.Location = new System.Drawing.Point(55, 455);
+            this.pictureBox_DiagnosticsOutput1Adam12.Location = new System.Drawing.Point(93, 455);
             this.pictureBox_DiagnosticsOutput1Adam12.Name = "pictureBox_DiagnosticsOutput1Adam12";
             this.pictureBox_DiagnosticsOutput1Adam12.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput1Adam12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1912,9 +1909,9 @@
             this.label54.AutoSize = true;
             this.label54.Location = new System.Drawing.Point(4, 425);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(55, 20);
+            this.label54.Size = new System.Drawing.Size(66, 20);
             this.label54.TabIndex = 0;
-            this.label54.Text = "DO11:";
+            this.label54.Text = "Laser 1:";
             // 
             // label55
             // 
@@ -1930,9 +1927,9 @@
             this.label56.AutoSize = true;
             this.label56.Location = new System.Drawing.Point(4, 460);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(55, 20);
+            this.label56.Size = new System.Drawing.Size(66, 20);
             this.label56.TabIndex = 0;
-            this.label56.Text = "DO12:";
+            this.label56.Text = "Laser 2:";
             // 
             // label57
             // 
@@ -1946,10 +1943,11 @@
             // groupBox_DiagnosticsVykres
             // 
             this.groupBox_DiagnosticsVykres.Controls.Add(this.Hwindow_Diagnostika);
-            this.groupBox_DiagnosticsVykres.Location = new System.Drawing.Point(662, 3);
+            this.groupBox_DiagnosticsVykres.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox_DiagnosticsVykres.Location = new System.Drawing.Point(746, 0);
             this.groupBox_DiagnosticsVykres.Name = "groupBox_DiagnosticsVykres";
             this.groupBox_DiagnosticsVykres.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox_DiagnosticsVykres.Size = new System.Drawing.Size(1124, 956);
+            this.groupBox_DiagnosticsVykres.Size = new System.Drawing.Size(1046, 944);
             this.groupBox_DiagnosticsVykres.TabIndex = 5;
             this.groupBox_DiagnosticsVykres.TabStop = false;
             this.groupBox_DiagnosticsVykres.Text = "Výkres";
@@ -1970,9 +1968,9 @@
             this.Hwindow_Diagnostika.Location = new System.Drawing.Point(0, 19);
             this.Hwindow_Diagnostika.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_Diagnostika.Name = "Hwindow_Diagnostika";
-            this.Hwindow_Diagnostika.Size = new System.Drawing.Size(1124, 937);
+            this.Hwindow_Diagnostika.Size = new System.Drawing.Size(1046, 925);
             this.Hwindow_Diagnostika.TabIndex = 4;
-            this.Hwindow_Diagnostika.WindowSize = new System.Drawing.Size(1124, 937);
+            this.Hwindow_Diagnostika.WindowSize = new System.Drawing.Size(1046, 925);
             // 
             // groupBox_DiagnosticsOutputs
             // 
@@ -2026,7 +2024,7 @@
             this.groupBox_DiagnosticsOutputs.Controls.Add(this.label19);
             this.groupBox_DiagnosticsOutputs.Location = new System.Drawing.Point(3, 169);
             this.groupBox_DiagnosticsOutputs.Name = "groupBox_DiagnosticsOutputs";
-            this.groupBox_DiagnosticsOutputs.Size = new System.Drawing.Size(197, 596);
+            this.groupBox_DiagnosticsOutputs.Size = new System.Drawing.Size(272, 596);
             this.groupBox_DiagnosticsOutputs.TabIndex = 3;
             this.groupBox_DiagnosticsOutputs.TabStop = false;
             this.groupBox_DiagnosticsOutputs.Text = "Adam2";
@@ -2036,7 +2034,7 @@
             this.button_DiagnosticsOutput2Adam15.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam15.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam15.Location = new System.Drawing.Point(109, 560);
+            this.button_DiagnosticsOutput2Adam15.Location = new System.Drawing.Point(180, 560);
             this.button_DiagnosticsOutput2Adam15.Name = "button_DiagnosticsOutput2Adam15";
             this.button_DiagnosticsOutput2Adam15.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam15.TabIndex = 12;
@@ -2049,7 +2047,7 @@
             this.button_DiagnosticsOutput2Adam7.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam7.Location = new System.Drawing.Point(109, 281);
+            this.button_DiagnosticsOutput2Adam7.Location = new System.Drawing.Point(180, 281);
             this.button_DiagnosticsOutput2Adam7.Name = "button_DiagnosticsOutput2Adam7";
             this.button_DiagnosticsOutput2Adam7.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam7.TabIndex = 12;
@@ -2062,7 +2060,7 @@
             this.button_DiagnosticsOutput2Adam14.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam14.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam14.Location = new System.Drawing.Point(109, 525);
+            this.button_DiagnosticsOutput2Adam14.Location = new System.Drawing.Point(180, 525);
             this.button_DiagnosticsOutput2Adam14.Name = "button_DiagnosticsOutput2Adam14";
             this.button_DiagnosticsOutput2Adam14.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam14.TabIndex = 12;
@@ -2075,7 +2073,7 @@
             this.button_DiagnosticsOutput2Adam6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam6.Location = new System.Drawing.Point(109, 246);
+            this.button_DiagnosticsOutput2Adam6.Location = new System.Drawing.Point(180, 246);
             this.button_DiagnosticsOutput2Adam6.Name = "button_DiagnosticsOutput2Adam6";
             this.button_DiagnosticsOutput2Adam6.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam6.TabIndex = 12;
@@ -2088,7 +2086,7 @@
             this.button_DiagnosticsOutput2Adam13.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam13.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam13.Location = new System.Drawing.Point(109, 490);
+            this.button_DiagnosticsOutput2Adam13.Location = new System.Drawing.Point(180, 490);
             this.button_DiagnosticsOutput2Adam13.Name = "button_DiagnosticsOutput2Adam13";
             this.button_DiagnosticsOutput2Adam13.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam13.TabIndex = 12;
@@ -2101,7 +2099,7 @@
             this.button_DiagnosticsOutput2Adam5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam5.Location = new System.Drawing.Point(109, 212);
+            this.button_DiagnosticsOutput2Adam5.Location = new System.Drawing.Point(180, 212);
             this.button_DiagnosticsOutput2Adam5.Name = "button_DiagnosticsOutput2Adam5";
             this.button_DiagnosticsOutput2Adam5.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam5.TabIndex = 12;
@@ -2114,7 +2112,7 @@
             this.button_DiagnosticsOutput2Adam12.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam12.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam12.Location = new System.Drawing.Point(109, 455);
+            this.button_DiagnosticsOutput2Adam12.Location = new System.Drawing.Point(180, 455);
             this.button_DiagnosticsOutput2Adam12.Name = "button_DiagnosticsOutput2Adam12";
             this.button_DiagnosticsOutput2Adam12.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam12.TabIndex = 12;
@@ -2127,7 +2125,7 @@
             this.button_DiagnosticsOutput2Adam4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam4.Location = new System.Drawing.Point(109, 177);
+            this.button_DiagnosticsOutput2Adam4.Location = new System.Drawing.Point(180, 177);
             this.button_DiagnosticsOutput2Adam4.Name = "button_DiagnosticsOutput2Adam4";
             this.button_DiagnosticsOutput2Adam4.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam4.TabIndex = 12;
@@ -2140,7 +2138,7 @@
             this.button_DiagnosticsOutput2Adam11.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam11.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam11.Location = new System.Drawing.Point(109, 420);
+            this.button_DiagnosticsOutput2Adam11.Location = new System.Drawing.Point(180, 420);
             this.button_DiagnosticsOutput2Adam11.Name = "button_DiagnosticsOutput2Adam11";
             this.button_DiagnosticsOutput2Adam11.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam11.TabIndex = 12;
@@ -2153,7 +2151,7 @@
             this.button_DiagnosticsOutput2Adam3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam3.Location = new System.Drawing.Point(109, 142);
+            this.button_DiagnosticsOutput2Adam3.Location = new System.Drawing.Point(180, 142);
             this.button_DiagnosticsOutput2Adam3.Name = "button_DiagnosticsOutput2Adam3";
             this.button_DiagnosticsOutput2Adam3.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam3.TabIndex = 12;
@@ -2166,7 +2164,7 @@
             this.button_DiagnosticsOutput2Adam10.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam10.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam10.Location = new System.Drawing.Point(109, 385);
+            this.button_DiagnosticsOutput2Adam10.Location = new System.Drawing.Point(180, 385);
             this.button_DiagnosticsOutput2Adam10.Name = "button_DiagnosticsOutput2Adam10";
             this.button_DiagnosticsOutput2Adam10.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam10.TabIndex = 12;
@@ -2179,7 +2177,7 @@
             this.button_DiagnosticsOutput2Adam2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam2.Location = new System.Drawing.Point(109, 107);
+            this.button_DiagnosticsOutput2Adam2.Location = new System.Drawing.Point(180, 107);
             this.button_DiagnosticsOutput2Adam2.Name = "button_DiagnosticsOutput2Adam2";
             this.button_DiagnosticsOutput2Adam2.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam2.TabIndex = 12;
@@ -2192,7 +2190,7 @@
             this.button_DiagnosticsOutput2Adam9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam9.Location = new System.Drawing.Point(109, 350);
+            this.button_DiagnosticsOutput2Adam9.Location = new System.Drawing.Point(180, 350);
             this.button_DiagnosticsOutput2Adam9.Name = "button_DiagnosticsOutput2Adam9";
             this.button_DiagnosticsOutput2Adam9.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam9.TabIndex = 12;
@@ -2205,7 +2203,7 @@
             this.button_DiagnosticsOutput2Adam8.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam8.Location = new System.Drawing.Point(109, 316);
+            this.button_DiagnosticsOutput2Adam8.Location = new System.Drawing.Point(180, 316);
             this.button_DiagnosticsOutput2Adam8.Name = "button_DiagnosticsOutput2Adam8";
             this.button_DiagnosticsOutput2Adam8.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam8.TabIndex = 12;
@@ -2218,7 +2216,7 @@
             this.button_DiagnosticsOutput2Adam1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam1.Location = new System.Drawing.Point(109, 72);
+            this.button_DiagnosticsOutput2Adam1.Location = new System.Drawing.Point(180, 72);
             this.button_DiagnosticsOutput2Adam1.Name = "button_DiagnosticsOutput2Adam1";
             this.button_DiagnosticsOutput2Adam1.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam1.TabIndex = 12;
@@ -2231,7 +2229,7 @@
             this.button_DiagnosticsOutput2Adam0.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button_DiagnosticsOutput2Adam0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_DiagnosticsOutput2Adam0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_DiagnosticsOutput2Adam0.Location = new System.Drawing.Point(109, 37);
+            this.button_DiagnosticsOutput2Adam0.Location = new System.Drawing.Point(180, 37);
             this.button_DiagnosticsOutput2Adam0.Name = "button_DiagnosticsOutput2Adam0";
             this.button_DiagnosticsOutput2Adam0.Size = new System.Drawing.Size(83, 30);
             this.button_DiagnosticsOutput2Adam0.TabIndex = 12;
@@ -2242,7 +2240,7 @@
             // pictureBox_DiagnosticsOutput2Adam14
             // 
             this.pictureBox_DiagnosticsOutput2Adam14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam14.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam14.Location = new System.Drawing.Point(55, 525);
+            this.pictureBox_DiagnosticsOutput2Adam14.Location = new System.Drawing.Point(126, 525);
             this.pictureBox_DiagnosticsOutput2Adam14.Name = "pictureBox_DiagnosticsOutput2Adam14";
             this.pictureBox_DiagnosticsOutput2Adam14.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2252,7 +2250,7 @@
             // pictureBox_DiagnosticsOutput2Adam6
             // 
             this.pictureBox_DiagnosticsOutput2Adam6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam6.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam6.Location = new System.Drawing.Point(55, 246);
+            this.pictureBox_DiagnosticsOutput2Adam6.Location = new System.Drawing.Point(126, 246);
             this.pictureBox_DiagnosticsOutput2Adam6.Name = "pictureBox_DiagnosticsOutput2Adam6";
             this.pictureBox_DiagnosticsOutput2Adam6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2262,7 +2260,7 @@
             // pictureBox_DiagnosticsOutput2Adam11
             // 
             this.pictureBox_DiagnosticsOutput2Adam11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam11.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam11.Location = new System.Drawing.Point(55, 420);
+            this.pictureBox_DiagnosticsOutput2Adam11.Location = new System.Drawing.Point(126, 420);
             this.pictureBox_DiagnosticsOutput2Adam11.Name = "pictureBox_DiagnosticsOutput2Adam11";
             this.pictureBox_DiagnosticsOutput2Adam11.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2272,7 +2270,7 @@
             // pictureBox_DiagnosticsOutput2Adam3
             // 
             this.pictureBox_DiagnosticsOutput2Adam3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam3.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam3.Location = new System.Drawing.Point(55, 142);
+            this.pictureBox_DiagnosticsOutput2Adam3.Location = new System.Drawing.Point(126, 142);
             this.pictureBox_DiagnosticsOutput2Adam3.Name = "pictureBox_DiagnosticsOutput2Adam3";
             this.pictureBox_DiagnosticsOutput2Adam3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2282,7 +2280,7 @@
             // pictureBox_DiagnosticsOutput2Adam0
             // 
             this.pictureBox_DiagnosticsOutput2Adam0.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam0.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam0.Location = new System.Drawing.Point(55, 37);
+            this.pictureBox_DiagnosticsOutput2Adam0.Location = new System.Drawing.Point(126, 37);
             this.pictureBox_DiagnosticsOutput2Adam0.Name = "pictureBox_DiagnosticsOutput2Adam0";
             this.pictureBox_DiagnosticsOutput2Adam0.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2292,7 +2290,7 @@
             // pictureBox_DiagnosticsOutput2Adam8
             // 
             this.pictureBox_DiagnosticsOutput2Adam8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam8.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam8.Location = new System.Drawing.Point(55, 316);
+            this.pictureBox_DiagnosticsOutput2Adam8.Location = new System.Drawing.Point(126, 316);
             this.pictureBox_DiagnosticsOutput2Adam8.Name = "pictureBox_DiagnosticsOutput2Adam8";
             this.pictureBox_DiagnosticsOutput2Adam8.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2302,7 +2300,7 @@
             // pictureBox_DiagnosticsOutput2Adam15
             // 
             this.pictureBox_DiagnosticsOutput2Adam15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam15.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam15.Location = new System.Drawing.Point(55, 560);
+            this.pictureBox_DiagnosticsOutput2Adam15.Location = new System.Drawing.Point(126, 560);
             this.pictureBox_DiagnosticsOutput2Adam15.Name = "pictureBox_DiagnosticsOutput2Adam15";
             this.pictureBox_DiagnosticsOutput2Adam15.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2312,7 +2310,7 @@
             // pictureBox_DiagnosticsOutput2Adam7
             // 
             this.pictureBox_DiagnosticsOutput2Adam7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam7.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam7.Location = new System.Drawing.Point(55, 281);
+            this.pictureBox_DiagnosticsOutput2Adam7.Location = new System.Drawing.Point(126, 281);
             this.pictureBox_DiagnosticsOutput2Adam7.Name = "pictureBox_DiagnosticsOutput2Adam7";
             this.pictureBox_DiagnosticsOutput2Adam7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2322,7 +2320,7 @@
             // pictureBox_DiagnosticsOutput2Adam13
             // 
             this.pictureBox_DiagnosticsOutput2Adam13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam13.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam13.Location = new System.Drawing.Point(55, 490);
+            this.pictureBox_DiagnosticsOutput2Adam13.Location = new System.Drawing.Point(126, 490);
             this.pictureBox_DiagnosticsOutput2Adam13.Name = "pictureBox_DiagnosticsOutput2Adam13";
             this.pictureBox_DiagnosticsOutput2Adam13.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2332,7 +2330,7 @@
             // pictureBox_DiagnosticsOutput2Adam5
             // 
             this.pictureBox_DiagnosticsOutput2Adam5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam5.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam5.Location = new System.Drawing.Point(55, 212);
+            this.pictureBox_DiagnosticsOutput2Adam5.Location = new System.Drawing.Point(126, 212);
             this.pictureBox_DiagnosticsOutput2Adam5.Name = "pictureBox_DiagnosticsOutput2Adam5";
             this.pictureBox_DiagnosticsOutput2Adam5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2342,7 +2340,7 @@
             // pictureBox_DiagnosticsOutput2Adam12
             // 
             this.pictureBox_DiagnosticsOutput2Adam12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam12.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam12.Location = new System.Drawing.Point(55, 455);
+            this.pictureBox_DiagnosticsOutput2Adam12.Location = new System.Drawing.Point(126, 455);
             this.pictureBox_DiagnosticsOutput2Adam12.Name = "pictureBox_DiagnosticsOutput2Adam12";
             this.pictureBox_DiagnosticsOutput2Adam12.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2352,7 +2350,7 @@
             // pictureBox_DiagnosticsOutput2Adam4
             // 
             this.pictureBox_DiagnosticsOutput2Adam4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam4.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam4.Location = new System.Drawing.Point(55, 177);
+            this.pictureBox_DiagnosticsOutput2Adam4.Location = new System.Drawing.Point(126, 177);
             this.pictureBox_DiagnosticsOutput2Adam4.Name = "pictureBox_DiagnosticsOutput2Adam4";
             this.pictureBox_DiagnosticsOutput2Adam4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2362,7 +2360,7 @@
             // pictureBox_DiagnosticsOutput2Adam10
             // 
             this.pictureBox_DiagnosticsOutput2Adam10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam10.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam10.Location = new System.Drawing.Point(55, 385);
+            this.pictureBox_DiagnosticsOutput2Adam10.Location = new System.Drawing.Point(126, 385);
             this.pictureBox_DiagnosticsOutput2Adam10.Name = "pictureBox_DiagnosticsOutput2Adam10";
             this.pictureBox_DiagnosticsOutput2Adam10.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2372,7 +2370,7 @@
             // pictureBox_DiagnosticsOutput2Adam2
             // 
             this.pictureBox_DiagnosticsOutput2Adam2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam2.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam2.Location = new System.Drawing.Point(55, 107);
+            this.pictureBox_DiagnosticsOutput2Adam2.Location = new System.Drawing.Point(126, 107);
             this.pictureBox_DiagnosticsOutput2Adam2.Name = "pictureBox_DiagnosticsOutput2Adam2";
             this.pictureBox_DiagnosticsOutput2Adam2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2382,7 +2380,7 @@
             // pictureBox_DiagnosticsOutput2Adam9
             // 
             this.pictureBox_DiagnosticsOutput2Adam9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam9.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam9.Location = new System.Drawing.Point(55, 350);
+            this.pictureBox_DiagnosticsOutput2Adam9.Location = new System.Drawing.Point(126, 350);
             this.pictureBox_DiagnosticsOutput2Adam9.Name = "pictureBox_DiagnosticsOutput2Adam9";
             this.pictureBox_DiagnosticsOutput2Adam9.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2392,7 +2390,7 @@
             // pictureBox_DiagnosticsOutput2Adam1
             // 
             this.pictureBox_DiagnosticsOutput2Adam1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_DiagnosticsOutput2Adam1.Image")));
-            this.pictureBox_DiagnosticsOutput2Adam1.Location = new System.Drawing.Point(55, 72);
+            this.pictureBox_DiagnosticsOutput2Adam1.Location = new System.Drawing.Point(126, 72);
             this.pictureBox_DiagnosticsOutput2Adam1.Name = "pictureBox_DiagnosticsOutput2Adam1";
             this.pictureBox_DiagnosticsOutput2Adam1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_DiagnosticsOutput2Adam1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2404,18 +2402,18 @@
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(4, 42);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(55, 20);
+            this.label37.Size = new System.Drawing.Size(88, 20);
             this.label37.TabIndex = 0;
-            this.label37.Text = "DO00:";
+            this.label37.Text = "Back Light:";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(5, 321);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(55, 20);
+            this.label29.Size = new System.Drawing.Size(95, 20);
             this.label29.TabIndex = 0;
-            this.label29.Text = "DO08:";
+            this.label29.Text = "Air blower 3:";
             // 
             // label36
             // 
@@ -2431,9 +2429,9 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(5, 286);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(55, 20);
+            this.label28.Size = new System.Drawing.Size(95, 20);
             this.label28.TabIndex = 0;
-            this.label28.Text = "DO07:";
+            this.label28.Text = "Air blower 2:";
             // 
             // label35
             // 
@@ -2458,9 +2456,9 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(5, 182);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(55, 20);
+            this.label24.Size = new System.Drawing.Size(117, 20);
             this.label24.TabIndex = 0;
-            this.label24.Text = "DO04:";
+            this.label24.Text = "Bottom Light 1:";
             // 
             // label33
             // 
@@ -2476,9 +2474,9 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(5, 251);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(55, 20);
+            this.label27.Size = new System.Drawing.Size(95, 20);
             this.label27.TabIndex = 0;
-            this.label27.Text = "DO06:";
+            this.label27.Text = "Air blower 1:";
             // 
             // label32
             // 
@@ -2494,9 +2492,9 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(5, 147);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 20);
+            this.label22.Size = new System.Drawing.Size(117, 20);
             this.label22.TabIndex = 0;
-            this.label22.Text = "DO03:";
+            this.label22.Text = "Bottom Light 2:";
             // 
             // label31
             // 
@@ -2512,36 +2510,36 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(5, 217);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(55, 20);
+            this.label26.Size = new System.Drawing.Size(90, 20);
             this.label26.TabIndex = 0;
-            this.label26.Text = "DO05:";
+            this.label26.Text = "Front Light:";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(4, 355);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(55, 20);
+            this.label30.Size = new System.Drawing.Size(92, 20);
             this.label30.TabIndex = 0;
-            this.label30.Text = "DO09:";
+            this.label30.Text = "Side Lights:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(5, 112);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(55, 20);
+            this.label18.Size = new System.Drawing.Size(105, 20);
             this.label18.TabIndex = 0;
-            this.label18.Text = "DO02:";
+            this.label18.Text = "Upper Light1:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(5, 77);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 20);
+            this.label19.Size = new System.Drawing.Size(105, 20);
             this.label19.TabIndex = 0;
-            this.label19.Text = "DO01:";
+            this.label19.Text = "Upper Light2:";
             // 
             // groupBox_DiagnosticsCamInfo
             // 
@@ -2574,9 +2572,9 @@
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label20);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label11);
             this.groupBox_DiagnosticsCamInfo.Controls.Add(this.label13);
-            this.groupBox_DiagnosticsCamInfo.Location = new System.Drawing.Point(411, 169);
+            this.groupBox_DiagnosticsCamInfo.Location = new System.Drawing.Point(528, 169);
             this.groupBox_DiagnosticsCamInfo.Name = "groupBox_DiagnosticsCamInfo";
-            this.groupBox_DiagnosticsCamInfo.Size = new System.Drawing.Size(245, 596);
+            this.groupBox_DiagnosticsCamInfo.Size = new System.Drawing.Size(212, 596);
             this.groupBox_DiagnosticsCamInfo.TabIndex = 0;
             this.groupBox_DiagnosticsCamInfo.TabStop = false;
             this.groupBox_DiagnosticsCamInfo.Text = "Kamery";
@@ -2584,7 +2582,7 @@
             // pictureBox_CamInfo1
             // 
             this.pictureBox_CamInfo1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo1.Image")));
-            this.pictureBox_CamInfo1.Location = new System.Drawing.Point(141, 37);
+            this.pictureBox_CamInfo1.Location = new System.Drawing.Point(141, 36);
             this.pictureBox_CamInfo1.Name = "pictureBox_CamInfo1";
             this.pictureBox_CamInfo1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2593,8 +2591,8 @@
             // 
             // pictureBox_CamInfo2
             // 
-            this.pictureBox_CamInfo2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo2.Image")));
-            this.pictureBox_CamInfo2.Location = new System.Drawing.Point(141, 72);
+            this.pictureBox_CamInfo2.Image = global::IkeaUI.Properties.Resources.gray;
+            this.pictureBox_CamInfo2.Location = new System.Drawing.Point(141, 71);
             this.pictureBox_CamInfo2.Name = "pictureBox_CamInfo2";
             this.pictureBox_CamInfo2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2604,7 +2602,7 @@
             // pictureBox_CamInfo3
             // 
             this.pictureBox_CamInfo3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo3.Image")));
-            this.pictureBox_CamInfo3.Location = new System.Drawing.Point(141, 107);
+            this.pictureBox_CamInfo3.Location = new System.Drawing.Point(141, 106);
             this.pictureBox_CamInfo3.Name = "pictureBox_CamInfo3";
             this.pictureBox_CamInfo3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2614,7 +2612,7 @@
             // pictureBox_CamInfo4
             // 
             this.pictureBox_CamInfo4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo4.Image")));
-            this.pictureBox_CamInfo4.Location = new System.Drawing.Point(141, 142);
+            this.pictureBox_CamInfo4.Location = new System.Drawing.Point(141, 141);
             this.pictureBox_CamInfo4.Name = "pictureBox_CamInfo4";
             this.pictureBox_CamInfo4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2624,7 +2622,7 @@
             // pictureBox_CamInfo5
             // 
             this.pictureBox_CamInfo5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo5.Image")));
-            this.pictureBox_CamInfo5.Location = new System.Drawing.Point(141, 177);
+            this.pictureBox_CamInfo5.Location = new System.Drawing.Point(141, 176);
             this.pictureBox_CamInfo5.Name = "pictureBox_CamInfo5";
             this.pictureBox_CamInfo5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2634,7 +2632,7 @@
             // pictureBox_CamInfo6
             // 
             this.pictureBox_CamInfo6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo6.Image")));
-            this.pictureBox_CamInfo6.Location = new System.Drawing.Point(141, 212);
+            this.pictureBox_CamInfo6.Location = new System.Drawing.Point(141, 211);
             this.pictureBox_CamInfo6.Name = "pictureBox_CamInfo6";
             this.pictureBox_CamInfo6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2644,7 +2642,7 @@
             // pictureBox_CamInfo7
             // 
             this.pictureBox_CamInfo7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo7.Image")));
-            this.pictureBox_CamInfo7.Location = new System.Drawing.Point(141, 247);
+            this.pictureBox_CamInfo7.Location = new System.Drawing.Point(141, 246);
             this.pictureBox_CamInfo7.Name = "pictureBox_CamInfo7";
             this.pictureBox_CamInfo7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2654,7 +2652,7 @@
             // pictureBox_CamInfo8
             // 
             this.pictureBox_CamInfo8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo8.Image")));
-            this.pictureBox_CamInfo8.Location = new System.Drawing.Point(141, 283);
+            this.pictureBox_CamInfo8.Location = new System.Drawing.Point(141, 282);
             this.pictureBox_CamInfo8.Name = "pictureBox_CamInfo8";
             this.pictureBox_CamInfo8.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2664,7 +2662,7 @@
             // pictureBox_CamInfo9
             // 
             this.pictureBox_CamInfo9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo9.Image")));
-            this.pictureBox_CamInfo9.Location = new System.Drawing.Point(141, 317);
+            this.pictureBox_CamInfo9.Location = new System.Drawing.Point(141, 316);
             this.pictureBox_CamInfo9.Name = "pictureBox_CamInfo9";
             this.pictureBox_CamInfo9.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2674,7 +2672,7 @@
             // pictureBox_CamInfo10
             // 
             this.pictureBox_CamInfo10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo10.Image")));
-            this.pictureBox_CamInfo10.Location = new System.Drawing.Point(141, 352);
+            this.pictureBox_CamInfo10.Location = new System.Drawing.Point(141, 351);
             this.pictureBox_CamInfo10.Name = "pictureBox_CamInfo10";
             this.pictureBox_CamInfo10.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2684,7 +2682,7 @@
             // pictureBox_CamInfo11
             // 
             this.pictureBox_CamInfo11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo11.Image")));
-            this.pictureBox_CamInfo11.Location = new System.Drawing.Point(141, 387);
+            this.pictureBox_CamInfo11.Location = new System.Drawing.Point(141, 386);
             this.pictureBox_CamInfo11.Name = "pictureBox_CamInfo11";
             this.pictureBox_CamInfo11.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2694,7 +2692,7 @@
             // pictureBox_CamInfo12
             // 
             this.pictureBox_CamInfo12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo12.Image")));
-            this.pictureBox_CamInfo12.Location = new System.Drawing.Point(141, 422);
+            this.pictureBox_CamInfo12.Location = new System.Drawing.Point(141, 421);
             this.pictureBox_CamInfo12.Name = "pictureBox_CamInfo12";
             this.pictureBox_CamInfo12.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2704,7 +2702,7 @@
             // pictureBox_CamInfo13
             // 
             this.pictureBox_CamInfo13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo13.Image")));
-            this.pictureBox_CamInfo13.Location = new System.Drawing.Point(141, 458);
+            this.pictureBox_CamInfo13.Location = new System.Drawing.Point(141, 457);
             this.pictureBox_CamInfo13.Name = "pictureBox_CamInfo13";
             this.pictureBox_CamInfo13.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2714,7 +2712,7 @@
             // pictureBox_CamInfo14
             // 
             this.pictureBox_CamInfo14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_CamInfo14.Image")));
-            this.pictureBox_CamInfo14.Location = new System.Drawing.Point(141, 493);
+            this.pictureBox_CamInfo14.Location = new System.Drawing.Point(141, 492);
             this.pictureBox_CamInfo14.Name = "pictureBox_CamInfo14";
             this.pictureBox_CamInfo14.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_CamInfo14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2724,128 +2722,128 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(46, 464);
+            this.label12.Location = new System.Drawing.Point(12, 464);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 20);
+            this.label12.Size = new System.Drawing.Size(114, 20);
             this.label12.TabIndex = 3;
-            this.label12.Text = "Cam13:";
+            this.label12.Text = "Cam13ArBotL:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(46, 498);
+            this.label10.Location = new System.Drawing.Point(12, 498);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 20);
+            this.label10.Size = new System.Drawing.Size(117, 20);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Cam14:";
+            this.label10.Text = "Cam14ArBotR:";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(46, 427);
+            this.label25.Location = new System.Drawing.Point(12, 427);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(64, 20);
+            this.label25.Size = new System.Drawing.Size(119, 20);
             this.label25.TabIndex = 0;
-            this.label25.Text = "Cam12:";
+            this.label25.Text = "Cam12ArTopR:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(46, 288);
+            this.label17.Location = new System.Drawing.Point(12, 288);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 20);
+            this.label17.Size = new System.Drawing.Size(121, 20);
             this.label17.TabIndex = 0;
-            this.label17.Text = "Cam8:";
+            this.label17.Text = "Cam8ArFrontR:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(46, 147);
+            this.label9.Location = new System.Drawing.Point(12, 147);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 20);
+            this.label9.Size = new System.Drawing.Size(109, 20);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Cam4:";
+            this.label9.Text = "Cam4LsBotR:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(46, 112);
+            this.label7.Location = new System.Drawing.Point(12, 112);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 20);
+            this.label7.Size = new System.Drawing.Size(106, 20);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Cam3:";
+            this.label7.Text = "Cam3LsBotL:";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(46, 392);
+            this.label23.Location = new System.Drawing.Point(12, 392);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(64, 20);
+            this.label23.Size = new System.Drawing.Size(112, 20);
             this.label23.TabIndex = 0;
-            this.label23.Text = "Cam11:";
+            this.label23.Text = "Cam11ArTopL";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(46, 252);
+            this.label15.Location = new System.Drawing.Point(12, 252);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 20);
+            this.label15.Size = new System.Drawing.Size(118, 20);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Cam7:";
+            this.label15.Text = "Cam7ArFrontL:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 77);
+            this.label5.Location = new System.Drawing.Point(12, 77);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 20);
+            this.label5.Size = new System.Drawing.Size(111, 20);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Cam2:";
+            this.label5.Text = "Cam2LsTopR:";
             // 
             // label_caminfo
             // 
             this.label_caminfo.AutoSize = true;
-            this.label_caminfo.Location = new System.Drawing.Point(46, 42);
+            this.label_caminfo.Location = new System.Drawing.Point(12, 42);
             this.label_caminfo.Name = "label_caminfo";
-            this.label_caminfo.Size = new System.Drawing.Size(55, 20);
+            this.label_caminfo.Size = new System.Drawing.Size(108, 20);
             this.label_caminfo.TabIndex = 0;
-            this.label_caminfo.Text = "Cam1:";
+            this.label_caminfo.Text = "Cam1LsTopL:";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(46, 322);
+            this.label21.Location = new System.Drawing.Point(12, 322);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(55, 20);
+            this.label21.Size = new System.Drawing.Size(116, 20);
             this.label21.TabIndex = 0;
-            this.label21.Text = "Cam9:";
+            this.label21.Text = "Cam9ArBackL:";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(46, 357);
+            this.label20.Location = new System.Drawing.Point(12, 357);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 20);
+            this.label20.Size = new System.Drawing.Size(128, 20);
             this.label20.TabIndex = 0;
-            this.label20.Text = "Cam10:";
+            this.label20.Text = "Cam10ArBackR:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(46, 182);
+            this.label11.Location = new System.Drawing.Point(12, 182);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 20);
+            this.label11.Size = new System.Drawing.Size(100, 20);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Cam5:";
+            this.label11.Text = "Cam5LsLeft:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(46, 217);
+            this.label13.Location = new System.Drawing.Point(12, 217);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 20);
+            this.label13.Size = new System.Drawing.Size(110, 20);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Cam6:";
+            this.label13.Text = "Cam6LsRight:";
             // 
             // groupBox_DiagnosticsDiscManagement
             // 
@@ -2856,7 +2854,7 @@
             this.groupBox_DiagnosticsDiscManagement.Controls.Add(this.label_AvailableSpaceD);
             this.groupBox_DiagnosticsDiscManagement.Controls.Add(this.label3);
             this.groupBox_DiagnosticsDiscManagement.Controls.Add(this.label2);
-            this.groupBox_DiagnosticsDiscManagement.Location = new System.Drawing.Point(411, 813);
+            this.groupBox_DiagnosticsDiscManagement.Location = new System.Drawing.Point(411, 796);
             this.groupBox_DiagnosticsDiscManagement.Name = "groupBox_DiagnosticsDiscManagement";
             this.groupBox_DiagnosticsDiscManagement.Size = new System.Drawing.Size(245, 146);
             this.groupBox_DiagnosticsDiscManagement.TabIndex = 0;
@@ -2953,9 +2951,9 @@
             this.panel_Footer.Controls.Add(this.button_FooterExitApp);
             this.panel_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.panel_Footer.Location = new System.Drawing.Point(0, 1034);
+            this.panel_Footer.Location = new System.Drawing.Point(0, 1017);
             this.panel_Footer.Name = "panel_Footer";
-            this.panel_Footer.Size = new System.Drawing.Size(1920, 46);
+            this.panel_Footer.Size = new System.Drawing.Size(1920, 44);
             this.panel_Footer.TabIndex = 9;
             // 
             // pictureBox_FooterKeyBoard
@@ -2994,27 +2992,14 @@
             this.timer_AdamCoilsRead.Interval = 1000;
             this.timer_AdamCoilsRead.Tick += new System.EventHandler(this.timer_AdamCoilsRead_Tick);
             // 
-            // button_MainChangeRecipeSettings
-            // 
-            this.button_MainChangeRecipeSettings.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_MainChangeRecipeSettings.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_MainChangeRecipeSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MainChangeRecipeSettings.Location = new System.Drawing.Point(205, 403);
-            this.button_MainChangeRecipeSettings.Name = "button_MainChangeRecipeSettings";
-            this.button_MainChangeRecipeSettings.Size = new System.Drawing.Size(90, 37);
-            this.button_MainChangeRecipeSettings.TabIndex = 13;
-            this.button_MainChangeRecipeSettings.Text = "Zmeniť";
-            this.button_MainChangeRecipeSettings.UseVisualStyleBackColor = false;
-            this.button_MainChangeRecipeSettings.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.panel_Footer);
+            this.ClientSize = new System.Drawing.Size(1920, 1061);
             this.Controls.Add(this.tabControl_MainControl);
             this.Controls.Add(this.panel_Header);
+            this.Controls.Add(this.panel_Footer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3345,7 +3330,6 @@
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.CheckBox checkBox_SaveOnlyOneSide;
         private System.Windows.Forms.TextBox textBox_MainTolerancePosition;
-        private System.Windows.Forms.Button button_trigger;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;

@@ -45,11 +45,38 @@ namespace IkeaUI
         HDevProc Procedures;
         PersistentVariables PersistentVariables;
 
-        public Producer ProducerCam1LsTopL;
-        public Consumer ConsumerCam1LsTopL;
+        public ProducerDouble ProducerCam1LsTopLCam2LsTopR;
+        public ConsumerDouble ConsumerCam1LsTopLCam2LsTopR;
 
-        public Producer ProducerCam2LsTopR;
-        public Consumer ConsumerCam2LsTopR;
+        public ProducerDouble ProducerCam3LsBottomLCam4LsBottomR;
+        public ConsumerDouble ConsumerCam3LsBottomLCam4LsBottomR;
+
+
+        public Producer ProducerCam5LsLeft;
+        public Consumer ConsumerCam5LsLeft;
+        public Producer ProducerCam6LsRight;
+        public Consumer ConsumerCam6LsRight;
+
+        public ProducerDouble ProducerCam5LsLeftCam6LsRight;
+        public ConsumerDouble ConsumerCam5LsLeftCam6LsRight;
+
+
+
+        public ProducerDouble ProducerCam7ArFrontLCam8ArFrontR;
+        public ConsumerDouble ConsumerCam7ArFrontLCam8ArFrontR;
+
+
+        public ProducerDouble ProducerCam9ArBackLCam10ArBackR;
+        public ConsumerDouble ConsumerCam9ArBackLCam10ArBackR;
+
+
+        public ProducerDouble ProducerCam11ArTopLCam12ArTopR;
+        public ConsumerDouble ConsumerCam11ArTopLCam12ArTopR;
+
+
+        public ProducerDouble ProducerCam13ArBottomLCam14ArBottomR;
+        public ConsumerDouble ConsumerCam13ArBottomLCam14ArBottomR;
+
 
         private bool KeyboardIsShowed = false;
 
@@ -79,27 +106,24 @@ namespace IkeaUI
         {
             InitializeComponent();
 
-            Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath); //testova
+            // Procedures = new HDevProc(GlobalVariables.HalconEvaluationPath); //testova
 
             MainProcedures = new MainProgramProcedures();
 
-            PersistentVariables = JsonFunctions.ReadJsonFunc(GlobalVariables.JsonPersistentCamSettingsPath);
             SqliteDataAccess.IsAvailable();
 
-            timer_Simulation.Enabled = true;
-            timer_Simulation.Start();
+            
             timer_Clock.Enabled = true;
             timer_Clock.Start();
-            timer_DiscsCheck.Enabled = true;
-            timer_DiscsCheck.Start();
-            timer_CameraPing.Enabled = true;
-            timer_CameraPing.Start();
-            timer_AdamCoilsRead.Enabled = true;
-            timer_AdamCoilsRead.Start();
+            //timer_DiscsCheck.Enabled = true;
+            //timer_DiscsCheck.Start();
+            //timer_CameraPing.Enabled = true;
+            //timer_CameraPing.Start();
+            //timer_AdamCoilsRead.Enabled = true;
+            //timer_AdamCoilsRead.Start();
+            //Adam1 = new DeviceManager("192.168.200.21");// 6250 7in 8 out
+            //Adam2 = new DeviceManager("192.168.200.22");// 6256 16 outs
 
-            Adam1 = new DeviceManager(" ");
-            Adam2 = new DeviceManager(" ");
-            // CameraDefaultSettings.SetCameraDefaultSettingsFromFile(GlobalVariables.SetCamParameteresPFSFilePath);
             LoadAllRecipes();
 
             Loging.MakeLog(DateTime.Now, "System Start", "|OK|");
@@ -149,55 +173,60 @@ namespace IkeaUI
 
         private void Cunsumer_TileImages(object sender, TileImageReadyEventArgs e)
         {
-            switch (e.CamName)
+
+            switch (e.CamNames)
             {
-                case "Cam1LsTopL":
-                    HObject firstImage = e.TileImageCam1;
-                    Hwindow_LeftSide.HalconWindow.DispObj(firstImage);
-                    Hwindow_LeftSide.HalconWindow.SetPart(0, 0, -1, -1);
-
-                    break;
-
-                case "Cam2LsTopR":
-                    HObject secondImage = e.TileImageCam2;
-                    Hwindow_RightSide.HalconWindow.DispObj(secondImage);
+                case "Cam1LsTopL_Cam2LsTopR":
+                    HObject tile1_2 = e.TileImageCam1_2;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile1_2);
                     Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
                     break;
 
-                case "Cam3LsBottomL":
+
+                case "Cam3LsBottomL_Cam4LsBottomR":
+                    HObject tile3_4 = e.TileImageCam3_4;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile3_4);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
                     break;
 
-                case "Cam4LsBottomR":
-                    break;
 
                 case "Cam5LsLeft":
+                    HObject tile5 = e.TileImageCam5;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile5);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
+
                     break;
 
                 case "Cam6LsRight":
+                    HObject tile6 = e.TileImageCam6;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile6);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
                     break;
 
-                case "Cam7ArFrontL":
+                case "Cam7ArFrontL_Cam8ArFrontR":
+                    HObject tile7_8 = e.TileImageCam7_8;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile7_8);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
+
                     break;
 
-                case "Cam8ArFrontR":
+                case "Cam9ArBackL_Cam10ArBackR":
+                    HObject tile9_10 = e.TileImageCam9_10;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile9_10);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
                     break;
 
-                case "Cam9ArRearL":
+                case "Cam11ArTopL_Cam12ArTopR":
+                    HObject tile11_12 = e.TileImageCam11_12;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile11_12);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
+
                     break;
 
-                case "Cam10ArRearR":
-                    break;
-
-                case "Cam11ArTopL":
-                    break;
-
-                case "Cam12ArTopR":
-                    break;
-
-                case "Cam13ArBottomL":
-                    break;
-
-                case "Cam14ArBottomR":
+                case "Cam13ArBottomL_Cam14ArBottomR":
+                    HObject tile13_14 = e.TileImageCam13_14;
+                    Hwindow_RightSide.HalconWindow.DispObj(tile13_14);
+                    Hwindow_RightSide.HalconWindow.SetPart(0, 0, -1, -1);
                     break;
             }
 
@@ -375,8 +404,8 @@ namespace IkeaUI
 
         private void timer_DiscsCheck_Tick(object sender, EventArgs e)
         {
-            string availableSpaceDiscC = DiscManagement.CheckDiscs(GlobalVariables.DiscManagementGigabytes, GlobalVariables.ImagesDiscC).ToString();
-            UpdateUI.UpdateLabelText(label_AvailableSpaceC, availableSpaceDiscC + " GB");
+            //string availableSpaceDiscC = DiscManagement.CheckDiscs(GlobalVariables.DiscManagementGigabytes, GlobalVariables.ImagesDiscC).ToString();
+            //UpdateUI.UpdateLabelText(label_AvailableSpaceC, availableSpaceDiscC + " GB");
         }
 
         private void timer_Simulation_Tick(object sender, EventArgs e)
@@ -388,12 +417,14 @@ namespace IkeaUI
         {
             try
             {
-                if (ProducerCam1LsTopL != null)
+                if (ProducerCam1LsTopLCam2LsTopR != null)
                 {
-                    ProducerCam1LsTopL.AbortThread();
-                    ProducerCam2LsTopR.AbortThread();
+                    ProducerCam1LsTopLCam2LsTopR.AbortThread();
                 }
-
+                if (ProducerCam7ArFrontLCam8ArFrontR != null)
+                {
+                    ProducerCam7ArFrontLCam8ArFrontR.AbortThread();
+                }
                 Application.Exit();
             }
             catch (Exception ex)
@@ -402,50 +433,37 @@ namespace IkeaUI
             }
         }
 
-        private void button_DiagnosticsExposureSet_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button_DiagnosticsGainSet_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    string camName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString();
-            //    int value = Convert.ToInt32(textBox_DiagnosticsGain.Text);
-            //    JsonFunctions.CamGainSet(PersistentVariables, camName, value);
-            //    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
-            //    Loging.MakeLog(DateTime.Now, $"Changed Gain for {camName} to {value} ", "|OK|");
-            //}
-
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-            //    Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
-            //}
-        }
 
         private async void timer_CameraPing_Tick(object sender, EventArgs e)
         {
-            timer_CameraPing.Stop();
-            var pingTargetHosts = GlobalVariables.CameraAdresses;
-            var pingTasks = pingTargetHosts.Select(host => new Ping().SendPingAsync(host, 3000)).ToList();
-            var pingResults = await Task.WhenAll(pingTasks);
-
-            for (int i = 0; i < pingResults.Length; i++)
+            try
             {
-                if (pingResults[i].Status == IPStatus.Success)
+                timer_CameraPing.Stop();
+                var pingTargetHosts = GlobalVariables.CameraAdresses;
+                var pingTasks = pingTargetHosts.Select(host => new Ping().SendPingAsync(host, 3000)).ToList();
+                var pingResults = await Task.WhenAll(pingTasks);
+
+                for (int i = 0; i < pingResults.Length; i++)
                 {
-                    PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
-                    UpdateUI.UpdatePictureBox(pictureBox, true);
+                    if (pingResults[i].Status == IPStatus.Success)
+                    {
+                        PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
+                        UpdateUI.UpdatePictureBox(pictureBox, true);
+                    }
+                    else
+                    {
+                        PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
+                        UpdateUI.UpdatePictureBox(pictureBox, false);
+                    }
                 }
-                else
-                {
-                    PictureBox pictureBox = (PictureBox)groupBox_DiagnosticsCamInfo.Controls[i];
-                    UpdateUI.UpdatePictureBox(pictureBox, false);
-                }
+                timer_CameraPing.Start();
             }
-            timer_CameraPing.Start();
+            catch(Exception ex)
+            {
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+
+            }
+
         }
 
         private void button_DiagnosticsOutput_Click(object sender, EventArgs e)
@@ -456,45 +474,46 @@ namespace IkeaUI
             try
             {
                 Button btn = (Button)sender;
-                List<bool> coilStatusesAdam1 = Adam1.ReadAdamCoils(15);
-                List<bool> coilStatusesAdam2 = Adam2.ReadAdamCoils(16);
+                List<bool> coilStatusesAdam1 = Adam1.ReadAdamCoils(23);// 7int 8 outs
+                List<bool> coilStatusesAdam2 = Adam2.ReadAdamCoils(16); //16 outs
+
                 if (coilStatusesAdam1 != null && coilStatusesAdam2 != null)
                 {
                     switch (btn.Name.ToString())
                     {
                         case "button_DiagnosticsOutput1Adam8":
-                            coilStatus = !coilStatusesAdam1[7];
-                            Adam1.WriteAdamCoils(8 + 17, coilStatus, out resultStatus);
+                            coilStatus = !coilStatusesAdam1[16];
+                            Adam1.WriteAdamCoils(17, coilStatus, out resultStatus);
                             break;
 
                         case "button_DiagnosticsOutput1Adam9":
-                            coilStatus = !coilStatusesAdam1[8];
-                            Adam1.WriteAdamCoils(9 + 17, coilStatus, out resultStatus);
+                            coilStatus = !coilStatusesAdam1[17];
+                            Adam1.WriteAdamCoils(18, coilStatus, out resultStatus);
                             break;
 
                         case "button_DiagnosticsOutput1Adam10":
-                            coilStatus = !coilStatusesAdam1[10];
-                            Adam1.WriteAdamCoils(10 + 17, coilStatus, out resultStatus);
+                            coilStatus = !coilStatusesAdam1[18];
+                            Adam1.WriteAdamCoils(19, coilStatus, out resultStatus);
                             break;
 
                         case "button_DiagnosticsOutput1Adam11":
-                            coilStatus = !coilStatusesAdam1[11];
-                            Adam1.WriteAdamCoils(11 + 17, coilStatus, out resultStatus);
+                            coilStatus = !coilStatusesAdam1[19];
+                            Adam1.WriteAdamCoils(20, coilStatus, out resultStatus);
                             break;
 
                         case "button_DiagnosticsOutput1Adam12":
-                            coilStatus = !coilStatusesAdam1[12];
-                            Adam1.WriteAdamCoils(12 + 17, coilStatus, out resultStatus);
+                            coilStatus = !coilStatusesAdam1[20];
+                            Adam1.WriteAdamCoils(21, coilStatus, out resultStatus);
                             break;
 
                         case "button_DiagnosticsOutput1Adam13":
-                            coilStatus = !coilStatusesAdam1[13];
-                            Adam1.WriteAdamCoils(13 + 17, coilStatus, out resultStatus);
+                            coilStatus = !coilStatusesAdam1[21];
+                            Adam1.WriteAdamCoils(22, coilStatus, out resultStatus);
                             break;
 
                         case "button_DiagnosticsOutput1Adam14":
-                            coilStatus = !coilStatusesAdam1[14];
-                            Adam1.WriteAdamCoils(14 + 17, coilStatus, out resultStatus);
+                            coilStatus = !coilStatusesAdam1[22];
+                            Adam1.WriteAdamCoils(23, coilStatus, out resultStatus);
                             break;
 
                         case "button_DiagnosticsOutput2Adam0":
@@ -598,12 +617,14 @@ namespace IkeaUI
         {
             try
             {
-
                 string recipeDrawingName = listBox_MainRecipe.SelectedItem.ToString();
                 string recipeName = recipeDrawingName.Replace(".DXF", ".txt");
 
                 ReadDrawing(recipeDrawingName);
-                ReadRecipe(recipeName);
+                ReadRecipe(recipeDrawingName);
+
+                CameraDefaultSettings.SetCameraDefaultSettingsFromFile(GlobalVariables.SetCamParameteresPFSFilePathProcedure, DrawingVariables.IntSurfaceTypeFromDrawing);
+
 
                 Loging.MakeLog(DateTime.Now, $"Vybrany novy recept {recipeName}", "|OK|");
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"New recipe {recipeName} is selected", "|OK|");
@@ -725,19 +746,72 @@ namespace IkeaUI
         {
             try
             {
-                ConsumerCam1LsTopL = new Consumer("Cam1LsTopL", 100);
-                ConsumerCam1LsTopL.TileImageReady += Cunsumer_TileImages;
-                ConsumerCam1LsTopL.Start();
 
-                ProducerCam1LsTopL = new Producer("Cam1LsTopL", PersistentVariables, ConsumerCam1LsTopL);
-                ProducerCam1LsTopL.Start();
+                if (DrawingVariables != null)
+                {
 
-                ConsumerCam2LsTopR = new Consumer("Cam2LsTopR", 100);
-                ConsumerCam2LsTopR.TileImageReady += Cunsumer_TileImages;
-                ConsumerCam2LsTopR.Start();
+                    ConsumerCam1LsTopLCam2LsTopR = new ConsumerDouble("Cam1LsTopL", "Cam2LsTopR", 10);
+                    ConsumerCam1LsTopLCam2LsTopR.TileImageReady += Cunsumer_TileImages;
+                    ConsumerCam1LsTopLCam2LsTopR.Start();
 
-                ProducerCam2LsTopR = new Producer("Cam2LsTopR", PersistentVariables, ConsumerCam2LsTopR);
-                ProducerCam2LsTopR.Start();
+                    ProducerCam1LsTopLCam2LsTopR = new ProducerDouble("Cam1LsTopL", "Cam2LsTopR", ConsumerCam1LsTopLCam2LsTopR, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    ProducerCam1LsTopLCam2LsTopR.Start();
+
+
+                    //ConsumerCam3LsBottomLCam4LsBottomR = new ConsumerDouble("Cam3LsBottomL", "Cam4LsBottomR", 10);
+                    //ConsumerCam3LsBottomLCam4LsBottomR.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam3LsBottomLCam4LsBottomR.Start();
+
+                    //ProducerCam3LsBottomLCam4LsBottomR = new ProducerDouble("Cam3LsBottomL", "Cam4LsBottomR", ConsumerCam3LsBottomLCam4LsBottomR, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ProducerCam3LsBottomLCam4LsBottomR.Start();
+
+                    //ConsumerCam5LsLeftCam6LsRight = new ConsumerDouble("Cam5LsLeft", "Cam6LsRight", 10);
+                    //ConsumerCam5LsLeftCam6LsRight.Start();
+
+                    //ProducerCam5LsLeftCam6LsRight = new ProducerDouble("Cam5LsLeft", "Cam6LsRight", ConsumerCam5LsLeftCam6LsRight, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ProducerCam5LsLeftCam6LsRight.Start();
+
+
+                    ConsumerCam11ArTopLCam12ArTopR = new ConsumerDouble("Cam11ArTopL", "Cam12ArTopR", 10);
+                    ConsumerCam11ArTopLCam12ArTopR.TileImageReady += Cunsumer_TileImages;
+                    ConsumerCam11ArTopLCam12ArTopR.Start();
+
+                    ProducerCam11ArTopLCam12ArTopR = new ProducerDouble("Cam11ArTopL", "Cam12ArTopR", ConsumerCam11ArTopLCam12ArTopR, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    ProducerCam11ArTopLCam12ArTopR.Start();
+
+
+                    //ConsumerCam13ArBottomLCam14ArBottomR = new ConsumerDouble("Cam13ArBottomL", "Cam14ArBottomR", 10);
+                    //ConsumerCam13ArBottomLCam14ArBottomR.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam13ArBottomLCam14ArBottomR.Start();
+
+                    //ProducerCam13ArBottomLCam14ArBottomR = new ProducerDouble("Cam13ArBottomL", "Cam14ArBottomR", ConsumerCam13ArBottomLCam14ArBottomR, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ProducerCam13ArBottomLCam14ArBottomR.Start();
+
+
+                    //ConsumerCam2LsTopR = new Consumer("Cam2LsTopR", 100);
+                    //ConsumerCam2LsTopR.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam2LsTopR.Start();
+
+                    //ProducerCam2LsTopR = new Producer("Cam2LsTopR", PersistentVariables, ConsumerCam2LsTopR);
+                    //ProducerCam2LsTopR.Start();
+
+
+                    //ConsumerCam1Cam2 = new Consumer("Cam1Cam2", 100);
+                    //ConsumerCam1Cam2.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam1Cam2.Start();
+
+                    //ProducerrCam1Cam2 = new Producer("Cam1Cam2", PersistentVariables, ConsumerCam1Cam2);
+                    //ProducerrCam1Cam2.Start();
+
+                    //ConsumerCam5LsLeft = new Consumer("Cam5LsLeft", 100);
+                    //ConsumerCam5LsLeft.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam5LsLeft.Start();
+
+                    //ProducerrCam5LsLeft = new Producer("Cam5LsLeft", PersistentVariables, ConsumerCam5LsLeft, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ProducerrCam5LsLeft.Start();
+
+                }
+
 
 
                 Loging.MakeLog(DateTime.Now, "Vision Process Start", "|OK|");
@@ -759,13 +833,12 @@ namespace IkeaUI
                 if (DrawingVariables != null && DrawingVariables.IntSurfaceTypeFromDrawing != null)
                 {
                     string cameraPfsFileName = listBox_DiagnosticsCamerasSettings.SelectedItem.ToString() + DrawingVariables.IntSurfaceTypeFromDrawing + ".pfs";
-                    var text = File.ReadAllLines(GlobalVariables.CamPfsFilesName + cameraPfsFileName);
+                    var text = File.ReadAllLines(GlobalVariables.CamPfsFilesPath + cameraPfsFileName);
 
                     if (cameraPfsFileName.Contains("Ls") == true)
                     {
-                        gainRaw = text[7].Split('\t')[1];
-                        exposureTime = text[60].Split('\t')[1];
-
+                        gainRaw = text[9].Split('\t')[1];
+                        exposureTime = text[64].Split('\t')[1];
                     }
                     else
                     {
@@ -777,23 +850,13 @@ namespace IkeaUI
                     UpdateUI.UpdateTextBoxText(textBox_DiagnosticsGain, gainRaw);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                 Loging.MakeLog(DateTime.Now, "Vision Process Start", " |Error| ");
             }
-            
-
-            //string[] splittedtex = text.Split(',');
-
-            //string expTime = splittedtex[indexSelected * 2];
-            //string gain = text.Split(',')[indexSelected * 2 + 1];
-
-            //string changedExpTime = expTime.Split(':')[1];
-            //string changedGain = gain.Split(':')[1];
-
-           
         }
+
         private void button_MainStop_Click(object sender, EventArgs e)
         {
             try
@@ -802,20 +865,28 @@ namespace IkeaUI
                 {
                     try
                     {
-                        if (ConsumerCam1LsTopL != null)
+                        if (ConsumerCam1LsTopLCam2LsTopR != null)
                         {
-                            ConsumerCam1LsTopL.TileImageReady -= Cunsumer_TileImages;
-                        }
-                        if (ConsumerCam2LsTopR != null)
-                        {
-                            ConsumerCam2LsTopR.TileImageReady -= Cunsumer_TileImages;
+                            ConsumerCam1LsTopLCam2LsTopR.TileImageReady -= Cunsumer_TileImages;
                         }
 
-                        ProducerCam1LsTopL.AbortThread();
-                        ProducerCam2LsTopR.AbortThread();
+                        if (ProducerCam1LsTopLCam2LsTopR != null)
+                        {
+                            ProducerCam1LsTopLCam2LsTopR.AbortThread();
+                            ConsumerCam1LsTopLCam2LsTopR.AbortThread();
 
-                        ConsumerCam1LsTopL.AbortThread();
-                        ConsumerCam2LsTopR.AbortThread();
+                        }
+
+                        if (ConsumerCam7ArFrontLCam8ArFrontR != null)
+                        {
+                            ConsumerCam7ArFrontLCam8ArFrontR.TileImageReady -= Cunsumer_TileImages;
+                        }
+                        if (ProducerCam7ArFrontLCam8ArFrontR != null)
+                        {
+                            ProducerCam7ArFrontLCam8ArFrontR.AbortThread();
+                            ConsumerCam7ArFrontLCam8ArFrontR.AbortThread();
+
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -981,9 +1052,48 @@ namespace IkeaUI
 
         private void timer_AdamCoilsRead_Tick(object sender, EventArgs e)
         {
+            if (label_AccessLevel.Text != "Administrator")
+            {
+                foreach (Control c in groupBox_DiagnosticsOutputs.Controls)
+                {
+                    if (c.Name.Contains("button"))
+                    {
+                        Button btn = (Button)c;
+                        btn.Enabled = false;
+                    }
+                }
+                foreach (Control c in groupBox_DiagnosticsVstupy.Controls)
+                {
+                    if (c.Name.Contains("button"))
+                    {
+                        Button btn = (Button)c;
+                        btn.Enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control c in groupBox_DiagnosticsOutputs.Controls)
+                {
+                    if (c.Name.Contains("button"))
+                    {
+                        Button btn = (Button)c;
+                        btn.Enabled = true;
+                    }
+                }
+                foreach (Control c in groupBox_DiagnosticsVstupy.Controls)
+                {
+                    if (c.Name.Contains("button"))
+                    {
+                        Button btn = (Button)c;
+                        btn.Enabled = true;
+                    }
+                }
+            }
+
             try
             {
-                List<bool> coilsStatusAdam1 = Adam1.ReadAdamCoils(15);
+                List<bool> coilsStatusAdam1 = Adam1.ReadAdamCoils(25);
                 List<bool> coilsStatusAdam2 = Adam2.ReadAdamCoils(16);
 
                 UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam0, coilsStatusAdam1[0]);
@@ -994,13 +1104,13 @@ namespace IkeaUI
                 UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam5, coilsStatusAdam1[5]);
                 UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam6, coilsStatusAdam1[6]);
                 UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsInput1Adam7, coilsStatusAdam1[7]);
-                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam8, coilsStatusAdam1[8]);
-                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam9, coilsStatusAdam1[9]);
-                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam10, coilsStatusAdam1[10]);
-                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam11, coilsStatusAdam1[11]);
-                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam12, coilsStatusAdam1[12]);
-                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam13, coilsStatusAdam1[13]);
-                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam14, coilsStatusAdam1[14]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam8, coilsStatusAdam1[16]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam9, coilsStatusAdam1[17]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam10, coilsStatusAdam1[18]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam11, coilsStatusAdam1[19]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam12, coilsStatusAdam1[20]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam13, coilsStatusAdam1[21]);
+                UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput1Adam14, coilsStatusAdam1[22]);
 
                 UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam0, coilsStatusAdam2[0]);
                 UpdateUI.UpdatePictureBox(pictureBox_DiagnosticsOutput2Adam1, coilsStatusAdam2[1]);
@@ -1099,7 +1209,7 @@ namespace IkeaUI
             }
 
         }
-        private void ReadAllRecipes(string text)
+        private void SearchFromRecipes(string text)
         {
             List<string> allRecipes = Directory.EnumerateFiles(GlobalVariables.DrawingsPath, "*.DXF", SearchOption.AllDirectories).Where(s => s.Contains(text)).ToList();
             foreach (string line in allRecipes)
@@ -1111,13 +1221,11 @@ namespace IkeaUI
         private void textBox_MainSearchRecipe_TextChanged(object sender, EventArgs e)
         {
             listBox_MainRecipe.Items.Clear();
-            ReadAllRecipes(textBox_MainSearchRecipe.Text);
+            SearchFromRecipes(textBox_MainSearchRecipe.Text);
         }
 
         private void button_Trigger_click(object sender, EventArgs e)
         {
-            ProducerCam1LsTopL.Start2();
-            ProducerCam2LsTopR.Start2();
         }
 
         private void button_MainChangeRecipeValues_Click(object sender, EventArgs e)
@@ -1155,7 +1263,7 @@ namespace IkeaUI
                     textBox_MainMaxDiameterErrors.Text = RecipeVariables.RecipeMaxDiameterError;
                 }
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
@@ -1169,12 +1277,69 @@ namespace IkeaUI
                 int exposureTimeValue = Convert.ToInt32(textBox_DiagnosticsExposureTime.Text);
                 int gainValue = Convert.ToInt32(textBox_DiagnosticsGain.Text);
 
-                MainProcedures.Function_PfsParametersModify(DrawingVariables.IntSurfaceTypeFromDrawing, camName, exposureTimeValue, gainValue, out HTuple h_mix_arrException);
+                if (camName.Contains("Ls"))
+                {
+                    if (gainValue < 256 || gainValue > 2047)
+                    {
+                        gainValue = 1024;
+
+                    }
+                    if (exposureTimeValue < 20 || exposureTimeValue > 100000)
+                    {
+                        exposureTimeValue = 1000;
+                    }
+                }
+                else if (camName.Contains("Ar"))
+                {
+                    if (gainValue < 36 || gainValue > 512)
+                    {
+                        gainValue = 256;
+
+                    }
+                    if (exposureTimeValue < 20 || exposureTimeValue > 100000)
+                    {
+                        exposureTimeValue = 1000;
+                    }
+                }
+
+                MainProcedures.Function_PfsParametersModify(DrawingVariables.IntSurfaceTypeFromDrawing, camName, exposureTimeValue/10, gainValue, out HTuple h_mix_arrException);
                 if (h_mix_arrException.Length < 1)
                 {
                     Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time and gain for {camName} to {exposureTimeValue} and {gainValue} ", "|OK|");
                     Loging.MakeLog(DateTime.Now, $"Changed Exposure time and gain for {camName} to {exposureTimeValue} and {gainValue} ", "|OK|");
                 }
+
+                switch (camName)
+                {
+
+                    case "Cam3LsBottomL":
+                        ProducerCam3LsBottomLCam4LsBottomR.ChangeParametersCam1(exposureTimeValue/10, gainValue);
+                        break;
+                    case "Cam4LsBottomR":
+                        ProducerCam3LsBottomLCam4LsBottomR.ChangeParametersCam2(exposureTimeValue/10, gainValue);
+                        break;
+
+                    case "Cam5LsLeft":
+                        ProducerCam5LsLeftCam6LsRight.ChangeParametersCam1(exposureTimeValue, gainValue);
+                        break;
+
+                    case "Cam6LsRight":
+                        ProducerCam5LsLeftCam6LsRight.ChangeParametersCam2(exposureTimeValue, gainValue);
+                        break;
+
+                    case "Cam7ArFrontL":
+
+                        ProducerCam7ArFrontLCam8ArFrontR.ChangeParametersCam1(exposureTimeValue, gainValue);
+
+                        break;
+
+                    case "Cam8ArFrontR":
+                        ProducerCam7ArFrontLCam8ArFrontR.ChangeParametersCam2(exposureTimeValue, gainValue);
+
+                        break;
+
+                }
+
             }
 
             catch (Exception ex)
@@ -1182,6 +1347,58 @@ namespace IkeaUI
                 Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                 Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
+        }
+
+        private void ReadCoilsLoop()
+        {
+            Thread loop = new Thread(() =>
+            {
+                List<bool> coilsStatusAdam1 = new List<bool>();
+                List<bool> coilsStatusAdam2 = new List<bool>();
+                List<bool> coilsStatusAdam1Previous = new List<bool>();
+                List<bool> coilsStatusAdam2Previous = new List<bool>();
+
+                while (true)
+                {
+                    coilsStatusAdam1 = Adam1.ReadAdamCoils(25);
+                    coilsStatusAdam2 = Adam2.ReadAdamCoils(16);
+                    Thread.Sleep(10);
+
+                    if (coilsStatusAdam1[0] == true && coilsStatusAdam1Previous[0] == false)
+                    {
+
+                        GlobalVariables.SaveImageCam7ArFrontL = true;
+                    }
+
+                    switch (coilsStatusAdam1)
+                    {
+                        //case:
+                        //    //if ()
+                        //    //{
+                        //    //    ProducerCam7ArFrontLCam8ArFrontR.GrabImageStartSignal();
+                        //    //}
+                        //    break;
+                    }
+                    switch (coilsStatusAdam2)
+                    {
+                        //case:
+                        //    //if ()
+                        //    //{
+                        //    //    ProducerCam7ArFrontLCam8ArFrontR.GrabImageStartSignal();
+                        //    //}
+                        //    break;
+                    }
+
+
+                    coilsStatusAdam1Previous = coilsStatusAdam1;
+                    coilsStatusAdam2Previous = coilsStatusAdam2;
+                }
+
+            });
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

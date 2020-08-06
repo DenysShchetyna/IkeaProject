@@ -96,9 +96,13 @@
     <Compile Include="DBAccess\SqliteDataAccess.cs" />
     <Compile Include="DrawingSide.cs" />
     <Compile Include="DrawingVariables.cs" />
+    <Compile Include="Events\ReadAdamCoilsEventArgs.cs" />
     <Compile Include="Events\TileImageReadyEventArgs.cs" />
+    <Compile Include="HdevProcedures\LineScanCalibrationProcedure.cs" />
     <Compile Include="HdevProcedures\WriteCameraParametersProcedure.cs" />
     <Compile Include="Helpers\RecipeVariables.cs" />
+    <Compile Include="ProduceConsumer\ConsumerDouble.cs" />
+    <Compile Include="ProduceConsumer\ProducerDouble.cs" />
     <Compile Include="Utilities\CameraDefaultSettings.cs" />
     <Compile Include="Utilities\Hash.cs" />
     <Compile Include="HdevProcedures\CamProcedures.cs" />

@@ -1,9 +1,11 @@
 ﻿using HalconDotNet;
+using Ikea_Library.Events;
 using Ikea_Library.HdevProcedures;
 using Ikea_Library.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,21 +18,28 @@ namespace Ikea_Library.ProduceConsumer
     {
         private string CamName { get; set; }
 
-        private HTuple AcqHandleCam;
+        public HTuple AcqHandleCam;
+
         private bool Run;
-        private bool Run2 = false;
         private Thread ProducerThread;
         public CamProcedures CamProcedures;
         private CameraState CameraState;
-        private PersistentVariables PersistentVariables;
         private Consumer Consumer;
         private Message Message;
 
-        public Producer(string camName, PersistentVariables persistentVariables, Consumer consumer)
+        HTuple IntSurfaceTypeFromDrawing;
+
+        int Gain = 0;
+        int ExposureTime = 0;
+
+        public event EventHandler<ReadAdamCoilsEventArgs> ReadAdamCoil;
+
+
+        public Producer(string camName, Consumer consumer, HTuple intSurface)
         {
             CamName = camName;
-            PersistentVariables = persistentVariables;
             Consumer = consumer;
+            IntSurfaceTypeFromDrawing = intSurface;
         }
 
         private bool Initialize()
@@ -51,6 +60,10 @@ namespace Ikea_Library.ProduceConsumer
 
         private void MainFunction()
         {
+
+            bool grabingDone = false;
+
+
             while (Run == true)
             {
                 switch (CameraState)
@@ -82,68 +95,24 @@ namespace Ikea_Library.ProduceConsumer
 
                     case CameraState.ConnectCamera:
 
-
                         try
                         {
+
                             switch (CamName)
                             {
-                                case "Cam1LsTopL":
+                                case "Cam5LsLeft":
 
-                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now,
-                                        $"Connecting Camera {CamName} with exp:{PersistentVariables.ExposureTimeCam1LsTopL}, " +
-                                        $"gain:{ PersistentVariables.GainCam1LsTopL}", "|OK|");
-
-                                    CamProcedures.OpenFramegrabber(CamName, 2048, 50, PersistentVariables.ExposureTimeCam1LsTopL, PersistentVariables.GainCam1LsTopL, out AcqHandleCam);
+                                    CamProcedures.OpenFramegrabber("Cam5LsLeft", out AcqHandleCam);
                                     Message = new Message();
-                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} Camera is connected", "|OK|");
-
+                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Cam5LsLeft Camera is connected", "|OK|");
                                     break;
 
-                                case "Cam2LsTopR":
-                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now,
-                                       $"Connecting Camera {CamName} with exp:{PersistentVariables.ExposureTimeCam2LsTopR}, " +
-                                       $"gain:{ PersistentVariables.GainCam2LsTopR}", "|OK|");
-
-                                    CamProcedures.OpenFramegrabber(CamName, 2048, 50, PersistentVariables.ExposureTimeCam2LsTopR, PersistentVariables.GainCam2LsTopR, out AcqHandleCam);
+                                case "Cam6LsRight":
+                                    CamProcedures.OpenFramegrabber(CamName, out AcqHandleCam);
                                     Message = new Message();
-                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"{CamName} Camera is connected", "|OK|");
+                                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Cam6LsRight Camera is connected", "|OK|");
                                     break;
 
-                                case "CAM3":
-                                    break;
-
-                                case "CAM4":
-                                    break;
-
-                                case "CAM5":
-                                    break;
-
-                                case "CAM6":
-                                    break;
-
-                                case "CAM7":
-                                    break;
-
-                                case "CAM8":
-                                    break;
-
-                                case "CAM9":
-                                    break;
-
-                                case "CAM10":
-                                    break;
-
-                                case "CAM11":
-                                    break;
-
-                                case "CAM12":
-                                    break;
-
-                                case "CAM13":
-                                    break;
-
-                                case "CAM14":
-                                    break;
                             }
 
                             CameraState = CameraState.GrabImage;
@@ -159,77 +128,125 @@ namespace Ikea_Library.ProduceConsumer
                         break;
 
                     case CameraState.GrabImage:
+
                         HTuple imageAvailable = new HTuple(false);
-                        if (Run2 == true)
+                        HOperatorSet.GenEmptyObj(out HObject image);
+                        HTuple value = new HTuple(0);
+
+                        if (Run == true)
                         {
                             try
                             {
                                 switch (CamName)
                                 {
-                                    case "Cam1LsTopL":
+                                    case "Cam5LsLeft":
 
-                                        CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam1LsTopL);
-                                        CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam1LsTopL);
-                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
-                                        if (imageAvailable == true)
+                                        HOperatorSet.SetFramegrabberParam(AcqHandleCam, "LineSelector", "Line3");
+                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, "LineStatus", out value);
+                                        GlobalVariables.CurentValueCam1 = value.I;
+
+                                        if (ExposureTime != 0 && Gain != 0)
                                         {
-                                            HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
-                                            Message.Image = image;
+                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", new HTuple(ExposureTime));
+                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", new HTuple(Gain));
+                                        }
+
+                                        if (GlobalVariables.CurentValueCam1 == 1 && GlobalVariables.PreviousValueCam1 == 0)
+                                        {
+                                            grabingDone = false;
+
+                                        }
+
+                                        else if (GlobalVariables.CurentValueCam1 == 0 && GlobalVariables.PreviousValueCam1 == 1)
+                                        {
+                                            do
+                                            {
+
+                                                HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
+
+                                                Message.Image = image;
+                                                Message.LastImage = false;
+
+                                                Consumer.Enqueue(Message);
+                                                Console.WriteLine("send1");
+
+                                            } while (imageAvailable == true);
+
+                                            grabingDone = true;
+                                            Message = new Message();
+                                            Message.LastImage = true;
                                             Consumer.Enqueue(Message);
                                         }
+
+                                        HOperatorSet.SetFramegrabberParam(AcqHandleCam, new HTuple("grab_timeout"), 100);
+                                        HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
+
+                                        Message.Image = image;
+                                        Message.LastImage = false;
+
+                                        Consumer.Enqueue(Message);
+                                        Console.WriteLine("send2");
+
+
                                         break;
 
-                                    case "Cam2LsTopR":
-                                        CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", PersistentVariables.ExposureTimeCam2LsTopR);
-                                        CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", PersistentVariables.GainCam2LsTopR);
-                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
-                                        if (imageAvailable == true)
+                                    case "Cam6LsRight":
+
+                                        HOperatorSet.SetFramegrabberParam(AcqHandleCam, "LineSelector", "Line3");
+                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, "LineStatus", out value);
+                                        GlobalVariables.CurentValueCam1 = value.I;
+
+                                        if (ExposureTime != 0 && Gain != 0)
                                         {
-                                            HOperatorSet.GrabImageAsync(out HObject image, AcqHandleCam, new HTuple(-1));
-                                            Message.Image = image;
+                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", new HTuple(ExposureTime));
+                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", new HTuple(Gain));
+                                        }
+
+                                        if (GlobalVariables.CurentValueCam1 == 1 && GlobalVariables.PreviousValueCam1 == 0)
+                                        {
+                                            grabingDone = false;
+
+                                        }
+
+                                        else if (GlobalVariables.CurentValueCam1 == 0 && GlobalVariables.PreviousValueCam1 == 1)
+                                        {
+                                            do
+                                            {
+                                                HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
+
+                                                HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
+
+                                                Message.Image = image;
+                                                Message.LastImage = false;
+
+                                                Consumer.Enqueue(Message);
+                                                Console.WriteLine("send1");
+
+                                            } while (imageAvailable == true);
+
+                                            grabingDone = true;
+                                            Message = new Message();
+                                            Message.LastImage = true;
                                             Consumer.Enqueue(Message);
                                         }
-                                        break;
+                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
 
-                                    case "CAM3":
-                                        break;
+                                        if (imageAvailable == true)
+                                        {
+                                            HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
 
-                                    case "CAM4":
-                                        break;
+                                            Message.Image = image;
+                                            Message.LastImage = false;
 
-                                    case "CAM5":
-                                        break;
+                                            Consumer.Enqueue(Message);
+                                            Console.WriteLine("send2");
 
-                                    case "CAM6":
-                                        break;
+                                        }
 
-                                    case "CAM7":
-                                        break;
-
-                                    case "CAM8":
-                                        break;
-
-                                    case "CAM9":
-                                        break;
-
-                                    case "CAM10":
-                                        break;
-
-                                    case "CAM11":
-                                        break;
-
-                                    case "CAM12":
-                                        break;
-
-                                    case "CAM13":
-                                        break;
-
-                                    case "CAM14":
                                         break;
                                 }
+
                             }
-
-
                             catch (Exception ex)
                             {
                                 CameraState = CameraState.Exception;
@@ -295,11 +312,14 @@ namespace Ikea_Library.ProduceConsumer
             ProducerThread.Join(5000);
             ProducerThread.Abort();
             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Aborted Thread {ProducerThread.Name}", "|OK|");
+        }
 
-        }
-        public void Start2()
+        public void ChangeParameters(int exposureTime, int gain)
         {
-            Run2 = true;
+            ExposureTime = exposureTime;
+            Gain = gain;
         }
+
+
     }
 }

@@ -10,6 +10,8 @@ namespace Ikea_Library.ProduceConsumer
     public class Message
     {
         public HObject Image { get; set; }
-        
+        public HObject PartialImage { get; set; }
+        public bool LastImage { get; set; }
+
     }
 }

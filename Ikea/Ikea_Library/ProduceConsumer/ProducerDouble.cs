@@ -20,7 +20,6 @@ namespace Ikea_Library.ProduceConsumer
     public class ProducerDouble
     {
         public event EventHandler<bool> TileImageLineScan;
-        public event EventHandler<bool> SaveCam7_8Tile;
 
         private string CamName1 { get; set; }
         private string CamName2 { get; set; }
@@ -63,7 +62,6 @@ namespace Ikea_Library.ProduceConsumer
         {
             try
             {
-
                 CamProcedures = new CamProcedures(GlobalVariables.CameraProcedures);
                 return true;
             }
@@ -397,6 +395,7 @@ namespace Ikea_Library.ProduceConsumer
                                         }
 
                                         break;
+
                                     case "Cam5LsLeft_Cam6LsRight":
 
                                         HOperatorSet.SetFramegrabberParam(AcqHandleCam1, "LineSelector", "Line3");

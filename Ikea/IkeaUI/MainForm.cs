@@ -43,7 +43,6 @@ namespace IkeaUI
         Hole Hole;
 
         HDevProc Procedures;
-        PersistentVariables PersistentVariables;
 
         public ProducerDouble ProducerCam1LsTopLCam2LsTopR;
         public ConsumerDouble ConsumerCam1LsTopLCam2LsTopR;
@@ -51,28 +50,17 @@ namespace IkeaUI
         public ProducerDouble ProducerCam3LsBottomLCam4LsBottomR;
         public ConsumerDouble ConsumerCam3LsBottomLCam4LsBottomR;
 
-
-        public Producer ProducerCam5LsLeft;
-        public Consumer ConsumerCam5LsLeft;
-        public Producer ProducerCam6LsRight;
-        public Consumer ConsumerCam6LsRight;
-
         public ProducerDouble ProducerCam5LsLeftCam6LsRight;
         public ConsumerDouble ConsumerCam5LsLeftCam6LsRight;
-
-
 
         public ProducerDouble ProducerCam7ArFrontLCam8ArFrontR;
         public ConsumerDouble ConsumerCam7ArFrontLCam8ArFrontR;
 
-
         public ProducerDouble ProducerCam9ArBackLCam10ArBackR;
         public ConsumerDouble ConsumerCam9ArBackLCam10ArBackR;
 
-
         public ProducerDouble ProducerCam11ArTopLCam12ArTopR;
         public ConsumerDouble ConsumerCam11ArTopLCam12ArTopR;
-
 
         public ProducerDouble ProducerCam13ArBottomLCam14ArBottomR;
         public ConsumerDouble ConsumerCam13ArBottomLCam14ArBottomR;
@@ -112,7 +100,6 @@ namespace IkeaUI
 
             SqliteDataAccess.IsAvailable();
 
-            
             timer_Clock.Enabled = true;
             timer_Clock.Start();
             //timer_DiscsCheck.Enabled = true;
@@ -167,7 +154,8 @@ namespace IkeaUI
 
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -324,7 +312,8 @@ namespace IkeaUI
 
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -421,15 +410,43 @@ namespace IkeaUI
                 {
                     ProducerCam1LsTopLCam2LsTopR.AbortThread();
                 }
+
+                if (ProducerCam3LsBottomLCam4LsBottomR != null)
+                {
+                    ProducerCam3LsBottomLCam4LsBottomR.AbortThread();
+                }
+
+                if (ProducerCam5LsLeftCam6LsRight != null)
+                {
+                    ProducerCam5LsLeftCam6LsRight.AbortThread();
+                }
+
                 if (ProducerCam7ArFrontLCam8ArFrontR != null)
                 {
                     ProducerCam7ArFrontLCam8ArFrontR.AbortThread();
                 }
+
+                if (ProducerCam9ArBackLCam10ArBackR != null)
+                {
+                    ProducerCam9ArBackLCam10ArBackR.AbortThread();
+                }
+
+                if (ProducerCam11ArTopLCam12ArTopR != null)
+                {
+                    ProducerCam11ArTopLCam12ArTopR.AbortThread();
+                }
+
+                if (ProducerCam13ArBottomLCam14ArBottomR != null)
+                {
+                    ProducerCam13ArBottomLCam14ArBottomR.AbortThread();
+                }
+              
                 Application.Exit();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -461,7 +478,7 @@ namespace IkeaUI
             catch(Exception ex)
             {
                 Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
 
         }
@@ -609,7 +626,8 @@ namespace IkeaUI
 
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -659,7 +677,8 @@ namespace IkeaUI
 
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
 
         }
@@ -735,10 +754,12 @@ namespace IkeaUI
                 Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionTop);
                 Hwindow_Diagnostika.HalconWindow.DispObj(CirclesInRegionLeft);
                 Hwindow_Diagnostika.HalconWindow.SetPart(0, 0, -1, -1);
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message.ToString(), "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -749,8 +770,30 @@ namespace IkeaUI
 
                 if (DrawingVariables != null)
                 {
+                    HTuple h_realJointPointLPix = 3793;
+                    HTuple h_realJointPointRPix = 141;
+                    HTuple h_realAngleCamerasSlopeDeg = 0;
+                    HTuple h_realFractionFactorHoleDiameterForScratchRejection = 0.5;
+                    HTuple h_realResizeFactorRegionDiameterForHolesLookingFor = 4;
 
-                    ConsumerCam1LsTopLCam2LsTopR = new ConsumerDouble("Cam1LsTopL", "Cam2LsTopR", 10);
+
+
+                    HOperatorSet.ReadImage(out HObject image, @"C:\Trifid\A0670\photos\08_05_2020__15_41_06_13__Cam3LsBottomL_Cam4LsBottomR.tif");
+                    MainProcedures.Function_CreateImageCamL_ImageCamRfromImageCam3_4(image, out HObject imageL, out HObject imageR,out HTuple exception);
+                    MainProcedures.Function_TileImagesFromCam3_4(imageL, imageR, h_realJointPointLPix, h_realJointPointRPix, h_realAngleCamerasSlopeDeg, out HObject TiledImage);
+                    MainProcedures.Function_A0670_PrepareImageForProcessingCam3_4(TiledImage, DrawingVariables.IntSurfaceTypeFromDrawing, out HObject imageForProcessingCam3_4, out HObject imageCroppedCam3_4,
+                        out HTuple leftTopCornerRowPix,out HTuple leftTopCornerColumnPix, out HTuple rightBottomCornerRowPix, out HTuple rightBottomCornerColumnPix,out exception);
+                    MainProcedures.Function_A0675_ResizeCroppedImageAccordingBoardSizeFromRecipeCam3_4(imageForProcessingCam3_4, DrawingVariables.RealRecipeWitdhOfBoardMm, DrawingVariables.RealRecipeLengthOfBoardMm,
+                        out HObject image0point1Mm, out HTuple columnScaleFactorMm, out HTuple rowScaleFactorMM, out exception);
+                    MainProcedures.Function_A0670_MeasurementHolesPositionAndDiameterCam3_4(image0point1Mm, DrawingVariables.Real_arrXPositionMmBottomFromDrawing,
+                        DrawingVariables.Real_arrYPositionMmBottomFromDrawing, DrawingVariables.Real_arrDiameterMmBottomFromDrawing, h_realResizeFactorRegionDiameterForHolesLookingFor, h_realFractionFactorHoleDiameterForScratchRejection,
+                        out HObject circleRegions, out HObject crosses, out HObject contCircles, out HTuple xPositionsMm, out HTuple yPositionsMm, out HTuple diametersMm, out exception);
+
+
+
+
+
+                    ConsumerCam1LsTopLCam2LsTopR = new ConsumerDouble("Cam1LsTopL", "Cam2LsTopR", DrawingVariables.IntSurfaceTypeFromDrawing);
                     ConsumerCam1LsTopLCam2LsTopR.TileImageReady += Cunsumer_TileImages;
                     ConsumerCam1LsTopLCam2LsTopR.Start();
 
@@ -758,58 +801,52 @@ namespace IkeaUI
                     ProducerCam1LsTopLCam2LsTopR.Start();
 
 
-                    //ConsumerCam3LsBottomLCam4LsBottomR = new ConsumerDouble("Cam3LsBottomL", "Cam4LsBottomR", 10);
+                    //ConsumerCam3LsBottomLCam4LsBottomR = new ConsumerDouble("Cam3LsBottomL", "Cam4LsBottomR",DrawingVariables.IntSurfaceTypeFromDrawing);
                     //ConsumerCam3LsBottomLCam4LsBottomR.TileImageReady += Cunsumer_TileImages;
                     //ConsumerCam3LsBottomLCam4LsBottomR.Start();
 
                     //ProducerCam3LsBottomLCam4LsBottomR = new ProducerDouble("Cam3LsBottomL", "Cam4LsBottomR", ConsumerCam3LsBottomLCam4LsBottomR, DrawingVariables.IntSurfaceTypeFromDrawing);
                     //ProducerCam3LsBottomLCam4LsBottomR.Start();
 
-                    //ConsumerCam5LsLeftCam6LsRight = new ConsumerDouble("Cam5LsLeft", "Cam6LsRight", 10);
+
+                    //ConsumerCam5LsLeftCam6LsRight = new ConsumerDouble("Cam5LsLeft", "Cam6LsRight",DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ConsumerCam5LsLeftCam6LsRight.TileImageReady += Cunsumer_TileImages;
                     //ConsumerCam5LsLeftCam6LsRight.Start();
 
                     //ProducerCam5LsLeftCam6LsRight = new ProducerDouble("Cam5LsLeft", "Cam6LsRight", ConsumerCam5LsLeftCam6LsRight, DrawingVariables.IntSurfaceTypeFromDrawing);
                     //ProducerCam5LsLeftCam6LsRight.Start();
 
 
-                    ConsumerCam11ArTopLCam12ArTopR = new ConsumerDouble("Cam11ArTopL", "Cam12ArTopR", 10);
-                    ConsumerCam11ArTopLCam12ArTopR.TileImageReady += Cunsumer_TileImages;
-                    ConsumerCam11ArTopLCam12ArTopR.Start();
+                    //ConsumerCam7ArFrontLCam8ArFrontR = new ConsumerDouble("Cam7ArFrontL", "Cam8ArFrontR",DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ConsumerCam7ArFrontLCam8ArFrontR.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam7ArFrontLCam8ArFrontR.Start();
 
-                    ProducerCam11ArTopLCam12ArTopR = new ProducerDouble("Cam11ArTopL", "Cam12ArTopR", ConsumerCam11ArTopLCam12ArTopR, DrawingVariables.IntSurfaceTypeFromDrawing);
-                    ProducerCam11ArTopLCam12ArTopR.Start();
+                    //ProducerCam7ArFrontLCam8ArFrontR = new ProducerDouble("Cam7ArFrontL", "Cam8ArFrontR", ConsumerCam7ArFrontLCam8ArFrontR, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ProducerCam7ArFrontLCam8ArFrontR.Start();
 
 
-                    //ConsumerCam13ArBottomLCam14ArBottomR = new ConsumerDouble("Cam13ArBottomL", "Cam14ArBottomR", 10);
+                    //ConsumerCam9ArBackLCam10ArBackR = new ConsumerDouble("Cam9ArBackL", "Cam10ArBackR",DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ConsumerCam9ArBackLCam10ArBackR.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam9ArBackLCam10ArBackR.Start();
+
+                    //ProducerCam9ArBackLCam10ArBackR = new ProducerDouble("Cam9ArBackL", "Cam10ArBackR", ConsumerCam9ArBackLCam10ArBackR, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ProducerCam9ArBackLCam10ArBackR.Start();
+
+
+                    //ConsumerCam11ArTopLCam12ArTopR = new ConsumerDouble("Cam11ArTopL", "Cam12ArTopR",DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ConsumerCam11ArTopLCam12ArTopR.TileImageReady += Cunsumer_TileImages;
+                    //ConsumerCam11ArTopLCam12ArTopR.Start();
+
+                    //ProducerCam11ArTopLCam12ArTopR = new ProducerDouble("Cam11ArTopL", "Cam12ArTopR", ConsumerCam11ArTopLCam12ArTopR, DrawingVariables.IntSurfaceTypeFromDrawing);
+                    //ProducerCam11ArTopLCam12ArTopR.Start();
+
+
+                    //ConsumerCam13ArBottomLCam14ArBottomR = new ConsumerDouble("Cam13ArBottomL", "Cam14ArBottomR",DrawingVariables.IntSurfaceTypeFromDrawing);
                     //ConsumerCam13ArBottomLCam14ArBottomR.TileImageReady += Cunsumer_TileImages;
                     //ConsumerCam13ArBottomLCam14ArBottomR.Start();
 
                     //ProducerCam13ArBottomLCam14ArBottomR = new ProducerDouble("Cam13ArBottomL", "Cam14ArBottomR", ConsumerCam13ArBottomLCam14ArBottomR, DrawingVariables.IntSurfaceTypeFromDrawing);
                     //ProducerCam13ArBottomLCam14ArBottomR.Start();
-
-
-                    //ConsumerCam2LsTopR = new Consumer("Cam2LsTopR", 100);
-                    //ConsumerCam2LsTopR.TileImageReady += Cunsumer_TileImages;
-                    //ConsumerCam2LsTopR.Start();
-
-                    //ProducerCam2LsTopR = new Producer("Cam2LsTopR", PersistentVariables, ConsumerCam2LsTopR);
-                    //ProducerCam2LsTopR.Start();
-
-
-                    //ConsumerCam1Cam2 = new Consumer("Cam1Cam2", 100);
-                    //ConsumerCam1Cam2.TileImageReady += Cunsumer_TileImages;
-                    //ConsumerCam1Cam2.Start();
-
-                    //ProducerrCam1Cam2 = new Producer("Cam1Cam2", PersistentVariables, ConsumerCam1Cam2);
-                    //ProducerrCam1Cam2.Start();
-
-                    //ConsumerCam5LsLeft = new Consumer("Cam5LsLeft", 100);
-                    //ConsumerCam5LsLeft.TileImageReady += Cunsumer_TileImages;
-                    //ConsumerCam5LsLeft.Start();
-
-                    //ProducerrCam5LsLeft = new Producer("Cam5LsLeft", PersistentVariables, ConsumerCam5LsLeft, DrawingVariables.IntSurfaceTypeFromDrawing);
-                    //ProducerrCam5LsLeft.Start();
-
                 }
 
 
@@ -1002,7 +1039,8 @@ namespace IkeaUI
 
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -1021,7 +1059,8 @@ namespace IkeaUI
 
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -1045,8 +1084,8 @@ namespace IkeaUI
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
-
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -1131,7 +1170,8 @@ namespace IkeaUI
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -1197,7 +1237,8 @@ namespace IkeaUI
 
             catch (Exception ex)
             {
-                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
         private void LoadAllRecipes()
@@ -1266,6 +1307,7 @@ namespace IkeaUI
             catch (Exception ex)
             {
                 Console.WriteLine("{ 0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
+                Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
 
@@ -1302,7 +1344,7 @@ namespace IkeaUI
                     }
                 }
 
-                MainProcedures.Function_PfsParametersModify(DrawingVariables.IntSurfaceTypeFromDrawing, camName, exposureTimeValue/10, gainValue, out HTuple h_mix_arrException);
+                MainProcedures.Function_PfsParametersModify(DrawingVariables.IntSurfaceTypeFromDrawing, camName, exposureTimeValue, gainValue, out HTuple h_mix_arrException);
                 if (h_mix_arrException.Length < 1)
                 {
                     Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Changed Exposure time and gain for {camName} to {exposureTimeValue} and {gainValue} ", "|OK|");
@@ -1311,12 +1353,19 @@ namespace IkeaUI
 
                 switch (camName)
                 {
+                    case "Cam1LsTopL":
+                        ProducerCam1LsTopLCam2LsTopR.ChangeParametersCam1(exposureTimeValue, gainValue);
+                        break;
+
+                    case "Cam2LsTopR":
+                        ProducerCam1LsTopLCam2LsTopR.ChangeParametersCam2(exposureTimeValue, gainValue);
+                        break;
 
                     case "Cam3LsBottomL":
-                        ProducerCam3LsBottomLCam4LsBottomR.ChangeParametersCam1(exposureTimeValue/10, gainValue);
+                        ProducerCam3LsBottomLCam4LsBottomR.ChangeParametersCam1(exposureTimeValue, gainValue);
                         break;
                     case "Cam4LsBottomR":
-                        ProducerCam3LsBottomLCam4LsBottomR.ChangeParametersCam2(exposureTimeValue/10, gainValue);
+                        ProducerCam3LsBottomLCam4LsBottomR.ChangeParametersCam2(exposureTimeValue, gainValue);
                         break;
 
                     case "Cam5LsLeft":
@@ -1328,18 +1377,38 @@ namespace IkeaUI
                         break;
 
                     case "Cam7ArFrontL":
-
                         ProducerCam7ArFrontLCam8ArFrontR.ChangeParametersCam1(exposureTimeValue, gainValue);
-
                         break;
 
                     case "Cam8ArFrontR":
                         ProducerCam7ArFrontLCam8ArFrontR.ChangeParametersCam2(exposureTimeValue, gainValue);
 
                         break;
+                    case "Cam9ArBackL":
+                        ProducerCam9ArBackLCam10ArBackR.ChangeParametersCam1(exposureTimeValue, gainValue);
 
+                        break;
+                    case "Cam10ArBackR":
+                        ProducerCam9ArBackLCam10ArBackR.ChangeParametersCam2(exposureTimeValue, gainValue);
+
+                        break;
+
+                    case "Cam11ArTopL":
+                        ProducerCam11ArTopLCam12ArTopR.ChangeParametersCam1(exposureTimeValue, gainValue);
+                        break;
+
+                    case "Cam12ArTopR":
+                        ProducerCam11ArTopLCam12ArTopR.ChangeParametersCam2(exposureTimeValue, gainValue);
+                        break;
+
+                    case "Cam13ArBottomL":
+                        ProducerCam13ArBottomLCam14ArBottomR.ChangeParametersCam1(exposureTimeValue, gainValue);
+                        break;
+
+                    case "Cam14ArBottomR":
+                        ProducerCam13ArBottomLCam14ArBottomR.ChangeParametersCam2(exposureTimeValue, gainValue);
+                        break;
                 }
-
             }
 
             catch (Exception ex)
@@ -1348,57 +1417,7 @@ namespace IkeaUI
                 Loging.MakeLog(DateTime.Now, ex.Message, "|Error|");
             }
         }
-
-        private void ReadCoilsLoop()
-        {
-            Thread loop = new Thread(() =>
-            {
-                List<bool> coilsStatusAdam1 = new List<bool>();
-                List<bool> coilsStatusAdam2 = new List<bool>();
-                List<bool> coilsStatusAdam1Previous = new List<bool>();
-                List<bool> coilsStatusAdam2Previous = new List<bool>();
-
-                while (true)
-                {
-                    coilsStatusAdam1 = Adam1.ReadAdamCoils(25);
-                    coilsStatusAdam2 = Adam2.ReadAdamCoils(16);
-                    Thread.Sleep(10);
-
-                    if (coilsStatusAdam1[0] == true && coilsStatusAdam1Previous[0] == false)
-                    {
-
-                        GlobalVariables.SaveImageCam7ArFrontL = true;
-                    }
-
-                    switch (coilsStatusAdam1)
-                    {
-                        //case:
-                        //    //if ()
-                        //    //{
-                        //    //    ProducerCam7ArFrontLCam8ArFrontR.GrabImageStartSignal();
-                        //    //}
-                        //    break;
-                    }
-                    switch (coilsStatusAdam2)
-                    {
-                        //case:
-                        //    //if ()
-                        //    //{
-                        //    //    ProducerCam7ArFrontLCam8ArFrontR.GrabImageStartSignal();
-                        //    //}
-                        //    break;
-                    }
-
-
-                    coilsStatusAdam1Previous = coilsStatusAdam1;
-                    coilsStatusAdam2Previous = coilsStatusAdam2;
-                }
-
-            });
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
+       
+       
     }
 }

@@ -18,13 +18,13 @@ namespace Ikea_Library.Utilities
                 try
                 {
 
-                    WriteCameraParametersProcedure Cam1LsTopLParametersFilePath110 = new WriteCameraParametersProcedure(path);
-                    Cam1LsTopLParametersFilePath110.LFunction_PfsWriteCameraParameters_Func("Cam1LsTopL", recipe, out HTuple exception1);
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam1LsTopL", "|OK|");
+                    //WriteCameraParametersProcedure Cam1LsTopLParametersFilePath110 = new WriteCameraParametersProcedure(path);
+                    //Cam1LsTopLParametersFilePath110.LFunction_PfsWriteCameraParameters_Func("Cam1LsTopL", recipe, out HTuple exception1);
+                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam1LsTopL", "|OK|");
 
-                    WriteCameraParametersProcedure Cam2LsTopRParametersFilePath110 = new WriteCameraParametersProcedure(path);
-                    Cam2LsTopRParametersFilePath110.LFunction_PfsWriteCameraParameters_Func("Cam2LsTopR", recipe, out HTuple exception2);
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam2LsTopR", "|OK|");
+                    //WriteCameraParametersProcedure Cam2LsTopRParametersFilePath110 = new WriteCameraParametersProcedure(path);
+                    //Cam2LsTopRParametersFilePath110.LFunction_PfsWriteCameraParameters_Func("Cam2LsTopR", recipe, out HTuple exception2);
+                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam2LsTopR", "|OK|");
 
 
                     //WriteCameraParametersProcedure Cam3 = new WriteCameraParametersProcedure(path);
@@ -39,21 +39,21 @@ namespace Ikea_Library.Utilities
 
                     //WriteCameraParametersProcedure Cam5 = new WriteCameraParametersProcedure(path);
                     //Cam5.LFunction_PfsWriteCameraParameters_Func("Cam5LsLeft", recipe, out HTuple exception5);
-                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam5", "|OK|");
+                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam5LsLeft", "|OK|");
 
 
                     //WriteCameraParametersProcedure Cam6 = new WriteCameraParametersProcedure(path);
                     //Cam6.LFunction_PfsWriteCameraParameters_Func("Cam6LsRight", recipe, out HTuple exception6);
-                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam6", "|OK|");
+                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam6LsRight", "|OK|");
 
 
-                    //WriteCameraParametersProcedure Cam7ArFrontLParametersFilePath110 = new WriteCameraParametersProcedure(path);
-                    //Cam7ArFrontLParametersFilePath110.LFunction_PfsWriteCameraParameters_Func("Cam7ArFrontL", recipe, out HTuple exception7);
+                    //WriteCameraParametersProcedure Cam7 = new WriteCameraParametersProcedure(path);
+                    //Cam7.LFunction_PfsWriteCameraParameters_Func("Cam7ArFrontL", recipe, out HTuple exception7);
                     //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam7ArFrontL", "|OK|");
 
 
-                    //WriteCameraParametersProcedure Cam8ArFrontParametersFilePath = new WriteCameraParametersProcedure(path);
-                    //Cam8ArFrontParametersFilePath.LFunction_PfsWriteCameraParameters_Func("Cam8ArFrontR", recipe, out HTuple exception8);
+                    //WriteCameraParametersProcedure Cam8 = new WriteCameraParametersProcedure(path);
+                    //Cam8.LFunction_PfsWriteCameraParameters_Func("Cam8ArFrontR", recipe, out HTuple exception8);
                     //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam8ArFrontR", "|OK|");
 
 
@@ -77,13 +77,13 @@ namespace Ikea_Library.Utilities
                     //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam12ArTopR", "|OK|");
 
 
-                    WriteCameraParametersProcedure Cam13 = new WriteCameraParametersProcedure(path);
-                    Cam13.LFunction_PfsWriteCameraParameters_Func("Cam13ArBottomL", recipe, out HTuple exception13);
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam13ArBottomL", "|OK|");
+                    //WriteCameraParametersProcedure Cam13 = new WriteCameraParametersProcedure(path);
+                    //Cam13.LFunction_PfsWriteCameraParameters_Func("Cam13ArBottomL", recipe, out HTuple exception13);
+                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam13ArBottomL", "|OK|");
 
-                    WriteCameraParametersProcedure Cam14 = new WriteCameraParametersProcedure(path);
-                    Cam14.LFunction_PfsWriteCameraParameters_Func("Cam14ArBottomR", recipe, out HTuple exception14);
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam14ArBottomR", "|OK|");
+                    //WriteCameraParametersProcedure Cam14 = new WriteCameraParametersProcedure(path);
+                    //Cam14.LFunction_PfsWriteCameraParameters_Func("Cam14ArBottomR", recipe, out HTuple exception14);
+                    //Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, "Default setting for camera Cam14ArBottomR", "|OK|");
 
 
                 }

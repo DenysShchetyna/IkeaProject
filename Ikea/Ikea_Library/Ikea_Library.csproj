@@ -111,11 +111,9 @@
     <Compile Include="Helpers\Colors.cs" />
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\PersistentVariables.cs" />
-    <Compile Include="Helpers\JsonFunctions.cs" />
     <Compile Include="Utilities\Loging.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Hole.cs" />
-    <Compile Include="ProduceConsumer\ResultEvaluation.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -132,7 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Helpers\CameraSettings.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

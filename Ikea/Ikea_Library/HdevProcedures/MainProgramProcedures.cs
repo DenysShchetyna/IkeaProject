@@ -16,7 +16,7 @@ namespace Ikea_Library.HdevProcedures
 {
     public class MainProgramProcedures
     {
-        string ProgramPath = @"C:\Trifid\A0670\SW\Halcon\A0670_HolesInspectionSystem.hdev";
+        string ProgramPath = GlobalVariables.HalconEvaluationPath;
 
         HDevProgram Program;
         HDevProcedure ReadDrawing;
@@ -30,6 +30,23 @@ namespace Ikea_Library.HdevProcedures
 
         HDevProcedure ChangePfsCamParams;
         HDevProcedureCall ChangePfsCamParams_Call;
+
+
+
+        HDevProcedure CreateTwoImagesFromOne_Cam3_4;
+        HDevProcedureCall CreateTwoImagesFromOne_Cam3_4_Call;
+
+        HDevProcedure TileTwoImagesFromOne_Cam3_4;
+        HDevProcedureCall TileTwoImagesFromOne_Cam3_4_Call;
+
+        HDevProcedure PrepareImageForProcessing_Cam3_4;
+        HDevProcedureCall PrepareImageForProcessing_Cam3_4_Call;
+
+        HDevProcedure ResizeCroppedImage_Cam3_4;
+        HDevProcedureCall ResizeCroppedImage_Cam3_4_Call;
+
+        HDevProcedure MeasureHoles_Cam3_4;
+        HDevProcedureCall MeasureHoles_Cam3_4_Call;
 
 
         public MainProgramProcedures()
@@ -54,12 +71,137 @@ namespace Ikea_Library.HdevProcedures
 
                 ChangePfsCamParams = new HDevProcedure(Program, "Function_PfsParametersModify");
                 ChangePfsCamParams_Call = new HDevProcedureCall(ChangePfsCamParams);
+
+
+
+
+
+                CreateTwoImagesFromOne_Cam3_4 = new HDevProcedure(Program, "Function_CreateImageCamL_ImageCamRfromImageCamLCamR");
+                CreateTwoImagesFromOne_Cam3_4_Call = new HDevProcedureCall(CreateTwoImagesFromOne_Cam3_4);
+
+                TileTwoImagesFromOne_Cam3_4 = new HDevProcedure(Program, "Function_TileImagesFromCamLCamR");
+                TileTwoImagesFromOne_Cam3_4_Call = new HDevProcedureCall(TileTwoImagesFromOne_Cam3_4);
+
+                PrepareImageForProcessing_Cam3_4 = new HDevProcedure(Program, "Function_A0670_PrepareImageCam3Cam4ForProcessing");
+                PrepareImageForProcessing_Cam3_4_Call = new HDevProcedureCall(PrepareImageForProcessing_Cam3_4);
+
+                ResizeCroppedImage_Cam3_4 = new HDevProcedure(Program, "Function_A0675_ResizeCroppedImageAccordingBoardSizeFromRecipe");
+                ResizeCroppedImage_Cam3_4_Call = new HDevProcedureCall(ResizeCroppedImage_Cam3_4);
+
+                MeasureHoles_Cam3_4 = new HDevProcedure(Program, "Function_A0670_MeasurementHolesPositionAndDiameter");
+                MeasureHoles_Cam3_4_Call = new HDevProcedureCall(MeasureHoles_Cam3_4);
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
             }
+        }
+
+        public void Function_CreateImageCamL_ImageCamRfromImageCam3_4(
+             HObject h_img_bImage,
+            out HObject h_img_bImageL,
+            out HObject h_img_bImageR,
+            out HTuple h_mix_arrException)
+        {
+            CreateTwoImagesFromOne_Cam3_4_Call.SetInputIconicParamObject("h_img_bImage", h_img_bImage);
+            CreateTwoImagesFromOne_Cam3_4_Call.Execute();
+            h_img_bImageL = CreateTwoImagesFromOne_Cam3_4_Call.GetOutputIconicParamObject("h_img_bImageL");
+            h_img_bImageR = CreateTwoImagesFromOne_Cam3_4_Call.GetOutputIconicParamObject("h_img_bImageR");
+            h_mix_arrException = CreateTwoImagesFromOne_Cam3_4_Call.GetOutputCtrlParamTuple("h_mix_arrException");
+        }
+
+        public void Function_TileImagesFromCam3_4(
+                HObject h_img_bImageL,
+                HObject h_img_bImageR,
+                HTuple h_realJointPointLPix,
+                HTuple h_realJointPointRPix,
+                HTuple h_realAngleCamerasSlopeDeg,
+                out HObject h_img_bTiledImage
+            )
+        {
+            TileTwoImagesFromOne_Cam3_4_Call.SetInputIconicParamObject("h_img_bImageL", h_img_bImageL);
+            TileTwoImagesFromOne_Cam3_4_Call.SetInputIconicParamObject("h_img_bImageR", h_img_bImageR);
+            TileTwoImagesFromOne_Cam3_4_Call.SetInputCtrlParamTuple("h_realJointPointLPix", h_realJointPointLPix);
+            TileTwoImagesFromOne_Cam3_4_Call.SetInputCtrlParamTuple("h_realJointPointRPix", h_realJointPointRPix);
+            TileTwoImagesFromOne_Cam3_4_Call.SetInputCtrlParamTuple("h_realAngleCamerasSlopeDeg", h_realAngleCamerasSlopeDeg);
+            TileTwoImagesFromOne_Cam3_4_Call.Execute();
+            h_img_bTiledImage = TileTwoImagesFromOne_Cam3_4_Call.GetOutputIconicParamObject("h_img_bTiledImage");
+        }
+
+        public void Function_A0670_PrepareImageForProcessingCam3_4(
+                HObject h_img_bImageCam3Cam4Bottom,
+                HTuple h_intSurfaceTypeFromDrawing,
+                out HObject h_img_bImageCam3Cam4ForProcessing,
+                out HObject h_img_bImageCam3Cam4Cropped,
+                out HTuple h_realLeftTopCornerRowPix,
+                out HTuple h_realLeftTopCornerColumnPix,
+                out HTuple h_realRightBottomCornerRowPix,
+                out HTuple h_realRightBottomCornerColumnPix,
+                out HTuple h_mix_arrException
+            )
+        {
+            PrepareImageForProcessing_Cam3_4_Call.SetInputIconicParamObject("h_img_bImageCam3Cam4Bottom", h_img_bImageCam3Cam4Bottom);
+            PrepareImageForProcessing_Cam3_4_Call.SetInputCtrlParamTuple("h_intSurfaceTypeFromDrawing", h_intSurfaceTypeFromDrawing);
+            PrepareImageForProcessing_Cam3_4_Call.Execute();
+            h_img_bImageCam3Cam4ForProcessing = PrepareImageForProcessing_Cam3_4_Call.GetOutputIconicParamObject("h_img_bImageCam3Cam4ForProcessing");
+            h_img_bImageCam3Cam4Cropped = PrepareImageForProcessing_Cam3_4_Call.GetOutputIconicParamObject("h_img_bImageCam3Cam4Cropped");
+            h_realLeftTopCornerRowPix = PrepareImageForProcessing_Cam3_4_Call.GetOutputCtrlParamTuple("h_realLeftTopCornerRowPix");
+            h_realLeftTopCornerColumnPix = PrepareImageForProcessing_Cam3_4_Call.GetOutputCtrlParamTuple("h_realLeftTopCornerColumnPix");
+            h_realRightBottomCornerRowPix = PrepareImageForProcessing_Cam3_4_Call.GetOutputCtrlParamTuple("h_realRightBottomCornerRowPix");
+            h_realRightBottomCornerColumnPix = PrepareImageForProcessing_Cam3_4_Call.GetOutputCtrlParamTuple("h_realRightBottomCornerColumnPix");
+            h_mix_arrException = PrepareImageForProcessing_Cam3_4_Call.GetOutputCtrlParamTuple("h_mix_arrException");
+        }
+
+        public void Function_A0675_ResizeCroppedImageAccordingBoardSizeFromRecipeCam3_4(
+                HObject h_img_bImage,
+                HTuple h_realSizeForColumnScaleFactorMm,
+                HTuple h_realSizeForRowScaleFactorMm,
+                out HObject h_img_bImage0point1Mm,
+                out HTuple h_realColumnScaleFactorMm,
+                out HTuple h_realRowScaleFactorMm,
+                out HTuple h_mix_arrException
+            )
+        {
+            ResizeCroppedImage_Cam3_4_Call.SetInputIconicParamObject("h_img_bImage", h_img_bImage);
+            ResizeCroppedImage_Cam3_4_Call.SetInputCtrlParamTuple("h_realSizeForColumnScaleFactorMm", h_realSizeForColumnScaleFactorMm);
+            ResizeCroppedImage_Cam3_4_Call.SetInputCtrlParamTuple("h_realSizeForRowScaleFactorMm", h_realSizeForRowScaleFactorMm);
+            ResizeCroppedImage_Cam3_4_Call.Execute();
+            h_img_bImage0point1Mm = ResizeCroppedImage_Cam3_4_Call.GetOutputIconicParamObject("h_img_bImage0point1Mm");
+            h_realColumnScaleFactorMm = ResizeCroppedImage_Cam3_4_Call.GetOutputCtrlParamTuple("h_realColumnScaleFactorMm");
+            h_realRowScaleFactorMm = ResizeCroppedImage_Cam3_4_Call.GetOutputCtrlParamTuple("h_realRowScaleFactorMm");
+            h_mix_arrException = ResizeCroppedImage_Cam3_4_Call.GetOutputCtrlParamTuple("h_mix_arrException");
+        }
+        public void Function_A0670_MeasurementHolesPositionAndDiameterCam3_4(
+                HObject h_img_bImage0point1Mm,
+                HTuple h_real_arrXPositionMmFromDrawing,
+                HTuple h_real_arrYPositionMmFromDrawing,
+                HTuple h_real_arrDiameterMmFromDrawing,
+                HTuple h_realResizeFactorRegionDiameterForHolesLookingFor,
+                HTuple h_realFractionFactorHoleDiameterForScratchRejection,
+                out HObject h_reg_arrCircleRegions,
+                out HObject h_con_arrCross,
+                out HObject h_con_arrContCircle,
+                out HTuple h_real_arrXPositionMmFromMeasurement,
+                out HTuple h_real_arrYPositionMmFromMeasurement,
+                out HTuple h_real_arrDiameterMmFromMeasurement,
+                out HTuple h_mix_arrException
+            )
+        {
+            MeasureHoles_Cam3_4_Call.SetInputIconicParamObject("h_img_bImage0point1Mm", h_img_bImage0point1Mm);
+            MeasureHoles_Cam3_4_Call.SetInputCtrlParamTuple("h_real_arrXPositionMmFromDrawing", h_real_arrXPositionMmFromDrawing);
+            MeasureHoles_Cam3_4_Call.SetInputCtrlParamTuple("h_real_arrYPositionMmFromDrawing", h_real_arrYPositionMmFromDrawing);
+            MeasureHoles_Cam3_4_Call.SetInputCtrlParamTuple("h_real_arrDiameterMmFromDrawing", h_real_arrDiameterMmFromDrawing);
+            MeasureHoles_Cam3_4_Call.SetInputCtrlParamTuple("h_realResizeFactorRegionDiameterForHolesLookingFor", h_realResizeFactorRegionDiameterForHolesLookingFor);
+            MeasureHoles_Cam3_4_Call.SetInputCtrlParamTuple("h_realFractionFactorHoleDiameterForScratchRejection", h_realFractionFactorHoleDiameterForScratchRejection);
+            MeasureHoles_Cam3_4_Call.Execute();
+            h_reg_arrCircleRegions = MeasureHoles_Cam3_4_Call.GetOutputIconicParamObject("h_reg_arrCircleRegions");
+            h_con_arrCross = MeasureHoles_Cam3_4_Call.GetOutputIconicParamObject("h_con_arrCross");
+            h_con_arrContCircle = MeasureHoles_Cam3_4_Call.GetOutputIconicParamObject("h_con_arrContCircle");
+            h_real_arrXPositionMmFromMeasurement = MeasureHoles_Cam3_4_Call.GetOutputCtrlParamTuple("h_real_arrXPositionMmFromMeasurement");
+            h_real_arrYPositionMmFromMeasurement = MeasureHoles_Cam3_4_Call.GetOutputCtrlParamTuple("h_real_arrYPositionMmFromMeasurement");
+            h_real_arrDiameterMmFromMeasurement = MeasureHoles_Cam3_4_Call.GetOutputCtrlParamTuple("h_real_arrDiameterMmFromMeasurement");
+            h_mix_arrException = MeasureHoles_Cam3_4_Call.GetOutputCtrlParamTuple("h_mix_arrException");
         }
 
         public void Function_PfsParametersModify(

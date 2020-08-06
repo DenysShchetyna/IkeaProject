@@ -14,11 +14,15 @@ namespace Ikea_Library.ProduceConsumer
 {
     public class ConsumerDouble
     {
+        public event EventHandler<TileImageReadyEventArgs> TileImageReady;
+
         private string CamNames { get; set; }
         private string CamName1 { get; set; }
         private string CamName2 { get; set; }
+        HTuple IntSurfaceTypeFromDrawing;
 
-        public event EventHandler<TileImageReadyEventArgs> TileImageReady;
+
+        string SaveImagePath;
 
         private bool Run;
         private Thread ConsumerThread;
@@ -35,21 +39,20 @@ namespace Ikea_Library.ProduceConsumer
         private HTuple Img1Width;
         private HTuple Img2Width;
 
-        bool ProcessingLastImage = false;
         HObject ImagePartial1;
         HObject ImagePartial2;
 
         HObject ImagesBuffer1 = new HObject();
         HObject ImagesBuffer2 = new HObject();
 
-        private int CountOfSegments;
 
-        public ConsumerDouble(string camName1, string camName2, int countOfSegments)
+        public ConsumerDouble(string camName1, string camName2, int intSurface)
         {
             CamName1 = camName1;
             CamName2 = camName2;
             CamNames = camName1 + "_" + camName2;
-            CountOfSegments = countOfSegments;
+            IntSurfaceTypeFromDrawing = intSurface;
+            SaveImagePath = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + IntSurfaceTypeFromDrawing + "__" + CamName1 + "_" + CamName2;
         }
 
         public void Enqueue1(Message message)
@@ -78,18 +81,12 @@ namespace Ikea_Library.ProduceConsumer
             HOperatorSet.GenEmptyObj(out ImagePartial1);
             HOperatorSet.GenEmptyObj(out ImagePartial2);
 
-
-            bool firstImageReady = false;
-            bool secondImageReady = false;
-
-
             while (Run == true)
             {
 
                 switch (CamNames)
                 {
                     case "Cam1LsTopL_Cam2LsTopR":
-
 
                         Message1 = MessagesCam1.Take();
                         Message2 = MessagesCam2.Take();
@@ -98,9 +95,7 @@ namespace Ikea_Library.ProduceConsumer
                         if (Message1.LastImage == false)
                         {
                             HOperatorSet.GetImageSize(Message1.Image, out Img1Width, out HTuple img1Height);
-                            Console.WriteLine(img1Height.ToString() + "first");
                             HOperatorSet.GetImageSize(Message2.Image, out Img2Width, out HTuple img2Height);
-                            Console.WriteLine(img2Height.ToString() + "second");
 
                             if ((img1Height < Cam1ImgHeight) && (img1Height > 0))
                             {
@@ -119,13 +114,6 @@ namespace Ikea_Library.ProduceConsumer
 
                             AfterLastImageFunc();
                         }
-
-
-                        //string filePath1 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1;
-                        //HOperatorSet.WriteImage(Message1.Image, "tiff", 0, filePath1);
-                        //string filePath2 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName2;
-                        //HOperatorSet.WriteImage(Message2.Image, "tiff", 0, filePath2);
-
 
                         break;
 
@@ -134,19 +122,12 @@ namespace Ikea_Library.ProduceConsumer
                         Message1 = MessagesCam1.Take();
                         Message2 = MessagesCam2.Take();
 
-                       
+
 
                         if (Message1.LastImage == false)
                         {
-                            string filePath1 = @"C:\Trifid\A0670\SW\photos\test\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1;
-                            HOperatorSet.WriteImage(Message1.Image, "tiff", 0, filePath1);
-                            string filePath2 = @"C:\Trifid\A0670\SW\photos\test\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName2;
-                            HOperatorSet.WriteImage(Message2.Image, "tiff", 0, filePath2);
 
                             HOperatorSet.GetImageSize(Message1.Image, out Img1Width, out HTuple img1Height);
-                            Console.WriteLine(img1Height.ToString() + "first");
-                            HOperatorSet.GetImageSize(Message2.Image, out Img2Width, out HTuple img2Height);
-                            Console.WriteLine(img2Height.ToString() + "second");
 
                             if ((img1Height < Cam1ImgHeight) && (img1Height > 0))
                             {
@@ -167,6 +148,7 @@ namespace Ikea_Library.ProduceConsumer
                         }
 
                         break;
+
                     case "Cam5LsLeft_Cam6LsRight":
 
                         Message1 = MessagesCam1.Take();
@@ -176,16 +158,7 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             if (Message1.LastImage == false)
                             {
-
-                                string filePath1 = @"C:\Trifid\A0670\SW\photos\test\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1;
-                                HOperatorSet.WriteImage(Message1.Image, "tiff", 0, filePath1);
-                                string filePath2 = @"C:\Trifid\A0670\SW\photos\test\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName2;
-                                HOperatorSet.WriteImage(Message2.Image, "tiff", 0, filePath2);
-
                                 HOperatorSet.GetImageSize(Message1.Image, out Img1Width, out HTuple img1Height);
-                                Console.WriteLine(img1Height.ToString() + "first");
-                                HOperatorSet.GetImageSize(Message2.Image, out Img2Width, out HTuple img2Height);
-                                Console.WriteLine(img2Height.ToString() + "second");
 
                                 if ((img1Height < Cam1ImgHeight) && (img1Height > 0))
                                 {
@@ -209,7 +182,7 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                         }
-                        
+
 
                         break;
 
@@ -222,16 +195,14 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             HOperatorSet.ConcatObj(Message1.Image, Message2.Image, out ImagesBuffer1);
                             HOperatorSet.TileImages(ImagesBuffer1, out bigImage1, 2, "horizontal");
-
-                            string filePath7 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1 + "_" + CamName2;
-                            HOperatorSet.WriteImage(bigImage1, "tiff", 0, filePath7);
+                            HOperatorSet.WriteImage(bigImage1, "tiff", 0, SaveImagePath);
 
                         }
                         catch (Exception ex)
                         {
                             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message, "|Error|");
                         }
-                       
+
 
                         break;
 
@@ -244,9 +215,7 @@ namespace Ikea_Library.ProduceConsumer
                         {
                             HOperatorSet.ConcatObj(Message1.Image, Message2.Image, out ImagesBuffer1);
                             HOperatorSet.TileImages(ImagesBuffer1, out bigImage1, 2, "horizontal");
-
-                            string filePath3 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1 + "_" + CamName2;
-                            HOperatorSet.WriteImage(bigImage1, "tiff", 0, filePath3);
+                            HOperatorSet.WriteImage(bigImage1, "tiff", 0, SaveImagePath);
                         }
                         catch (Exception ex)
                         {
@@ -262,14 +231,14 @@ namespace Ikea_Library.ProduceConsumer
 
                         if (Message1.LastImage == false)
                         {
-                                HOperatorSet.ConcatObj(ImagesBuffer1, Message1.Image, out ImagesBuffer1);
-                                HOperatorSet.ConcatObj(ImagesBuffer2, Message2.Image, out ImagesBuffer2);
+                            HOperatorSet.ConcatObj(ImagesBuffer1, Message1.Image, out ImagesBuffer1);
+                            HOperatorSet.ConcatObj(ImagesBuffer2, Message2.Image, out ImagesBuffer2);
                         }
 
                         else if (Message1.LastImage == true)
                         {
 
-                            AfterLastImagewFuncLasers();
+                            AfterLastImageFuncLasers();
                         }
 
                         break;
@@ -287,7 +256,7 @@ namespace Ikea_Library.ProduceConsumer
 
                         else if (Message1.LastImage == true)
                         {
-                            AfterLastImagewFuncLasers();
+                            AfterLastImageFuncLasers();
                         }
                         break;
                 }
@@ -315,28 +284,30 @@ namespace Ikea_Library.ProduceConsumer
             Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Aborted Thread {ConsumerThread.Name}", "|OK|");
         }
 
-        // End of events
-        public void AfterLastImagewFuncLasers()
+        public void SideKamerasProcessingFunc()
+        {
+
+
+        }
+
+        public void AfterLastImageFuncLasers()
         {
             try
             {
                 HOperatorSet.TileImages(ImagesBuffer1, out HObject bigImage1, 1, "vertical");
                 HOperatorSet.TileImages(ImagesBuffer2, out HObject bigImage2, 1, "vertical");
-
                 HOperatorSet.ConcatObj(bigImage1, bigImage2, out HObject concatedBig);
                 HOperatorSet.TileImages(concatedBig, out HObject fullImage, 2, "horizontal");
-
-                string filePath2 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1 + "_" + CamName2;
-                HOperatorSet.WriteImage(fullImage, "tiff", 0, filePath2);
+                HOperatorSet.WriteImage(fullImage, "tiff", 0, SaveImagePath);
 
                 bigImage1.GenEmptyObj();
                 bigImage2.GenEmptyObj();
                 fullImage.GenEmptyObj();
                 concatedBig.GenEmptyObj();
                 fullImage.GenEmptyObj();
+
                 ImagesBuffer1.Dispose();
                 ImagesBuffer2.Dispose();
-
                 ImagesBuffer1.GenEmptyObj();
                 ImagesBuffer2.GenEmptyObj();
 
@@ -350,7 +321,6 @@ namespace Ikea_Library.ProduceConsumer
         {
             try
             {
-               
                 if (ImagePartial1 != null)
                 {
                     HOperatorSet.GenImageConst(out HObject emptyImage1, "byte", Img1Width, Cam1ImgHeight);
@@ -369,8 +339,7 @@ namespace Ikea_Library.ProduceConsumer
                     HOperatorSet.ConcatObj(bigImage1, bigImage2, out HObject concatedBig);
                     HOperatorSet.TileImages(concatedBig, out HObject fullImage, 2, "horizontal");
 
-                    string filePath2 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1 + "_" + CamName2;
-                    HOperatorSet.WriteImage(fullImage, "tiff", 0, filePath2);
+                    HOperatorSet.WriteImage(fullImage, "tiff", 0, SaveImagePath);
 
                     concatedPartial1.GenEmptyObj();
                     concatedPartial2.GenEmptyObj();
@@ -384,31 +353,30 @@ namespace Ikea_Library.ProduceConsumer
                 {
                     HOperatorSet.TileImages(ImagesBuffer1, out HObject bigImage1, 1, "vertical");
                     HOperatorSet.TileImages(ImagesBuffer2, out HObject bigImage2, 1, "vertical");
-
                     HOperatorSet.ConcatObj(bigImage1, bigImage2, out HObject concatedBig);
                     HOperatorSet.TileImages(concatedBig, out HObject fullImage, 2, "horizontal");
 
-                    string filePath2 = @"C:\Trifid\A0670\SW\photos\" + DateTime.Now.ToString("MM_dd_yyyy__HH_mm_ss_ff") + "__" + CamName1 + "_" + CamName2;
-                    HOperatorSet.WriteImage(fullImage, "tiff", 0, filePath2);
+                    HOperatorSet.WriteImage(fullImage, "tiff", 0, SaveImagePath);
 
                     bigImage1.GenEmptyObj();
                     bigImage2.GenEmptyObj();
-                    fullImage.GenEmptyObj();
                     concatedBig.GenEmptyObj();
                     fullImage.GenEmptyObj();
 
                 }
             }
-            catch (Exception)
+
+            catch (Exception ex)
             {
-                
+                Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, ex.Message + "|Error|");
+
             }
 
             ImagesBuffer1.Dispose();
             ImagesBuffer2.Dispose();
-
             ImagesBuffer1.GenEmptyObj();
             ImagesBuffer2.GenEmptyObj();
+
         }
     }
 }

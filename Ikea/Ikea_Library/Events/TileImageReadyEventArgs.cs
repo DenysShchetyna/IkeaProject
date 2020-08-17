@@ -54,24 +54,11 @@ namespace Ikea_Library.Events
 
                     break;
 
-                case "Cam9ArRearL_Cam10ArRearR":
+                case "Cam9ArBackL_Cam10ArBackR":
                     TileImageCam9_10 = tileImage;
                     CamNames = camName;
 
                     break;
-
-                case "Cam11ArTopL_Cam12ArTopR":
-                    TileImageCam11_12 = tileImage;
-                    CamNames = camName;
-
-                    break;
-
-                case "Cam13ArBottomL_Cam14ArBottomR":
-                    TileImageCam13_14 = tileImage;
-                    CamNames = camName;
-
-                    break;
-
             }
         }
     }

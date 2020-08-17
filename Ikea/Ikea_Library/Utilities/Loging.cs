@@ -10,7 +10,7 @@ namespace Ikea_Library
 {
     public class Loging
     {
-        readonly static string LogsDirectoryPath = @"C:\Trifid\IKEA\IkeaProject\Logs\";
+        readonly static string LogsDirectoryPath = @"C:\Trifid\A0670\SW\C#\IKEA\IkeaProject\Logs";
         private static string LogFilePath { get; set; }
 
         private static bool CreateLogDirectory()
@@ -43,7 +43,7 @@ namespace Ikea_Library
             try
             {
                 string dateTime = DateTime.Now.ToString("dd_MM_yyyy");
-                LogFilePath = LogsDirectoryPath + dateTime + ".txt";
+                LogFilePath = LogsDirectoryPath +"\\"+ dateTime + ".txt";
 
                 if (File.Exists(LogFilePath) == false)
                 {

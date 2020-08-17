@@ -19,10 +19,9 @@ namespace Ikea_Library.Utilities
             {
                 long freeSpace = AvailableFreeDiskSpace(path);
 
-                if (freeSpace < discSpaceLimit && freeSpace != -1)
+                if (freeSpace < 900 && freeSpace != -1)
                 {
-                    DeleteOldFiles(path);
-                    Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Deleted from disc {path}", "|OK|");
+                    DeleteOldFiles(GlobalVariables.SaveImagesPath);
                     freeSpace = AvailableFreeDiskSpace(path);
                 }
                 return freeSpace;
@@ -74,6 +73,8 @@ namespace Ikea_Library.Utilities
                     if (isOlder == true)
                     {
                         fI.Delete();
+                        Console.WriteLine("{0,-30}|{1,-120}{2,-20}", DateTime.Now, $"Deleted from disc {path}", "|OK|");
+
                     }
                 }
             }
@@ -86,7 +87,7 @@ namespace Ikea_Library.Utilities
 
         private static string[] GetAllFiles(string path)
         {
-            return Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+            return Directory.GetFiles(path,"*",SearchOption.AllDirectories);
         }
 
     }

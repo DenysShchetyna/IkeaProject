@@ -2,6 +2,7 @@
 using IkeaUI.Properties;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,30 @@ namespace IkeaProject
         private delegate void UpdateLabelTextDelegate(Label label, string text);
         private delegate void UpdatePictureBoxDelegate(PictureBox pictureBox, bool status);
         private delegate void UpdateTextBoxTextDelegate(TextBox textBox,string text);
+
+        private delegate void UpdateProgressiveBarDelegate(ProgressBar bar,string action);
+        public static void UpdateProgressiveBar(ProgressBar bar,string action)
+        {
+            if (bar.InvokeRequired == true)
+            {
+                bar.Invoke(new UpdateProgressiveBarDelegate(UpdateProgressiveBar), new object[] { bar,action });
+            }
+            else
+            {
+                switch (action)
+                {
+                    case "step":
+                        bar.Step = 1;
+                        bar.PerformStep();
+                        bar.ForeColor = Colors.Red;
+                        break;
+
+                    case "reset":
+                        bar.Value = 0;
+                        break;
+                }
+            }
+        }
 
 
         public static void UpdateTextBoxText(TextBox textBox,string text)

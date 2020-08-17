@@ -16,12 +16,12 @@ namespace Ikea_Library.DataGridTables
             {
                 for (int i = 0; i < Materials.Count; i++)
                 {
-                    dataGridView.Rows.Add(Materials[i].Name, Materials[i].TimeStamp, Materials[i].DrawingsCount, Materials[i].Status);
+                    dataGridView.Rows.Add(Materials[i].RecipeName, Materials[i].CreationTime, Materials[i].Status);
                 }
 
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
-                    if (Convert.ToBoolean(row.Cells[3].Value) == false)
+                    if (Convert.ToBoolean(row.Cells[2].Value) == false)
                     {
                         row.DefaultCellStyle.BackColor = Colors.Red;
                     }
@@ -42,11 +42,11 @@ namespace Ikea_Library.DataGridTables
         {
             for (int i = 0; i < drawingSides.Count; i++)
             {
-                datagridTable_DrawingSides.Rows.Add(drawingSides[i].Name, drawingSides[i].TimeStamp, drawingSides[i].HolesCount, drawingSides[i].Status);
+                datagridTable_DrawingSides.Rows.Add(drawingSides[i].SideName, drawingSides[i].CreationTime, drawingSides[i].Status);
             }
             foreach (DataGridViewRow row in datagridTable_DrawingSides.Rows)
             {
-                if (Convert.ToBoolean(row.Cells[3].Value) == false)
+                if (Convert.ToBoolean(row.Cells[2].Value) == false)
                 {
                     row.DefaultCellStyle.BackColor = Colors.Red;
                 }
@@ -64,7 +64,7 @@ namespace Ikea_Library.DataGridTables
         {
             for (int i = 0; i < holes.Count; i++)
             {
-                datagridTable_HolesData.Rows.Add(holes[i].TimeStamp, holes[i].X, holes[i].Y, holes[i].Radius, holes[i].Status);
+                datagridTable_HolesData.Rows.Add(holes[i].CreationTime, holes[i].X, holes[i].Y, holes[i].Diameter, holes[i].Status);
             }
             foreach (DataGridViewRow row in datagridTable_HolesData.Rows)
             {

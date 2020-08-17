@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.pictureBox_IkeaLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +46,22 @@
             this.pictureBox_TrifidLogo = new System.Windows.Forms.PictureBox();
             this.tabControl_MainControl = new System.Windows.Forms.TabControl();
             this.tabPage_Main = new System.Windows.Forms.TabPage();
+            this.groupBox_MainTolerancies = new System.Windows.Forms.GroupBox();
+            this.button_MainChangeRecipeSettings = new System.Windows.Forms.Button();
+            this.label61 = new System.Windows.Forms.Label();
+            this.textBox_ToleranceThickness = new System.Windows.Forms.TextBox();
+            this.textBox_MainTolerancePosition = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.textBox_ToleranceLength = new System.Windows.Forms.TextBox();
+            this.textBox_ToleranceWidth = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.textBox_MainToleranceDiameter = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.textBox_MainMaxPosErrors = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox_MainMaxDiameterErrors = new System.Windows.Forms.TextBox();
             this.groupBox_MainTabControlCameras = new System.Windows.Forms.GroupBox();
             this.tabControl_MainCameras = new System.Windows.Forms.TabControl();
             this.tabPage_LeftSide = new System.Windows.Forms.TabPage();
@@ -80,15 +96,6 @@
             this.groupBox_MainPodozrive = new System.Windows.Forms.GroupBox();
             this.progressBar_MainPodozrive = new System.Windows.Forms.ProgressBar();
             this.groupBox_MainDielce = new System.Windows.Forms.GroupBox();
-            this.button_MainChangeRecipeSettings = new System.Windows.Forms.Button();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.textBox_MainMaxDiameterErrors = new System.Windows.Forms.TextBox();
-            this.textBox_MainMaxPosErrors = new System.Windows.Forms.TextBox();
-            this.textBox_MainToleranceDiameter = new System.Windows.Forms.TextBox();
-            this.textBox_MainTolerancePosition = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox_MainSearchRecipe = new System.Windows.Forms.TextBox();
             this.listBox_MainRecipe = new System.Windows.Forms.ListBox();
@@ -100,24 +107,18 @@
             this.tabPage_Archive = new System.Windows.Forms.TabPage();
             this.groupBox_ArchiveDrawingSides = new System.Windows.Forms.GroupBox();
             this.dataGridView_ArchiveDrawingSides = new System.Windows.Forms.DataGridView();
-            this.DrawingSideName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HolesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_TakeInfoFromDB = new System.Windows.Forms.Button();
             this.button_RefreshTable = new System.Windows.Forms.Button();
             this.groupBox_Holes = new System.Windows.Forms.GroupBox();
             this.dataGridView_HolesData = new System.Windows.Forms.DataGridView();
             this.TimeStampHoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Radius = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusHoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Boards = new System.Windows.Forms.GroupBox();
             this.dataGridView_Data = new System.Windows.Forms.DataGridView();
             this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DrawingSidesCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Hwindow = new System.Windows.Forms.GroupBox();
             this.Hwindow_ArchiveImage = new HalconDotNet.HSmartWindowControl();
@@ -261,7 +262,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button_DiagnosticsAutorisation = new System.Windows.Forms.Button();
-            this.timer_Simulation = new System.Windows.Forms.Timer(this.components);
             this.timer_Clock = new System.Windows.Forms.Timer(this.components);
             this.timer_DiscsCheck = new System.Windows.Forms.Timer(this.components);
             this.panel_Footer = new System.Windows.Forms.Panel();
@@ -269,11 +269,16 @@
             this.button_FooterExitApp = new System.Windows.Forms.Button();
             this.timer_CameraPing = new System.Windows.Forms.Timer(this.components);
             this.timer_AdamCoilsRead = new System.Windows.Forms.Timer(this.components);
+            this.timer_checkDrawings = new System.Windows.Forms.Timer(this.components);
+            this.DrawingSideName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IkeaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TrifidLogo)).BeginInit();
             this.tabControl_MainControl.SuspendLayout();
             this.tabPage_Main.SuspendLayout();
+            this.groupBox_MainTolerancies.SuspendLayout();
             this.groupBox_MainTabControlCameras.SuspendLayout();
             this.tabControl_MainCameras.SuspendLayout();
             this.tabPage_LeftSide.SuspendLayout();
@@ -452,6 +457,7 @@
             // tabPage_Main
             // 
             this.tabPage_Main.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage_Main.Controls.Add(this.groupBox_MainTolerancies);
             this.tabPage_Main.Controls.Add(this.groupBox_MainTabControlCameras);
             this.tabPage_Main.Controls.Add(this.groupBox_MainStatistics);
             this.tabPage_Main.Controls.Add(this.label_MainSystemMessage);
@@ -470,12 +476,161 @@
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "Hlavná";
             // 
+            // groupBox_MainTolerancies
+            // 
+            this.groupBox_MainTolerancies.Controls.Add(this.button_MainChangeRecipeSettings);
+            this.groupBox_MainTolerancies.Controls.Add(this.label61);
+            this.groupBox_MainTolerancies.Controls.Add(this.textBox_ToleranceThickness);
+            this.groupBox_MainTolerancies.Controls.Add(this.textBox_MainTolerancePosition);
+            this.groupBox_MainTolerancies.Controls.Add(this.label60);
+            this.groupBox_MainTolerancies.Controls.Add(this.textBox_ToleranceLength);
+            this.groupBox_MainTolerancies.Controls.Add(this.textBox_ToleranceWidth);
+            this.groupBox_MainTolerancies.Controls.Add(this.label64);
+            this.groupBox_MainTolerancies.Controls.Add(this.label63);
+            this.groupBox_MainTolerancies.Controls.Add(this.textBox_MainToleranceDiameter);
+            this.groupBox_MainTolerancies.Controls.Add(this.label59);
+            this.groupBox_MainTolerancies.Controls.Add(this.label62);
+            this.groupBox_MainTolerancies.Controls.Add(this.textBox_MainMaxPosErrors);
+            this.groupBox_MainTolerancies.Controls.Add(this.label58);
+            this.groupBox_MainTolerancies.Controls.Add(this.textBox_MainMaxDiameterErrors);
+            this.groupBox_MainTolerancies.Location = new System.Drawing.Point(1290, 426);
+            this.groupBox_MainTolerancies.Name = "groupBox_MainTolerancies";
+            this.groupBox_MainTolerancies.Size = new System.Drawing.Size(499, 241);
+            this.groupBox_MainTolerancies.TabIndex = 8;
+            this.groupBox_MainTolerancies.TabStop = false;
+            this.groupBox_MainTolerancies.Text = "Nastavenia";
+            // 
+            // button_MainChangeRecipeSettings
+            // 
+            this.button_MainChangeRecipeSettings.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_MainChangeRecipeSettings.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MainChangeRecipeSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_MainChangeRecipeSettings.Location = new System.Drawing.Point(404, 198);
+            this.button_MainChangeRecipeSettings.Name = "button_MainChangeRecipeSettings";
+            this.button_MainChangeRecipeSettings.Size = new System.Drawing.Size(90, 37);
+            this.button_MainChangeRecipeSettings.TabIndex = 13;
+            this.button_MainChangeRecipeSettings.Text = "Zmeniť";
+            this.button_MainChangeRecipeSettings.UseVisualStyleBackColor = false;
+            this.button_MainChangeRecipeSettings.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(271, 77);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(134, 20);
+            this.label61.TabIndex = 4;
+            this.label61.Text = "Max. chyb polom.:";
+            // 
+            // textBox_ToleranceThickness
+            // 
+            this.textBox_ToleranceThickness.Location = new System.Drawing.Point(169, 108);
+            this.textBox_ToleranceThickness.Name = "textBox_ToleranceThickness";
+            this.textBox_ToleranceThickness.Size = new System.Drawing.Size(59, 26);
+            this.textBox_ToleranceThickness.TabIndex = 3;
+            // 
+            // textBox_MainTolerancePosition
+            // 
+            this.textBox_MainTolerancePosition.Location = new System.Drawing.Point(169, 46);
+            this.textBox_MainTolerancePosition.Name = "textBox_MainTolerancePosition";
+            this.textBox_MainTolerancePosition.Size = new System.Drawing.Size(59, 26);
+            this.textBox_MainTolerancePosition.TabIndex = 3;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(271, 45);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(117, 20);
+            this.label60.TabIndex = 4;
+            this.label60.Text = "Max. chyb poz.:";
+            // 
+            // textBox_ToleranceLength
+            // 
+            this.textBox_ToleranceLength.Location = new System.Drawing.Point(169, 172);
+            this.textBox_ToleranceLength.Name = "textBox_ToleranceLength";
+            this.textBox_ToleranceLength.Size = new System.Drawing.Size(59, 26);
+            this.textBox_ToleranceLength.TabIndex = 3;
+            // 
+            // textBox_ToleranceWidth
+            // 
+            this.textBox_ToleranceWidth.Location = new System.Drawing.Point(169, 139);
+            this.textBox_ToleranceWidth.Name = "textBox_ToleranceWidth";
+            this.textBox_ToleranceWidth.Size = new System.Drawing.Size(59, 26);
+            this.textBox_ToleranceWidth.TabIndex = 3;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(2, 176);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(125, 20);
+            this.label64.TabIndex = 4;
+            this.label64.Text = "Tolerancia dlzky:";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(2, 143);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(121, 20);
+            this.label63.TabIndex = 4;
+            this.label63.Text = "Tolerancia sirky:";
+            // 
+            // textBox_MainToleranceDiameter
+            // 
+            this.textBox_MainToleranceDiameter.Location = new System.Drawing.Point(169, 77);
+            this.textBox_MainToleranceDiameter.Name = "textBox_MainToleranceDiameter";
+            this.textBox_MainToleranceDiameter.Size = new System.Drawing.Size(59, 26);
+            this.textBox_MainToleranceDiameter.TabIndex = 3;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(2, 81);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(152, 20);
+            this.label59.TabIndex = 4;
+            this.label59.Text = "Tolerancia priemeru:";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(2, 111);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(137, 20);
+            this.label62.TabIndex = 4;
+            this.label62.Text = "Tolerancia hrubky:";
+            // 
+            // textBox_MainMaxPosErrors
+            // 
+            this.textBox_MainMaxPosErrors.Location = new System.Drawing.Point(438, 40);
+            this.textBox_MainMaxPosErrors.Name = "textBox_MainMaxPosErrors";
+            this.textBox_MainMaxPosErrors.Size = new System.Drawing.Size(59, 26);
+            this.textBox_MainMaxPosErrors.TabIndex = 3;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(2, 49);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(139, 20);
+            this.label58.TabIndex = 4;
+            this.label58.Text = "Tolerancia pozicie:";
+            // 
+            // textBox_MainMaxDiameterErrors
+            // 
+            this.textBox_MainMaxDiameterErrors.Location = new System.Drawing.Point(438, 71);
+            this.textBox_MainMaxDiameterErrors.Name = "textBox_MainMaxDiameterErrors";
+            this.textBox_MainMaxDiameterErrors.Size = new System.Drawing.Size(59, 26);
+            this.textBox_MainMaxDiameterErrors.TabIndex = 3;
+            // 
             // groupBox_MainTabControlCameras
             // 
             this.groupBox_MainTabControlCameras.Controls.Add(this.tabControl_MainCameras);
             this.groupBox_MainTabControlCameras.Location = new System.Drawing.Point(4, 4);
             this.groupBox_MainTabControlCameras.Name = "groupBox_MainTabControlCameras";
-            this.groupBox_MainTabControlCameras.Size = new System.Drawing.Size(1471, 915);
+            this.groupBox_MainTabControlCameras.Size = new System.Drawing.Size(1280, 915);
             this.groupBox_MainTabControlCameras.TabIndex = 7;
             this.groupBox_MainTabControlCameras.TabStop = false;
             this.groupBox_MainTabControlCameras.Text = "Pohľady zo strán";
@@ -491,13 +646,13 @@
             this.tabControl_MainCameras.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_MainCameras.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl_MainCameras.ImageList = this.imageList_TabMainCameras;
-            this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(243, 40);
+            this.tabControl_MainCameras.ItemSize = new System.Drawing.Size(211, 40);
             this.tabControl_MainCameras.Location = new System.Drawing.Point(3, 22);
             this.tabControl_MainCameras.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl_MainCameras.Name = "tabControl_MainCameras";
             this.tabControl_MainCameras.Padding = new System.Drawing.Point(0, 0);
             this.tabControl_MainCameras.SelectedIndex = 0;
-            this.tabControl_MainCameras.Size = new System.Drawing.Size(1465, 890);
+            this.tabControl_MainCameras.Size = new System.Drawing.Size(1274, 890);
             this.tabControl_MainCameras.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl_MainCameras.TabIndex = 0;
             this.tabControl_MainCameras.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_MainCameras_DrawItem);
@@ -510,7 +665,7 @@
             this.tabPage_LeftSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_LeftSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_LeftSide.Name = "tabPage_LeftSide";
-            this.tabPage_LeftSide.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage_LeftSide.Size = new System.Drawing.Size(1266, 842);
             this.tabPage_LeftSide.TabIndex = 0;
             this.tabPage_LeftSide.Text = "Ľavá strana";
             // 
@@ -528,9 +683,9 @@
             this.Hwindow_LeftSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_LeftSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_LeftSide.Name = "Hwindow_LeftSide";
-            this.Hwindow_LeftSide.Size = new System.Drawing.Size(1457, 842);
+            this.Hwindow_LeftSide.Size = new System.Drawing.Size(1266, 842);
             this.Hwindow_LeftSide.TabIndex = 0;
-            this.Hwindow_LeftSide.WindowSize = new System.Drawing.Size(1457, 842);
+            this.Hwindow_LeftSide.WindowSize = new System.Drawing.Size(1266, 842);
             // 
             // tabPage_RightSide
             // 
@@ -540,7 +695,7 @@
             this.tabPage_RightSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_RightSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_RightSide.Name = "tabPage_RightSide";
-            this.tabPage_RightSide.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage_RightSide.Size = new System.Drawing.Size(1266, 842);
             this.tabPage_RightSide.TabIndex = 1;
             this.tabPage_RightSide.Text = "Pravá strana";
             // 
@@ -558,9 +713,9 @@
             this.Hwindow_RightSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_RightSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_RightSide.Name = "Hwindow_RightSide";
-            this.Hwindow_RightSide.Size = new System.Drawing.Size(1457, 842);
+            this.Hwindow_RightSide.Size = new System.Drawing.Size(1266, 842);
             this.Hwindow_RightSide.TabIndex = 0;
-            this.Hwindow_RightSide.WindowSize = new System.Drawing.Size(1457, 842);
+            this.Hwindow_RightSide.WindowSize = new System.Drawing.Size(1266, 842);
             // 
             // tabPage_FrontSide
             // 
@@ -570,7 +725,7 @@
             this.tabPage_FrontSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_FrontSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_FrontSide.Name = "tabPage_FrontSide";
-            this.tabPage_FrontSide.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage_FrontSide.Size = new System.Drawing.Size(1266, 842);
             this.tabPage_FrontSide.TabIndex = 2;
             this.tabPage_FrontSide.Text = "Predná strana";
             // 
@@ -588,9 +743,9 @@
             this.Hwindow_FrontSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_FrontSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_FrontSide.Name = "Hwindow_FrontSide";
-            this.Hwindow_FrontSide.Size = new System.Drawing.Size(1457, 842);
+            this.Hwindow_FrontSide.Size = new System.Drawing.Size(1266, 842);
             this.Hwindow_FrontSide.TabIndex = 1;
-            this.Hwindow_FrontSide.WindowSize = new System.Drawing.Size(1457, 842);
+            this.Hwindow_FrontSide.WindowSize = new System.Drawing.Size(1266, 842);
             // 
             // tabPage_BackSide
             // 
@@ -600,7 +755,7 @@
             this.tabPage_BackSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_BackSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_BackSide.Name = "tabPage_BackSide";
-            this.tabPage_BackSide.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage_BackSide.Size = new System.Drawing.Size(1266, 842);
             this.tabPage_BackSide.TabIndex = 3;
             this.tabPage_BackSide.Text = "Zadná strana";
             // 
@@ -618,9 +773,9 @@
             this.Hwindow_BackSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_BackSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_BackSide.Name = "Hwindow_BackSide";
-            this.Hwindow_BackSide.Size = new System.Drawing.Size(1457, 842);
+            this.Hwindow_BackSide.Size = new System.Drawing.Size(1266, 842);
             this.Hwindow_BackSide.TabIndex = 2;
-            this.Hwindow_BackSide.WindowSize = new System.Drawing.Size(1457, 842);
+            this.Hwindow_BackSide.WindowSize = new System.Drawing.Size(1266, 842);
             // 
             // tabPage_UpperSide
             // 
@@ -630,7 +785,7 @@
             this.tabPage_UpperSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_UpperSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_UpperSide.Name = "tabPage_UpperSide";
-            this.tabPage_UpperSide.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage_UpperSide.Size = new System.Drawing.Size(1266, 842);
             this.tabPage_UpperSide.TabIndex = 4;
             this.tabPage_UpperSide.Text = "Horná strana";
             // 
@@ -648,9 +803,9 @@
             this.Hwindow_UpperSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_UpperSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_UpperSide.Name = "Hwindow_UpperSide";
-            this.Hwindow_UpperSide.Size = new System.Drawing.Size(1457, 842);
+            this.Hwindow_UpperSide.Size = new System.Drawing.Size(1266, 842);
             this.Hwindow_UpperSide.TabIndex = 2;
-            this.Hwindow_UpperSide.WindowSize = new System.Drawing.Size(1457, 842);
+            this.Hwindow_UpperSide.WindowSize = new System.Drawing.Size(1266, 842);
             // 
             // tabPage_LowerSide
             // 
@@ -660,7 +815,7 @@
             this.tabPage_LowerSide.Location = new System.Drawing.Point(4, 44);
             this.tabPage_LowerSide.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_LowerSide.Name = "tabPage_LowerSide";
-            this.tabPage_LowerSide.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage_LowerSide.Size = new System.Drawing.Size(1266, 842);
             this.tabPage_LowerSide.TabIndex = 5;
             this.tabPage_LowerSide.Text = "Dolná strana";
             // 
@@ -678,9 +833,9 @@
             this.Hwindow_LowerSide.Location = new System.Drawing.Point(0, 0);
             this.Hwindow_LowerSide.Margin = new System.Windows.Forms.Padding(0);
             this.Hwindow_LowerSide.Name = "Hwindow_LowerSide";
-            this.Hwindow_LowerSide.Size = new System.Drawing.Size(1457, 842);
+            this.Hwindow_LowerSide.Size = new System.Drawing.Size(1266, 842);
             this.Hwindow_LowerSide.TabIndex = 2;
-            this.Hwindow_LowerSide.WindowSize = new System.Drawing.Size(1457, 842);
+            this.Hwindow_LowerSide.WindowSize = new System.Drawing.Size(1266, 842);
             // 
             // imageList_TabMainCameras
             // 
@@ -703,9 +858,9 @@
             this.groupBox_MainStatistics.Controls.Add(this.label_MainStatisticsNOK);
             this.groupBox_MainStatistics.Controls.Add(this.label41);
             this.groupBox_MainStatistics.Controls.Add(this.label39);
-            this.groupBox_MainStatistics.Location = new System.Drawing.Point(1481, 727);
+            this.groupBox_MainStatistics.Location = new System.Drawing.Point(1544, 197);
             this.groupBox_MainStatistics.Name = "groupBox_MainStatistics";
-            this.groupBox_MainStatistics.Size = new System.Drawing.Size(309, 230);
+            this.groupBox_MainStatistics.Size = new System.Drawing.Size(242, 199);
             this.groupBox_MainStatistics.TabIndex = 6;
             this.groupBox_MainStatistics.TabStop = false;
             this.groupBox_MainStatistics.Text = "Štatistika";
@@ -847,9 +1002,9 @@
             // 
             this.groupBox_MainPodozrive.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox_MainPodozrive.Controls.Add(this.progressBar_MainPodozrive);
-            this.groupBox_MainPodozrive.Location = new System.Drawing.Point(1481, 635);
+            this.groupBox_MainPodozrive.Location = new System.Drawing.Point(1290, 673);
             this.groupBox_MainPodozrive.Name = "groupBox_MainPodozrive";
-            this.groupBox_MainPodozrive.Size = new System.Drawing.Size(305, 86);
+            this.groupBox_MainPodozrive.Size = new System.Drawing.Size(496, 106);
             this.groupBox_MainPodozrive.TabIndex = 3;
             this.groupBox_MainPodozrive.TabStop = false;
             this.groupBox_MainPodozrive.Text = "Podozrivé dielce";
@@ -857,117 +1012,31 @@
             // progressBar_MainPodozrive
             // 
             this.progressBar_MainPodozrive.BackColor = System.Drawing.Color.DarkGray;
-            this.progressBar_MainPodozrive.Location = new System.Drawing.Point(6, 38);
+            this.progressBar_MainPodozrive.Location = new System.Drawing.Point(9, 41);
             this.progressBar_MainPodozrive.Maximum = 5;
             this.progressBar_MainPodozrive.Name = "progressBar_MainPodozrive";
-            this.progressBar_MainPodozrive.Size = new System.Drawing.Size(289, 23);
+            this.progressBar_MainPodozrive.Size = new System.Drawing.Size(473, 39);
             this.progressBar_MainPodozrive.TabIndex = 0;
             // 
             // groupBox_MainDielce
             // 
             this.groupBox_MainDielce.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox_MainDielce.Controls.Add(this.button_MainChangeRecipeSettings);
-            this.groupBox_MainDielce.Controls.Add(this.label61);
-            this.groupBox_MainDielce.Controls.Add(this.label60);
-            this.groupBox_MainDielce.Controls.Add(this.label59);
-            this.groupBox_MainDielce.Controls.Add(this.label58);
-            this.groupBox_MainDielce.Controls.Add(this.textBox_MainMaxDiameterErrors);
-            this.groupBox_MainDielce.Controls.Add(this.textBox_MainMaxPosErrors);
-            this.groupBox_MainDielce.Controls.Add(this.textBox_MainToleranceDiameter);
-            this.groupBox_MainDielce.Controls.Add(this.textBox_MainTolerancePosition);
             this.groupBox_MainDielce.Controls.Add(this.pictureBox1);
             this.groupBox_MainDielce.Controls.Add(this.textBox_MainSearchRecipe);
             this.groupBox_MainDielce.Controls.Add(this.listBox_MainRecipe);
-            this.groupBox_MainDielce.Location = new System.Drawing.Point(1481, 183);
+            this.groupBox_MainDielce.Location = new System.Drawing.Point(1290, 6);
             this.groupBox_MainDielce.Name = "groupBox_MainDielce";
-            this.groupBox_MainDielce.Size = new System.Drawing.Size(308, 446);
+            this.groupBox_MainDielce.Size = new System.Drawing.Size(242, 390);
             this.groupBox_MainDielce.TabIndex = 2;
             this.groupBox_MainDielce.TabStop = false;
-            this.groupBox_MainDielce.Text = "Dielce";
-            // 
-            // button_MainChangeRecipeSettings
-            // 
-            this.button_MainChangeRecipeSettings.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_MainChangeRecipeSettings.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_MainChangeRecipeSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MainChangeRecipeSettings.Location = new System.Drawing.Point(205, 403);
-            this.button_MainChangeRecipeSettings.Name = "button_MainChangeRecipeSettings";
-            this.button_MainChangeRecipeSettings.Size = new System.Drawing.Size(90, 37);
-            this.button_MainChangeRecipeSettings.TabIndex = 13;
-            this.button_MainChangeRecipeSettings.Text = "Zmeniť";
-            this.button_MainChangeRecipeSettings.UseVisualStyleBackColor = false;
-            this.button_MainChangeRecipeSettings.Click += new System.EventHandler(this.button_MainChangeRecipeValues_Click);
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(2, 377);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(134, 20);
-            this.label61.TabIndex = 4;
-            this.label61.Text = "Max. chyb polom.:";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(2, 345);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(117, 20);
-            this.label60.TabIndex = 4;
-            this.label60.Text = "Max. chyb poz.:";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(2, 313);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(156, 20);
-            this.label59.TabIndex = 4;
-            this.label59.Text = "Tolerancia polomeru:";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(2, 281);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(139, 20);
-            this.label58.TabIndex = 4;
-            this.label58.Text = "Tolerancia pozicie:";
-            // 
-            // textBox_MainMaxDiameterErrors
-            // 
-            this.textBox_MainMaxDiameterErrors.Location = new System.Drawing.Point(165, 371);
-            this.textBox_MainMaxDiameterErrors.Name = "textBox_MainMaxDiameterErrors";
-            this.textBox_MainMaxDiameterErrors.Size = new System.Drawing.Size(130, 26);
-            this.textBox_MainMaxDiameterErrors.TabIndex = 3;
-            // 
-            // textBox_MainMaxPosErrors
-            // 
-            this.textBox_MainMaxPosErrors.Location = new System.Drawing.Point(165, 340);
-            this.textBox_MainMaxPosErrors.Name = "textBox_MainMaxPosErrors";
-            this.textBox_MainMaxPosErrors.Size = new System.Drawing.Size(130, 26);
-            this.textBox_MainMaxPosErrors.TabIndex = 3;
-            // 
-            // textBox_MainToleranceDiameter
-            // 
-            this.textBox_MainToleranceDiameter.Location = new System.Drawing.Point(165, 309);
-            this.textBox_MainToleranceDiameter.Name = "textBox_MainToleranceDiameter";
-            this.textBox_MainToleranceDiameter.Size = new System.Drawing.Size(130, 26);
-            this.textBox_MainToleranceDiameter.TabIndex = 3;
-            // 
-            // textBox_MainTolerancePosition
-            // 
-            this.textBox_MainTolerancePosition.Location = new System.Drawing.Point(165, 278);
-            this.textBox_MainTolerancePosition.Name = "textBox_MainTolerancePosition";
-            this.textBox_MainTolerancePosition.Size = new System.Drawing.Size(130, 26);
-            this.textBox_MainTolerancePosition.TabIndex = 3;
+            this.groupBox_MainDielce.Text = "Recepty";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::IkeaUI.Properties.Resources.search_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(265, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(198, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(30, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -976,7 +1045,7 @@
             // 
             this.textBox_MainSearchRecipe.Location = new System.Drawing.Point(6, 25);
             this.textBox_MainSearchRecipe.Name = "textBox_MainSearchRecipe";
-            this.textBox_MainSearchRecipe.Size = new System.Drawing.Size(253, 26);
+            this.textBox_MainSearchRecipe.Size = new System.Drawing.Size(186, 26);
             this.textBox_MainSearchRecipe.TabIndex = 1;
             this.textBox_MainSearchRecipe.TextChanged += new System.EventHandler(this.textBox_MainSearchRecipe_TextChanged);
             // 
@@ -987,7 +1056,7 @@
             this.listBox_MainRecipe.ItemHeight = 20;
             this.listBox_MainRecipe.Location = new System.Drawing.Point(6, 65);
             this.listBox_MainRecipe.Name = "listBox_MainRecipe";
-            this.listBox_MainRecipe.Size = new System.Drawing.Size(289, 204);
+            this.listBox_MainRecipe.Size = new System.Drawing.Size(222, 304);
             this.listBox_MainRecipe.TabIndex = 0;
             this.listBox_MainRecipe.SelectedIndexChanged += new System.EventHandler(this.listBox_MainRecipe_SelectedIndexChanged);
             // 
@@ -998,9 +1067,9 @@
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStop);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainSaveImg);
             this.groupBox_MainRiadenie.Controls.Add(this.button_MainStart);
-            this.groupBox_MainRiadenie.Location = new System.Drawing.Point(1481, 6);
+            this.groupBox_MainRiadenie.Location = new System.Drawing.Point(1544, 6);
             this.groupBox_MainRiadenie.Name = "groupBox_MainRiadenie";
-            this.groupBox_MainRiadenie.Size = new System.Drawing.Size(305, 171);
+            this.groupBox_MainRiadenie.Size = new System.Drawing.Size(242, 185);
             this.groupBox_MainRiadenie.TabIndex = 1;
             this.groupBox_MainRiadenie.TabStop = false;
             this.groupBox_MainRiadenie.Text = "Riadenie";
@@ -1021,9 +1090,9 @@
             this.button_MainStop.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_MainStop.FlatAppearance.BorderSize = 2;
             this.button_MainStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MainStop.Location = new System.Drawing.Point(154, 25);
+            this.button_MainStop.Location = new System.Drawing.Point(125, 25);
             this.button_MainStop.Name = "button_MainStop";
-            this.button_MainStop.Size = new System.Drawing.Size(127, 60);
+            this.button_MainStop.Size = new System.Drawing.Size(94, 60);
             this.button_MainStop.TabIndex = 2;
             this.button_MainStop.Text = "Stop";
             this.button_MainStop.UseVisualStyleBackColor = false;
@@ -1035,9 +1104,9 @@
             this.button_MainSaveImg.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button_MainSaveImg.FlatAppearance.BorderSize = 2;
             this.button_MainSaveImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MainSaveImg.Location = new System.Drawing.Point(25, 91);
+            this.button_MainSaveImg.Location = new System.Drawing.Point(25, 92);
             this.button_MainSaveImg.Name = "button_MainSaveImg";
-            this.button_MainSaveImg.Size = new System.Drawing.Size(256, 49);
+            this.button_MainSaveImg.Size = new System.Drawing.Size(194, 49);
             this.button_MainSaveImg.TabIndex = 1;
             this.button_MainSaveImg.Text = "Uložiť Aktuálny Obraz";
             this.button_MainSaveImg.UseVisualStyleBackColor = false;
@@ -1051,7 +1120,7 @@
             this.button_MainStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_MainStart.Location = new System.Drawing.Point(25, 25);
             this.button_MainStart.Name = "button_MainStart";
-            this.button_MainStart.Size = new System.Drawing.Size(127, 60);
+            this.button_MainStart.Size = new System.Drawing.Size(94, 60);
             this.button_MainStart.TabIndex = 1;
             this.button_MainStart.Text = "Štart";
             this.button_MainStart.UseVisualStyleBackColor = false;
@@ -1061,7 +1130,6 @@
             // 
             this.tabPage_Archive.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tabPage_Archive.Controls.Add(this.groupBox_ArchiveDrawingSides);
-            this.tabPage_Archive.Controls.Add(this.button_TakeInfoFromDB);
             this.tabPage_Archive.Controls.Add(this.button_RefreshTable);
             this.tabPage_Archive.Controls.Add(this.groupBox_Holes);
             this.tabPage_Archive.Controls.Add(this.groupBox_Boards);
@@ -1097,7 +1165,6 @@
             this.dataGridView_ArchiveDrawingSides.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DrawingSideName,
             this.dataGridViewTextBoxColumn1,
-            this.HolesCount,
             this.dataGridViewTextBoxColumn6});
             this.dataGridView_ArchiveDrawingSides.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_ArchiveDrawingSides.Location = new System.Drawing.Point(3, 22);
@@ -1109,51 +1176,6 @@
             this.dataGridView_ArchiveDrawingSides.Size = new System.Drawing.Size(588, 181);
             this.dataGridView_ArchiveDrawingSides.TabIndex = 0;
             this.dataGridView_ArchiveDrawingSides.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ArchiveDrawingSides_CellClick);
-            // 
-            // DrawingSideName
-            // 
-            this.DrawingSideName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DrawingSideName.HeaderText = "Názov";
-            this.DrawingSideName.Name = "DrawingSideName";
-            this.DrawingSideName.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // HolesCount
-            // 
-            this.HolesCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.HolesCount.HeaderText = "Poč. dier";
-            this.HolesCount.Name = "HolesCount";
-            this.HolesCount.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // button_TakeInfoFromDB
-            // 
-            this.button_TakeInfoFromDB.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button_TakeInfoFromDB.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button_TakeInfoFromDB.FlatAppearance.BorderSize = 2;
-            this.button_TakeInfoFromDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_TakeInfoFromDB.Location = new System.Drawing.Point(1580, 904);
-            this.button_TakeInfoFromDB.Name = "button_TakeInfoFromDB";
-            this.button_TakeInfoFromDB.Size = new System.Drawing.Size(100, 50);
-            this.button_TakeInfoFromDB.TabIndex = 3;
-            this.button_TakeInfoFromDB.Text = "Take";
-            this.button_TakeInfoFromDB.UseVisualStyleBackColor = false;
-            this.button_TakeInfoFromDB.Click += new System.EventHandler(this.button_TakeInfoFromDB_Click);
             // 
             // button_RefreshTable
             // 
@@ -1193,7 +1215,7 @@
             this.TimeStampHoles,
             this.X,
             this.Y,
-            this.Radius,
+            this.Diameter,
             this.StatusHoles});
             this.dataGridView_HolesData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_HolesData.Location = new System.Drawing.Point(3, 22);
@@ -1207,8 +1229,8 @@
             // 
             // TimeStampHoles
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.TimeStampHoles.DefaultCellStyle = dataGridViewCellStyle3;
             this.TimeStampHoles.FillWeight = 80.58376F;
             this.TimeStampHoles.HeaderText = "TimeStamp";
             this.TimeStampHoles.Name = "TimeStampHoles";
@@ -1216,8 +1238,8 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.X.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.X.DefaultCellStyle = dataGridViewCellStyle4;
             this.X.FillWeight = 80.58376F;
             this.X.HeaderText = "X[mm]";
             this.X.Name = "X";
@@ -1226,28 +1248,28 @@
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle5;
             this.Y.FillWeight = 80.58376F;
             this.Y.HeaderText = "Y[mm]";
             this.Y.Name = "Y";
             this.Y.Width = 90;
             // 
-            // Radius
+            // Diameter
             // 
-            this.Radius.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Radius.DefaultCellStyle = dataGridViewCellStyle20;
-            this.Radius.FillWeight = 80.58376F;
-            this.Radius.HeaderText = "Radius[mm]";
-            this.Radius.Name = "Radius";
-            this.Radius.Width = 110;
+            this.Diameter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Diameter.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Diameter.FillWeight = 80.58376F;
+            this.Diameter.HeaderText = "Diameter[mm]";
+            this.Diameter.Name = "Diameter";
+            this.Diameter.Width = 110;
             // 
             // StatusHoles
             // 
             this.StatusHoles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.StatusHoles.DefaultCellStyle = dataGridViewCellStyle7;
             this.StatusHoles.FillWeight = 177.665F;
             this.StatusHoles.HeaderText = "Status";
             this.StatusHoles.Name = "StatusHoles";
@@ -1275,7 +1297,6 @@
             this.dataGridView_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaterialName,
             this.TimeStamp,
-            this.DrawingSidesCount,
             this.Status});
             this.dataGridView_Data.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Data.Location = new System.Drawing.Point(3, 22);
@@ -1291,27 +1312,22 @@
             // MaterialName
             // 
             this.MaterialName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MaterialName.HeaderText = "Názov";
+            this.MaterialName.HeaderText = "Názov receptu";
             this.MaterialName.Name = "MaterialName";
-            this.MaterialName.Width = 120;
+            this.MaterialName.Width = 250;
             // 
             // TimeStamp
             // 
+            this.TimeStamp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TimeStamp.HeaderText = "TimeStamp";
             this.TimeStamp.Name = "TimeStamp";
-            // 
-            // DrawingSidesCount
-            // 
-            this.DrawingSidesCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DrawingSidesCount.HeaderText = "Poč.pohľadov";
-            this.DrawingSidesCount.Name = "DrawingSidesCount";
-            this.DrawingSidesCount.Width = 150;
             // 
             // Status
             // 
             this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
+            this.Status.Width = 150;
             // 
             // groupBox_Hwindow
             // 
@@ -1473,9 +1489,9 @@
             "Cam6LsRight",
             "Cam7ArFrontL",
             "Cam8ArFrontR",
-            "Cam9ArRearL",
-            "Cam10ArRearR",
-            "Cam11ArTopL               ",
+            "Cam9ArBackL",
+            "Cam10ArBackR",
+            "Cam11ArTopL",
             "Cam12ArTopR",
             "Cam13ArBottomL",
             "Cam14ArBottomR"});
@@ -2928,11 +2944,6 @@
             this.button_DiagnosticsAutorisation.UseVisualStyleBackColor = false;
             this.button_DiagnosticsAutorisation.Click += new System.EventHandler(this.button_Autorization_Click);
             // 
-            // timer_Simulation
-            // 
-            this.timer_Simulation.Interval = 2000;
-            this.timer_Simulation.Tick += new System.EventHandler(this.timer_Simulation_Tick);
-            // 
             // timer_Clock
             // 
             this.timer_Clock.Interval = 1000;
@@ -2992,6 +3003,37 @@
             this.timer_AdamCoilsRead.Interval = 1000;
             this.timer_AdamCoilsRead.Tick += new System.EventHandler(this.timer_AdamCoilsRead_Tick);
             // 
+            // timer_checkDrawings
+            // 
+            this.timer_checkDrawings.Interval = 5000;
+            this.timer_checkDrawings.Tick += new System.EventHandler(this.timer_checkDrawings_Tick);
+            // 
+            // DrawingSideName
+            // 
+            this.DrawingSideName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DrawingSideName.HeaderText = "Názov";
+            this.DrawingSideName.Name = "DrawingSideName";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn1.FillWeight = 80.58376F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn6.FillWeight = 177.665F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3015,6 +3057,8 @@
             this.tabControl_MainControl.ResumeLayout(false);
             this.tabPage_Main.ResumeLayout(false);
             this.tabPage_Main.PerformLayout();
+            this.groupBox_MainTolerancies.ResumeLayout(false);
+            this.groupBox_MainTolerancies.PerformLayout();
             this.groupBox_MainTabControlCameras.ResumeLayout(false);
             this.tabControl_MainCameras.ResumeLayout(false);
             this.tabPage_LeftSide.ResumeLayout(false);
@@ -3115,7 +3159,6 @@
         private System.Windows.Forms.TabPage tabPage_Main;
         private System.Windows.Forms.TabPage tabPage_Archive;
         private System.Windows.Forms.TabPage tabPage_Diagnostics;
-        private System.Windows.Forms.Timer timer_Simulation;
         private System.Windows.Forms.Timer timer_Clock;
         private System.Windows.Forms.Timer timer_DiscsCheck;
         private System.Windows.Forms.GroupBox groupBox_Holes;
@@ -3131,7 +3174,6 @@
         private System.Windows.Forms.Label label_AvailableSpaceD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button_TakeInfoFromDB;
         private System.Windows.Forms.Button button_RefreshTable;
         private System.Windows.Forms.GroupBox groupBox_DiagnosticsCamInfo;
         private System.Windows.Forms.PictureBox pictureBox_CamInfo12;
@@ -3286,19 +3328,6 @@
         private System.Windows.Forms.Timer timer_CameraPing;
         private System.Windows.Forms.GroupBox groupBox_ArchiveDrawingSides;
         private System.Windows.Forms.DataGridView dataGridView_ArchiveDrawingSides;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DrawingSidesCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DrawingSideName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HolesCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeStampHoles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn X;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Radius;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatusHoles;
         public System.Windows.Forms.ImageList imageList_TabMainCameras;
         private System.Windows.Forms.Button button_MainStop;
         private System.Windows.Forms.Button button_MainStart;
@@ -3338,6 +3367,25 @@
         private System.Windows.Forms.TextBox textBox_MainMaxPosErrors;
         private System.Windows.Forms.TextBox textBox_MainToleranceDiameter;
         private System.Windows.Forms.Button button_MainChangeRecipeSettings;
+        private System.Windows.Forms.Timer timer_checkDrawings;
+        private System.Windows.Forms.GroupBox groupBox_MainTolerancies;
+        private System.Windows.Forms.TextBox textBox_ToleranceThickness;
+        private System.Windows.Forms.TextBox textBox_ToleranceLength;
+        private System.Windows.Forms.TextBox textBox_ToleranceWidth;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeStampHoles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diameter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusHoles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DrawingSideName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
 

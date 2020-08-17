@@ -8,23 +8,15 @@ namespace Ikea_Library
 {
     public class Material
     {
-        public string Name { get; set; }
-        public string TimeStamp { get; set; }
+        public string RecipeName { get; set; }
+        public string CreationTime { get; set; }
         public bool Status { get; set; }
         public List<DrawingSide> DrawingSides { get; set; }
-        public int DrawingsCount { get; set; }
 
-        public Material(string name)
+        public Material(string dateTime, string name)
         {
-
-            if (name != null)
-            {
-                Name = name;
-            }
-            else
-            {
-                Name = "Default";
-            }
+            CreationTime = dateTime;
+            RecipeName = name;
         }
         public Material()
         {

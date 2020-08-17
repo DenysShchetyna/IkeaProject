@@ -141,107 +141,107 @@ namespace Ikea_Library.ProduceConsumer
                                 {
                                     case "Cam5LsLeft":
 
-                                        HOperatorSet.SetFramegrabberParam(AcqHandleCam, "LineSelector", "Line3");
-                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, "LineStatus", out value);
-                                        GlobalVariables.CurentValueCam1 = value.I;
+                                        //HOperatorSet.SetFramegrabberParam(AcqHandleCam, "LineSelector", "Line3");
+                                        //HOperatorSet.GetFramegrabberParam(AcqHandleCam, "LineStatus", out value);
+                                        //GlobalVariables.CurentValueCam1 = value.I;
 
-                                        if (ExposureTime != 0 && Gain != 0)
-                                        {
-                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", new HTuple(ExposureTime));
-                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", new HTuple(Gain));
-                                        }
+                                        //if (ExposureTime != 0 && Gain != 0)
+                                        //{
+                                        //    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", new HTuple(ExposureTime));
+                                        //    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", new HTuple(Gain));
+                                        //}
 
-                                        if (GlobalVariables.CurentValueCam1 == 1 && GlobalVariables.PreviousValueCam1 == 0)
-                                        {
-                                            grabingDone = false;
+                                        //if (GlobalVariables.CurentValueCam1 == 1 && GlobalVariables.PreviousValueCam1 == 0)
+                                        //{
+                                        //    grabingDone = false;
 
-                                        }
+                                        //}
 
-                                        else if (GlobalVariables.CurentValueCam1 == 0 && GlobalVariables.PreviousValueCam1 == 1)
-                                        {
-                                            do
-                                            {
+                                        //else if (GlobalVariables.CurentValueCam1 == 0 && GlobalVariables.PreviousValueCam1 == 1)
+                                        //{
+                                        //    do
+                                        //    {
 
-                                                HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
+                                        //        HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
 
-                                                Message.Image = image;
-                                                Message.LastImage = false;
+                                        //        Message.Image = image;
+                                        //        Message.LastImage = false;
 
-                                                Consumer.Enqueue(Message);
-                                                Console.WriteLine("send1");
+                                        //        Consumer.Enqueue(Message);
+                                        //        Console.WriteLine("send1");
 
-                                            } while (imageAvailable == true);
+                                        //    } while (imageAvailable == true);
 
-                                            grabingDone = true;
-                                            Message = new Message();
-                                            Message.LastImage = true;
-                                            Consumer.Enqueue(Message);
-                                        }
+                                        //    grabingDone = true;
+                                        //    Message = new Message();
+                                        //    Message.LastImage = true;
+                                        //    Consumer.Enqueue(Message);
+                                        //}
 
-                                        HOperatorSet.SetFramegrabberParam(AcqHandleCam, new HTuple("grab_timeout"), 100);
-                                        HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
+                                        //HOperatorSet.SetFramegrabberParam(AcqHandleCam, new HTuple("grab_timeout"), 100);
+                                        //HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
 
-                                        Message.Image = image;
-                                        Message.LastImage = false;
+                                        //Message.Image = image;
+                                        //Message.LastImage = false;
 
-                                        Consumer.Enqueue(Message);
-                                        Console.WriteLine("send2");
+                                        //Consumer.Enqueue(Message);
+                                        //Console.WriteLine("send2");
 
 
                                         break;
 
                                     case "Cam6LsRight":
 
-                                        HOperatorSet.SetFramegrabberParam(AcqHandleCam, "LineSelector", "Line3");
-                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, "LineStatus", out value);
-                                        GlobalVariables.CurentValueCam1 = value.I;
+                                        //HOperatorSet.SetFramegrabberParam(AcqHandleCam, "LineSelector", "Line3");
+                                        //HOperatorSet.GetFramegrabberParam(AcqHandleCam, "LineStatus", out value);
+                                        //GlobalVariables.CurentValueCam1 = value.I;
 
-                                        if (ExposureTime != 0 && Gain != 0)
-                                        {
-                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", new HTuple(ExposureTime));
-                                            CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", new HTuple(Gain));
-                                        }
+                                        //if (ExposureTime != 0 && Gain != 0)
+                                        //{
+                                        //    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "ExposureTimeAbs", new HTuple(ExposureTime));
+                                        //    CamProcedures.SetFramegrabberParameter(AcqHandleCam, "GainRaw", new HTuple(Gain));
+                                        //}
 
-                                        if (GlobalVariables.CurentValueCam1 == 1 && GlobalVariables.PreviousValueCam1 == 0)
-                                        {
-                                            grabingDone = false;
+                                        //if (GlobalVariables.CurentValueCam1 == 1 && GlobalVariables.PreviousValueCam1 == 0)
+                                        //{
+                                        //    grabingDone = false;
 
-                                        }
+                                        //}
 
-                                        else if (GlobalVariables.CurentValueCam1 == 0 && GlobalVariables.PreviousValueCam1 == 1)
-                                        {
-                                            do
-                                            {
-                                                HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
+                                        //else if (GlobalVariables.CurentValueCam1 == 0 && GlobalVariables.PreviousValueCam1 == 1)
+                                        //{
+                                        //    do
+                                        //    {
+                                        //        HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
 
-                                                HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
+                                        //        HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
 
-                                                Message.Image = image;
-                                                Message.LastImage = false;
+                                        //        Message.Image = image;
+                                        //        Message.LastImage = false;
 
-                                                Consumer.Enqueue(Message);
-                                                Console.WriteLine("send1");
+                                        //        Consumer.Enqueue(Message);
+                                        //        Console.WriteLine("send1");
 
-                                            } while (imageAvailable == true);
+                                        //    } while (imageAvailable == true);
 
-                                            grabingDone = true;
-                                            Message = new Message();
-                                            Message.LastImage = true;
-                                            Consumer.Enqueue(Message);
-                                        }
-                                        HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
+                                        //    grabingDone = true;
+                                        //    Message = new Message();
+                                        //    Message.LastImage = true;
+                                        //    Consumer.Enqueue(Message);
+                                        //}
+                                        //HOperatorSet.GetFramegrabberParam(AcqHandleCam, new HTuple("image_available"), out imageAvailable);
 
-                                        if (imageAvailable == true)
-                                        {
-                                            HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
+                                        //if (imageAvailable == true)
+                                        //{
+                                        //    HOperatorSet.GrabImageAsync(out image, AcqHandleCam, new HTuple(-1));
 
-                                            Message.Image = image;
-                                            Message.LastImage = false;
+                                        //    Message.Image = image;
+                                        //    Message.LastImage = false;
 
-                                            Consumer.Enqueue(Message);
-                                            Console.WriteLine("send2");
+                                        //    Consumer.Enqueue(Message);
+                                        //    Console.WriteLine("send2");
 
-                                        }
+                                        //}
 
                                         break;
                                 }
